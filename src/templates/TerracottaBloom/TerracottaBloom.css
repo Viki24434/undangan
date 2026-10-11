@@ -1,0 +1,30 @@
+.invitation-terracotta {
+  --color-bg: #f6eee2;
+  --color-text: #5d4333;
+  --color-accent: #a65439;
+  --invitation-muted: #8c7866;
+  --invitation-panel: #ede0cf;
+  --invitation-line: #a6543933;
+  --invitation-on-accent: #fff7ed;
+}
+.invitation-terracotta .invitation-cover-frame {
+  border-radius: 150px 150px 8px 8px;
+}
+.invitation-terracotta .invitation-intro {
+  background: radial-gradient(
+    ellipse at bottom left,
+    #cda87833,
+    transparent 65%
+  );
+}
+.invitation-terracotta .invitation-event-card {
+  border-radius: 95px 95px 4px 4px;
+  padding-top: 55px;
+}
+.invitation-terracotta .couple-1-img {
+  border-radius: 48% 48% 8px 8px;
+  border-style: dashed;
+}
+.invitation-terracotta .invitation-closing {
+  background: #e9d8c1;
+}

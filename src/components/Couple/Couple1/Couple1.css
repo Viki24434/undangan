@@ -1,0 +1,36 @@
+.couple-1-container {
+  padding: 80px 20px;
+  text-align: center;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.couple-1-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.couple-1-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.couple-1-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--color-accent);
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.couple-1-name {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--color-accent);
+  margin: 0 0 10px 0;
+}

@@ -1,0 +1,23 @@
+﻿.invitation-botanical {
+  --color-bg: #f5f3e9;
+  --color-text: #344b3c;
+  --color-accent: #627c55;
+  --invitation-muted: #737d6b;
+  --invitation-panel: #eaeedd;
+  --invitation-line: #627c5533;
+  --invitation-on-accent: #ffffff;
+}
+.invitation-botanical .invitation-cover-frame {
+  border-radius: 160px 160px 12px 12px;
+}
+.invitation-botanical .invitation-intro::before {
+  content: '❧';
+  display: block;
+  font-size: 65px;
+  color: var(--color-accent);
+  line-height: 1;
+  margin-bottom: 28px;
+}
+.invitation-botanical .invitation-closing {
+  background: #e3e9d5;
+}

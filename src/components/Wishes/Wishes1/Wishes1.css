@@ -1,0 +1,39 @@
+.wishes-1-container {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.wishes-1-form {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.wishes-1-form input, .wishes-1-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: var(--color-text);
+  box-sizing: border-box;
+}
+
+.wishes-list {
+  max-height: 400px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.wish-item {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 15px 0;
+}
+
+.wish-item strong {
+  color: var(--color-accent);
+}

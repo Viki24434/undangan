@@ -1,0 +1,101 @@
+﻿import { lazy } from 'react';
+
+export const templateRegistry = [
+  {
+    id: 'elegant-gold-01',
+    name: 'Elegant Gold Wedding',
+    category: 'Pernikahan',
+    description: 'Emas hangat, bingkai klasik, dan cerita yang elegan.',
+    img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85',
+    component: lazy(() => import('../templates/ElegantWedding/ElegantWedding')),
+  },
+  {
+    id: 'botanical-sage-01',
+    name: 'Botanical Sage Wedding',
+    category: 'Pernikahan',
+    description: 'Hijau sage dan nuansa natural untuk hari bahagia.',
+    img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    component: lazy(() => import('../templates/Wedding/Wedding')),
+  },
+  {
+    id: 'pastel-birthday-01',
+    name: 'Pastel Birthday Party',
+    category: 'Ulang tahun',
+    description: 'Pastel ceria dan detail manis untuk pesta istimewa.',
+    img: 'https://images.unsplash.com/photo-1530103862676-de8892b12fa6?w=1200&q=85',
+    component: lazy(() => import('../templates/Birthday/Birthday')),
+  },
+  {
+    id: 'rose-romance-01',
+    name: 'Rose Romance Wedding',
+    category: 'Pernikahan',
+    description: 'Blush romantis, bingkai floral, dan detail rose gold.',
+    img: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1200&q=85',
+    palette: ['#fbf1f0', '#a65a72', '#f4e1e4'],
+    component: lazy(() => import('../templates/RoseRomance/RoseRomance')),
+  },
+  {
+    id: 'midnight-celestial-01',
+    name: 'Midnight Celestial Wedding',
+    category: 'Pernikahan',
+    description: 'Biru malam, aksen bintang, dan kilau champagne.',
+    img: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200&q=85',
+    palette: ['#131d35', '#dfc48c', '#202c48'],
+    component: lazy(
+      () => import('../templates/MidnightCelestial/MidnightCelestial'),
+    ),
+  },
+  {
+    id: 'terracotta-bloom-01',
+    name: 'Terracotta Bloom Wedding',
+    category: 'Pernikahan',
+    description: 'Warna tanah hangat dan bentuk organik bernuansa bohemian.',
+    img: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=1200&q=85',
+    palette: ['#f6eee2', '#a65439', '#ede0cf'],
+    component: lazy(
+      () => import('../templates/TerracottaBloom/TerracottaBloom'),
+    ),
+  },
+  {
+    id: 'ivory-pearl-01',
+    name: 'Ivory Pearl Wedding',
+    category: 'Pernikahan',
+    description: 'Putih ivory, garis halus, dan komposisi editorial minimalis.',
+    img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=85',
+    palette: ['#fcfaf5', '#86714d', '#f0ece3'],
+    component: lazy(() => import('../templates/IvoryPearl/IvoryPearl')),
+  },
+  {
+    id: 'little-moon-aqiqah-01',
+    name: 'Little Moon Aqiqah',
+    category: 'Aqiqah & khitan',
+    description: 'Biru lembut, bulan sabit, dan syukur atas hadirnya si kecil.',
+    img: 'https://images.unsplash.com/photo-1544425501-799b66236316?w=1200&q=85',
+    palette: ['#f0f5f9', '#527b9d', '#e0ebf3'],
+    component: lazy(() => import('../templates/LittleMoon/LittleMoon')),
+  },
+  {
+    id: 'emerald-khitan-01',
+    name: 'Emerald Khitan Celebration',
+    category: 'Aqiqah & khitan',
+    description: 'Hijau emerald dan pola geometris untuk syukuran khitan.',
+    img: 'https://images.unsplash.com/photo-1544425501-799b66236316?w=1200&q=85',
+    palette: ['#123c32', '#d3bd77', '#1d4d40'],
+    component: lazy(() => import('../templates/EmeraldKhitan/EmeraldKhitan')),
+  },
+  {
+    id: 'cosmic-birthday-01',
+    name: 'Cosmic Birthday Adventure',
+    category: 'Ulang tahun',
+    description:
+      'Ungu galaksi, bintang berkilau, dan pesta petualangan luar angkasa.',
+    img: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1200&q=85',
+    palette: ['#201a3b', '#c0a1f3', '#30264f'],
+    component: lazy(() => import('../templates/CosmicBirthday/CosmicBirthday')),
+  },
+];
+
+export const templateCategories = [
+  'Semua',
+  ...new Set(templateRegistry.map((template) => template.category)),
+];

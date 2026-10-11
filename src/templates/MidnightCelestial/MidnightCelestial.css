@@ -1,0 +1,29 @@
+.invitation-midnight {
+  --color-bg: #131d35;
+  --color-text: #f3eee0;
+  --color-accent: #dfc48c;
+  --invitation-muted: #a8b0c3;
+  --invitation-panel: #202c48;
+  --invitation-line: #dfc48c33;
+  --invitation-on-accent: #172039;
+}
+.invitation-midnight .invitation-cover-frame {
+  border-radius: 120px 120px 12px 12px;
+}
+.invitation-midnight .invitation-intro {
+  background-image:
+    radial-gradient(circle at 12% 18%, #dfc48c88 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 28%, #ffffff88 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 75%, #dfc48c88 0 2px, transparent 3px);
+  background-size:
+    100px 130px,
+    150px 180px,
+    220px 190px;
+}
+.invitation-midnight .invitation-event-card {
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 7px #ffffff03;
+}
+.invitation-midnight .invitation-monogram {
+  box-shadow: 0 0 28px var(--invitation-line);
+}

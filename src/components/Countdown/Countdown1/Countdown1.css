@@ -1,0 +1,32 @@
+.cd-1-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.cd-1-box {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  padding: 15px 10px;
+  border-radius: 10px;
+  flex: 1 1 calc(25% - 15px);
+  max-width: 80px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cd-1-box h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.cd-1-box p {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 600;
+}

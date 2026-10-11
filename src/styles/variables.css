@@ -1,0 +1,24 @@
+:root {
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'sans-serif';
+
+  --color-bg: #ffffff;
+  --color-text: #333333;
+  --color-accent: #3b82f6;
+  --color-overlay: rgba(0, 0, 0, 0.5);
+}
+.theme-elegant-gold {
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+
+  --color-bg: #1a1a1a;
+  --color-text: #f9f9f9;
+  --color-accent: #d4af37;
+  --color-overlay: rgba(26, 26, 26, 0.7);
+}
+.theme-rustic-green {
+  --font-heading: 'Georgia', serif;
+  --color-bg: #fdfbf7;
+  --color-text: #2c3e50;
+  --color-accent: #556b2f;
+}

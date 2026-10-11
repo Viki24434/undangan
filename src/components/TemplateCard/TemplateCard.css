@@ -1,0 +1,13 @@
+.template-palette {
+  display: flex;
+  gap: 5px;
+  margin: 9px 0;
+}
+
+.template-palette span {
+  display: block;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 1px solid #00000018;
+}

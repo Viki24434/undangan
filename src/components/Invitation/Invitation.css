@@ -1,0 +1,577 @@
+﻿.celebration-template {
+  --font-heading: Georgia, 'Times New Roman', serif;
+  --font-body: 'Segoe UI', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  min-height: 100%;
+  overflow-x: clip;
+}
+.celebration-template *,
+.celebration-template *::before,
+.celebration-template *::after {
+  box-sizing: border-box;
+}
+.celebration-template h1,
+.celebration-template h2,
+.celebration-template h3 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.15;
+}
+.celebration-template h2 {
+  font-size: 34px;
+  margin: 14px 0 20px;
+  letter-spacing: -1px;
+}
+.celebration-template em {
+  color: var(--color-accent);
+}
+.celebration-template p {
+  font-size: 13px;
+}
+.celebration-template a {
+  color: inherit;
+}
+.celebration-template :focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 5px;
+}
+.invitation-content:focus {
+  outline: none;
+}
+.invitation-cover,
+.invitation-hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: min(850px, 100svh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px 24px;
+  color: #fff6e5;
+}
+.invitation-cover-shade,
+.invitation-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #18201977, #182019cc);
+}
+.invitation-cover-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border: 1px solid #ebd8a780;
+  padding: 38px 18px 28px;
+  background: #1820192b;
+  box-shadow: inset 0 0 0 8px #ffffff08;
+}
+.invitation-monogram {
+  display: grid;
+  place-items: center;
+  margin: 0 auto 28px;
+  width: 64px;
+  height: 64px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  color: #d8bd85;
+}
+.invitation-kicker {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 3px;
+  font-weight: 500;
+  color: var(--color-accent);
+}
+.invitation-cover .invitation-kicker,
+.invitation-hero .invitation-kicker {
+  color: #e7d8b3;
+}
+.invitation-cover h1,
+.invitation-hero h1 {
+  font-size: clamp(42px, 12vw, 60px);
+  letter-spacing: -2px;
+  margin: 24px 0;
+  overflow-wrap: anywhere;
+}
+.invitation-cover h2 {
+  font-size: 24px;
+  margin-top: 12px;
+}
+.invitation-date {
+  letter-spacing: 1px;
+  font-size: 10px !important;
+}
+.invitation-divider {
+  display: block;
+  font-size: 25px;
+  color: var(--color-accent);
+  margin: 24px 0;
+}
+.invitation-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  padding: 13px 23px;
+  background: var(--color-accent);
+  color: var(--invitation-on-accent) !important;
+  border: 1px solid var(--color-accent);
+  border-radius: 30px;
+  font: 12px var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    filter 0.2s;
+}
+.invitation-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+.invitation-back {
+  display: block;
+  margin-top: 22px;
+  font-size: 10px;
+  text-underline-offset: 4px;
+  opacity: 0.8;
+}
+.invitation-hero {
+  min-height: 670px;
+}
+.invitation-hero-copy {
+  position: relative;
+  width: 100%;
+  padding: 65px 12px;
+  border-block: 1px solid #e7d8b344;
+}
+.invitation-scroll {
+  display: block;
+  font-size: 10px;
+  margin-top: 65px;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+.invitation-section {
+  padding: 66px 26px;
+  text-align: center;
+}
+.invitation-section > p {
+  color: var(--invitation-muted);
+}
+.invitation-intro {
+  padding-block: 75px;
+}
+.invitation-events {
+  background: var(--invitation-panel);
+}
+.invitation-events .cd-1-container {
+  gap: 8px;
+  margin: 30px 0;
+}
+.invitation-events .cd-1-box {
+  flex: 1;
+  min-width: 0;
+  background: var(--color-bg);
+  border: 1px solid var(--invitation-line);
+  padding: 15px 5px;
+  border-radius: 8px;
+}
+.invitation-events .cd-1-box h3 {
+  font-size: 27px;
+  color: var(--color-accent);
+  margin: 0;
+}
+.invitation-events .cd-1-box p {
+  font-size: 9px;
+  margin: 6px 0 0;
+  color: var(--invitation-muted);
+}
+.invitation-event-grid {
+  display: grid;
+  gap: 24px;
+}
+.invitation-event-card {
+  padding: 35px 23px;
+  border: 1px solid var(--invitation-line);
+  border-radius: 16px;
+  background: var(--color-bg);
+}
+.invitation-event-number {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: var(--invitation-muted);
+}
+.invitation-event-card h3 {
+  font-size: 32px;
+  margin: 20px 0;
+  color: var(--color-accent);
+}
+.invitation-event-card p {
+  color: var(--invitation-muted);
+  font-size: 12px;
+}
+.invitation-event-card strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+.invitation-button-outline {
+  margin-top: 20px;
+  background: transparent;
+  color: var(--color-accent) !important;
+}
+.invitation-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 30px;
+}
+.invitation-gallery img {
+  width: 100%;
+  height: 185px;
+  object-fit: cover;
+  border-radius: 70px 70px 6px 6px;
+  border: 1px solid var(--invitation-line);
+}
+.invitation-gallery img:first-child {
+  grid-column: 1 / -1;
+  height: 290px;
+  border-radius: 120px 120px 6px 6px;
+}
+.invitation-gallery img:last-child:nth-child(even) {
+  grid-column: 1 / -1;
+  height: 220px;
+  border-radius: 6px;
+}
+.invitation-guestbook {
+  background: var(--invitation-panel);
+}
+.invitation-form {
+  display: grid;
+  gap: 17px;
+  margin: 30px 0;
+  text-align: left;
+}
+.invitation-form label {
+  display: grid;
+  gap: 8px;
+  font-size: 11px;
+}
+.invitation-form input,
+.invitation-form textarea,
+.invitation-form select {
+  width: 100%;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid var(--invitation-line);
+  border-radius: 8px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font: 12px var(--font-body);
+}
+.invitation-form textarea {
+  resize: vertical;
+}
+.invitation-form input::placeholder,
+.invitation-form textarea::placeholder {
+  color: var(--invitation-muted);
+}
+.invitation-form small,
+.invitation-demo-note {
+  font-size: 10px;
+  color: var(--invitation-muted);
+  text-align: center;
+}
+.invitation-demo-note {
+  padding: 20px 24px 0;
+}
+.invitation-form-status {
+  margin: 0;
+  font-size: 11px !important;
+}
+.invitation-wishes-list article {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border-top: 1px solid var(--invitation-line);
+  padding: 22px 0;
+  text-align: left;
+}
+.invitation-wish-avatar {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--invitation-line);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--color-accent);
+  font:
+    18px Georgia,
+    serif;
+}
+.invitation-wishes-list strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+.invitation-wishes-list span {
+  display: block;
+  color: var(--invitation-muted);
+  font-size: 9px;
+}
+.invitation-wishes-list p {
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  margin: 10px 0 0;
+}
+.invitation-closing {
+  padding: 70px 30px 45px;
+  text-align: center;
+}
+.invitation-closing .invitation-monogram {
+  color: var(--color-accent);
+}
+.invitation-closing p {
+  color: var(--invitation-muted);
+}
+.invitation-closing h3 {
+  font-size: 34px;
+  color: var(--color-accent);
+  margin: 35px 0;
+}
+.invitation-closing a {
+  color: var(--invitation-muted);
+  font-size: 9px;
+  text-underline-offset: 4px;
+}
+.celebration-template .couple-1-container,
+.celebration-template .story-1-container,
+.celebration-template .gift-1-container {
+  padding: 60px 26px;
+}
+.celebration-template .couple-1-container > .animate-float {
+  display: none;
+}
+.celebration-template .couple-1-img {
+  height: 260px;
+  width: 200px;
+  border-radius: 100px 100px 8px 8px;
+  padding: 6px;
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 12px 30px #00000012;
+}
+.celebration-template .couple-1-card p {
+  color: var(--invitation-muted);
+  font-size: 12px;
+}
+.celebration-template .couple-1-grid {
+  gap: 15px;
+}
+.celebration-template .couple-1-name {
+  font-size: 36px;
+}
+.celebration-template .story-1-container {
+  background: var(--invitation-panel);
+}
+.celebration-template .story-1-item {
+  border: 1px solid var(--invitation-line);
+  border-left: 2px solid var(--color-accent);
+  border-radius: 0 12px 12px 0;
+  background: var(--color-bg);
+  padding: 24px;
+}
+.celebration-template .story-1-item h3 {
+  font-size: 24px;
+}
+.celebration-template .story-1-item p {
+  color: var(--invitation-muted);
+}
+.celebration-template .gift-1-card {
+  background: var(--invitation-panel);
+  border: 1px solid var(--invitation-line);
+  border-radius: 12px;
+}
+.celebration-template .gift-1-card button {
+  background: transparent;
+}
+@media (max-width: 360px) {
+  .invitation-section,
+  .celebration-template .couple-1-container,
+  .celebration-template .story-1-container,
+  .celebration-template .gift-1-container {
+    padding-inline: 20px;
+  }
+  .invitation-cover {
+    padding-inline: 18px;
+  }
+  .invitation-cover-frame {
+    padding-inline: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .celebration-template *,
+  .celebration-template *::before,
+  .celebration-template *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.celebration-symbol {
+  display: block;
+  font-size: 54px;
+  color: var(--color-accent);
+  margin-bottom: 22px;
+}
+.celebration-honoree {
+  margin: 32px 0;
+  padding: 30px 16px;
+  border-block: 1px solid var(--invitation-line);
+}
+.celebration-honoree > span,
+.celebration-notes article > span {
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--invitation-muted);
+}
+.celebration-honoree h3 {
+  font-size: 34px;
+  color: var(--color-accent);
+  margin: 15px 0;
+}
+.celebration-honoree p {
+  color: var(--invitation-muted);
+}
+.celebration-notes {
+  display: grid;
+  gap: 14px;
+}
+.celebration-notes article {
+  padding: 22px;
+  border-radius: 12px;
+  border: 1px solid var(--invitation-line);
+  background: var(--invitation-panel);
+}
+.celebration-notes strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+.invitation-cover-frame,
+.invitation-hero-copy {
+  z-index: 2;
+}
+.invitation-closing {
+  position: relative;
+  overflow: hidden;
+}
+.invitation-closing > :not(.invitation-florals) {
+  position: relative;
+  z-index: 2;
+}
+.invitation-section-nav {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 6px;
+  padding: 15px 12px;
+  border-block: 1px solid var(--invitation-line);
+  background: var(--color-bg);
+  box-shadow: 0 5px 20px #00000008;
+}
+.invitation-section-nav a {
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  padding: 6px 9px;
+  border-radius: 20px;
+}
+.invitation-section-nav a:hover {
+  background: var(--invitation-panel);
+  color: var(--color-accent);
+}
+.celebration-template [id] {
+  scroll-margin-top: 74px;
+}
+.invitation-calendar-button {
+  font: 11px var(--font-body);
+  color: var(--color-accent);
+  padding: 10px 6px;
+  margin-top: 12px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.invitation-calendar p {
+  font-size: 10px;
+  margin: 5px 0 0;
+}
+.invitation-calendar p:empty {
+  display: none;
+}
+.invitation-guide {
+  border-top: 1px solid var(--invitation-line);
+}
+.invitation-guide-list {
+  text-align: left;
+  margin: 30px 0 20px;
+}
+.invitation-guide-list details {
+  border-bottom: 1px solid var(--invitation-line);
+  padding: 18px 0;
+}
+.invitation-guide-list summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.invitation-guide-list summary::-webkit-details-marker {
+  display: none;
+}
+.invitation-guide-list summary span {
+  color: var(--color-accent);
+  font-size: 22px;
+}
+.invitation-guide-list details[open] summary span {
+  transform: rotate(45deg);
+}
+.invitation-guide-list p {
+  font-size: 12px;
+  color: var(--invitation-muted);
+  margin-top: 14px;
+}
+.invitation-share-status {
+  font-size: 10px !important;
+  margin-top: 15px;
+}
+.celebration-template button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+  transform: none;
+}
+.invitation-rsvp {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--invitation-line);
+  margin: 35px 0;
+}
+.invitation-rsvp h3 {
+  font-size: 26px;
+  color: var(--color-accent);
+}

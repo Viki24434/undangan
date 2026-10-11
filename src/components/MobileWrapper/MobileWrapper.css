@@ -1,0 +1,98 @@
+.mw-desktop-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-color: #1a1a1a;
+  z-index: 1000;
+}
+.mw-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1;
+}
+.mw-close-btn {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-family: sans-serif;
+  transition: 0.3s;
+}
+
+.mw-close-btn:hover {
+  background: white;
+  color: black;
+}
+.mw-device {
+  position: relative;
+  z-index: 2;
+  width: 400px;
+  height: 850px;
+  max-height: 90vh;
+  background-color: #1a1a1a;
+  border: 12px solid #000000;
+  border-radius: 45px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.mw-device::-webkit-scrollbar {
+  width: 4px;
+}
+.mw-device::-webkit-scrollbar-track {
+  background: transparent;
+}
+.mw-device::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+@media (max-width: 768px) {
+  .mw-desktop-bg {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    background: none !important;
+  }
+  .mw-overlay,
+  .mw-close-btn {
+    display: none;
+  }
+  .mw-device {
+    width: 100%;
+    height: 100vh;
+    max-height: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+@media (max-width: 768px) {
+  .mw-close-btn.mw-admin-back {
+    display: block;
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    background: #243e35;
+    font-size: 11px;
+  }
+}

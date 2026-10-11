@@ -1,0 +1,36 @@
+.feature-card-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 50px;
+  gap: 50px;
+}
+.feature-card-container.reversed {
+  flex-direction: row-reverse;
+}
+
+.feature-img-wrapper {
+  flex: 1;
+}
+
+.feature-img-wrapper img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-content h3 {
+  font-size: 2.2rem;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+.feature-content p {
+  font-size: 1.1rem;
+  color: #64748b;
+  line-height: 1.6;
+}

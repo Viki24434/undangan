@@ -1,0 +1,29 @@
+.gallery-1-container {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.gallery-1-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 40px;
+}
+.gallery-1-grid img:first-child {
+  grid-column: span 2;
+  height: 300px;
+}
+
+.gallery-1-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.gallery-1-img:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,29 @@
+.invitation-ivory {
+  --color-bg: #fcfaf5;
+  --color-text: #42423d;
+  --color-accent: #86714d;
+  --invitation-muted: #858278;
+  --invitation-panel: #f0ece3;
+  --invitation-line: #86714d33;
+  --invitation-on-accent: #ffffff;
+}
+.invitation-ivory .invitation-cover-frame {
+  border-radius: 2px;
+  outline: 1px solid #fff5;
+  outline-offset: -9px;
+}
+.invitation-ivory .invitation-monogram {
+  border-radius: 0;
+  border-width: 0 0 1px;
+}
+.invitation-ivory .invitation-event-card,
+.invitation-ivory .story-1-item {
+  border-radius: 2px;
+}
+.invitation-ivory .couple-1-img,
+.invitation-ivory .invitation-gallery img {
+  border-radius: 2px;
+}
+.invitation-ivory .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+}

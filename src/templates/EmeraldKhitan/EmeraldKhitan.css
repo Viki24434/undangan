@@ -1,0 +1,39 @@
+.invitation-emerald {
+  --color-bg: #123c32;
+  --color-text: #edf1df;
+  --color-accent: #d3bd77;
+  --invitation-muted: #a6baad;
+  --invitation-panel: #1d4d40;
+  --invitation-line: #d3bd7733;
+  --invitation-on-accent: #143b31;
+}
+.invitation-emerald .invitation-cover-frame {
+  border-radius: 110px 110px 0 0;
+  outline: 1px solid #d3bd7744;
+  outline-offset: -9px;
+}
+.invitation-emerald .invitation-intro {
+  background-image:
+    linear-gradient(
+      30deg,
+      #d3bd7708 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #d3bd7708 87.5%
+    ),
+    linear-gradient(
+      150deg,
+      #d3bd7708 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #d3bd7708 87.5%
+    );
+  background-size: 55px 95px;
+}
+.invitation-emerald .invitation-event-card {
+  border-radius: 80px 80px 4px 4px;
+  padding-top: 50px;
+}
+.invitation-emerald .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+}

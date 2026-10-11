@@ -1,0 +1,21 @@
+.gift-1-container {
+  padding: 80px 20px;
+  text-align: center;
+  background: rgba(0,0,0,0.2);
+}
+
+.gift-1-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-accent);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 350px;
+  margin: 20px auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.gift-1-card h3 {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+  margin-bottom: 5px;
+}

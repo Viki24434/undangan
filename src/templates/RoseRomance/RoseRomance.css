@@ -1,0 +1,22 @@
+.invitation-rose {
+  --color-bg: #fbf1f0;
+  --color-text: #69414d;
+  --color-accent: #a65a72;
+  --invitation-muted: #8e7379;
+  --invitation-panel: #f4e1e4;
+  --invitation-line: #a65a7233;
+  --invitation-on-accent: #ffffff;
+}
+.invitation-rose .invitation-cover-frame {
+  border-radius: 150px 150px 22px 22px;
+}
+.invitation-rose .invitation-intro {
+  background: radial-gradient(circle at 0 0, #e9b9c455, transparent 55%);
+}
+.invitation-rose .invitation-event-card {
+  border-radius: 80px 80px 16px 16px;
+  padding-top: 48px;
+}
+.invitation-rose .couple-1-img {
+  border-radius: 110px 110px 70px 70px;
+}

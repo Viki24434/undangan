@@ -1,0 +1,26 @@
+.invitation-little-moon {
+  --color-bg: #f0f5f9;
+  --color-text: #354e65;
+  --color-accent: #527b9d;
+  --invitation-muted: #788b9a;
+  --invitation-panel: #e0ebf3;
+  --invitation-line: #527b9d33;
+  --invitation-on-accent: #ffffff;
+}
+.invitation-little-moon .invitation-cover-frame {
+  border-radius: 150px 150px 20px 20px;
+}
+.invitation-little-moon .invitation-intro {
+  background: radial-gradient(
+    circle at 85% 15%,
+    #d9e7f1 0 40px,
+    transparent 41px
+  );
+}
+.invitation-little-moon .invitation-event-card {
+  border-radius: 90px 90px 16px 16px;
+  padding-top: 50px;
+}
+.invitation-little-moon .invitation-closing {
+  background: #e0ebf3;
+}

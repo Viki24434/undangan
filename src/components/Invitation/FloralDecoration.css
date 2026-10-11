@@ -1,0 +1,75 @@
+.invitation-florals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+  filter: var(--floral-filter, none);
+}
+
+.invitation-florals .ornament-wrapper {
+  width: clamp(100px, 32%, 170px) !important;
+}
+
+.invitation-florals .pos-top-left {
+  top: -22px;
+  left: -28px;
+}
+
+.invitation-florals .pos-bottom-right {
+  bottom: -22px;
+  right: -28px;
+}
+
+.invitation-florals-bouquet .ornament-wrapper {
+  width: 115px !important;
+  opacity: 0.38 !important;
+}
+
+.floral-sway {
+  transform-origin: top left;
+  animation: invitation-floral-sway 9s ease-in-out infinite alternate;
+}
+
+.invitation-gold,
+.invitation-ivory {
+  --floral-filter: saturate(0.65) sepia(0.15);
+}
+
+.invitation-botanical {
+  --floral-filter: saturate(0.7) hue-rotate(12deg);
+}
+
+.invitation-rose,
+.invitation-birthday {
+  --floral-filter: saturate(0.8) hue-rotate(325deg);
+}
+
+.invitation-terracotta {
+  --floral-filter: sepia(0.35) saturate(0.85);
+}
+
+.invitation-midnight,
+.invitation-cosmic,
+.invitation-little-moon {
+  --floral-filter: saturate(0.35) hue-rotate(155deg) brightness(1.15);
+}
+
+.invitation-emerald {
+  --floral-filter: saturate(0.8) hue-rotate(35deg);
+}
+
+@keyframes invitation-floral-sway {
+  from {
+    transform: rotate(-2deg);
+  }
+  to {
+    transform: rotate(3deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floral-sway {
+    animation: none;
+  }
+}

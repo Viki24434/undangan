@@ -1,0 +1,29 @@
+.invitation-cosmic {
+  --color-bg: #201a3b;
+  --color-text: #f4edff;
+  --color-accent: #c0a1f3;
+  --invitation-muted: #b1a4cc;
+  --invitation-panel: #30264f;
+  --invitation-line: #c0a1f333;
+  --invitation-on-accent: #231938;
+}
+.invitation-cosmic .invitation-cover-frame {
+  border-radius: 120px 120px 12px 12px;
+}
+.invitation-cosmic .invitation-intro {
+  background-image:
+    radial-gradient(circle at 12% 18%, #dfc48c88 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 28%, #ffffff88 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 75%, #dfc48c88 0 2px, transparent 3px);
+  background-size:
+    100px 130px,
+    150px 180px,
+    220px 190px;
+}
+.invitation-cosmic .invitation-event-card {
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 7px #ffffff03;
+}
+.invitation-cosmic .invitation-monogram {
+  box-shadow: 0 0 28px var(--invitation-line);
+}

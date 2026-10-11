@@ -1,0 +1,48 @@
+﻿.invitation-birthday {
+  --color-bg: #fff7ef;
+  --color-text: #684951;
+  --color-accent: #a95976;
+  --invitation-muted: #94787d;
+  --invitation-panel: #f8e8df;
+  --invitation-line: #a959762b;
+  --invitation-on-accent: #ffffff;
+}
+.invitation-birthday .invitation-cover-frame {
+  border-radius: 130px 130px 24px 24px;
+  border-style: dashed;
+}
+.invitation-birthday .invitation-intro {
+  background-image:
+    radial-gradient(circle at 8% 20%, #efc69288 0 18px, transparent 19px),
+    radial-gradient(circle at 90% 65%, #d6dbb5 0 24px, transparent 25px);
+}
+.birthday-sparkles {
+  display: block;
+  color: #bf985e;
+  font-size: 38px;
+  letter-spacing: 16px;
+  margin-bottom: 30px;
+}
+.birthday-note {
+  border: 1px dashed var(--invitation-line);
+  border-radius: 18px;
+  padding: 24px;
+  margin-top: 30px;
+  background: #fffaf5;
+}
+.birthday-note span,
+.birthday-note strong {
+  display: block;
+}
+.birthday-note span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.birthday-note p {
+  margin-bottom: 0;
+}
+.invitation-birthday .invitation-closing {
+  background: #f2dfdf;
+}
