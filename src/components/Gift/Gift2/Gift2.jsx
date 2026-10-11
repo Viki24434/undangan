@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ScrollReveal from '../../ScrollReveal/ScrollReveal';
 import './Gift2.css';
 
 export default function Gift2({ banks }) {
@@ -28,7 +29,13 @@ export default function Gift2({ banks }) {
       </p>
       <div className="gift-2__cards">
         {banks.map((bank, index) => (
-          <article className="gift-2__card" key={`${bank.name}-${bank.rek}-${index}`}>
+          <ScrollReveal
+            as="article"
+            className="gift-2__card"
+            animationClass="animate-soft-rise"
+            delay={`delay-${Math.min(index * 200, 900)}`}
+            key={`${bank.name}-${bank.rek}-${index}`}
+          >
             <span className="gift-2__ornament" aria-hidden="true">
               ✧
             </span>
@@ -42,7 +49,7 @@ export default function Gift2({ banks }) {
             >
               {copied === bank.rek ? '✓ Berhasil disalin' : 'Salin rekening'}
             </button>
-          </article>
+          </ScrollReveal>
         ))}
       </div>
       <p className="gift-2__status" role="status">

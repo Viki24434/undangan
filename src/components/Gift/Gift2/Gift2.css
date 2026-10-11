@@ -18,6 +18,16 @@
   background:
     radial-gradient(ellipse at top, var(--color-bg), transparent 70%),
     var(--invitation-panel);
+  transition:
+    transform 350ms ease,
+    box-shadow 350ms ease,
+    border-color 350ms ease;
+}
+
+.gift-2__card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent);
+  box-shadow: 0 16px 30px color-mix(in srgb, var(--color-text) 12%, transparent);
 }
 
 .gift-2__ornament {

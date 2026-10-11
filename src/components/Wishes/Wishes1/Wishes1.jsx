@@ -1,4 +1,5 @@
 import Button from '../../Button/Button';
+import ScrollReveal from '../../ScrollReveal/ScrollReveal';
 import './Wishes1.css';
 
 export default function Wishes1({ wishes = [], children }) {
@@ -8,9 +9,11 @@ export default function Wishes1({ wishes = [], children }) {
         className="wishes-1-container invitation-section invitation-guestbook"
         id="invitation-wishes"
       >
-        <span className="invitation-kicker">SEND A LITTLE LOVE</span>
-        <h2>Ucapan &amp; doa</h2>
-        <p>Satu pesan kecil, begitu banyak arti.</p>
+        <ScrollReveal animationClass="animate-soft-rise">
+          <span className="invitation-kicker">SEND A LITTLE LOVE</span>
+          <h2>Ucapan &amp; doa</h2>
+          <p>Satu pesan kecil, begitu banyak arti.</p>
+        </ScrollReveal>
         {children}
       </section>
     );

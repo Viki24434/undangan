@@ -1,4 +1,5 @@
 import { useImperativeHandle, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import './InvitationMusic.css';
 
 export default function InvitationMusic({ ref, src, visible }) {
@@ -27,7 +28,7 @@ export default function InvitationMusic({ ref, src, visible }) {
     else audioRef.current?.pause();
   }
 
-  return (
+  return createPortal(
     <div className="invitation-music" hidden={!visible}>
       <audio
         ref={audioRef}
@@ -82,6 +83,7 @@ export default function InvitationMusic({ ref, src, visible }) {
           {error}
         </span>
       )}
-    </div>
+    </div>,
+    document.body,
   );
 }

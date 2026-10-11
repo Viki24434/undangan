@@ -15,7 +15,7 @@
 
 .invitation-garden-party .invitation-intro {
   background:
-    url('/assets/garden-party-garland.svg') center bottom / min(300px, 90%)
+    url('/assets/svg/garden-party-garland.svg') center bottom / min(300px, 90%)
       auto no-repeat,
     radial-gradient(circle at 50% 0, #f3d9c655, transparent 70%);
 }

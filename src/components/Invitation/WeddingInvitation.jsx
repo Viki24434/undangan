@@ -10,6 +10,9 @@ import Gallery1 from '../Gallery/Gallery1/Gallery1';
 import Gallery2 from '../Gallery/Gallery2/Gallery2';
 import Gift1 from '../Gift/Gift1/Gift1';
 import Gift2 from '../Gift/Gift2/Gift2';
+import { ornamentPresets } from '../Ornament/ornamentPresets';
+import ScrollReveal from '../ScrollReveal/ScrollReveal';
+import OptionalSections from './OptionalSections';
 
 export default function WeddingInvitation({
   theme,
@@ -22,6 +25,7 @@ export default function WeddingInvitation({
   const Story = components.story === 1 ? Story1 : Story2;
   const Gallery = components.gallery === 1 ? Gallery1 : Gallery2;
   const Gift = components.gift === 1 ? Gift1 : Gift2;
+  const coupleDecorations = ornamentPresets[theme]?.couple;
 
   return (
     <InvitationLayout
@@ -33,9 +37,11 @@ export default function WeddingInvitation({
       monogram={`${data.groom.name[0]} / ${data.bride.name[0]}`}
       variants={components}
     >
-      <section
+      <ScrollReveal
+        as="section"
         className="invitation-section invitation-intro"
         id="invitation-intro"
+        animationClass="animate-blur-reveal"
       >
         <span className="invitation-kicker">
           TWO HEARTS, ONE BEAUTIFUL JOURNEY
@@ -52,13 +58,22 @@ export default function WeddingInvitation({
           Dengan penuh rasa syukur dan kebahagiaan, kami mengundang
           Bapak/Ibu/Saudara/i untuk menjadi bagian dari awal perjalanan kami.
         </p>
-      </section>
-      <Couple groom={data.groom} bride={data.bride} />
+      </ScrollReveal>
+      <Couple
+        groom={data.groom}
+        bride={data.bride}
+        decorations={coupleDecorations}
+      />
       <Story stories={data.stories} />
       <EventSection
         targetDate={data.targetDate}
         events={data.events}
         countdownVariant={components.countdown}
+      />
+      <OptionalSections
+        agenda={data.agenda}
+        videoUrl={data.videoUrl}
+        prayers={data.prayers}
       />
       <Gallery photos={data.photos} />
       {data.banks?.length > 0 && (

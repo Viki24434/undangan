@@ -4,6 +4,8 @@ import EventSection from './EventSection';
 import InvitationGallery from './InvitationGallery';
 import Guestbook from './Guestbook';
 import Gallery1 from '../Gallery/Gallery1/Gallery1';
+import ScrollReveal from '../ScrollReveal/ScrollReveal';
+import OptionalSections from './OptionalSections';
 
 export default function CelebrationInvitation({
   theme,
@@ -21,9 +23,11 @@ export default function CelebrationInvitation({
       monogram={data.monogram}
       variants={components}
     >
-      <section
+      <ScrollReveal
+        as="section"
         className="invitation-section invitation-intro"
         id="invitation-intro"
+        animationClass="animate-blur-reveal"
       >
         <span className="celebration-symbol" aria-hidden="true">
           {data.symbol}
@@ -44,11 +48,16 @@ export default function CelebrationInvitation({
             </article>
           ))}
         </div>
-      </section>
+      </ScrollReveal>
       <EventSection
         targetDate={data.targetDate}
         events={data.events}
         countdownVariant={components.countdown}
+      />
+      <OptionalSections
+        agenda={data.agenda}
+        videoUrl={data.videoUrl}
+        prayers={data.prayers}
       />
       {components.gallery === 1 ? (
         <Gallery1 photos={data.photos} />

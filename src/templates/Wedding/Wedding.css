@@ -16,7 +16,7 @@
   width: 88px;
   height: 88px;
   margin: 0 auto 28px;
-  background: url('/assets/botanical-sprig.svg') center / contain no-repeat;
+  background: url('/assets/svg/botanical-sprig.svg') center / contain no-repeat;
   transform: rotate(-42deg);
 }
 .invitation-botanical .invitation-closing {

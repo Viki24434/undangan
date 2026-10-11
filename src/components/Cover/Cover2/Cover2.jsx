@@ -17,11 +17,11 @@ export default function Cover2({
     >
       <div className="invitation-cover-shade" />
       {children}
-      <div className="invitation-cover-frame cover-2__frame">
-        <span className="invitation-monogram">{monogram}</span>
-        <span className="invitation-kicker">{subtitle}</span>
-        <h1>{title}</h1>
-        <p className="invitation-date">{date}</p>
+      <div className="invitation-cover-frame cover-2__frame animate-blur-reveal">
+        <span className="invitation-monogram animate-breathe">{monogram}</span>
+        <span className="invitation-kicker animate-fade-in-down delay-100">{subtitle}</span>
+        <h1 className="animate-soft-rise delay-200">{title}</h1>
+        <p className="invitation-date animate-fade-in delay-300">{date}</p>
         <span className="invitation-divider" aria-hidden="true">
           ✧
         </span>

@@ -1,7 +1,8 @@
 ﻿import { useInvitation } from './InvitationContext';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import FloralDecoration from './FloralDecoration';
+import DecorationLayer from '../Ornament/DecorationLayer';
+import { ornamentPresets } from '../Ornament/ornamentPresets';
 import GuestGuide from './GuestGuide';
 import InvitationMusic from './InvitationMusic';
 import Cover1 from '../Cover/Cover1/Cover1';
@@ -23,8 +24,10 @@ export default function InvitationLayout({
   const invitation = useInvitation();
   const displayTitle = invitation?.title || title;
   const [opened, setOpened] = useState(false);
+  const [coverOpening, setCoverOpening] = useState(false);
   const contentRef = useRef(null);
   const musicRef = useRef(null);
+  const coverTimerRef = useRef(null);
   const musicEnabled = invitation?.data.musicEnabled !== false;
   const defaultMusic = /birthday/.test(theme)
     ? '/audio/celebration.wav'
@@ -34,42 +37,63 @@ export default function InvitationLayout({
   const musicUrl = invitation?.data.musicUrl || defaultMusic;
   const Cover = variants.cover === 1 ? Cover1 : Cover2;
   const Hero = variants.hero === 1 ? Hero1 : Hero2;
+  const decorations = ornamentPresets[theme] || {};
 
   function openInvitation() {
     setOpened(true);
+    setCoverOpening(true);
+    window.clearTimeout(coverTimerRef.current);
+    coverTimerRef.current = window.setTimeout(() => {
+      setCoverOpening(false);
+      coverTimerRef.current = null;
+    }, 950);
     if (musicEnabled) musicRef.current?.play();
     requestAnimationFrame(() => contentRef.current?.focus());
   }
+
+  useEffect(
+    () => () => {
+      window.clearTimeout(coverTimerRef.current);
+    },
+    [],
+  );
+
+  const cover =
+    variants.cover === 1 ? (
+      <Cover
+        title={displayTitle}
+        subtitle={subtitle}
+        guestName={invitation?.guestName}
+        onOpen={openInvitation}
+        isOpened={false}
+        bgImage={image}
+      >
+        <DecorationLayer items={decorations.cover} />
+      </Cover>
+    ) : (
+      <Cover
+        title={displayTitle}
+        subtitle={subtitle}
+        date={date}
+        monogram={monogram}
+        image={image}
+        onOpen={openInvitation}
+      >
+        <DecorationLayer items={decorations.cover} />
+      </Cover>
+    );
 
   return (
     <div className={`celebration-template ${theme}`}>
       {musicEnabled && (
         <InvitationMusic ref={musicRef} src={musicUrl} visible={opened} />
       )}
-      {!opened ? (
-        variants.cover === 1 ? (
-          <Cover
-            title={displayTitle}
-            subtitle={subtitle}
-            guestName={invitation?.guestName}
-            onOpen={openInvitation}
-            isOpened={false}
-            bgImage={image}
-          />
-        ) : (
-          <Cover
-            title={displayTitle}
-            subtitle={subtitle}
-            date={date}
-            monogram={monogram}
-            image={image}
-            onOpen={openInvitation}
-          >
-            <FloralDecoration />
-          </Cover>
-        )
-      ) : (
-        <main className="invitation-content" ref={contentRef} tabIndex={-1}>
+      {opened && (
+        <main
+          className="invitation-content animate-fade-in"
+          ref={contentRef}
+          tabIndex={-1}
+        >
           {variants.hero === 1 ? (
             <Hero
               bgImage={image}
@@ -77,7 +101,7 @@ export default function InvitationLayout({
               title={displayTitle}
               quote={date}
             >
-              <FloralDecoration />
+              <DecorationLayer items={decorations.hero} />
             </Hero>
           ) : (
             <Hero
@@ -86,7 +110,7 @@ export default function InvitationLayout({
               title={displayTitle}
               date={date}
             >
-              <FloralDecoration />
+              <DecorationLayer items={decorations.hero} />
             </Hero>
           )}
           <nav className="invitation-section-nav" aria-label="Bagian undangan">
@@ -98,7 +122,7 @@ export default function InvitationLayout({
           {children}
           <GuestGuide />
           <footer className="invitation-closing">
-            <FloralDecoration variant="bouquet" />
+            <DecorationLayer items={decorations.closing} />
             <span className="invitation-monogram">{monogram}</span>
             <span className="invitation-kicker">WITH LOVE & GRATITUDE</span>
             <h2>Terima kasih</h2>
@@ -110,6 +134,23 @@ export default function InvitationLayout({
             <Link to="/katalog">Temukan undanganmu di InviteKu ↗</Link>
           </footer>
         </main>
+      )}
+      {(!opened || coverOpening) && (
+        <div
+          className={`invitation-cover-exit${coverOpening ? ' is-opening' : ''}`}
+          onAnimationEnd={(event) => {
+            if (
+              event.target === event.currentTarget &&
+              event.animationName === 'coverDismiss'
+            ) {
+              window.clearTimeout(coverTimerRef.current);
+              coverTimerRef.current = null;
+              setCoverOpening(false);
+            }
+          }}
+        >
+          {cover}
+        </div>
       )}
     </div>
   );

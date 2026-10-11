@@ -12,7 +12,7 @@
 }
 .invitation-rose .invitation-intro {
   background-image:
-    url('/assets/rose-bloom.svg'),
+    url('/assets/svg/rose-bloom.svg'),
     radial-gradient(circle at 0 0, #e9b9c455, transparent 55%);
   background-repeat: no-repeat;
   background-position: right 8px bottom 8px, center;

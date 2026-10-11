@@ -14,7 +14,7 @@
 
 .invitation-lavender .invitation-intro {
   background:
-    url('/assets/lavender-bouquet.svg') right 8px bottom 6px / 150px auto
+    url('/assets/svg/lavender-bouquet.svg') right 8px bottom 6px / 150px auto
       no-repeat,
     radial-gradient(ellipse at 50% 0, #d9d0e655, transparent 65%);
 }

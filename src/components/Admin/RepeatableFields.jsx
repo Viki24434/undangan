@@ -36,15 +36,27 @@
             {fields.map((field) => (
               <label key={field.key}>
                 {field.label}
-                <input
-                  type={field.type || 'text'}
-                  required
-                  value={item[field.key] || ''}
-                  maxLength={field.max || 600}
-                  onChange={(event) =>
-                    update(index, field.key, event.target.value)
-                  }
-                />
+                {field.type === 'textarea' ? (
+                  <textarea
+                    required={field.required !== false}
+                    rows={field.rows || 3}
+                    value={item[field.key] || ''}
+                    maxLength={field.max || 600}
+                    onChange={(event) =>
+                      update(index, field.key, event.target.value)
+                    }
+                  />
+                ) : (
+                  <input
+                    type={field.type || 'text'}
+                    required={field.required !== false}
+                    value={item[field.key] || ''}
+                    maxLength={field.max || 600}
+                    onChange={(event) =>
+                      update(index, field.key, event.target.value)
+                    }
+                  />
+                )}
               </label>
             ))}
           </div>

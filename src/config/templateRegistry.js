@@ -122,6 +122,16 @@ export const templateRegistry = [
     palette: ['#fff8ef', '#ae6a58', '#f6eadd'],
     component: lazy(() => import('../templates/GardenParty/GardenParty')),
   },
+  {
+    id: 'sunflower-vow-01',
+    name: 'Sunflower Vow Wedding',
+    category: 'Pernikahan',
+    description:
+      'Bunga matahari, dedaunan alami, dan nuansa hangat untuk hari istimewa.',
+    img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    palette: ['#fbf6e8', '#a76c25', '#e9dfbd'],
+    component: lazy(() => import('../templates/SunflowerVow/SunflowerVow')),
+  },
 ];
 
 export const templateCategories = [

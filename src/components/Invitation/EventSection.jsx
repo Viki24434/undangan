@@ -1,6 +1,7 @@
 ﻿import CalendarButton from './CalendarButton';
 import Countdown1 from '../Countdown/Countdown1/Countdown1';
 import Countdown2 from '../Countdown/Countdown2/Countdown2';
+import ScrollReveal from '../ScrollReveal/ScrollReveal';
 
 export default function EventSection({ targetDate, events, countdownVariant = 2 }) {
   const Countdown = countdownVariant === 1 ? Countdown1 : Countdown2;
@@ -10,13 +11,21 @@ export default function EventSection({ targetDate, events, countdownVariant = 2 
       className="invitation-section invitation-events"
       id="invitation-events"
     >
-      <span className="invitation-kicker">SAVE THE DATE</span>
-      <h2>Hari yang dinantikan</h2>
-      <p>Catat waktunya, hadirkan senyummu.</p>
+      <ScrollReveal animationClass="animate-soft-rise">
+        <span className="invitation-kicker">SAVE THE DATE</span>
+        <h2>Hari yang dinantikan</h2>
+        <p>Catat waktunya, hadirkan senyummu.</p>
+      </ScrollReveal>
       <Countdown targetDate={targetDate} />
       <div className="invitation-event-grid">
         {events.map((event, index) => (
-          <article className="invitation-event-card" key={event.title}>
+          <ScrollReveal
+            as="article"
+            className="invitation-event-card"
+            animationClass="animate-soft-rise"
+            delay={`delay-${Math.min(index * 200, 900)}`}
+            key={event.title}
+          >
             <span className="invitation-event-number">
               0{index + 1} / THE CELEBRATION
             </span>
@@ -37,7 +46,7 @@ export default function EventSection({ targetDate, events, countdownVariant = 2 
               Lihat lokasi ↗
             </a>
             <CalendarButton event={event} targetDate={targetDate} />
-          </article>
+          </ScrollReveal>
         ))}
       </div>
     </section>

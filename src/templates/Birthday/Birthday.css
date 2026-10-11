@@ -13,7 +13,7 @@
 }
 .invitation-birthday .invitation-intro {
   background-image:
-    url('/assets/party-confetti.svg'),
+    url('/assets/svg/party-confetti.svg'),
     radial-gradient(circle at 8% 20%, #efc69288 0 18px, transparent 19px),
     radial-gradient(circle at 90% 65%, #d6dbb5 0 24px, transparent 25px);
   background-size: 150px auto, auto, auto;

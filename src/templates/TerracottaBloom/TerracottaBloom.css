@@ -12,7 +12,7 @@
 }
 .invitation-terracotta .invitation-intro {
   background-image:
-    url('/assets/terracotta-sun.svg'),
+    url('/assets/svg/terracotta-sun.svg'),
     radial-gradient(ellipse at bottom left, #cda87833, transparent 65%);
   background-repeat: no-repeat;
   background-position: right 8px bottom 8px, center;

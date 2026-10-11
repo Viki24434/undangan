@@ -1,4 +1,6 @@
-﻿import RepeatableFields from './RepeatableFields';
+import { useState } from 'react';
+import RepeatableFields from './RepeatableFields';
+import { prayerTemplates } from './prayerTemplates';
 
 export default function InvitationForm({
   form,
@@ -9,6 +11,7 @@ export default function InvitationForm({
   busy,
 }) {
   const data = form.data;
+  const [selectedPrayerTemplate, setSelectedPrayerTemplate] = useState('');
   function field(key, value) {
     onChange({ ...form, [key]: value });
   }
@@ -17,6 +20,22 @@ export default function InvitationForm({
   }
   function person(key, field, value) {
     detail(key, { ...data[key], [field]: value });
+  }
+  function addPrayerTemplate() {
+    const template = prayerTemplates.find(
+      (item) => item.id === selectedPrayerTemplate,
+    );
+    if (!template) return;
+    detail('prayers', [
+      ...(data.prayers || []),
+      {
+        title: template.title,
+        text: template.text,
+        arabic: template.arabic,
+        source: template.source,
+      },
+    ]);
+    setSelectedPrayerTemplate('');
   }
   return (
     <form className="admin-form" onSubmit={onSubmit}>
@@ -186,6 +205,102 @@ export default function InvitationForm({
           ]}
           onChange={(value) => detail('events', value)}
           addLabel="Acara"
+        />
+        <RepeatableFields
+          title="Susunan acara (opsional)"
+          items={data.agenda || []}
+          fields={[
+            { key: 'time', label: 'Waktu' },
+            { key: 'title', label: 'Nama kegiatan' },
+            {
+              key: 'description',
+              label: 'Keterangan (opsional)',
+              type: 'textarea',
+              required: false,
+              max: 1000,
+            },
+          ]}
+          onChange={(value) => detail('agenda', value)}
+          addLabel="Kegiatan"
+        />
+        <section className="admin-form-section">
+          <h2>Video (opsional)</h2>
+          <label>
+            Tautan YouTube, Vimeo, atau file video HTTPS
+            <input
+              type="url"
+              value={data.videoUrl || ''}
+              placeholder="https://youtu.be/..."
+              onChange={(event) => detail('videoUrl', event.target.value)}
+            />
+            <small>
+              Mendukung tautan YouTube, Vimeo, atau video MP4/WebM/OGG langsung.
+            </small>
+          </label>
+        </section>
+        <section className="admin-form-section">
+          <div className="admin-panel-heading">
+            <h2>Template doa siap pakai</h2>
+            <small>Pilih doa untuk menambahkannya ke daftar, lalu edit bila perlu.</small>
+          </div>
+          <div className="admin-field-grid">
+            <label>
+              Pilih template doa
+              <select
+                value={selectedPrayerTemplate}
+                onChange={(event) =>
+                  setSelectedPrayerTemplate(event.target.value)
+                }
+              >
+                <option value="">Pilih doa siap pakai</option>
+                {prayerTemplates.map((template) => (
+                  <option key={template.id} value={template.id}>
+                    {template.source
+                      ? `${template.title} — ${template.source}`
+                      : template.title}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <div className="admin-prayer-template-action">
+              <button
+                className="admin-button secondary"
+                type="button"
+                disabled={!selectedPrayerTemplate}
+                onClick={addPrayerTemplate}
+              >
+                + Tambahkan doa
+              </button>
+            </div>
+          </div>
+        </section>
+        <RepeatableFields
+          title="Daftar doa (opsional)"
+          items={data.prayers || []}
+          fields={[
+            { key: 'title', label: 'Judul doa' },
+            {
+              key: 'arabic',
+              label: 'Teks Arab (opsional)',
+              type: 'textarea',
+              required: false,
+              max: 3000,
+            },
+            {
+              key: 'text',
+              label: 'Terjemahan / isi doa',
+              type: 'textarea',
+              max: 3000,
+            },
+            {
+              key: 'source',
+              label: 'Sumber (opsional)',
+              required: false,
+              max: 300,
+            },
+          ]}
+          onChange={(value) => detail('prayers', value)}
+          addLabel="Doa"
         />
         {data.groom && (
           <RepeatableFields

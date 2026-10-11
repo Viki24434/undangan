@@ -1,14 +1,23 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function ScrollReveal({
   children,
   animationClass = 'animate-fade-in-up',
   delay = '',
+  as = 'div',
+  className = '',
+  id,
 }) {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(
+    () => typeof IntersectionObserver === 'undefined',
+  );
   const domRef = useRef();
 
   useEffect(() => {
+    if (!('IntersectionObserver' in window)) {
+      return undefined;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -17,7 +26,7 @@ export default function ScrollReveal({
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1 },
+      { threshold: 0.12, rootMargin: '0px 0px -36px 0px' },
     );
 
     if (domRef.current) {
@@ -27,13 +36,20 @@ export default function ScrollReveal({
     return () => observer.disconnect();
   }, []);
 
+  const Tag = as;
   return (
-    <div
+    <Tag
       ref={domRef}
-
-      className={isVisible ? `${animationClass} ${delay}` : 'has-delay'}
+      id={id}
+      className={[
+        isVisible ? animationClass : 'has-delay',
+        isVisible ? delay : '',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
     >
       {children}
-    </div>
+    </Tag>
   );
 }

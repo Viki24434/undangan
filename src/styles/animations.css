@@ -39,17 +39,41 @@
     transform: scale(1);
   }
 }
+
+@keyframes blurReveal {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes softRise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes float {
-  0% {
-    transform: translateY(0px);
+  0%,
+  100% {
+    transform: translateY(0);
   }
   50% {
     transform: translateY(-15px);
   }
-  100% {
-    transform: translateY(0px);
-  }
 }
+
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -64,29 +88,112 @@
     box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
   }
 }
-@keyframes slideUpCover {
-  from {
-    transform: translateY(0);
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: rotate(-1.5deg) translateX(-2px);
   }
-  to {
-    transform: translateY(-100vh);
-    display: none;
+  50% {
+    transform: rotate(1.5deg) translateX(2px);
   }
 }
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes leafFloat {
+  0%,
+  100% {
+    transform: rotate(-3deg) translate(-2px, 1px);
+  }
+  50% {
+    transform: rotate(3deg) translate(2px, -1px);
+  }
+}
+
+@keyframes flowerSway {
+  0%,
+  100% {
+    transform: rotate(-4deg) scale(1);
+  }
+  50% {
+    transform: rotate(4deg) scale(1.012);
+  }
+}
+
+@keyframes arrangementSway {
+  0%,
+  100% {
+    transform: rotate(-1.5deg) translate(-2px, 1px);
+  }
+  50% {
+    transform: rotate(1.5deg) translate(2px, -1px);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.035);
+  }
+}
+
+@keyframes coverDismiss {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    clip-path: inset(0 0 0 0 round 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-4%) scale(0.98);
+    clip-path: inset(0 0 100% 0 round 0);
+  }
+}
+
+@keyframes cornerSway {
+  0%,
+  100% {
+    transform: rotate(-1.5deg) translateX(-1px);
+  }
+  50% {
+    transform: rotate(1.5deg) translateX(1px);
+  }
+}
+
 .animate-fade-in {
-  animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 .animate-fade-in-down {
-  animation: fadeInDown 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: fadeInDown 1s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 .animate-zoom-in {
-  animation: zoomIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: zoomIn 800ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.animate-blur-reveal {
+  animation: blurReveal 900ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.animate-soft-rise {
+  animation: softRise 800ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
 }
 
 .animate-float {
@@ -94,50 +201,7 @@
 }
 
 .animate-pulse {
-  animation: pulse 2s infinite;
-}
-.delay-100 {
-  animation-delay: 0.1s;
-}
-.delay-200 {
-  animation-delay: 0.2s;
-}
-.delay-300 {
-  animation-delay: 0.3s;
-}
-.delay-500 {
-  animation-delay: 0.5s;
-}
-.delay-1000 {
-  animation-delay: 1s;
-}
-.has-delay {
-  opacity: 0;
-}
-@keyframes sway {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(8deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-@keyframes leafFloat {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  33% {
-    transform: translate(8px, -12px) rotate(5deg);
-  }
-  66% {
-    transform: translate(-8px, -15px) rotate(-5deg);
-  }
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .animate-sway {
@@ -146,5 +210,93 @@
 }
 
 .animate-leaf {
-  animation: leafFloat 8s ease-in-out infinite;
+  animation: leafFloat 6.5s ease-in-out infinite;
+}
+
+.animate-drift {
+  animation: drift 7s ease-in-out infinite;
+}
+
+.animate-flower-sway {
+  animation: flowerSway 5.5s ease-in-out infinite;
+}
+
+.animate-branch-flutter {
+  animation: leafFloat 6.5s ease-in-out infinite;
+}
+
+.animate-arrangement-sway {
+  animation: arrangementSway 8s ease-in-out infinite;
+}
+
+.animate-breathe {
+  animation: breathe 4.5s ease-in-out infinite;
+}
+
+.animate-corner-sway {
+  animation: cornerSway 6s ease-in-out infinite;
+}
+
+.delay-0 {
+  animation-delay: 0s;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.delay-600 {
+  animation-delay: 600ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+.delay-800 {
+  animation-delay: 800ms;
+}
+
+.delay-900 {
+  animation-delay: 900ms;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+.has-delay {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .has-delay {
+    opacity: 1;
+  }
 }

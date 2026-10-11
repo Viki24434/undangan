@@ -4,6 +4,7 @@ import { useInvitation } from './InvitationContext';
 import RsvpForm from './RsvpForm';
 import Wishes1 from '../Wishes/Wishes1/Wishes1';
 import Wishes2 from '../Wishes/Wishes2/Wishes2';
+import ScrollReveal from '../ScrollReveal/ScrollReveal';
 
 export default function Guestbook({ initialWishes = [], variant = 2 }) {
   const Wishes = variant === 1 ? Wishes1 : Wishes2;
@@ -93,7 +94,11 @@ export default function Guestbook({ initialWishes = [], variant = 2 }) {
   }
   return (
     <Wishes>
-      {slug && <RsvpForm slug={slug} />}
+      {slug && (
+        <ScrollReveal animationClass="animate-soft-rise">
+          <RsvpForm slug={slug} />
+        </ScrollReveal>
+      )}
       <form className="invitation-form" onSubmit={submitWish}>
         <label>
           Nama
@@ -144,7 +149,12 @@ export default function Guestbook({ initialWishes = [], variant = 2 }) {
       {slug && <p>{total} ucapan tersimpan</p>}
       <div className="invitation-wishes-list">
         {wishes.map((wish, index) => (
-          <article key={`${wish.name}-${index}`}>
+          <ScrollReveal
+            as="article"
+            animationClass="animate-soft-rise"
+            delay={`delay-${Math.min((index % 5) * 100, 900)}`}
+            key={`${wish.name}-${index}`}
+          >
             <div className="invitation-wish-avatar" aria-hidden="true">
               {wish.name.charAt(0).toUpperCase()}
             </div>
@@ -153,7 +163,7 @@ export default function Guestbook({ initialWishes = [], variant = 2 }) {
               <span>{wish.attendance || 'Doa & harapan'}</span>
               <p>{wish.message}</p>
             </div>
-          </article>
+          </ScrollReveal>
         ))}
       </div>
       {slug && wishes.length < total && (

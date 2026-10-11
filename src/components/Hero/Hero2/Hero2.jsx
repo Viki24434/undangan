@@ -8,13 +8,18 @@ export default function Hero2({ image, subtitle, title, date, children }) {
     >
       {children}
       <div className="invitation-hero-copy hero-2__copy">
-        <span className="invitation-kicker">{subtitle}</span>
-        <h1>{title}</h1>
+        <span className="invitation-kicker animate-fade-in-down delay-300">
+          {subtitle}
+        </span>
+        <h1 className="animate-blur-reveal delay-500">{title}</h1>
         <span className="invitation-divider" aria-hidden="true">
           ✧
         </span>
-        <p>{date}</p>
-        <a className="invitation-scroll" href="#invitation-intro">
+        <p className="animate-fade-in-up delay-700">{date}</p>
+        <a
+          className="invitation-scroll animate-fade-in-up delay-900"
+          href="#invitation-intro"
+        >
           Jelajahi cerita kami <span aria-hidden="true">↓</span>
         </a>
       </div>

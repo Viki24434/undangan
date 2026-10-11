@@ -1,9 +1,9 @@
 .couple-1-container {
   position: relative;
+  overflow: hidden;
   padding: 80px 20px;
   text-align: center;
   background:
-    url('/assets/couple-floral-wreath.svg') center 8px / 145px auto no-repeat,
     radial-gradient(ellipse at 50% 52%, var(--invitation-panel), transparent 68%),
     var(--color-bg);
   color: var(--color-text);
@@ -48,21 +48,6 @@
   object-fit: cover;
 }
 
-.couple-1-portrait .couple-1-flowers {
-  position: absolute;
-  right: -27px;
-  bottom: -17px;
-  width: 100px;
-  height: auto;
-  filter: drop-shadow(0 5px 8px #0002);
-}
-
-.couple-1-portrait .couple-1-flowers-reverse {
-  right: auto;
-  left: -27px;
-  transform: scaleX(-1);
-}
-
 .couple-1-name {
   font-family: var(--font-heading);
   font-size: clamp(1.5rem, 6vw, 2.5rem);
@@ -94,17 +79,6 @@
 
   .couple-1-card p {
     font-size: 10px;
-  }
-
-  .couple-1-portrait .couple-1-flowers {
-    right: -22px;
-    bottom: -13px;
-    width: 79px;
-  }
-
-  .couple-1-portrait .couple-1-flowers-reverse {
-    right: auto;
-    left: -22px;
   }
 
   .couple-1-grid > :nth-child(2) h1 {

@@ -1,0 +1,30 @@
+.decoration-layer {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.decoration-layer__item {
+  position: absolute;
+  display: block;
+  max-width: none;
+  user-select: none;
+}
+
+.decoration-layer__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 14px #00000012);
+}
+
+.decoration-layer__item[data-ornament-role='corner'] {
+  transform-origin: center;
+}
+
+.decoration-layer__item[data-ornament-role='flower'] {
+  transform-origin: 50% 85%;
+}

@@ -1,11 +1,12 @@
 import './Cover1.css';
 
-export default function Cover1({ title, subtitle, guestName, onOpen, isOpened, bgImage }) {
+export default function Cover1({ title, subtitle, guestName, onOpen, isOpened, bgImage, children }) {
   return (
     <div className={`cover-1-wrapper ${isOpened ? 'is-opened' : ''}`} style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="cover-1-overlay"></div>
+      {children}
       
-      <div className="cover-1-content">
+      <div className="cover-1-content animate-blur-reveal">
         <p className="animate-fade-in-down" style={{ letterSpacing: '3px', textTransform: 'uppercase' }}>{subtitle}</p>
         <h1 className="cover-1-title animate-zoom-in has-delay delay-300">{title}</h1>
         

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from '../../Button/Button';
+import ScrollReveal from '../../ScrollReveal/ScrollReveal';
 import './Gift1.css';
 
 export default function Gift1({ banks }) {
@@ -36,7 +37,13 @@ export default function Gift1({ banks }) {
       </p>
 
       {banks.map((bank, index) => (
-        <div key={index} className="gift-1-card animate-fade-in-up">
+        <ScrollReveal
+          as="div"
+          key={index}
+          className="gift-1-card"
+          animationClass="animate-soft-rise"
+          delay={`delay-${Math.min(index * 200, 900)}`}
+        >
           <h3>{bank.name}</h3>
           <p
             style={{
@@ -59,7 +66,7 @@ export default function Gift1({ banks }) {
           >
             {copied === bank.rek ? '✓ Berhasil Disalin' : 'Salin No. Rekening'}
           </Button>
-        </div>
+        </ScrollReveal>
       ))}
       <p role="status">
         {copyError || (copied ? 'Nomor rekening berhasil disalin.' : '')}

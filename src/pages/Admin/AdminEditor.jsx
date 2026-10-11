@@ -5,6 +5,7 @@ import { templateRegistry } from '../../config/templateRegistry';
 import { templateDefaults } from '../../config/templateDefaults';
 import InvitationForm from '../../components/Admin/InvitationForm';
 import GuestManagement from '../../components/Admin/GuestManagement';
+import { getVideoSource } from '../../components/Invitation/videoUrl';
 
 function localDate(value) {
   return new Intl.DateTimeFormat('sv-SE', {
@@ -89,6 +90,10 @@ export default function AdminEditor() {
         .filter(Boolean);
       if (photos.some((value) => !/^https?:\/\//i.test(value)))
         throw new Error('URL galeri harus diawali http:// atau https://.');
+      if (form.data.videoUrl && !getVideoSource(form.data.videoUrl))
+        throw new Error(
+          'Video harus berupa tautan YouTube, Vimeo, atau file MP4/WebM/OGG dengan HTTPS.',
+        );
       if (!form.data.events?.length)
         throw new Error('Tambahkan minimal satu jadwal acara.');
       const body = {
@@ -100,6 +105,20 @@ export default function AdminEditor() {
         data: {
           ...form.data,
           photos,
+          agenda: (form.data.agenda || []).filter(
+            (item) =>
+              item.time?.trim() ||
+              item.title?.trim() ||
+              item.description?.trim(),
+          ),
+          prayers: (form.data.prayers || []).filter(
+            (item) =>
+              item.title?.trim() ||
+              item.text?.trim() ||
+              item.arabic?.trim() ||
+              item.source?.trim(),
+          ),
+          videoUrl: form.data.videoUrl?.trim() || '',
           events: form.data.events.map((item) => ({
             ...item,
             date: formatted,

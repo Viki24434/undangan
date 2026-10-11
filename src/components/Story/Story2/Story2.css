@@ -46,6 +46,16 @@
   border: 1px solid var(--invitation-line);
   border-radius: 4px 30px 4px 4px;
   background: var(--color-bg);
+  transition:
+    transform 350ms ease,
+    box-shadow 350ms ease,
+    border-color 350ms ease;
+}
+
+.story-2__entry article:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: 0 14px 32px color-mix(in srgb, var(--color-text) 10%, transparent);
 }
 
 .story-2__date {

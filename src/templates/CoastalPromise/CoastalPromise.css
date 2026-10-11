@@ -14,7 +14,7 @@
 
 .invitation-coastal .invitation-intro {
   background:
-    url('/assets/coastal-waves.svg') center bottom / min(340px, 90%) auto
+    url('/assets/svg/coastal-waves.svg') center bottom / min(340px, 90%) auto
       no-repeat,
     linear-gradient(180deg, #e0eeeb, var(--color-bg) 75%);
 }

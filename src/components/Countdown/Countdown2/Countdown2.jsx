@@ -1,4 +1,5 @@
 import useCountdown from '../../../hooks/useCountdown';
+import ScrollReveal from '../../ScrollReveal/ScrollReveal';
 import './Countdown2.css';
 
 const units = [
@@ -13,11 +14,17 @@ export default function Countdown2({ targetDate }) {
 
   return (
     <div className="countdown-2" aria-label="Hitung mundur menuju hari acara">
-      {units.map(([unit, label]) => (
-        <div className="countdown-2__unit" key={unit}>
+      {units.map(([unit, label], index) => (
+        <ScrollReveal
+          as="div"
+          className="countdown-2__unit"
+          animationClass="animate-soft-rise"
+          delay={`delay-${index * 100}`}
+          key={unit}
+        >
           <strong>{String(timeLeft[unit]).padStart(2, '0')}</strong>
           <span>{label}</span>
-        </div>
+        </ScrollReveal>
       ))}
     </div>
   );

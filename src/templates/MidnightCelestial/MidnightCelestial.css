@@ -12,7 +12,7 @@
 }
 .invitation-midnight .invitation-intro {
   background-image:
-    url('/assets/celestial-constellation.svg'),
+    url('/assets/svg/celestial-constellation.svg'),
     radial-gradient(circle at 12% 18%, #dfc48c88 0 1px, transparent 2px),
     radial-gradient(circle at 82% 28%, #ffffff88 0 1px, transparent 2px),
     radial-gradient(circle at 72% 75%, #dfc48c88 0 2px, transparent 3px);

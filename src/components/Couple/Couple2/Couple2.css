@@ -2,7 +2,6 @@
   position: relative;
   overflow: hidden;
   background:
-    url('/assets/couple-floral-wreath.svg') center 8px / 145px auto no-repeat,
     radial-gradient(ellipse at 50% 60%, var(--invitation-panel), transparent 68%),
     var(--color-bg);
 }
@@ -39,21 +38,6 @@
   height: 100%;
   border-radius: inherit;
   object-fit: cover;
-}
-
-.couple-2__portrait .couple-2__flowers {
-  position: absolute;
-  right: -27px;
-  bottom: -17px;
-  width: 100px;
-  height: auto;
-  filter: drop-shadow(0 5px 8px #0002);
-}
-
-.couple-2__person:nth-child(3) .couple-2__flowers {
-  right: auto;
-  left: -27px;
-  transform: scaleX(-1);
 }
 
 .couple-2__person .invitation-kicker {
@@ -110,16 +94,6 @@
     font-size: 10px;
   }
 
-  .couple-2__portrait .couple-2__flowers {
-    right: -22px;
-    bottom: -13px;
-    width: 79px;
-  }
-
-  .couple-2__person:nth-child(3) .couple-2__flowers {
-    right: auto;
-    left: -22px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -12,7 +12,7 @@
 }
 .invitation-little-moon .invitation-intro {
   background-image:
-    url('/assets/moon-clouds.svg'),
+    url('/assets/svg/moon-clouds.svg'),
     radial-gradient(circle at 85% 15%, #d9e7f1 0 40px, transparent 41px);
   background-repeat: no-repeat;
   background-position: right 8px bottom 8px, center;
