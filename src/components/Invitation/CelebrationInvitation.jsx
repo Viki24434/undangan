@@ -19,6 +19,8 @@ export default function CelebrationInvitation({
       title={data.title}
       subtitle={data.subtitle}
       image={data.image}
+      images={data.photos}
+      sunlightEnabled={data.sunlightEnabled}
       date={data.date}
       monogram={data.monogram}
       variants={components}

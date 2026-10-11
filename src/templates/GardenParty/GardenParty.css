@@ -34,5 +34,68 @@
 }
 
 .invitation-garden-party .invitation-closing {
-  background: #f6eadd;
+  background:
+    radial-gradient(ellipse at 100% 100%, #8da56a66, transparent 58%),
+    #e8e8d3;
+}
+
+.invitation-garden-party {
+  --color-bg: #e9ead8;
+  --color-text: #3d4932;
+  --color-accent: #9d6248;
+  --invitation-muted: #758067;
+  --invitation-panel: #d9dfc2;
+  --invitation-line: #8b76504d;
+  --invitation-on-accent: #fff8ee;
+  background-image:
+    radial-gradient(ellipse at 100% 0, #a8b77a66, transparent 46%),
+    radial-gradient(ellipse at 0 72%, #e2b18a66, transparent 48%),
+    linear-gradient(160deg, #f0eddc, #e4e5cf 58%, #dfe3cb);
+}
+
+.invitation-garden-party .cover-2 .invitation-cover-shade {
+  background:
+    radial-gradient(ellipse at 50% 25%, #e8ce9e33, transparent 70%),
+    linear-gradient(180deg, #31412f44, #1d2b22d9);
+}
+
+.invitation-garden-party .cover-2 .cover-2__frame {
+  border-color: #e9d7a888;
+  background: linear-gradient(160deg, #435439b5, #243128e8);
+  box-shadow: inset 0 0 0 7px #f6f0d50b, 0 22px 56px #26312544;
+}
+
+.invitation-garden-party .hero-1-overlay {
+  background:
+    radial-gradient(ellipse 76% 45% at 50% 0, #f7e6bb3d, transparent 100%),
+    linear-gradient(180deg, #36452a2b, #213124d1);
+}
+
+.invitation-garden-party .hero-1-title,
+.invitation-garden-party .hero-1-subtitle,
+.invitation-garden-party .hero-1-quote {
+  color: #fff6df;
+  text-shadow: 0 2px 18px #1d2b22;
+}
+
+.invitation-garden-party .invitation-events,
+.invitation-garden-party .invitation-guestbook {
+  background:
+    radial-gradient(ellipse at 50% 0, #a5b77666, transparent 72%),
+    var(--invitation-panel);
+}
+
+.invitation-garden-party .invitation-event-card,
+.invitation-garden-party .countdown-2__unit,
+.invitation-garden-party .wishes-2 .invitation-form,
+.invitation-garden-party .celebration-notes article {
+  border-color: var(--invitation-line);
+  background: linear-gradient(145deg, #f1eedb, #d8dfc4);
+  box-shadow: 0 14px 30px #4a4d351c;
+}
+
+.invitation-garden-party .invitation-form input,
+.invitation-garden-party .invitation-form textarea,
+.invitation-garden-party .invitation-form select {
+  background: #f5f1df;
 }

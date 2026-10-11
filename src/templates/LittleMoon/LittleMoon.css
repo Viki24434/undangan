@@ -23,5 +23,66 @@
   padding-top: 50px;
 }
 .invitation-little-moon .invitation-closing {
-  background: #e0ebf3;
+  background:
+    radial-gradient(ellipse at 100% 100%, #5b83aa66, transparent 58%),
+    #d7e5f1;
+}
+
+.invitation-little-moon {
+  --color-bg: #dbe8f3;
+  --color-text: #263e56;
+  --color-accent: #547da4;
+  --invitation-muted: #66809a;
+  --invitation-panel: #c7d9eb;
+  --invitation-line: #547da444;
+  --invitation-on-accent: #f4f8fd;
+  background-image:
+    radial-gradient(ellipse at 100% 0, #90b7d988, transparent 46%),
+    radial-gradient(ellipse at 0 70%, #b8cde966, transparent 48%),
+    linear-gradient(160deg, #e8f0f6, #d9e6f2 58%, #ccddef);
+}
+
+.invitation-little-moon .cover-1-content {
+  border: 1px solid #d5e7f5aa;
+  border-radius: 160px 160px 18px 18px;
+  background: linear-gradient(160deg, #547a9ebd, #263f59e8);
+  box-shadow: 0 22px 56px #20374d44;
+}
+
+.invitation-little-moon .hero-2::before {
+  background:
+    radial-gradient(ellipse 76% 42% at 50% 0, #e6f5ff55, transparent 100%),
+    linear-gradient(180deg, #34587733, #1b3048d1);
+}
+
+.invitation-little-moon .hero-2 .invitation-kicker,
+.invitation-little-moon .hero-2 .invitation-divider {
+  color: #e3eff8;
+}
+
+.invitation-little-moon .invitation-events,
+.invitation-little-moon .invitation-guestbook {
+  background:
+    radial-gradient(ellipse at 50% 0, #8db1d366, transparent 72%),
+    var(--invitation-panel);
+}
+
+.invitation-little-moon .invitation-event-card,
+.invitation-little-moon .cd-1-box,
+.invitation-little-moon .invitation-prayer-list article,
+.invitation-little-moon .invitation-form {
+  border-color: var(--invitation-line);
+  background: linear-gradient(145deg, #eff5fa, #c9dced);
+  box-shadow: 0 14px 30px #314d681c;
+}
+
+.invitation-little-moon .gallery-2__item {
+  border-color: var(--invitation-line);
+  box-shadow: 0 12px 28px #314d6822;
+}
+
+.invitation-little-moon .invitation-form input,
+.invitation-little-moon .invitation-form textarea,
+.invitation-little-moon .invitation-form select {
+  background: #f2f7fb;
 }

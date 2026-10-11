@@ -49,5 +49,78 @@
 .invitation-sunflower .invitation-closing {
   background:
     radial-gradient(ellipse at 100% 100%, #e9d39277, transparent 55%),
+    #302716;
+}
+
+.invitation-sunflower {
+  --color-bg: #302716;
+  --color-text: #f4edda;
+  --color-accent: #e0b94f;
+  --invitation-muted: #c6b989;
+  --invitation-panel: #493a1c;
+  --invitation-line: #e0b94f55;
+  --invitation-on-accent: #302716;
+  background-image:
+    radial-gradient(ellipse at 100% 0, #d49e3d4d, transparent 44%),
+    radial-gradient(ellipse at 0 70%, #7c641e44, transparent 48%),
+    linear-gradient(160deg, #302716, #403319 58%, #261f14);
+}
+
+.invitation-sunflower .invitation-cover-frame {
+  border-color: #e0b94f99;
+  background: linear-gradient(145deg, #56451fa8, #2b2417e8);
+  box-shadow: inset 0 0 0 7px #f4edda0b, 0 22px 60px #17120888;
+}
+
+.invitation-sunflower .hero-1-overlay {
+  background:
+    radial-gradient(ellipse 76% 45% at 50% 0, #ffe5a833, transparent 100%),
+    linear-gradient(180deg, #3930172b, #211b10d9);
+}
+
+.invitation-sunflower .hero-1-title,
+.invitation-sunflower .hero-1-subtitle,
+.invitation-sunflower .hero-1-quote {
+  color: #fff4d7;
+  text-shadow: 0 2px 20px #171208;
+}
+
+.invitation-sunflower .invitation-intro {
+  background:
+    radial-gradient(ellipse at 50% 0, #ad842d55, transparent 66%),
+    var(--color-bg);
+}
+
+.invitation-sunflower .invitation-events,
+.invitation-sunflower .story-1-container,
+.invitation-sunflower .invitation-guestbook {
+  background:
+    radial-gradient(ellipse at 50% 0, #8c702e55, transparent 72%),
     var(--invitation-panel);
+}
+
+.invitation-sunflower .invitation-event-card,
+.invitation-sunflower .cd-1-box,
+.invitation-sunflower .story-1-item,
+.invitation-sunflower .gift-1-card,
+.invitation-sunflower .wishes-2 .invitation-form {
+  border-color: var(--invitation-line);
+  background: linear-gradient(145deg, #5a471f, #352b19);
+  box-shadow: 0 14px 34px #17120877;
+}
+
+.invitation-sunflower .couple-2__portrait {
+  background: #493a1c;
+  box-shadow: 0 0 0 7px var(--color-bg), 0 0 0 8px #e0b94f66;
+}
+
+.invitation-sunflower .invitation-gallery img {
+  border-color: var(--invitation-line);
+  box-shadow: 0 12px 28px #17120877;
+}
+
+.invitation-sunflower .invitation-form input,
+.invitation-sunflower .invitation-form textarea,
+.invitation-sunflower .invitation-form select {
+  background: #261f14;
 }

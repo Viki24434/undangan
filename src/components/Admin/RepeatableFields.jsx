@@ -4,6 +4,7 @@
   fields,
   onChange,
   addLabel = 'Tambah',
+  maxItems,
 }) {
   function update(index, field, value) {
     onChange(
@@ -19,6 +20,7 @@
         <button
           type="button"
           className="admin-button secondary"
+          disabled={maxItems !== undefined && items.length >= maxItems}
           onClick={() =>
             onChange([
               ...items,
@@ -29,6 +31,7 @@
           + {addLabel}
         </button>
       </div>
+      {maxItems !== undefined && <p>Maksimal {maxItems} item.</p>}
       {items.length === 0 && <p>Belum ada data. Tambahkan jika dibutuhkan.</p>}
       {items.map((item, index) => (
         <div className="admin-repeatable" key={index}>

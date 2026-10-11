@@ -137,6 +137,24 @@ export default function InvitationForm({
             </label>
           </div>
         </section>
+        <section className="admin-form-section">
+          <h2>Tampilan slideshow</h2>
+          <label>
+            Cahaya matahari pada slideshow
+            <select
+              value={data.sunlightEnabled === false ? 'off' : 'on'}
+              onChange={(event) =>
+                detail('sunlightEnabled', event.target.value === 'on')
+              }
+            >
+              <option value="on">Aktif</option>
+              <option value="off">Nonaktif</option>
+            </select>
+            <small>
+              Cahaya lembut dari atas foto. Gradasi bawah tetap aktif.
+            </small>
+          </label>
+        </section>
         {data.groom && data.bride ? (
           <section className="admin-form-section">
             <h2>Profil mempelai</h2>
@@ -315,19 +333,26 @@ export default function InvitationForm({
             addLabel="Cerita"
           />
         )}
-        <section className="admin-form-section">
-          <h2>Galeri foto</h2>
-          <label>
-            URL foto, satu per baris
-            <textarea
-              rows={5}
-              value={(data.photos || []).join('\n')}
-              onChange={(event) =>
-                detail('photos', event.target.value.split('\n'))
-              }
-            />
-          </label>
-        </section>
+        <RepeatableFields
+          title="Foto slideshow & galeri"
+          items={(data.photos || []).map((url) => ({ url }))}
+          fields={[
+            {
+              key: 'url',
+              label: 'URL foto (HTTPS)',
+              type: 'url',
+              max: 2000,
+            },
+          ]}
+          onChange={(items) =>
+            detail(
+              'photos',
+              items.map((item) => item.url),
+            )
+          }
+          addLabel="Foto"
+          maxItems={30}
+        />
         {data.groom && (
           <RepeatableFields
             title="Rekening hadiah"

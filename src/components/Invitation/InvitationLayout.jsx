@@ -16,6 +16,8 @@ export default function InvitationLayout({
   title,
   subtitle,
   image,
+  images = [],
+  sunlightEnabled = true,
   date,
   monogram,
   variants = {},
@@ -97,6 +99,8 @@ export default function InvitationLayout({
           {variants.hero === 1 ? (
             <Hero
               bgImage={image}
+              images={images}
+              sunlightEnabled={sunlightEnabled}
               subtitle={subtitle}
               title={displayTitle}
               quote={date}
@@ -106,6 +110,8 @@ export default function InvitationLayout({
           ) : (
             <Hero
               image={image}
+              images={images}
+              sunlightEnabled={sunlightEnabled}
               subtitle={subtitle}
               title={displayTitle}
               date={date}

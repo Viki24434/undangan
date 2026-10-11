@@ -1,11 +1,22 @@
 import './Hero1.css';
+import HeroSlideshow from '../HeroSlideshow';
 
-export default function Hero1({ bgImage, subtitle, title, quote, children }) {
+export default function Hero1({
+  bgImage,
+  images,
+  sunlightEnabled,
+  subtitle,
+  title,
+  quote,
+  children,
+}) {
   return (
-    <section
-      className="hero-1-container"
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
+    <section className="hero-1-container">
+      <HeroSlideshow
+        image={bgImage}
+        images={images}
+        sunlightEnabled={sunlightEnabled}
+      />
       <div className="hero-1-overlay"></div>
       {children}
 

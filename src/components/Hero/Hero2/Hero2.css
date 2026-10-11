@@ -3,6 +3,7 @@
 }
 
 .hero-2__copy {
+  z-index: 3;
   max-width: 720px;
   padding: 72px 18px;
   border: 0;

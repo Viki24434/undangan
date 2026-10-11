@@ -26,4 +26,67 @@
 }
 .invitation-ivory .invitation-closing {
   border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at 50% 0, #c9b99066, transparent 66%),
+    #e5dece;
+}
+
+.invitation-ivory {
+  --color-bg: #e9e2d3;
+  --color-text: #403b32;
+  --color-accent: #806b46;
+  --invitation-muted: #766f61;
+  --invitation-panel: #dcd3c1;
+  --invitation-line: #806b4655;
+  --invitation-on-accent: #f7f2e8;
+  background-image:
+    radial-gradient(ellipse at 100% 0, #c3ad8055, transparent 45%),
+    linear-gradient(160deg, #eee8dc, #e2dac9 60%, #d9cfbd);
+}
+
+.invitation-ivory .invitation-cover-frame {
+  border-color: #e7d8b388;
+  background: linear-gradient(145deg, #574b3c99, #292720b8);
+  box-shadow: inset 0 0 0 8px #f5eddb14, 0 22px 60px #2d271d40;
+}
+
+.invitation-ivory .hero-2::before {
+  background:
+    radial-gradient(ellipse 76% 42% at 50% 0, #fff0ca33, transparent 100%),
+    linear-gradient(180deg, #3e392d22, #28251ed1);
+}
+
+.invitation-ivory .hero-2 .invitation-kicker,
+.invitation-ivory .hero-2 .invitation-divider {
+  color: #f0d9a6;
+}
+
+.invitation-ivory .invitation-events,
+.invitation-ivory .story-2,
+.invitation-ivory .invitation-guestbook {
+  background:
+    radial-gradient(ellipse at 50% 0, #b09a6b44, transparent 72%),
+    var(--invitation-panel);
+}
+
+.invitation-ivory .invitation-event-card,
+.invitation-ivory .countdown-2__unit,
+.invitation-ivory .story-2__entry article,
+.invitation-ivory .gift-2__card,
+.invitation-ivory .wishes-2 .invitation-form {
+  border-color: var(--invitation-line);
+  background: linear-gradient(145deg, #f0eadc, #ddd4c2);
+  box-shadow: 0 14px 34px #403b3218;
+}
+
+.invitation-ivory .couple-1-img,
+.invitation-ivory .gallery-2__item {
+  border: 1px solid #806b4680;
+  box-shadow: 0 12px 28px #403b3222;
+}
+
+.invitation-ivory .invitation-form input,
+.invitation-ivory .invitation-form textarea,
+.invitation-ivory .invitation-form select {
+  background: #f5f0e6;
 }

@@ -1,11 +1,22 @@
 import './Hero2.css';
+import HeroSlideshow from '../HeroSlideshow';
 
-export default function Hero2({ image, subtitle, title, date, children }) {
+export default function Hero2({
+  image,
+  images,
+  sunlightEnabled,
+  subtitle,
+  title,
+  date,
+  children,
+}) {
   return (
-    <section
-      className="invitation-hero hero-2"
-      style={{ backgroundImage: `url(${image})` }}
-    >
+    <section className="invitation-hero hero-2">
+      <HeroSlideshow
+        image={image}
+        images={images}
+        sunlightEnabled={sunlightEnabled}
+      />
       {children}
       <div className="invitation-hero-copy hero-2__copy">
         <span className="invitation-kicker animate-fade-in-down delay-300">

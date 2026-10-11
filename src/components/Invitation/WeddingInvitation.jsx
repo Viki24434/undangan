@@ -33,6 +33,8 @@ export default function WeddingInvitation({
       title={`${data.groom.name} & ${data.bride.name}`}
       subtitle="THE WEDDING CELEBRATION"
       image={data.image}
+      images={data.photos}
+      sunlightEnabled={data.sunlightEnabled}
       date={data.date}
       monogram={`${data.groom.name[0]} / ${data.bride.name[0]}`}
       variants={components}

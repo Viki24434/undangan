@@ -179,4 +179,40 @@ export const ornamentPresets = {
       },
     ],
   },
+  'invitation-burgundy': {
+    cover: cornerPair('red-corner', '34%'),
+    hero: [
+      {
+        asset: 'red-top-garland',
+        position: { bottom: '-10%', left: '10%' },
+        width: '80%',
+      },
+    ],
+    couple: portraitFlowers('red-rose-single', 'red-rose-accent'),
+    closing: [
+      {
+        asset: 'red-bouquet',
+        position: { right: '-3%', bottom: '-3%' },
+        width: '42%',
+      },
+    ],
+  },
+  'invitation-pink-blush': {
+    cover: cornerPair('peony-corner', '35%'),
+    hero: [
+      {
+        asset: 'peony-top-garland',
+        position: { bottom: '-10%', left: '9%' },
+        width: '82%',
+      },
+    ],
+    couple: portraitFlowers('peony-single', 'peony-accent'),
+    closing: [
+      {
+        asset: 'peony-bouquet',
+        position: { right: '-3%', bottom: '-3%' },
+        width: '42%',
+      },
+    ],
+  },
 };

@@ -1,0 +1,124 @@
+.invitation-burgundy {
+  --color-bg: #32131f;
+  --color-text: #f5e8e5;
+  --color-accent: #d9ad78;
+  --invitation-muted: #d1aeb2;
+  --invitation-panel: #4b1c2d;
+  --invitation-line: #d9ad7850;
+  --invitation-on-accent: #2d111c;
+  background-image:
+    radial-gradient(ellipse at 100% 0, #a3425538, transparent 42%),
+    radial-gradient(ellipse at 0 52%, #6f263730, transparent 48%),
+    linear-gradient(180deg, #32131f, #3a1524 55%, #2a101b);
+}
+
+.celebration-template.invitation-burgundy .cover-2 .invitation-cover-shade {
+  background:
+    linear-gradient(180deg, #38101c66, #230b16e8),
+    radial-gradient(ellipse at 50% 25%, #9b3d4b55, transparent 70%);
+}
+
+.celebration-template.invitation-burgundy .cover-2 .cover-2__frame {
+  border-color: #d9ad7880;
+  border-radius: 180px 180px 10px 10px;
+  background: linear-gradient(160deg, #551e2ca6, #260d18e8);
+  box-shadow: inset 0 0 0 7px #d9ad780b, 0 22px 64px #1b0812a6;
+}
+
+.invitation-burgundy .invitation-monogram {
+  border-color: var(--color-accent);
+  color: #f1d5ae;
+  box-shadow: 0 0 0 6px #d9ad7818;
+}
+
+.celebration-template.invitation-burgundy .hero-2::before {
+  background:
+    radial-gradient(ellipse 78% 42% at 50% 0, #e9b9822b, transparent 100%),
+    linear-gradient(180deg, #37101b35, #240b17c9);
+}
+
+.celebration-template.invitation-burgundy .hero-2 .invitation-kicker,
+.celebration-template.invitation-burgundy .hero-2 .invitation-divider {
+  color: #f1d5ae;
+}
+
+.celebration-template.invitation-burgundy .hero-2__copy {
+  border-color: #e2bd8b70;
+  text-shadow: 0 2px 18px #240b17;
+}
+
+.invitation-burgundy .invitation-intro {
+  background:
+    url('/assets/svg/rose-bloom.svg') right 12px bottom 10px / 125px auto
+      no-repeat,
+    radial-gradient(ellipse at 50% 0, #9b3d4b30, transparent 66%);
+}
+
+.invitation-burgundy .couple-1-container,
+.invitation-burgundy .story-1-container,
+.invitation-burgundy .gift-1-container {
+  background-color: var(--color-bg);
+}
+
+.invitation-burgundy .couple-1-img {
+  border: 4px solid #6a293a;
+  outline: 1px solid var(--color-accent);
+  outline-offset: 5px;
+  border-radius: 48% 48% 10px 10px;
+}
+
+.invitation-burgundy .story-1-item {
+  border-color: var(--invitation-line);
+  background: linear-gradient(135deg, #562033, #401727);
+}
+
+.invitation-burgundy .invitation-events,
+.invitation-burgundy .story-2,
+.invitation-burgundy .invitation-guestbook,
+.invitation-burgundy .invitation-video {
+  background:
+    radial-gradient(ellipse at 50% 0, #7d2d4238, transparent 70%),
+    var(--invitation-panel);
+}
+
+.invitation-burgundy .invitation-event-card,
+.invitation-burgundy .countdown-2__unit,
+.invitation-burgundy .story-2__entry article,
+.invitation-burgundy .invitation-prayer-list article,
+.invitation-burgundy .wishes-2 .invitation-form {
+  border-color: var(--invitation-line);
+  background: linear-gradient(145deg, #572033, #3b1626);
+  box-shadow: 0 14px 34px #1c091233;
+}
+
+.invitation-burgundy .invitation-event-card {
+  border-top: 2px solid var(--color-accent);
+  border-radius: 90px 90px 8px 8px;
+}
+
+.invitation-burgundy .gallery-1-img,
+.invitation-burgundy .gallery-2__item {
+  border-color: var(--invitation-line);
+  box-shadow: 0 12px 28px #1b08124d;
+}
+
+.invitation-burgundy .gift-1-card,
+.invitation-burgundy .gift-2__card {
+  border-color: var(--invitation-line);
+  background:
+    radial-gradient(ellipse at top, #772d43, transparent 72%),
+    #411828;
+  box-shadow: 0 16px 38px #1c091233;
+}
+
+.invitation-burgundy .invitation-form input,
+.invitation-burgundy .invitation-form textarea,
+.invitation-burgundy .invitation-form select {
+  background: #2a101b;
+}
+
+.invitation-burgundy .invitation-closing {
+  background:
+    radial-gradient(ellipse at 50% 0, #88344855, transparent 64%),
+    #29101b;
+}

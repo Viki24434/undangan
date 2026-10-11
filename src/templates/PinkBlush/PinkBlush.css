@@ -1,0 +1,136 @@
+.invitation-pink-blush {
+  --color-bg: #3b192c;
+  --color-text: #f8eaf0;
+  --color-accent: #e6a3bd;
+  --invitation-muted: #d6afbf;
+  --invitation-panel: #57263f;
+  --invitation-line: #e6a3bd55;
+  --invitation-on-accent: #381626;
+  background-image:
+    radial-gradient(ellipse at 0 0, #b94b793b, transparent 46%),
+    radial-gradient(ellipse at 100% 55%, #82365742, transparent 48%),
+    linear-gradient(180deg, #3b192c, #482039 55%, #311426);
+}
+
+.celebration-template.invitation-pink-blush .cover-1-wrapper {
+  --color-overlay: linear-gradient(180deg, #54213d66, #260e1de8);
+  --color-text: #fff0f5;
+  --color-accent: #f1bfd1;
+  background-color: #3b192c;
+}
+
+.celebration-template.invitation-pink-blush .cover-1-content {
+  border: 1px solid #f1bfd180;
+  border-radius: 180px 180px 16px 16px;
+  background: linear-gradient(160deg, #662c49a8, #301222e6);
+  box-shadow: inset 0 0 0 7px #f1bfd10d, 0 24px 70px #210c18a6;
+}
+
+.celebration-template.invitation-pink-blush .hero-1-container {
+  --color-text: #fff0f5;
+  --color-accent: #f1bfd1;
+}
+
+.celebration-template.invitation-pink-blush .hero-1-overlay {
+  background:
+    radial-gradient(ellipse 76% 45% at 50% 0, #f1bfd12b, transparent 100%),
+    linear-gradient(180deg, #4c1d3566, #250d1bd9);
+}
+
+.celebration-template.invitation-pink-blush .hero-1-subtitle,
+.celebration-template.invitation-pink-blush .hero-1-title,
+.celebration-template.invitation-pink-blush .hero-1-quote {
+  color: #fff0f5;
+  text-shadow: 0 2px 20px #210c18;
+}
+
+.invitation-pink-blush .invitation-intro {
+  background:
+    url('/assets/svg/rose-bloom.svg') right 10px bottom 8px / 120px auto
+      no-repeat,
+    radial-gradient(ellipse at 50% 0, #b94b7940, transparent 66%);
+}
+
+.invitation-pink-blush .couple-2 {
+  background:
+    radial-gradient(ellipse at 50% 60%, #6c2d4c, transparent 70%),
+    var(--color-bg);
+}
+
+.invitation-pink-blush .couple-2__portrait {
+  border-color: #e6a3bd;
+  background: #54243c;
+  box-shadow:
+    0 0 0 7px var(--color-bg),
+    0 0 0 8px #e6a3bd77,
+    0 18px 36px #210c1840,
+    inset 0 0 0 4px #f1bfd11c;
+}
+
+.invitation-pink-blush .couple-2__person h3,
+.invitation-pink-blush .invitation-monogram {
+  color: #f1bfd1;
+}
+
+.invitation-pink-blush .invitation-events,
+.invitation-pink-blush .story-2,
+.invitation-pink-blush .invitation-guestbook,
+.invitation-pink-blush .invitation-video {
+  background:
+    radial-gradient(ellipse at 50% 0, #a63b6840, transparent 70%),
+    var(--invitation-panel);
+}
+
+.invitation-pink-blush .invitation-event-card,
+.invitation-pink-blush .countdown-2__unit,
+.invitation-pink-blush .story-2__entry article,
+.invitation-pink-blush .invitation-prayer-list article,
+.invitation-pink-blush .wishes-2 .invitation-form {
+  border-color: var(--invitation-line);
+  background: linear-gradient(145deg, #632a48, #421b32);
+  box-shadow: 0 14px 34px #210c1838;
+}
+
+.invitation-pink-blush .invitation-event-card {
+  border-radius: 80px 80px 10px 10px;
+}
+
+.invitation-pink-blush .story-1-container,
+.invitation-pink-blush .gift-1-container {
+  background:
+    radial-gradient(ellipse at 50% 0, #9e3c6740, transparent 68%),
+    var(--color-bg);
+}
+
+.invitation-pink-blush .story-1-item {
+  border-color: var(--invitation-line);
+  background: linear-gradient(135deg, #612846, #421b32);
+}
+
+.invitation-pink-blush .gallery-1-img,
+.invitation-pink-blush .gallery-2__item {
+  border-color: var(--invitation-line);
+  box-shadow: 0 12px 28px #210c184d;
+}
+
+.invitation-pink-blush .gift-1-card,
+.invitation-pink-blush .gift-2__card {
+  border-color: var(--invitation-line);
+  border-radius: 54px 54px 10px 10px;
+  background:
+    radial-gradient(ellipse at top, #71304f, transparent 72%),
+    #421b32;
+  box-shadow: 0 16px 38px #210c183d;
+}
+
+.invitation-pink-blush .invitation-form input,
+.invitation-pink-blush .invitation-form textarea,
+.invitation-pink-blush .invitation-form select {
+  background: #301324;
+}
+
+.invitation-pink-blush .invitation-closing {
+  background:
+    radial-gradient(ellipse at 50% 0, #aa3d6e66, transparent 62%),
+    #2f1324;
+}

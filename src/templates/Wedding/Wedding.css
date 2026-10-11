@@ -20,5 +20,85 @@
   transform: rotate(-42deg);
 }
 .invitation-botanical .invitation-closing {
-  background: #e3e9d5;
+  background:
+    radial-gradient(ellipse at 100% 100%, #9caf7955, transparent 58%),
+    #17251d;
+}
+
+.invitation-botanical {
+  --color-bg: #17251d;
+  --color-text: #edf0df;
+  --color-accent: #c6b875;
+  --invitation-muted: #b3c0a9;
+  --invitation-panel: #24362a;
+  --invitation-line: #c6b87555;
+  --invitation-on-accent: #1b291e;
+  background-image:
+    radial-gradient(ellipse at 100% 0, #899a6740, transparent 46%),
+    linear-gradient(160deg, #17251d, #1c2d23 55%, #142019);
+}
+
+.invitation-botanical .invitation-cover-frame {
+  border-color: #c6b87588;
+  background: linear-gradient(160deg, #253a2bbd, #17251ded);
+  box-shadow: inset 0 0 0 7px #c6b8750c, 0 22px 60px #0b130e88;
+}
+
+.invitation-botanical .hero-2::before {
+  background:
+    radial-gradient(ellipse 76% 42% at 50% 0, #d7d39c25, transparent 100%),
+    linear-gradient(180deg, #17251d35, #101a14c9);
+}
+
+.invitation-botanical .hero-2 .invitation-kicker,
+.invitation-botanical .hero-2 .invitation-divider {
+  color: #e5d9a1;
+}
+
+.invitation-botanical .invitation-intro {
+  background:
+    url('/assets/svg/botanical-sprig.svg') right 16px bottom 10px / 135px auto
+      no-repeat,
+    radial-gradient(ellipse at 50% 0, #70845438, transparent 68%);
+}
+
+.invitation-botanical .invitation-events,
+.invitation-botanical .story-2,
+.invitation-botanical .invitation-guestbook {
+  background:
+    radial-gradient(ellipse at 50% 0, #4e6b4a55, transparent 72%),
+    var(--invitation-panel);
+}
+
+.invitation-botanical .invitation-event-card,
+.invitation-botanical .countdown-2__unit,
+.invitation-botanical .story-2__entry article,
+.invitation-botanical .wishes-2 .invitation-form {
+  border-color: var(--invitation-line);
+  background: linear-gradient(145deg, #304433, #1c2d23);
+  box-shadow: 0 14px 34px #0d171088;
+}
+
+.invitation-botanical .couple-2__portrait {
+  background: #24362a;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 7px var(--color-bg), 0 0 0 8px #c6b87555;
+}
+
+.invitation-botanical .gallery-2__item {
+  border-color: var(--invitation-line);
+  box-shadow: 0 12px 28px #0d171088;
+}
+
+.invitation-botanical .gift-2__card {
+  border-color: var(--invitation-line);
+  background:
+    radial-gradient(ellipse at top, #496043, transparent 72%),
+    #1b2b21;
+}
+
+.invitation-botanical .invitation-form input,
+.invitation-botanical .invitation-form textarea,
+.invitation-botanical .invitation-form select {
+  background: #142019;
 }

@@ -18,13 +18,31 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--color-overlay);
+  background:
+    radial-gradient(
+      ellipse 76% 45% at 50% 0%,
+      rgba(255, 239, 198, 0.22),
+      transparent 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 248, 231, 0.08) 0%,
+      rgba(255, 248, 231, 0.02) 30%,
+      transparent 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(20, 27, 24, 0.08) 0%,
+      rgba(20, 27, 24, 0.16) 48%,
+      rgba(15, 21, 19, 0.36) 100%
+    );
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero-1-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   color: var(--color-text);
 }
 

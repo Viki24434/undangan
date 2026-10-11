@@ -24,5 +24,75 @@
 }
 
 .invitation-lavender .invitation-closing {
-  background: #ece5f2;
+  background:
+    radial-gradient(ellipse at 100% 100%, #a894c955, transparent 58%),
+    #211b2d;
+}
+
+.invitation-lavender {
+  --color-bg: #211b2d;
+  --color-text: #f2edf5;
+  --color-accent: #c5aadf;
+  --invitation-muted: #b9aac7;
+  --invitation-panel: #332942;
+  --invitation-line: #c5aadf55;
+  --invitation-on-accent: #281d35;
+  background-image:
+    radial-gradient(ellipse at 0 0, #9273ad55, transparent 45%),
+    radial-gradient(ellipse at 100% 60%, #65497744, transparent 48%),
+    linear-gradient(160deg, #211b2d, #2d2139 58%, #1c1727);
+}
+
+.invitation-lavender .invitation-cover-frame {
+  border-color: #c5aadf88;
+  background: linear-gradient(160deg, #50385fa8, #211a2be8);
+  box-shadow: inset 0 0 0 7px #f2edf50b, 0 22px 60px #110d1888;
+}
+
+.invitation-lavender .hero-2::before {
+  background:
+    radial-gradient(ellipse 76% 42% at 50% 0, #e1c7fa2b, transparent 100%),
+    linear-gradient(180deg, #30213e44, #1a1424dc);
+}
+
+.invitation-lavender .hero-2 .invitation-kicker,
+.invitation-lavender .hero-2 .invitation-divider {
+  color: #e1c7fa;
+}
+
+.invitation-lavender .invitation-intro {
+  background:
+    url('/assets/svg/lavender-bouquet.svg') right 8px bottom 6px / 150px auto
+      no-repeat,
+    radial-gradient(ellipse at 50% 0, #81669c4d, transparent 65%);
+}
+
+.invitation-lavender .invitation-events,
+.invitation-lavender .story-2,
+.invitation-lavender .invitation-guestbook {
+  background:
+    radial-gradient(ellipse at 50% 0, #6e518455, transparent 72%),
+    var(--invitation-panel);
+}
+
+.invitation-lavender .invitation-event-card,
+.invitation-lavender .countdown-2__unit,
+.invitation-lavender .story-2__entry article,
+.invitation-lavender .gift-2__card,
+.invitation-lavender .wishes-2 .invitation-form {
+  border-color: var(--invitation-line);
+  background: linear-gradient(145deg, #49365a, #2b2138);
+  box-shadow: 0 14px 34px #110d1877;
+}
+
+.invitation-lavender .gallery-2__item,
+.invitation-lavender .couple-2__portrait {
+  border-color: var(--invitation-line);
+  box-shadow: 0 12px 28px #110d1877;
+}
+
+.invitation-lavender .invitation-form input,
+.invitation-lavender .invitation-form textarea,
+.invitation-lavender .invitation-form select {
+  background: #1b1725;
 }

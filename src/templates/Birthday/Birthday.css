@@ -48,5 +48,55 @@
   margin-bottom: 0;
 }
 .invitation-birthday .invitation-closing {
-  background: #f2dfdf;
+  background:
+    radial-gradient(ellipse at 100% 100%, #d27b9977, transparent 58%),
+    #f2dfe6;
+}
+
+.invitation-birthday {
+  --color-bg: #f4dfe7;
+  --color-text: #563243;
+  --color-accent: #a64d70;
+  --invitation-muted: #805d6d;
+  --invitation-panel: #eacbd8;
+  --invitation-line: #a64d7044;
+  --invitation-on-accent: #fff7f9;
+  background-image:
+    radial-gradient(ellipse at 100% 0, #e89db588, transparent 45%),
+    radial-gradient(ellipse at 0 65%, #f2c58b66, transparent 48%),
+    linear-gradient(160deg, #f8e8ed, #f0d6e0 58%, #ead1df);
+}
+
+.invitation-birthday .cover-1-content {
+  border: 1px solid #fff0d699;
+  border-radius: 160px 160px 20px 20px;
+  background: linear-gradient(160deg, #87425fbb, #4d2943e8);
+  box-shadow: 0 22px 56px #49243c44;
+}
+
+.invitation-birthday .hero-1-overlay {
+  background:
+    radial-gradient(ellipse 76% 45% at 50% 0, #ffdfae44, transparent 100%),
+    linear-gradient(180deg, #71375233, #3d203fc9);
+}
+
+.invitation-birthday .invitation-events,
+.invitation-birthday .invitation-guestbook {
+  background:
+    radial-gradient(ellipse at 50% 0, #d781a366, transparent 72%),
+    var(--invitation-panel);
+}
+
+.invitation-birthday .invitation-event-card,
+.invitation-birthday .cd-1-box,
+.invitation-birthday .birthday-note {
+  border-color: var(--invitation-line);
+  background: linear-gradient(145deg, #fff0f3, #edcbd8);
+  box-shadow: 0 14px 30px #6742541c;
+}
+
+.invitation-birthday .invitation-form input,
+.invitation-birthday .invitation-form textarea,
+.invitation-birthday .invitation-form select {
+  background: #fff0f3;
 }

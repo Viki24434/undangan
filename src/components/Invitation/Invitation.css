@@ -92,19 +92,70 @@
   --color-accent: #e7d8b3;
 }
 .celebration-template .hero-1-overlay {
-  background: linear-gradient(180deg, #18201955, #182019bb);
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 76% 45% at 50% 0%,
+      rgba(255, 239, 198, 0.22),
+      transparent 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 248, 231, 0.08) 0%,
+      rgba(255, 248, 231, 0.02) 30%,
+      transparent 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(20, 27, 24, 0.08) 0%,
+      rgba(20, 27, 24, 0.16) 48%,
+      rgba(15, 21, 19, 0.36) 100%
+    );
+}
+.hero-1-container > .decoration-layer,
+.invitation-hero > .decoration-layer {
+  z-index: 3;
 }
 .celebration-template .hero-1-title,
 .celebration-template .hero-1-subtitle,
 .celebration-template .hero-1-quote {
   color: #fff6e5;
 }
-.invitation-cover-shade,
 .invitation-hero::before {
   content: '';
   position: absolute;
   inset: 0;
+}
+.invitation-cover-shade {
+  content: '';
+  position: absolute;
+  inset: 0;
   background: linear-gradient(180deg, #18201977, #182019cc);
+}
+.invitation-hero::before {
+  z-index: 1;
+  background:
+    radial-gradient(
+      ellipse 76% 45% at 50% 0%,
+      rgba(255, 239, 198, 0.22),
+      transparent 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 248, 231, 0.08) 0%,
+      rgba(255, 248, 231, 0.02) 30%,
+      transparent 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(20, 27, 24, 0.08) 0%,
+      rgba(20, 27, 24, 0.16) 48%,
+      rgba(15, 21, 19, 0.42) 100%
+    );
+}
+.invitation-hero::before {
+  z-index: 1;
 }
 .invitation-cover-frame {
   position: relative;
@@ -192,6 +243,7 @@
 }
 .invitation-hero-copy {
   position: relative;
+  z-index: 3;
   width: 100%;
   padding: 65px 12px;
   border-block: 1px solid #e7d8b344;

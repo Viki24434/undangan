@@ -15,6 +15,7 @@ export const templateRegistry = [
     category: 'Pernikahan',
     description: 'Hijau sage dan nuansa natural untuk hari bahagia.',
     img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    palette: ['#17251d', '#c6b875', '#24362a'],
     component: lazy(() => import('../templates/Wedding/Wedding')),
   },
   {
@@ -23,6 +24,7 @@ export const templateRegistry = [
     category: 'Ulang tahun',
     description: 'Pastel ceria dan detail manis untuk pesta istimewa.',
     img: 'https://images.unsplash.com/photo-1530103862676-de8892b12fa6?w=1200&q=85',
+    palette: ['#f4dfe7', '#a64d70', '#eacbd8'],
     component: lazy(() => import('../templates/Birthday/Birthday')),
   },
   {
@@ -31,7 +33,7 @@ export const templateRegistry = [
     category: 'Pernikahan',
     description: 'Blush romantis, bingkai floral, dan detail rose gold.',
     img: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1200&q=85',
-    palette: ['#fbf1f0', '#a65a72', '#f4e1e4'],
+    palette: ['#2b1721', '#e5a6b6', '#422332'],
     component: lazy(() => import('../templates/RoseRomance/RoseRomance')),
   },
   {
@@ -51,7 +53,7 @@ export const templateRegistry = [
     category: 'Pernikahan',
     description: 'Warna tanah hangat dan bentuk organik bernuansa bohemian.',
     img: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=1200&q=85',
-    palette: ['#f6eee2', '#a65439', '#ede0cf'],
+    palette: ['#2d1a15', '#e1a477', '#46291f'],
     component: lazy(
       () => import('../templates/TerracottaBloom/TerracottaBloom'),
     ),
@@ -62,7 +64,7 @@ export const templateRegistry = [
     category: 'Pernikahan',
     description: 'Putih ivory, garis halus, dan komposisi editorial minimalis.',
     img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=85',
-    palette: ['#fcfaf5', '#86714d', '#f0ece3'],
+    palette: ['#e9e2d3', '#806b46', '#dcd3c1'],
     component: lazy(() => import('../templates/IvoryPearl/IvoryPearl')),
   },
   {
@@ -71,7 +73,7 @@ export const templateRegistry = [
     category: 'Aqiqah & khitan',
     description: 'Biru lembut, bulan sabit, dan syukur atas hadirnya si kecil.',
     img: 'https://images.unsplash.com/photo-1544425501-799b66236316?w=1200&q=85',
-    palette: ['#f0f5f9', '#527b9d', '#e0ebf3'],
+    palette: ['#dbe8f3', '#547da4', '#c7d9eb'],
     component: lazy(() => import('../templates/LittleMoon/LittleMoon')),
   },
   {
@@ -99,7 +101,7 @@ export const templateRegistry = [
     category: 'Pernikahan',
     description: 'Lavender lembut, rangkaian bunga, dan nuansa romantis.',
     img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85',
-    palette: ['#f7f3fa', '#78658f', '#ece5f2'],
+    palette: ['#211b2d', '#c5aadf', '#332942'],
     component: lazy(() => import('../templates/LavenderVow/LavenderVow')),
   },
   {
@@ -108,7 +110,7 @@ export const templateRegistry = [
     category: 'Pernikahan',
     description: 'Warna laut yang tenang dan aksen pesisir yang segar.',
     img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
-    palette: ['#f3f8f6', '#477f8c', '#e0eeeb'],
+    palette: ['#142b32', '#9bcac5', '#1d4148'],
     component: lazy(
       () => import('../templates/CoastalPromise/CoastalPromise'),
     ),
@@ -119,7 +121,7 @@ export const templateRegistry = [
     category: 'Ulang tahun',
     description: 'Pesta taman penuh bunga, warna hangat, dan keceriaan.',
     img: 'https://images.unsplash.com/photo-1530103862676-de8892b12fa6?w=1200&q=85',
-    palette: ['#fff8ef', '#ae6a58', '#f6eadd'],
+    palette: ['#e9ead8', '#9d6248', '#d9dfc2'],
     component: lazy(() => import('../templates/GardenParty/GardenParty')),
   },
   {
@@ -129,8 +131,28 @@ export const templateRegistry = [
     description:
       'Bunga matahari, dedaunan alami, dan nuansa hangat untuk hari istimewa.',
     img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
-    palette: ['#fbf6e8', '#a76c25', '#e9dfbd'],
+    palette: ['#302716', '#e0b94f', '#493a1c'],
     component: lazy(() => import('../templates/SunflowerVow/SunflowerVow')),
+  },
+  {
+    id: 'burgundy-vow-01',
+    name: 'Burgundy Vow Wedding',
+    category: 'Pernikahan',
+    description:
+      'Merah hati, aksen champagne, dan suasana romantis yang berkelas.',
+    img: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1200&q=85',
+    palette: ['#32131f', '#d9ad78', '#4b1c2d'],
+    component: lazy(() => import('../templates/BurgundyVow/BurgundyVow')),
+  },
+  {
+    id: 'pink-blush-01',
+    name: 'Pink Blush Wedding',
+    category: 'Pernikahan',
+    description:
+      'Nuansa pink lembut, aksen mawar, dan detail manis yang elegan.',
+    img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    palette: ['#3b192c', '#e6a3bd', '#57263f'],
+    component: lazy(() => import('../templates/PinkBlush/PinkBlush')),
   },
 ];
 

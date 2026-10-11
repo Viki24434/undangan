@@ -30,5 +30,80 @@
 }
 
 .invitation-coastal .invitation-closing {
-  background: #e0eeeb;
+  background:
+    radial-gradient(ellipse at 100% 100%, #4f999266, transparent 58%),
+    #142b32;
+}
+
+.invitation-coastal {
+  --color-bg: #142b32;
+  --color-text: #e8f2ee;
+  --color-accent: #9bcac5;
+  --invitation-muted: #a9c6c2;
+  --invitation-panel: #1d4148;
+  --invitation-line: #9bcac555;
+  --invitation-on-accent: #173039;
+  background-image:
+    radial-gradient(ellipse at 100% 0, #4e94944d, transparent 46%),
+    radial-gradient(ellipse at 0 70%, #316b7144, transparent 48%),
+    linear-gradient(160deg, #142b32, #1a373e 58%, #10252c);
+}
+
+.invitation-coastal .invitation-cover-frame {
+  border-color: #9bcac588;
+  background: linear-gradient(145deg, #1e555db0, #112a31e8);
+  box-shadow: inset 0 0 0 7px #e8f2ee0b, 0 22px 60px #09191e88;
+}
+
+.invitation-coastal .hero-2::before {
+  background:
+    radial-gradient(ellipse 76% 42% at 50% 0, #d6f1e933, transparent 100%),
+    linear-gradient(180deg, #17434b3b, #0b2027dc);
+}
+
+.invitation-coastal .hero-2 .invitation-kicker,
+.invitation-coastal .hero-2 .invitation-divider {
+  color: #c2e1d9;
+}
+
+.invitation-coastal .invitation-intro {
+  background:
+    url('/assets/svg/coastal-waves.svg') center bottom / min(340px, 90%) auto
+      no-repeat,
+    radial-gradient(ellipse at 50% 0, #41838b55, transparent 70%);
+}
+
+.invitation-coastal .invitation-events,
+.invitation-coastal .story-2,
+.invitation-coastal .invitation-guestbook {
+  background:
+    radial-gradient(ellipse at 50% 0, #39757a55, transparent 72%),
+    var(--invitation-panel);
+}
+
+.invitation-coastal .invitation-event-card,
+.invitation-coastal .countdown-2__unit,
+.invitation-coastal .story-2__entry article,
+.invitation-coastal .gift-2__card,
+.invitation-coastal .wishes-2 .invitation-form {
+  border-color: var(--invitation-line);
+  background: linear-gradient(145deg, #28535a, #193941);
+  box-shadow: 0 14px 34px #09191e77;
+}
+
+.invitation-coastal .couple-2__portrait {
+  border-color: var(--color-accent);
+  background: #1d4148;
+  box-shadow: 0 0 0 7px var(--color-bg), 0 0 0 8px #9bcac555;
+}
+
+.invitation-coastal .gallery-2__item {
+  border-color: var(--invitation-line);
+  box-shadow: 0 12px 28px #09191e77;
+}
+
+.invitation-coastal .invitation-form input,
+.invitation-coastal .invitation-form textarea,
+.invitation-coastal .invitation-form select {
+  background: #10252c;
 }
