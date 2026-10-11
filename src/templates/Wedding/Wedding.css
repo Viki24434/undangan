@@ -11,12 +11,13 @@
   border-radius: 160px 160px 12px 12px;
 }
 .invitation-botanical .invitation-intro::before {
-  content: '❧';
+  content: '';
   display: block;
-  font-size: 65px;
-  color: var(--color-accent);
-  line-height: 1;
-  margin-bottom: 28px;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 28px;
+  background: url('/assets/botanical-sprig.svg') center / contain no-repeat;
+  transform: rotate(-42deg);
 }
 .invitation-botanical .invitation-closing {
   background: #e3e9d5;

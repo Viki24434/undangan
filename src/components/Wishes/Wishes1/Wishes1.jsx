@@ -1,8 +1,21 @@
-import React from 'react';
 import Button from '../../Button/Button';
 import './Wishes1.css';
 
-export default function Wishes1({ wishes }) {
+export default function Wishes1({ wishes = [], children }) {
+  if (children) {
+    return (
+      <section
+        className="wishes-1-container invitation-section invitation-guestbook"
+        id="invitation-wishes"
+      >
+        <span className="invitation-kicker">SEND A LITTLE LOVE</span>
+        <h2>Ucapan &amp; doa</h2>
+        <p>Satu pesan kecil, begitu banyak arti.</p>
+        {children}
+      </section>
+    );
+  }
+
   return (
     <section className="wishes-1-container">
       <h2

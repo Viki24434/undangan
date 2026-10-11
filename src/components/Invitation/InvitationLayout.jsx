@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import FloralDecoration from './FloralDecoration';
 import GuestGuide from './GuestGuide';
 import InvitationMusic from './InvitationMusic';
+import Cover1 from '../Cover/Cover1/Cover1';
+import Cover2 from '../Cover/Cover2/Cover2';
+import Hero1 from '../Hero/Hero1/Hero1';
+import Hero2 from '../Hero/Hero2/Hero2';
 import './Invitation.css';
 
 export default function InvitationLayout({
@@ -13,6 +17,7 @@ export default function InvitationLayout({
   image,
   date,
   monogram,
+  variants = {},
   children,
 }) {
   const invitation = useInvitation();
@@ -27,6 +32,8 @@ export default function InvitationLayout({
       ? '/audio/starlight.wav'
       : '/audio/romance.wav';
   const musicUrl = invitation?.data.musicUrl || defaultMusic;
+  const Cover = variants.cover === 1 ? Cover1 : Cover2;
+  const Hero = variants.hero === 1 ? Hero1 : Hero2;
 
   function openInvitation() {
     setOpened(true);
@@ -40,49 +47,48 @@ export default function InvitationLayout({
         <InvitationMusic ref={musicRef} src={musicUrl} visible={opened} />
       )}
       {!opened ? (
-        <section
-          className="invitation-cover"
-          style={{ backgroundImage: `url(${image})` }}
-        >
-          <div className="invitation-cover-shade" />
-          <FloralDecoration />
-          <div className="invitation-cover-frame">
-            <span className="invitation-monogram">{monogram}</span>
-            <span className="invitation-kicker">{subtitle}</span>
-            <h1>{displayTitle}</h1>
-            <p className="invitation-date">{date}</p>
-            <span className="invitation-divider" aria-hidden="true">
-              ✧
-            </span>
-            <p>Kepada orang-orang tersayang</p>
-            <h2>Tamu Undangan</h2>
-            <button className="invitation-button" onClick={openInvitation}>
-              Buka undangan <span aria-hidden="true">↗</span>
-            </button>
-            <Link className="invitation-back" to="/katalog">
-              Kembali ke katalog
-            </Link>
-          </div>
-        </section>
-      ) : (
-        <main className="invitation-content" ref={contentRef} tabIndex={-1}>
-          <section
-            className="invitation-hero"
-            style={{ backgroundImage: `url(${image})` }}
+        variants.cover === 1 ? (
+          <Cover
+            title={displayTitle}
+            subtitle={subtitle}
+            guestName={invitation?.guestName}
+            onOpen={openInvitation}
+            isOpened={false}
+            bgImage={image}
+          />
+        ) : (
+          <Cover
+            title={displayTitle}
+            subtitle={subtitle}
+            date={date}
+            monogram={monogram}
+            image={image}
+            onOpen={openInvitation}
           >
             <FloralDecoration />
-            <div className="invitation-hero-copy">
-              <span className="invitation-kicker">{subtitle}</span>
-              <h1>{displayTitle}</h1>
-              <span className="invitation-divider" aria-hidden="true">
-                ✧
-              </span>
-              <p>{date}</p>
-              <a className="invitation-scroll" href="#invitation-intro">
-                Jelajahi cerita kami ↓
-              </a>
-            </div>
-          </section>
+          </Cover>
+        )
+      ) : (
+        <main className="invitation-content" ref={contentRef} tabIndex={-1}>
+          {variants.hero === 1 ? (
+            <Hero
+              bgImage={image}
+              subtitle={subtitle}
+              title={displayTitle}
+              quote={date}
+            >
+              <FloralDecoration />
+            </Hero>
+          ) : (
+            <Hero
+              image={image}
+              subtitle={subtitle}
+              title={displayTitle}
+              date={date}
+            >
+              <FloralDecoration />
+            </Hero>
+          )}
           <nav className="invitation-section-nav" aria-label="Bagian undangan">
             <a href="#invitation-intro">Pembuka</a>
             <a href="#invitation-events">Acara</a>

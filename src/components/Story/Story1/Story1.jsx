@@ -1,4 +1,3 @@
-import React from 'react';
 import './Story1.css';
 
 export default function Story1({ stories }) {

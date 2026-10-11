@@ -12,13 +12,17 @@
 }
 .invitation-midnight .invitation-intro {
   background-image:
+    url('/assets/celestial-constellation.svg'),
     radial-gradient(circle at 12% 18%, #dfc48c88 0 1px, transparent 2px),
     radial-gradient(circle at 82% 28%, #ffffff88 0 1px, transparent 2px),
     radial-gradient(circle at 72% 75%, #dfc48c88 0 2px, transparent 3px);
   background-size:
+    155px auto,
     100px 130px,
     150px 180px,
     220px 190px;
+  background-repeat: no-repeat, repeat, repeat, repeat;
+  background-position: right 12px bottom 8px, center, center, center;
 }
 .invitation-midnight .invitation-event-card {
   border-radius: 18px;

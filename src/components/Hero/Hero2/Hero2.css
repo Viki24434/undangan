@@ -1,0 +1,32 @@
+.hero-2 {
+  background-position: center 38%;
+}
+
+.hero-2__copy {
+  max-width: 720px;
+  padding: 72px 18px;
+  border: 0;
+}
+
+.hero-2__copy::before,
+.hero-2__copy::after {
+  position: absolute;
+  left: 50%;
+  width: min(180px, 60%);
+  height: 1px;
+  background: #e7d8b388;
+  content: '';
+  transform: translateX(-50%);
+}
+
+.hero-2__copy::before {
+  top: 24px;
+}
+
+.hero-2__copy::after {
+  bottom: 24px;
+}
+
+.hero-2 .invitation-scroll {
+  margin-top: 48px;
+}

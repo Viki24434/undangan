@@ -1,0 +1,35 @@
+.cover-2 .cover-2__frame {
+  max-width: 520px;
+  padding: 48px 28px 38px;
+  border-radius: 180px 180px 12px 12px;
+  background: linear-gradient(160deg, #18201955, #18201988);
+  backdrop-filter: blur(2px);
+  animation: cover-2-arrive 900ms ease both;
+}
+
+.cover-2 .invitation-monogram {
+  width: 72px;
+  height: 72px;
+  border-style: double;
+}
+
+.cover-2 .invitation-cover-frame h1 {
+  text-wrap: balance;
+}
+
+@keyframes cover-2-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-2 .cover-2__frame {
+    animation: none;
+  }
+}

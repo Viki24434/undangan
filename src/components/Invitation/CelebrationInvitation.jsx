@@ -3,8 +3,13 @@ import InvitationLayout from './InvitationLayout';
 import EventSection from './EventSection';
 import InvitationGallery from './InvitationGallery';
 import Guestbook from './Guestbook';
+import Gallery1 from '../Gallery/Gallery1/Gallery1';
 
-export default function CelebrationInvitation({ theme, data: defaults }) {
+export default function CelebrationInvitation({
+  theme,
+  data: defaults,
+  components = {},
+}) {
   const data = useInvitationData(defaults);
   return (
     <InvitationLayout
@@ -14,6 +19,7 @@ export default function CelebrationInvitation({ theme, data: defaults }) {
       image={data.image}
       date={data.date}
       monogram={data.monogram}
+      variants={components}
     >
       <section
         className="invitation-section invitation-intro"
@@ -39,9 +45,17 @@ export default function CelebrationInvitation({ theme, data: defaults }) {
           ))}
         </div>
       </section>
-      <EventSection targetDate={data.targetDate} events={data.events} />
-      <InvitationGallery photos={data.photos} />
-      <Guestbook initialWishes={data.wishes} />
+      <EventSection
+        targetDate={data.targetDate}
+        events={data.events}
+        countdownVariant={components.countdown}
+      />
+      {components.gallery === 1 ? (
+        <Gallery1 photos={data.photos} />
+      ) : (
+        <InvitationGallery photos={data.photos} />
+      )}
+      <Guestbook initialWishes={data.wishes} variant={components.wishes} />
     </InvitationLayout>
   );
 }

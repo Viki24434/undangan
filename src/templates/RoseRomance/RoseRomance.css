@@ -11,7 +11,12 @@
   border-radius: 150px 150px 22px 22px;
 }
 .invitation-rose .invitation-intro {
-  background: radial-gradient(circle at 0 0, #e9b9c455, transparent 55%);
+  background-image:
+    url('/assets/rose-bloom.svg'),
+    radial-gradient(circle at 0 0, #e9b9c455, transparent 55%);
+  background-repeat: no-repeat;
+  background-position: right 8px bottom 8px, center;
+  background-size: 145px auto, cover;
 }
 .invitation-rose .invitation-event-card {
   border-radius: 80px 80px 16px 16px;

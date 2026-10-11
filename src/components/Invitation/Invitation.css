@@ -54,6 +54,40 @@
   padding: 32px 24px;
   color: #fff6e5;
 }
+.celebration-template .cover-1-wrapper {
+  color: #fff6e5;
+  background-color: var(--color-bg);
+  --color-text: #fff6e5;
+  --color-accent: #e7d8b3;
+  --color-overlay: linear-gradient(180deg, #18201977, #182019cc);
+}
+.celebration-template .cover-1-content {
+  width: min(100%, 520px);
+  padding: 48px 28px 38px;
+  border: 1px solid #ebd8a780;
+  border-radius: 180px 180px 12px 12px;
+  background: #18201955;
+}
+.celebration-template .cover-1-content > p,
+.celebration-template .cover-1-content > h3 {
+  color: #fff6e5;
+}
+.celebration-template .cover-1-content > button {
+  color: #fff !important;
+}
+.celebration-template .hero-1-container {
+  color: #fff6e5;
+  --color-text: #fff6e5;
+  --color-accent: #e7d8b3;
+}
+.celebration-template .hero-1-overlay {
+  background: linear-gradient(180deg, #18201955, #182019bb);
+}
+.celebration-template .hero-1-title,
+.celebration-template .hero-1-subtitle,
+.celebration-template .hero-1-quote {
+  color: #fff6e5;
+}
 .invitation-cover-shade,
 .invitation-hero::before {
   content: '';
@@ -359,11 +393,11 @@
   display: none;
 }
 .celebration-template .couple-1-img {
-  height: 260px;
-  width: 200px;
-  border-radius: 100px 100px 8px 8px;
-  padding: 6px;
-  border: 1px solid var(--color-accent);
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  padding: 0;
+  border: 0;
   box-shadow: 0 12px 30px #00000012;
 }
 .celebration-template .couple-1-card p {

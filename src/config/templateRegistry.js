@@ -93,6 +93,35 @@ export const templateRegistry = [
     palette: ['#201a3b', '#c0a1f3', '#30264f'],
     component: lazy(() => import('../templates/CosmicBirthday/CosmicBirthday')),
   },
+  {
+    id: 'lavender-vow-01',
+    name: 'Lavender Vow Wedding',
+    category: 'Pernikahan',
+    description: 'Lavender lembut, rangkaian bunga, dan nuansa romantis.',
+    img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85',
+    palette: ['#f7f3fa', '#78658f', '#ece5f2'],
+    component: lazy(() => import('../templates/LavenderVow/LavenderVow')),
+  },
+  {
+    id: 'coastal-promise-01',
+    name: 'Coastal Promise Wedding',
+    category: 'Pernikahan',
+    description: 'Warna laut yang tenang dan aksen pesisir yang segar.',
+    img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    palette: ['#f3f8f6', '#477f8c', '#e0eeeb'],
+    component: lazy(
+      () => import('../templates/CoastalPromise/CoastalPromise'),
+    ),
+  },
+  {
+    id: 'garden-party-birthday-01',
+    name: 'Garden Party Birthday',
+    category: 'Ulang tahun',
+    description: 'Pesta taman penuh bunga, warna hangat, dan keceriaan.',
+    img: 'https://images.unsplash.com/photo-1530103862676-de8892b12fa6?w=1200&q=85',
+    palette: ['#fff8ef', '#ae6a58', '#f6eadd'],
+    component: lazy(() => import('../templates/GardenParty/GardenParty')),
+  },
 ];
 
 export const templateCategories = [

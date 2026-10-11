@@ -1,13 +1,13 @@
-import React from 'react';
 import './Hero1.css';
 
-export default function Hero1({ bgImage, subtitle, title, quote }) {
+export default function Hero1({ bgImage, subtitle, title, quote, children }) {
   return (
     <section
       className="hero-1-container"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="hero-1-overlay"></div>
+      {children}
 
       <div className="hero-1-content">
         <p className="hero-1-subtitle animate-fade-in-down">{subtitle}</p>

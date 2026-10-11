@@ -1,0 +1,28 @@
+.invitation-lavender {
+  --color-bg: #f7f3fa;
+  --color-text: #493d58;
+  --color-accent: #78658f;
+  --invitation-muted: #82788e;
+  --invitation-panel: #ece5f2;
+  --invitation-line: #78658f38;
+  --invitation-on-accent: #ffffff;
+}
+
+.invitation-lavender .invitation-cover-frame {
+  border-radius: 160px 160px 18px 18px;
+}
+
+.invitation-lavender .invitation-intro {
+  background:
+    url('/assets/lavender-bouquet.svg') right 8px bottom 6px / 150px auto
+      no-repeat,
+    radial-gradient(ellipse at 50% 0, #d9d0e655, transparent 65%);
+}
+
+.invitation-lavender .invitation-event-card {
+  border-radius: 80px 80px 14px 14px;
+}
+
+.invitation-lavender .invitation-closing {
+  background: #ece5f2;
+}

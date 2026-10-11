@@ -11,11 +11,12 @@
   border-radius: 150px 150px 8px 8px;
 }
 .invitation-terracotta .invitation-intro {
-  background: radial-gradient(
-    ellipse at bottom left,
-    #cda87833,
-    transparent 65%
-  );
+  background-image:
+    url('/assets/terracotta-sun.svg'),
+    radial-gradient(ellipse at bottom left, #cda87833, transparent 65%);
+  background-repeat: no-repeat;
+  background-position: right 8px bottom 8px, center;
+  background-size: 150px auto, cover;
 }
 .invitation-terracotta .invitation-event-card {
   border-radius: 95px 95px 4px 4px;

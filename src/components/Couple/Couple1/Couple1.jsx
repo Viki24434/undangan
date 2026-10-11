@@ -1,4 +1,3 @@
-import React from 'react';
 import './Couple1.css';
 import ScrollReveal from '../../ScrollReveal/ScrollReveal';
 
@@ -43,7 +42,15 @@ export default function Couple1({ groom, bride }) {
       <div className="couple-1-grid">
         <ScrollReveal animationClass="animate-fade-in-up">
           <div className="couple-1-card">
-            <img src={groom.photo} alt={groom.name} className="couple-1-img" />
+            <div className="couple-1-portrait">
+              <img src={groom.photo} alt={groom.name} className="couple-1-img" />
+              <img
+                className="couple-1-flowers"
+                src="/assets/couple-floral-spray.svg"
+                alt=""
+                aria-hidden="true"
+              />
+            </div>
             <h3 className="couple-1-name">{groom.name}</h3>
             <p>
               Putra dari Bapak {groom.father} & Ibu {groom.mother}
@@ -65,7 +72,15 @@ export default function Couple1({ groom, bride }) {
 
         <ScrollReveal animationClass="animate-fade-in-up" delay="delay-300">
           <div className="couple-1-card">
-            <img src={bride.photo} alt={bride.name} className="couple-1-img" />
+            <div className="couple-1-portrait">
+              <img src={bride.photo} alt={bride.name} className="couple-1-img" />
+              <img
+                className="couple-1-flowers couple-1-flowers-reverse"
+                src="/assets/couple-floral-spray.svg"
+                alt=""
+                aria-hidden="true"
+              />
+            </div>
             <h3 className="couple-1-name">{bride.name}</h3>
             <p>
               Putri dari Bapak {bride.father} & Ibu {bride.mother}

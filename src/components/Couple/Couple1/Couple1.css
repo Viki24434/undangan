@@ -1,36 +1,113 @@
 .couple-1-container {
+  position: relative;
   padding: 80px 20px;
   text-align: center;
-  background: var(--color-bg);
+  background:
+    url('/assets/couple-floral-wreath.svg') center 8px / 145px auto no-repeat,
+    radial-gradient(ellipse at 50% 52%, var(--invitation-panel), transparent 68%),
+    var(--color-bg);
   color: var(--color-text);
 }
 
 .couple-1-grid {
   display: flex;
-  flex-direction: column;
-  gap: 40px;
-  margin-top: 40px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 3vw, 36px);
+  max-width: 760px;
+  margin: 46px auto 0;
 }
 
 .couple-1-card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: min(100%, 260px);
+}
+
+.couple-1-portrait {
+  position: relative;
+  width: min(100%, 210px);
+  aspect-ratio: 4 / 5;
+  margin-bottom: 16px;
+  padding: 8px;
+  border: 1px solid var(--color-accent);
+  border-radius: 110px 110px 10px 10px;
+  background: var(--color-bg);
+  box-shadow:
+    0 18px 34px color-mix(in srgb, var(--color-text) 12%, transparent),
+    inset 0 0 0 4px var(--invitation-panel);
 }
 
 .couple-1-img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
   object-fit: cover;
-  border: 5px solid var(--color-accent);
-  margin-bottom: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.couple-1-portrait .couple-1-flowers {
+  position: absolute;
+  right: -27px;
+  bottom: -17px;
+  width: 100px;
+  height: auto;
+  filter: drop-shadow(0 5px 8px #0002);
+}
+
+.couple-1-portrait .couple-1-flowers-reverse {
+  right: auto;
+  left: -27px;
+  transform: scaleX(-1);
 }
 
 .couple-1-name {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
   color: var(--color-accent);
-  margin: 0 0 10px 0;
+  margin: 0 0 8px;
+  overflow-wrap: anywhere;
+}
+
+.couple-1-card p {
+  max-width: 250px;
+  color: var(--invitation-muted, currentColor);
+  font-size: 12px;
+}
+
+.couple-1-grid > :nth-child(2) {
+  position: relative;
+}
+
+.couple-1-grid > :nth-child(2) h1 {
+  margin: 0;
+  color: var(--color-accent);
+  font: italic 42px var(--font-heading);
+}
+
+@media (max-width: 420px) {
+  .couple-1-grid {
+    gap: 6px;
+  }
+
+  .couple-1-card p {
+    font-size: 10px;
+  }
+
+  .couple-1-portrait .couple-1-flowers {
+    right: -22px;
+    bottom: -13px;
+    width: 79px;
+  }
+
+  .couple-1-portrait .couple-1-flowers-reverse {
+    right: auto;
+    left: -22px;
+  }
+
+  .couple-1-grid > :nth-child(2) h1 {
+    font-size: 30px;
+  }
 }

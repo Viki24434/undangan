@@ -1,0 +1,129 @@
+.couple-2 {
+  position: relative;
+  overflow: hidden;
+  background:
+    url('/assets/couple-floral-wreath.svg') center 8px / 145px auto no-repeat,
+    radial-gradient(ellipse at 50% 60%, var(--invitation-panel), transparent 68%),
+    var(--color-bg);
+}
+
+.couple-2__pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  max-width: 720px;
+  margin: 42px auto 0;
+}
+
+.couple-2__person {
+  min-width: 0;
+}
+
+.couple-2__portrait {
+  position: relative;
+  width: min(100%, 210px);
+  aspect-ratio: 4 / 5;
+  margin: 0 auto 24px;
+  padding: 8px;
+  border: 1px solid var(--color-accent);
+  border-radius: 110px 110px 10px 10px;
+  background: var(--color-bg);
+  box-shadow:
+    0 18px 34px color-mix(in srgb, var(--color-text) 12%, transparent),
+    inset 0 0 0 4px var(--invitation-panel);
+}
+
+.couple-2__portrait > img:first-child {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.couple-2__portrait .couple-2__flowers {
+  position: absolute;
+  right: -27px;
+  bottom: -17px;
+  width: 100px;
+  height: auto;
+  filter: drop-shadow(0 5px 8px #0002);
+}
+
+.couple-2__person:nth-child(3) .couple-2__flowers {
+  right: auto;
+  left: -27px;
+  transform: scaleX(-1);
+}
+
+.couple-2__person .invitation-kicker {
+  font-size: 8px;
+}
+
+.couple-2__person p {
+  max-width: 240px;
+  margin: 0 auto;
+  color: var(--invitation-muted);
+  font-size: 11px;
+}
+
+.couple-2__person h3 {
+  margin: 12px 0 8px;
+  color: var(--color-accent);
+  font-size: clamp(22px, 6vw, 34px);
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.couple-2__ampersand {
+  align-self: center;
+  position: relative;
+  color: var(--color-accent);
+  font: italic 42px var(--font-heading);
+}
+
+.couple-2__ampersand::before,
+.couple-2__ampersand::after {
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  height: 32px;
+  background: var(--invitation-line);
+  content: '';
+  transform: translateX(-50%);
+}
+
+.couple-2__ampersand::before {
+  bottom: calc(100% + 7px);
+}
+
+.couple-2__ampersand::after {
+  top: calc(100% + 7px);
+}
+
+@media (max-width: 420px) {
+  .couple-2__pair {
+    gap: 6px;
+  }
+
+  .couple-2__person p {
+    font-size: 10px;
+  }
+
+  .couple-2__portrait .couple-2__flowers {
+    right: -22px;
+    bottom: -13px;
+    width: 79px;
+  }
+
+  .couple-2__person:nth-child(3) .couple-2__flowers {
+    right: auto;
+    left: -22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .couple-2__portrait img {
+    transition: none;
+  }
+}

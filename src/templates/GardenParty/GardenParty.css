@@ -1,0 +1,38 @@
+.invitation-garden-party {
+  --color-bg: #fff8ef;
+  --color-text: #59483c;
+  --color-accent: #ae6a58;
+  --invitation-muted: #927d6d;
+  --invitation-panel: #f6eadd;
+  --invitation-line: #ae6a5838;
+  --invitation-on-accent: #ffffff;
+}
+
+.invitation-garden-party .invitation-cover-frame {
+  border-radius: 36px 36px 130px 130px;
+  border-style: dashed;
+}
+
+.invitation-garden-party .invitation-intro {
+  background:
+    url('/assets/garden-party-garland.svg') center bottom / min(300px, 90%)
+      auto no-repeat,
+    radial-gradient(circle at 50% 0, #f3d9c655, transparent 70%);
+}
+
+.invitation-garden-party .invitation-events {
+  background: #f6eadd;
+}
+
+.invitation-garden-party .invitation-event-card {
+  border-radius: 28px;
+  border-style: dashed;
+}
+
+.invitation-garden-party .celebration-honoree {
+  border-color: var(--invitation-line);
+}
+
+.invitation-garden-party .invitation-closing {
+  background: #f6eadd;
+}

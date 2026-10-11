@@ -1,0 +1,34 @@
+.invitation-coastal {
+  --color-bg: #f3f8f6;
+  --color-text: #31515a;
+  --color-accent: #477f8c;
+  --invitation-muted: #718b8d;
+  --invitation-panel: #e0eeeb;
+  --invitation-line: #477f8c38;
+  --invitation-on-accent: #ffffff;
+}
+
+.invitation-coastal .invitation-cover-frame {
+  border-radius: 12px 110px 12px 110px;
+}
+
+.invitation-coastal .invitation-intro {
+  background:
+    url('/assets/coastal-waves.svg') center bottom / min(340px, 90%) auto
+      no-repeat,
+    linear-gradient(180deg, #e0eeeb, var(--color-bg) 75%);
+}
+
+.invitation-coastal .invitation-events {
+  background:
+    radial-gradient(ellipse at top right, #bddbd455, transparent 50%),
+    var(--invitation-panel);
+}
+
+.invitation-coastal .invitation-event-card {
+  border-radius: 26px 4px 26px 4px;
+}
+
+.invitation-coastal .invitation-closing {
+  background: #e0eeeb;
+}

@@ -1,0 +1,39 @@
+.countdown-2 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  max-width: 460px;
+  margin: 30px auto;
+}
+
+.countdown-2__unit {
+  display: grid;
+  gap: 4px;
+  place-content: center;
+  min-height: 82px;
+  border: 1px solid var(--invitation-line);
+  border-radius: 48% 48% 10px 10px;
+  background: var(--color-bg);
+}
+
+.countdown-2__unit strong {
+  color: var(--color-accent);
+  font: 30px/1 var(--font-heading);
+}
+
+.countdown-2__unit span {
+  color: var(--invitation-muted);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 360px) {
+  .countdown-2 {
+    gap: 6px;
+  }
+
+  .countdown-2__unit strong {
+    font-size: 25px;
+  }
+}

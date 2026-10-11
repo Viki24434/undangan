@@ -2,8 +2,11 @@
 import { invitationService } from '../../services/api';
 import { useInvitation } from './InvitationContext';
 import RsvpForm from './RsvpForm';
+import Wishes1 from '../Wishes/Wishes1/Wishes1';
+import Wishes2 from '../Wishes/Wishes2/Wishes2';
 
-export default function Guestbook({ initialWishes = [] }) {
+export default function Guestbook({ initialWishes = [], variant = 2 }) {
+  const Wishes = variant === 1 ? Wishes1 : Wishes2;
   const invitation = useInvitation();
   const slug = invitation?.preview ? undefined : invitation?.slug;
   const [busy, setBusy] = useState(false);
@@ -89,13 +92,7 @@ export default function Guestbook({ initialWishes = [] }) {
     }
   }
   return (
-    <section
-      className="invitation-section invitation-guestbook"
-      id="invitation-wishes"
-    >
-      <span className="invitation-kicker">SEND A LITTLE LOVE</span>
-      <h2>Ucapan & doa</h2>
-      <p>Satu pesan kecil, begitu banyak arti.</p>
+    <Wishes>
       {slug && <RsvpForm slug={slug} />}
       <form className="invitation-form" onSubmit={submitWish}>
         <label>
@@ -169,6 +166,6 @@ export default function Guestbook({ initialWishes = [] }) {
           Muat ucapan lainnya
         </button>
       )}
-    </section>
+    </Wishes>
   );
 }

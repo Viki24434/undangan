@@ -1,0 +1,41 @@
+.gallery-2__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 140px;
+  gap: 10px;
+  max-width: 720px;
+  margin: 32px auto 0;
+}
+
+.gallery-2__item {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--invitation-line);
+  border-radius: 80px 80px 8px 8px;
+  background: var(--invitation-panel);
+}
+
+.gallery-2__item:first-child {
+  grid-column: 1 / -1;
+  grid-row: span 2;
+  border-radius: 140px 140px 8px 8px;
+}
+
+.gallery-2__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.gallery-2__item:hover img {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-2__item img {
+    transition: none;
+  }
+}

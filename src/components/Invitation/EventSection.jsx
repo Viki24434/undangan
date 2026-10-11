@@ -1,7 +1,10 @@
 ﻿import CalendarButton from './CalendarButton';
 import Countdown1 from '../Countdown/Countdown1/Countdown1';
+import Countdown2 from '../Countdown/Countdown2/Countdown2';
 
-export default function EventSection({ targetDate, events }) {
+export default function EventSection({ targetDate, events, countdownVariant = 2 }) {
+  const Countdown = countdownVariant === 1 ? Countdown1 : Countdown2;
+
   return (
     <section
       className="invitation-section invitation-events"
@@ -10,7 +13,7 @@ export default function EventSection({ targetDate, events }) {
       <span className="invitation-kicker">SAVE THE DATE</span>
       <h2>Hari yang dinantikan</h2>
       <p>Catat waktunya, hadirkan senyummu.</p>
-      <Countdown1 targetDate={targetDate} />
+      <Countdown targetDate={targetDate} />
       <div className="invitation-event-grid">
         {events.map((event, index) => (
           <article className="invitation-event-card" key={event.title}>

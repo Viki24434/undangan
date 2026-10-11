@@ -1,10 +1,9 @@
-import React from 'react';
 import './Gallery1.css';
 import ScrollReveal from '../../ScrollReveal/ScrollReveal';
 
 export default function Gallery1({ photos }) {
   return (
-    <section className="gallery-1-container">
+    <section className="gallery-1-container" id="invitation-gallery">
       <ScrollReveal animationClass="animate-fade-in-down">
         <h2
           style={{

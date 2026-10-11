@@ -1,4 +1,3 @@
-import React from 'react';
 import './Cover1.css';
 
 export default function Cover1({ title, subtitle, guestName, onOpen, isOpened, bgImage }) {
