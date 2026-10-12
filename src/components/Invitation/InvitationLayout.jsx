@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DecorationLayer from '../Ornament/DecorationLayer';
 import { ornamentPresets } from '../Ornament/ornamentPresets';
+import { ornamentAssets } from '../Ornament/ornamentAssets';
 import GuestGuide from './GuestGuide';
 import InvitationMusic from './InvitationMusic';
 import Cover1 from '../Cover/Cover1/Cover1';
@@ -86,7 +87,17 @@ export default function InvitationLayout({
     );
 
   return (
-    <div className={`celebration-template ${theme}`}>
+    <div
+      className={`celebration-template ${theme}`}
+      style={{
+        '--template-background-art': decorations.background
+          ? `url("${ornamentAssets[decorations.background.main].src}")`
+          : 'none',
+        '--template-edge-art': decorations.background
+          ? `url("${ornamentAssets[decorations.background.edge].src}")`
+          : 'none',
+      }}
+    >
       {musicEnabled && (
         <InvitationMusic ref={musicRef} src={musicUrl} visible={opened} />
       )}

@@ -2,7 +2,11 @@
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 50% 60%, var(--invitation-panel), transparent 68%),
+    radial-gradient(
+      ellipse at 50% 60%,
+      var(--invitation-panel),
+      transparent 68%
+    ),
     var(--color-bg);
 }
 
@@ -23,7 +27,7 @@
   position: relative;
   width: min(100%, 210px);
   aspect-ratio: 4 / 5;
-  margin: 0 auto 24px;
+  margin: 0 auto 56px;
   padding: 8px;
   border: 1px solid var(--color-accent);
   border-radius: 110px 110px 10px 10px;
@@ -93,7 +97,6 @@
   .couple-2__person p {
     font-size: 10px;
   }
-
 }
 
 @media (prefers-reduced-motion: reduce) {

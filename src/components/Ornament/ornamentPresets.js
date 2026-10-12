@@ -40,9 +40,21 @@ const portraitFlowers = (
 export const ornamentPresets = {
   'invitation-gold': {
     cover: cornerPair('blush-corner', '34%'),
-    hero: [{ asset: 'blush-leaf-spray', position: { top: '4%', left: '-5%' }, width: '30%' }],
+    hero: [
+      {
+        asset: 'blush-leaf-spray',
+        position: { top: '4%', left: '-5%' },
+        width: '30%',
+      },
+    ],
     couple: portraitFlowers(),
-    closing: [{ asset: 'blush-bouquet', position: { right: '-3%', bottom: 0 }, width: '38%' }],
+    closing: [
+      {
+        asset: 'blush-bouquet',
+        position: { right: '-3%', bottom: 0 },
+        width: '38%',
+      },
+    ],
   },
   'invitation-botanical': {
     cover: cornerPair('blush-corner', '36%'),
@@ -57,54 +69,129 @@ export const ornamentPresets = {
   },
   'invitation-rose': {
     cover: cornerPair('peony-corner', '37%'),
-    hero: [{ asset: 'peony-bottom-garland', position: { bottom: '-10%', left: '8%' }, width: '84%' }],
+    hero: [
+      {
+        asset: 'peony-bottom-garland',
+        position: { bottom: '-10%', left: '8%' },
+        width: '84%',
+      },
+    ],
     couple: portraitFlowers('peony-single', 'peony-single'),
-    closing: [{ asset: 'peony-bouquet', position: { right: 0, bottom: '-5%' }, width: '40%' }],
+    closing: [
+      {
+        asset: 'peony-bouquet',
+        position: { right: 0, bottom: '-5%' },
+        width: '40%',
+      },
+    ],
   },
   'invitation-midnight': {
     cover: cornerPair('blush-corner', '30%'),
-    hero: [{ asset: 'blush-bottom-garland', position: { bottom: '-10%', left: '10%' }, width: '80%', opacity: 0.72 }],
+    hero: [
+      {
+        asset: 'blush-bottom-garland',
+        position: { bottom: '-10%', left: '10%' },
+        width: '80%',
+        opacity: 0.72,
+      },
+    ],
     couple: portraitFlowers('blush-flower-single', 'blush-peony-single'),
   },
   'invitation-terracotta': {
     cover: cornerPair('blush-corner', '38%'),
-    hero: [{ asset: 'blush-bottom-garland', position: { bottom: '-10%', left: '12%' }, width: '76%' }],
+    hero: [
+      {
+        asset: 'blush-bottom-garland',
+        position: { bottom: '-10%', left: '12%' },
+        width: '76%',
+      },
+    ],
     couple: portraitFlowers(),
   },
   'invitation-ivory': {
     cover: cornerPair('blush-corner', '33%'),
-    hero: [{ asset: 'blush-bottom-garland', position: { bottom: '-10%', left: '13%' }, width: '74%' }],
+    hero: [
+      {
+        asset: 'blush-bottom-garland',
+        position: { bottom: '-10%', left: '13%' },
+        width: '74%',
+      },
+    ],
     couple: portraitFlowers(),
   },
   'invitation-birthday': {
     cover: cornerPair('blush-corner', '34%'),
-    hero: [{ asset: 'blush-bottom-garland', position: { bottom: '-10%', left: '10%' }, width: '80%' }],
+    hero: [
+      {
+        asset: 'blush-bottom-garland',
+        position: { bottom: '-10%', left: '10%' },
+        width: '80%',
+      },
+    ],
   },
   'invitation-cosmic': {
     cover: cornerPair('peony-corner', '32%'),
-    hero: [{ asset: 'peony-bottom-garland', position: { bottom: '-10%', left: '10%' }, width: '80%', opacity: 0.72 }],
+    hero: [
+      {
+        asset: 'peony-bottom-garland',
+        position: { bottom: '-10%', left: '10%' },
+        width: '80%',
+        opacity: 0.72,
+      },
+    ],
   },
   'invitation-emerald': {
     cover: cornerPair('blush-corner', '33%'),
-    hero: [{ asset: 'blush-leaf-spray', position: { top: '-5%', left: '2%' }, width: '30%' }],
+    hero: [
+      {
+        asset: 'blush-leaf-spray',
+        position: { top: '-5%', left: '2%' },
+        width: '30%',
+      },
+    ],
   },
   'invitation-little-moon': {
     cover: cornerPair('blush-corner', '32%'),
-    hero: [{ asset: 'blush-bottom-garland', position: { bottom: '-10%', left: '12%' }, width: '76%', opacity: 0.74 }],
+    hero: [
+      {
+        asset: 'blush-bottom-garland',
+        position: { bottom: '-10%', left: '12%' },
+        width: '76%',
+        opacity: 0.74,
+      },
+    ],
   },
   'invitation-coastal': {
     cover: cornerPair('blush-corner', '34%'),
-    hero: [{ asset: 'blush-bottom-garland', position: { bottom: '-10%', left: '10%' }, width: '80%' }],
+    hero: [
+      {
+        asset: 'blush-bottom-garland',
+        position: { bottom: '-10%', left: '10%' },
+        width: '80%',
+      },
+    ],
     couple: portraitFlowers('blush-leaf-spray', 'blush-leaf-spray'),
   },
   'invitation-lavender': {
     cover: cornerPair('peony-corner', '33%'),
-    hero: [{ asset: 'peony-bottom-garland', position: { bottom: '-10%', left: '9%' }, width: '82%' }],
+    hero: [
+      {
+        asset: 'peony-bottom-garland',
+        position: { bottom: '-10%', left: '9%' },
+        width: '82%',
+      },
+    ],
     couple: portraitFlowers('peony-single', 'peony-single'),
   },
   'invitation-garden-party': {
     cover: cornerPair('blush-corner', '36%'),
-    hero: [{ asset: 'blush-top-garland', position: { top: '-7%', left: '8%' }, width: '84%' }],
+    hero: [
+      {
+        asset: 'blush-top-garland',
+        position: { top: '-7%', left: '8%' },
+        width: '84%',
+      },
+    ],
   },
   'invitation-sunflower': {
     cover: [
@@ -365,3 +452,114 @@ export const ornamentPresets = {
     ],
   },
 };
+
+const themeFamilies = {
+  'invitation-gold': 'blush',
+  'invitation-botanical': 'blush',
+  'invitation-rose': 'peony',
+  'invitation-midnight': 'blush',
+  'invitation-terracotta': 'blush',
+  'invitation-ivory': 'blush',
+  'invitation-birthday': 'blush',
+  'invitation-cosmic': 'peony',
+  'invitation-emerald': 'blush',
+  'invitation-little-moon': 'blush',
+  'invitation-coastal': 'blush',
+  'invitation-lavender': 'peony',
+  'invitation-garden-party': 'blush',
+  'invitation-sunflower': 'sunflower',
+  'invitation-burgundy': 'red',
+  'invitation-pink-blush': 'peony',
+  'invitation-sunda-siger': 'sunda',
+  'invitation-jawa-paes': 'jawa',
+};
+
+const familyDetails = {
+  blush: [
+    'blush-flower-accent',
+    'blush-leaf-spray-light',
+    'blush-blossom-spray',
+  ],
+  peony: ['peony-accent', 'peony-leaf-spray-light', 'peony-blossom-spray'],
+  sunflower: [
+    'sunflower-accent',
+    'sunflower-leaf-spray-light',
+    'sunflower-leaf-accent',
+  ],
+  red: ['red-rose-bloom', 'red-leaf-spray-light', 'red-blossom-spray'],
+  sunda: ['sunda-kujang', 'sunda-angklung', 'sunda-siger'],
+  jawa: ['jawa-batik', 'jawa-kembar-mayang', 'jawa-ronce'],
+};
+
+const dividerItem = (asset) => ({ asset, animation: false });
+
+for (const [theme, family] of Object.entries(themeFamilies)) {
+  const preset = ornamentPresets[theme];
+  const [flower, leaf, spray] = familyDetails[family];
+  preset.background = {
+    main: `${family}-bouquet`,
+    edge: family === 'jawa' ? 'jawa-tuwuhan' : `${family}-side-garland`,
+  };
+  preset.dividers = {
+    story: [dividerItem(leaf)],
+    events: [dividerItem(spray)],
+    gallery: [dividerItem(family + '-bouquet')],
+    wishes: [dividerItem(flower)],
+  };
+  if (!preset.closing) {
+    preset.closing = [
+      {
+        asset: family + '-bouquet',
+        position: { bottom: '-3%', right: '-4%' },
+        width: '38%',
+      },
+    ];
+  }
+  if (!['sunda', 'jawa'].includes(family)) {
+    if (!preset.hero.some((item) => item.asset === `${family}-top-garland`)) {
+      preset.hero.push({
+        asset: `${family}-top-garland`,
+        position: { top: '-9%', left: '18%' },
+        width: '64%',
+        opacity: 0.45,
+      });
+    }
+    if (family === 'red' || family === 'peony') {
+      preset.closing.push({
+        asset: family === 'red' ? 'red-rose-branch' : 'peony-leaf-spray',
+        position: { top: '12%', left: '-8%' },
+        width: '24%',
+        opacity: 0.55,
+      });
+    }
+    preset.cover = [
+      ...preset.cover,
+      {
+        asset: leaf,
+        position: { top: '36%', right: '-9%' },
+        width: '23%',
+        opacity: 0.55,
+        rotate: 18,
+      },
+    ];
+    preset.hero = [
+      ...preset.hero,
+      {
+        asset: family + '-side-garland',
+        position: { top: '20%', left: '-10%' },
+        width: '24%',
+        opacity: 0.65,
+      },
+    ];
+  } else {
+    preset.hero = [
+      ...preset.hero,
+      {
+        asset: family + '-top-garland',
+        position: { top: '-8%', left: '14%' },
+        width: '72%',
+        opacity: 0.75,
+      },
+    ];
+  }
+}

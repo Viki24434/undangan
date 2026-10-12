@@ -1,0 +1,34 @@
+.ornament-divider {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 108px minmax(0, 1fr);
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 12px 28px;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.ornament-divider__line {
+  width: 100%;
+  height: 1px;
+  background: var(--invitation-line, var(--color-accent));
+}
+
+.ornament-divider__art {
+  position: relative;
+  width: 108px;
+  height: 108px;
+  display: grid;
+  place-items: center;
+}
+
+.ornament-divider__art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 1;
+}

@@ -1,4 +1,4 @@
-import DecorationLayer from '../../Ornament/DecorationLayer';
+import PortraitDecoration from '../PortraitDecoration';
 import ScrollReveal from '../../ScrollReveal/ScrollReveal';
 import './Couple3.css';
 
@@ -12,13 +12,13 @@ function Person({ person, role, decorations, delay }) {
     >
       <div className="couple-3__portrait">
         <img src={person.photo} alt={person.name} loading="lazy" />
-        <DecorationLayer items={decorations} />
+        <PortraitDecoration items={decorations} />
       </div>
       <span className="invitation-kicker">{role}</span>
       <h3>{person.name}</h3>
       <p>
-        {role === 'Mempelai pria' ? 'Putra' : 'Putri'} dari Bapak {person.father}{' '}
-        &amp; Ibu {person.mother}
+        {role === 'Mempelai pria' ? 'Putra' : 'Putri'} dari Bapak{' '}
+        {person.father} &amp; Ibu {person.mother}
       </p>
     </ScrollReveal>
   );

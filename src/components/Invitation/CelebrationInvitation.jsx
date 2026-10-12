@@ -1,3 +1,4 @@
+import OrnamentDivider from '../Ornament/OrnamentDivider';
 import AnimatedText from '../AnimatedText/AnimatedText';
 import { useInvitationData } from './InvitationContext';
 import InvitationLayout from './InvitationLayout';
@@ -56,6 +57,7 @@ export default function CelebrationInvitation({
           ))}
         </div>
       </ScrollReveal>
+      <OrnamentDivider theme={theme} section="events" />
       <EventSection
         targetDate={data.targetDate}
         events={data.events}
@@ -66,6 +68,7 @@ export default function CelebrationInvitation({
         videoUrl={data.videoUrl}
         prayers={data.prayers}
       />
+      <OrnamentDivider theme={theme} section="gallery" />
       {components.gallery === 1 ? (
         <Gallery1 photos={data.photos} />
       ) : components.gallery === 3 ? (
@@ -75,6 +78,7 @@ export default function CelebrationInvitation({
       ) : (
         <InvitationGallery photos={data.photos} />
       )}
+      <OrnamentDivider theme={theme} section="wishes" />
       <Guestbook initialWishes={data.wishes} variant={components.wishes} />
     </InvitationLayout>
   );

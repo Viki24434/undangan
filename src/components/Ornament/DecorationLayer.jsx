@@ -20,14 +20,16 @@ export default function DecorationLayer({ items = [], className = '' }) {
           .filter(Boolean)
           .join(' ');
         const motionClass =
-          item.animation ||
-          (asset.role === 'corner'
-            ? 'animate-corner-sway'
-            : asset.role === 'flower'
-              ? 'animate-flower-sway'
-              : asset.role === 'branch' || asset.role === 'side'
-                ? 'animate-branch-flutter'
-                : 'animate-arrangement-sway');
+          item.animation === false
+            ? ''
+            : item.animation ||
+              (asset.role === 'corner'
+                ? 'animate-corner-sway'
+                : asset.role === 'flower'
+                  ? 'animate-flower-sway'
+                  : asset.role === 'branch' || asset.role === 'side'
+                    ? 'animate-branch-flutter'
+                    : 'animate-arrangement-sway');
 
         return (
           <span

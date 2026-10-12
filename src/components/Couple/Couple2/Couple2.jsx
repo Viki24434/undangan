@@ -1,5 +1,5 @@
 import './Couple2.css';
-import DecorationLayer from '../../Ornament/DecorationLayer';
+import PortraitDecoration from '../PortraitDecoration';
 import ScrollReveal from '../../ScrollReveal/ScrollReveal';
 
 function PersonCard({ person, role, decorations }) {
@@ -7,7 +7,7 @@ function PersonCard({ person, role, decorations }) {
     <>
       <div className="couple-2__portrait">
         <img src={person.photo} alt={person.name} loading="lazy" />
-        <DecorationLayer items={decorations} />
+        <PortraitDecoration items={decorations} />
       </div>
       <span className="invitation-kicker">{role}</span>
       <h3>{person.name}</h3>
@@ -21,9 +21,13 @@ function PersonCard({ person, role, decorations }) {
 export default function Couple2({ groom, bride, decorations }) {
   return (
     <section className="couple-2 invitation-section">
-      <span className="invitation-kicker animate-fade-in-down">THE BRIDE &amp; THE GROOM</span>
+      <span className="invitation-kicker animate-fade-in-down">
+        THE BRIDE &amp; THE GROOM
+      </span>
       <h2 className="animate-soft-rise delay-100">Pasangan berbahagia</h2>
-      <p className="animate-fade-in delay-200">Dengan penuh cinta, kami memulai perjalanan baru bersama.</p>
+      <p className="animate-fade-in delay-200">
+        Dengan penuh cinta, kami memulai perjalanan baru bersama.
+      </p>
       <div className="couple-2__pair">
         <ScrollReveal
           as="article"

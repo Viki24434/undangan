@@ -1,4 +1,5 @@
-﻿import { useInvitation, useInvitationData } from './InvitationContext';
+import OrnamentDivider from '../Ornament/OrnamentDivider';
+import { useInvitation, useInvitationData } from './InvitationContext';
 import InvitationLayout from './InvitationLayout';
 import EventSection from './EventSection';
 import Guestbook from './Guestbook';
@@ -78,7 +79,9 @@ export default function WeddingInvitation({
         bride={data.bride}
         decorations={coupleDecorations}
       />
+      <OrnamentDivider theme={theme} section="story" />
       <Story stories={data.stories} />
+      <OrnamentDivider theme={theme} section="events" />
       <EventSection
         targetDate={data.targetDate}
         events={data.events}
@@ -89,6 +92,7 @@ export default function WeddingInvitation({
         videoUrl={data.videoUrl}
         prayers={data.prayers}
       />
+      <OrnamentDivider theme={theme} section="gallery" />
       <Gallery photos={data.photos} />
       {data.banks?.length > 0 && (
         <>
@@ -100,6 +104,7 @@ export default function WeddingInvitation({
           <Gift banks={data.banks} />
         </>
       )}
+      <OrnamentDivider theme={theme} section="wishes" />
       <Guestbook initialWishes={data.wishes} variant={components.wishes} />
     </InvitationLayout>
   );

@@ -1,13 +1,13 @@
 ﻿import './Couple1.css';
 import ScrollReveal from '../../ScrollReveal/ScrollReveal';
-import DecorationLayer from '../../Ornament/DecorationLayer';
+import PortraitDecoration from '../PortraitDecoration';
 
 function PersonCard({ person, role, relationship, decorations }) {
   return (
     <>
       <div className="couple-1-portrait">
         <img src={person.photo} alt={person.name} loading="lazy" />
-        <DecorationLayer items={decorations} />
+        <PortraitDecoration items={decorations} />
       </div>
       <div className="couple-1-details">
         <span className="invitation-kicker">{role}</span>

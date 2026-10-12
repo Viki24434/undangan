@@ -1,0 +1,4 @@
+.portrait-decoration .decoration-layer__item[data-ornament$='-bottom-garland'] {
+  translate: 0 -50%;
+  animation: none !important;
+}
