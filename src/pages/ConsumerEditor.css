@@ -1,0 +1,43 @@
+.consumer-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 28px 80px;
+}
+.consumer-loading {
+  padding: 60px 28px;
+}
+.consumer-editor .admin-page-heading {
+  align-items: flex-start;
+}
+.consumer-editor .admin-page-heading > div:first-child {
+  max-width: 660px;
+}
+.consumer-editor .admin-eyebrow {
+  display: block;
+  margin-top: 20px;
+}
+.consumer-download {
+  border: 1px solid var(--admin-line);
+  background: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  color: var(--admin-ink);
+}
+.template-edit-link {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 12px 16px;
+  border: 1px solid #d6d2c8;
+  border-radius: 12px;
+  color: #243e35;
+  text-decoration: none;
+  font:
+    12px 'Segoe UI',
+    sans-serif;
+}
+@media (max-width: 650px) {
+  .consumer-main {
+    padding: 28px 18px 64px;
+  }
+}

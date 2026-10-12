@@ -54,7 +54,10 @@ export default function TemplateViewer() {
 
   return (
     <InvitationContext.Provider value={invitation}>
-      <MobileWrapper bgImage={data.image || template.img}>
+      <MobileWrapper
+        bgImage={data.image || template.img}
+        editTo={`/edit/${id}`}
+      >
         <Suspense
           fallback={
             <div className="invitation-page-state" role="status">

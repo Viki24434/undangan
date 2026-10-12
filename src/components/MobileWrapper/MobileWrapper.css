@@ -107,3 +107,18 @@
     font-size: 11px;
   }
 }
+.mw-edit-btn {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 20;
+  padding: 12px 16px;
+  border: 1px solid #ffffff44;
+  border-radius: 24px;
+  background: #243e35;
+  color: white;
+  text-decoration: none;
+  font:
+    12px 'Segoe UI',
+    sans-serif;
+}

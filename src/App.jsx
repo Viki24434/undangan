@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Catalog from './pages/Catalog';
 import TemplateViewer from './pages/TemplateViewer';
 import Guide from './pages/Guide';
+import ConsumerEditor from './pages/ConsumerEditor';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/panduan" element={<Guide />} />
 
         <Route path="/t/:id" element={<TemplateViewer />} />
+        <Route path="/edit/:id" element={<ConsumerEditor />} />
         <Route path="/u/:slug" element={<InvitationPage />} />
       </Routes>
     </BrowserRouter>

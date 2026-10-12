@@ -10,6 +10,7 @@ export default function InvitationForm({
   onTemplateChange,
   onSubmit,
   busy,
+  localOnly = false,
 }) {
   const data = form.data;
   const [selectedPrayerTemplate, setSelectedPrayerTemplate] = useState('');
@@ -53,21 +54,24 @@ export default function InvitationForm({
                 onChange={(event) => field('title', event.target.value)}
               />
             </label>
-            <label>
-              Tautan undangan
-              <input
-                required
-                pattern="[a-z0-9]+(-[a-z0-9]+)*"
-                maxLength={80}
-                placeholder="aditya-sarah"
-                value={form.slug}
-                onChange={(event) => field('slug', event.target.value)}
-              />
-              <small>Huruf kecil, angka, dan tanda hubung.</small>
-            </label>
+            {!localOnly && (
+              <label>
+                Tautan undangan
+                <input
+                  required
+                  pattern="[a-z0-9]+(-[a-z0-9]+)*"
+                  maxLength={80}
+                  placeholder="aditya-sarah"
+                  value={form.slug}
+                  onChange={(event) => field('slug', event.target.value)}
+                />
+                <small>Huruf kecil, angka, dan tanda hubung.</small>
+              </label>
+            )}
             <label>
               Template
               <select
+                disabled={localOnly}
                 value={form.templateId}
                 onChange={(event) => onTemplateChange(event.target.value)}
               >
@@ -87,16 +91,18 @@ export default function InvitationForm({
                 onChange={(event) => field('eventDate', event.target.value)}
               />
             </label>
-            <label>
-              Status
-              <select
-                value={form.status}
-                onChange={(event) => field('status', event.target.value)}
-              >
-                <option value="draft">Draft — hanya admin</option>
-                <option value="published">Terbit — bisa dibuka tamu</option>
-              </select>
-            </label>
+            {!localOnly && (
+              <label>
+                Status
+                <select
+                  value={form.status}
+                  onChange={(event) => field('status', event.target.value)}
+                >
+                  <option value="draft">Draft — hanya admin</option>
+                  <option value="published">Terbit — bisa dibuka tamu</option>
+                </select>
+              </label>
+            )}
             <label>
               Foto cover
               <input
@@ -382,9 +388,17 @@ export default function InvitationForm({
           />
         )}
         <div className="admin-save-bar">
-          <p>Draft dapat dipreview sebelum diterbitkan.</p>
+          <p>
+            {localOnly
+              ? 'Perubahan disimpan di browser perangkat ini.'
+              : 'Draft dapat dipreview sebelum diterbitkan.'}
+          </p>
           <button className="admin-button" type="submit">
-            {busy ? 'Menyimpan…' : 'Simpan undangan'}
+            {busy
+              ? 'Menyimpan…'
+              : localOnly
+                ? 'Simpan di perangkat'
+                : 'Simpan undangan'}
           </button>
         </div>
       </fieldset>
