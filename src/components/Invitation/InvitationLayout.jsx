@@ -41,6 +41,9 @@ export default function InvitationLayout({
   const Cover = variants.cover === 1 ? Cover1 : Cover2;
   const Hero = variants.hero === 1 ? Hero1 : Hero2;
   const decorations = ornamentPresets[theme] || {};
+  const heroBottom = decorations.hero?.find((item) =>
+    item.asset.endsWith('-bottom-garland'),
+  );
 
   function openInvitation() {
     setOpened(true);
@@ -116,7 +119,10 @@ export default function InvitationLayout({
               title={displayTitle}
               quote={date}
             >
-              <DecorationLayer items={decorations.hero} />
+              <DecorationLayer
+                items={decorations.hero}
+                className="hero-decoration"
+              />
             </Hero>
           ) : (
             <Hero
@@ -126,8 +132,16 @@ export default function InvitationLayout({
               subtitle={subtitle}
               title={displayTitle}
               date={date}
+              bottomOrnament={
+                heroBottom && ornamentAssets[heroBottom.asset].src
+              }
             >
-              <DecorationLayer items={decorations.hero} />
+              <DecorationLayer
+                items={decorations.hero?.filter(
+                  (item) => !item.asset.endsWith('-bottom-garland'),
+                )}
+                className="hero-decoration"
+              />
             </Hero>
           )}
           <nav className="invitation-section-nav" aria-label="Bagian undangan">

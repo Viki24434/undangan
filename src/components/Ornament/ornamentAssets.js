@@ -17,11 +17,11 @@ const floralSet = (exportName) => ({
 
 const asset = (src, role) => ({ src, role });
 
-const blush = floralSet('Export_20261011_150336');
-const rose = floralSet('Export_20261011_150344');
-const peony = floralSet('Export_20261011_151409');
-const sunflower = floralSet('Export_20261011_170632');
-const sundaExport = 'Export_20261012_093753';
+const blush = floralSet('bunga_mawar_peony_pastel');
+const rose = floralSet('bunga_mawar');
+const peony = floralSet('bunga_peony');
+const sunflower = floralSet('bunga_matahari');
+const sundaExport = 'adat_sunda';
 const sunda = {
   corner: png(sundaExport, 'sudut_kiri.png'),
   top: png(sundaExport, 'atas.png'),
@@ -35,7 +35,7 @@ const sunda = {
   umbrella: png(sundaExport, 'payung.png'),
   siger: png(sundaExport, 'siger.png'),
 };
-const jawaExport = 'Export_20261012_093801';
+const jawaExport = 'adat_jawa';
 const jawa = {
   corner: png(jawaExport, 'sudut_kiri.png'),
   top: png(jawaExport, 'atas.png'),
@@ -51,6 +51,134 @@ const jawa = {
 };
 
 export const ornamentAssets = {
+  'bali-corner': asset(
+    png('adat_bali', 'sudut_kiri.png'),
+    'corner',
+  ),
+  'bali-top-garland': asset(
+    png('adat_bali', 'atas.png'),
+    'garland',
+  ),
+  'bali-bottom-garland': asset(
+    png('adat_bali', 'bawah.png'),
+    'garland',
+  ),
+  'bali-side-garland': asset(
+    png('adat_bali', 'samping.png'),
+    'side',
+  ),
+  'bali-bokor': asset(
+    png('adat_bali', 'bokor.png'),
+    'arrangement',
+  ),
+  'bali-destar': asset(
+    png('adat_bali', 'destar.png'),
+    'arrangement',
+  ),
+  'bali-crown': asset(
+    png('adat_bali', 'mahkota.png'),
+    'arrangement',
+  ),
+  'bali-subeng': asset(
+    png('adat_bali', 'subeng.png'),
+    'arrangement',
+  ),
+  'bali-kain': asset(
+    png('adat_bali', 'kain_bali.png'),
+    'arrangement',
+  ),
+  'bali-pelaminan': asset(
+    png('adat_bali', 'pelaminan.png'),
+    'arrangement',
+  ),
+  'bali-keris': asset(
+    png('adat_bali', 'keris_bali.png'),
+    'arrangement',
+  ),
+  'betawi-corner': asset(
+    png('ada_betawi', 'sudut_kiri.png'),
+    'corner',
+  ),
+  'betawi-top-garland': asset(
+    png('ada_betawi', 'atas.png'),
+    'garland',
+  ),
+  'betawi-bottom-garland': asset(
+    png('ada_betawi', 'bawah.png'),
+    'garland',
+  ),
+  'betawi-side-garland': asset(
+    png('ada_betawi', 'samping.png'),
+    'side',
+  ),
+  'betawi-bouquet': asset(
+    png('ada_betawi', 'bucket.png'),
+    'bouquet',
+  ),
+  'betawi-safa': asset(
+    png('ada_betawi', 'safa.png'),
+    'arrangement',
+  ),
+  'betawi-crown': asset(
+    png('ada_betawi', 'mahkota.png'),
+    'arrangement',
+  ),
+  'betawi-cucuk-sanggul': asset(
+    png('ada_betawi', 'cucuk_sanggul.png'),
+    'arrangement',
+  ),
+  'betawi-kain': asset(
+    png('ada_betawi', 'kain_betawi.png'),
+    'arrangement',
+  ),
+  'betawi-pelaminan': asset(
+    png('ada_betawi', 'pelaminan.png'),
+    'arrangement',
+  ),
+  'minang-corner': asset(
+    png('adat_minangkabau', 'sudut_kiri.png'),
+    'corner',
+  ),
+  'minang-top-garland': asset(
+    png('adat_minangkabau', 'atas.png'),
+    'garland',
+  ),
+  'minang-bottom-garland': asset(
+    png('adat_minangkabau', 'bawah.png'),
+    'garland',
+  ),
+  'minang-side-garland': asset(
+    png('adat_minangkabau', 'samping.png'),
+    'side',
+  ),
+  'minang-bouquet': asset(
+    png('adat_minangkabau', 'bucket.png'),
+    'bouquet',
+  ),
+  'minang-deta': asset(
+    png('adat_minangkabau', 'deta.png'),
+    'arrangement',
+  ),
+  'minang-dulang': asset(
+    png('adat_minangkabau', 'dulang.png'),
+    'arrangement',
+  ),
+  'minang-songket': asset(
+    png('adat_minangkabau', 'kain_songket.png'),
+    'arrangement',
+  ),
+  'minang-crown': asset(
+    png('adat_minangkabau', 'mahkota.png'),
+    'arrangement',
+  ),
+  'minang-pelaminan': asset(
+    png('adat_minangkabau', 'pelaminan.png'),
+    'arrangement',
+  ),
+  'minang-rumah-gadang': asset(
+    png('adat_minangkabau', 'rumah_gadang.png'),
+    'arrangement',
+  ),
   'blush-corner': asset(blush.corner, 'corner'),
   'blush-top-garland': asset(blush.top, 'garland'),
   'blush-bottom-garland': asset(blush.bottom, 'garland'),

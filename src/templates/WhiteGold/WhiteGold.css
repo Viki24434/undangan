@@ -1,0 +1,65 @@
+.invitation-white-gold {
+  --color-bg: #fffdf7;
+  --color-text: #41382b;
+  --color-accent: #a5813f;
+  --invitation-muted: #7a6e5a;
+  --invitation-panel: #f1e8d4;
+  --invitation-line: #a5813f44;
+  --invitation-on-accent: #ffffff;
+  background: linear-gradient(160deg, #ffffff, #fffdf7, #f1e8d4);
+}
+
+.invitation-white-gold .invitation-cover-frame {
+  border: 1px solid #a5813f88;
+  border-radius: 6px;
+  outline: 1px solid #a5813f55;
+  outline-offset: -10px;
+  background: linear-gradient(145deg, #fffdf7f2, #f1e8d4ed);
+  color: var(--color-text);
+  box-shadow: 0 24px 60px #41382b22;
+}
+
+.invitation-white-gold .invitation-cover-frame .invitation-kicker,
+.invitation-white-gold .invitation-cover-frame .invitation-date,
+.invitation-white-gold .invitation-cover-frame .invitation-back {
+  color: var(--color-text);
+}
+
+.invitation-white-gold .hero-2::before {
+  background: linear-gradient(180deg, #30251255, #30251266 50%, #4a3822aa);
+}
+
+.invitation-white-gold .invitation-event-card,
+.invitation-white-gold .story-2__entry article,
+.invitation-white-gold .gift-2__card {
+  border: 1px solid var(--invitation-line);
+  border-radius: 24px 4px;
+  background: linear-gradient(145deg, #ffffff, #faf4e7);
+  box-shadow: 0 12px 28px #a5813f12;
+}
+
+.invitation-white-gold .couple-1-portrait {
+  box-shadow:
+    0 0 0 5px #fffdf7,
+    0 0 0 6px #a5813f44,
+    0 16px 32px #a5813f22;
+}
+
+.invitation-white-gold .invitation-form input,
+.invitation-white-gold .invitation-form textarea,
+.invitation-white-gold .invitation-form select {
+  background: #ffffff;
+  color: var(--color-text);
+}
+
+.invitation-white-gold .decoration-layer img,
+.invitation-white-gold .ornament-divider__art img,
+.invitation-white-gold .hero-2__bottom-ornament img {
+  filter: sepia(0.45) saturate(0.6) brightness(1.08);
+}
+
+.invitation-white-gold .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom left, #d9c29144, transparent 70%), #faf4e7;
+}

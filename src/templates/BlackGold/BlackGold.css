@@ -1,0 +1,59 @@
+.invitation-black-gold {
+  --color-bg: #111111;
+  --color-text: #f5eddb;
+  --color-accent: #d8b76a;
+  --invitation-muted: #b9ae98;
+  --invitation-panel: #24211b;
+  --invitation-line: #d8b76a55;
+  --invitation-on-accent: #19150e;
+  background: linear-gradient(150deg, #111111, #24211b, #101010);
+}
+
+.invitation-black-gold .invitation-cover-frame {
+  border: 1px solid #d8b76a;
+  border-radius: 160px 160px 8px 8px;
+  outline: 1px solid #d8b76a55;
+  outline-offset: -10px;
+  background: linear-gradient(160deg, #17130fe8, #080808eb);
+  box-shadow: 0 24px 70px #0008;
+}
+
+.invitation-black-gold .hero-2::before {
+  background: linear-gradient(180deg, #08080855, #11111166 45%, #111111ed);
+}
+
+.invitation-black-gold .invitation-event-card,
+.invitation-black-gold .story-2__entry article,
+.invitation-black-gold .gift-2__card {
+  border: 1px solid var(--invitation-line);
+  border-radius: 4px;
+  background: linear-gradient(145deg, #282218, #161512);
+  box-shadow: 0 14px 32px #0004;
+}
+
+.invitation-black-gold .couple-3__portrait {
+  box-shadow:
+    0 0 0 5px #111111,
+    0 0 0 6px #d8b76a55,
+    0 20px 40px #0006;
+}
+
+.invitation-black-gold .invitation-form input,
+.invitation-black-gold .invitation-form textarea,
+.invitation-black-gold .invitation-form select {
+  background: #171512;
+  color: var(--color-text);
+}
+
+.invitation-black-gold .decoration-layer img,
+.invitation-black-gold .ornament-divider__art img,
+.invitation-black-gold .hero-2__bottom-ornament img {
+  filter: sepia(0.8) saturate(0.7) brightness(0.95);
+}
+
+.invitation-black-gold .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #71542244, transparent 70%),
+    #0b0b0b;
+}

@@ -1,0 +1,84 @@
+.invitation-bali {
+  --color-bg: #faf3e7;
+  --color-text: #4a3526;
+  --color-accent: #a37835;
+  --invitation-muted: #80694f;
+  --invitation-panel: #eddfc9;
+  --invitation-line: #a3783544;
+  --invitation-on-accent: #fffaf0;
+  background: linear-gradient(155deg, #fffaf0, #faf3e7 55%, #eddfc9);
+}
+
+.celebration-template.invitation-bali .cover-2 .cover-2__frame {
+  border: 1px solid #a3783588;
+  border-radius: 140px 140px 8px 8px;
+  outline: 1px solid #a3783555;
+  outline-offset: -10px;
+  background: linear-gradient(155deg, #fffaf0f5, #eddfc9ed);
+  color: var(--color-text);
+  box-shadow: 0 24px 60px #4a352633;
+}
+
+.invitation-bali .invitation-cover-frame .invitation-kicker,
+.invitation-bali .invitation-cover-frame .invitation-date,
+.invitation-bali .invitation-cover-frame .invitation-back {
+  color: var(--color-text);
+}
+
+.invitation-bali .invitation-monogram {
+  border-style: double;
+  color: var(--color-accent);
+  box-shadow: 0 0 0 5px #a3783512;
+}
+
+.celebration-template.invitation-bali .hero-2::before {
+  background:
+    radial-gradient(ellipse at top, #f1c97822, transparent 65%),
+    linear-gradient(180deg, #4a352655, #4a352688 50%, #3b291ed9);
+}
+
+.invitation-bali .hero-2__copy {
+  text-shadow: 0 3px 18px #3b291e;
+}
+
+.invitation-bali .invitation-section::before {
+  background-image: url('/assets/png/adat_bali/kain_bali.png');
+  opacity: 0.1;
+}
+
+.invitation-bali .couple-3__portrait {
+  border-color: #a37835;
+  background: #eddfc9;
+  box-shadow:
+    0 0 0 5px #faf3e7,
+    0 0 0 6px #a3783555,
+    0 20px 40px #a3783522;
+}
+
+.invitation-bali .invitation-event-card,
+.invitation-bali .gift-2__card,
+.invitation-bali .story-2__entry article {
+  border: 1px solid var(--invitation-line);
+  border-radius: 24px 4px;
+  background: linear-gradient(145deg, #fffaf0, #eddfc9);
+  box-shadow: 0 14px 28px #a3783515;
+}
+
+.invitation-bali .countdown-2__unit {
+  border-style: double;
+  background: #fffaf0;
+}
+
+.invitation-bali .invitation-form input,
+.invitation-bali .invitation-form textarea,
+.invitation-bali .invitation-form select {
+  background: #fffaf0;
+  color: var(--color-text);
+}
+
+.invitation-bali .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #d9b99866, transparent 68%),
+    #eddfc9;
+}

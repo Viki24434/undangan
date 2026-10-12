@@ -38,6 +38,154 @@ const portraitFlowers = (
 });
 
 export const ornamentPresets = {
+  'invitation-bali': {
+    cover: [
+      corner('bali-corner', 'topLeft', '31%'),
+      corner('bali-corner', 'topRight', '31%'),
+    ],
+    hero: [
+      {
+        asset: 'bali-side-garland',
+        position: { top: '16%', left: '-9%' },
+        width: '24%',
+        opacity: 0.8,
+      },
+    ],
+    couple: {
+      groom: [
+        {
+          asset: 'bali-destar',
+          position: { left: '-12%' },
+          width: '34%',
+          rotate: -8,
+        },
+      ],
+      bride: [
+        {
+          asset: 'bali-crown',
+          position: { right: '-12%' },
+          width: '34%',
+          rotate: 8,
+        },
+      ],
+    },
+    closing: [
+      {
+        asset: 'bali-pelaminan',
+        position: { right: '-10%', bottom: '-8%' },
+        width: '48%',
+        opacity: 0.6,
+      },
+      {
+        asset: 'bali-keris',
+        position: { left: '-4%', bottom: '4%' },
+        width: '18%',
+        opacity: 0.6,
+      },
+    ],
+  },
+  'invitation-betawi': {
+    cover: [
+      corner('betawi-corner', 'topLeft', '31%'),
+      corner('betawi-corner', 'topRight', '31%'),
+    ],
+    hero: [
+      {
+        asset: 'betawi-side-garland',
+        position: { top: '16%', right: '-9%' },
+        width: '24%',
+        opacity: 0.8,
+      },
+    ],
+    couple: {
+      groom: [
+        {
+          asset: 'betawi-safa',
+          position: { left: '-12%' },
+          width: '34%',
+          rotate: -8,
+        },
+      ],
+      bride: [
+        {
+          asset: 'betawi-crown',
+          position: { right: '-12%' },
+          width: '34%',
+          rotate: 8,
+        },
+      ],
+    },
+    closing: [
+      {
+        asset: 'betawi-pelaminan',
+        position: { right: '-8%', bottom: '-8%' },
+        width: '48%',
+        opacity: 0.75,
+      },
+    ],
+  },
+  'invitation-minangkabau': {
+    cover: [
+      corner('minang-corner', 'topLeft', '32%'),
+      corner('minang-corner', 'topRight', '32%'),
+    ],
+    hero: [
+      {
+        asset: 'minang-side-garland',
+        position: { top: '18%', left: '-9%' },
+        width: '24%',
+        opacity: 0.8,
+      },
+    ],
+    couple: {
+      groom: [
+        {
+          asset: 'minang-deta',
+          position: { left: '-12%' },
+          width: '36%',
+          rotate: -8,
+        },
+      ],
+      bride: [
+        {
+          asset: 'minang-crown',
+          position: { right: '-12%' },
+          width: '36%',
+          rotate: 8,
+        },
+      ],
+    },
+    closing: [
+      {
+        asset: 'minang-rumah-gadang',
+        position: { right: '-12%', bottom: '-3%' },
+        width: '47%',
+        opacity: 0.5,
+      },
+    ],
+  },
+  'invitation-black-gold': {
+    cover: cornerPair('blush-corner', '30%'),
+    hero: [
+      {
+        asset: 'blush-leaf-spray',
+        position: { top: '18%', right: '-8%' },
+        width: '25%',
+      },
+    ],
+    couple: portraitFlowers('blush-flower-single', 'blush-peony-single'),
+  },
+  'invitation-white-gold': {
+    cover: cornerPair('blush-corner', '32%'),
+    hero: [
+      {
+        asset: 'blush-leaf-spray-light',
+        position: { top: '16%', right: '-8%' },
+        width: '25%',
+      },
+    ],
+    couple: portraitFlowers('blush-flower-accent', 'blush-peony-single'),
+  },
   'invitation-gold': {
     cover: cornerPair('blush-corner', '34%'),
     hero: [
@@ -454,6 +602,11 @@ export const ornamentPresets = {
 };
 
 const themeFamilies = {
+  'invitation-bali': 'bali',
+  'invitation-betawi': 'betawi',
+  'invitation-minangkabau': 'minang',
+  'invitation-black-gold': 'blush',
+  'invitation-white-gold': 'blush',
   'invitation-gold': 'blush',
   'invitation-botanical': 'blush',
   'invitation-rose': 'peony',
@@ -475,6 +628,9 @@ const themeFamilies = {
 };
 
 const familyDetails = {
+  bali: ['bali-subeng', 'bali-kain', 'bali-pelaminan'],
+  betawi: ['betawi-cucuk-sanggul', 'betawi-kain', 'betawi-pelaminan'],
+  minang: ['minang-pelaminan', 'minang-songket', 'minang-dulang'],
   blush: [
     'blush-flower-accent',
     'blush-leaf-spray-light',
@@ -496,26 +652,27 @@ const dividerItem = (asset) => ({ asset, animation: false });
 for (const [theme, family] of Object.entries(themeFamilies)) {
   const preset = ornamentPresets[theme];
   const [flower, leaf, spray] = familyDetails[family];
+  const centerpiece = family === 'bali' ? 'bali-bokor' : `${family}-bouquet`;
   preset.background = {
-    main: `${family}-bouquet`,
+    main: family === 'minang' ? 'minang-rumah-gadang' : centerpiece,
     edge: family === 'jawa' ? 'jawa-tuwuhan' : `${family}-side-garland`,
   };
   preset.dividers = {
     story: [dividerItem(leaf)],
     events: [dividerItem(spray)],
-    gallery: [dividerItem(family + '-bouquet')],
+    gallery: [dividerItem(centerpiece)],
     wishes: [dividerItem(flower)],
   };
   if (!preset.closing) {
     preset.closing = [
       {
-        asset: family + '-bouquet',
+        asset: centerpiece,
         position: { bottom: '-3%', right: '-4%' },
         width: '38%',
       },
     ];
   }
-  if (!['sunda', 'jawa'].includes(family)) {
+  if (!['sunda', 'jawa', 'minang', 'betawi', 'bali'].includes(family)) {
     if (!preset.hero.some((item) => item.asset === `${family}-top-garland`)) {
       preset.hero.push({
         asset: `${family}-top-garland`,
@@ -562,4 +719,21 @@ for (const [theme, family] of Object.entries(themeFamilies)) {
       },
     ];
   }
+  preset.hero = [
+    ...preset.hero.filter(
+      (item) => !/-top-garland$|-bottom-garland$/.test(item.asset),
+    ),
+    {
+      asset: `${family}-top-garland`,
+      position: { top: 0, left: '10%' },
+      width: '80%',
+      opacity: 1,
+    },
+    {
+      asset: `${family}-bottom-garland`,
+      position: { bottom: 0, left: '10%' },
+      width: '80%',
+      opacity: 1,
+    },
+  ];
 }

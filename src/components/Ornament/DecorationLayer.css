@@ -28,3 +28,11 @@
 .decoration-layer__item[data-ornament-role='flower'] {
   transform-origin: 50% 85%;
 }
+
+.hero-decoration .decoration-layer__item[data-ornament$='-top-garland'] {
+  translate: 0 -49%;
+}
+
+.hero-decoration .decoration-layer__item[data-ornament$='-bottom-garland'] {
+  translate: 0 35%;
+}

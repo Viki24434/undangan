@@ -111,9 +111,7 @@ export const templateRegistry = [
     description: 'Warna laut yang tenang dan aksen pesisir yang segar.',
     img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
     palette: ['#142b32', '#9bcac5', '#1d4148'],
-    component: lazy(
-      () => import('../templates/CoastalPromise/CoastalPromise'),
-    ),
+    component: lazy(() => import('../templates/CoastalPromise/CoastalPromise')),
   },
   {
     id: 'garden-party-birthday-01',
@@ -173,6 +171,62 @@ export const templateRegistry = [
     img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
     palette: ['#211912', '#d6b16e', '#493521'],
     component: lazy(() => import('../templates/JawaPaes/JawaPaes')),
+  },
+  {
+    id: 'black-gold-01',
+    name: 'Black Gold Wedding',
+    category: 'Pernikahan',
+    description:
+      'Hitam pekat, detail emas, dan bingkai klasik untuk perayaan yang megah.',
+    img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85',
+    palette: ['#111111', '#d8b76a', '#24211b'],
+    component: lazy(() => import('../templates/BlackGold/BlackGold')),
+  },
+  {
+    id: 'white-gold-01',
+    name: 'White Gold Wedding',
+    category: 'Pernikahan',
+    description:
+      'Putih mutiara, aksen emas lembut, dan komposisi lapang yang anggun.',
+    img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    palette: ['#fffdf7', '#a5813f', '#f1e8d4'],
+    component: lazy(() => import('../templates/WhiteGold/WhiteGold')),
+  },
+  {
+    ...{
+      id: 'minangkabau-01',
+      name: 'Minangkabau Wedding',
+      category: 'Pernikahan',
+      description:
+        'Merah marun dan emas dengan ornamen rumah gadang, songket, deta, dan mahkota.',
+      img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    },
+    palette: ['#35120e', '#dfb764', '#581c17'],
+    component: lazy(() => import('../templates/Minangkabau/Minangkabau')),
+  },
+  {
+    ...{
+      id: 'betawi-01',
+      name: 'Betawi Wedding',
+      category: 'Pernikahan',
+      description:
+        'Hijau tua, merah, dan emas dengan safa, mahkota, kain Betawi, serta pelaminan.',
+      img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    },
+    palette: ['#102b23', '#e0bb6a', '#8b302d'],
+    component: lazy(() => import('../templates/Betawi/Betawi')),
+  },
+  {
+    ...{
+      id: 'bali-01',
+      name: 'Bali Wedding',
+      category: 'Pernikahan',
+      description:
+        'Putih gading dan emas antik dengan destar, mahkota, bokor, serta ukiran Bali.',
+      img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85',
+    },
+    palette: ['#faf3e7', '#a37835', '#d9b998'],
+    component: lazy(() => import('../templates/Bali/Bali')),
   },
 ];
 

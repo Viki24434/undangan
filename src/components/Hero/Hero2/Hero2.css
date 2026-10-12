@@ -31,3 +31,21 @@
 .hero-2 .invitation-scroll {
   margin-top: 48px;
 }
+
+.hero-2__bottom-ornament {
+  position: relative;
+  width: min(224px, 74%);
+  height: 76px;
+  margin: 2px auto 0;
+  pointer-events: none;
+}
+
+.hero-2__bottom-ornament img {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  translate: 0 -50%;
+}

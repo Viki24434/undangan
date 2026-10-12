@@ -16,5 +16,5 @@
   position: absolute;
   inset: 0;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
 }

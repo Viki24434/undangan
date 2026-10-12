@@ -1,0 +1,86 @@
+.invitation-minangkabau {
+  --color-bg: #35120e;
+  --color-text: #fff1d6;
+  --color-accent: #dfb764;
+  --invitation-muted: #d4b99c;
+  --invitation-panel: #581c17;
+  --invitation-line: #dfb76466;
+  --invitation-on-accent: #35120e;
+  background: linear-gradient(155deg, #35120e, #581c17 52%, #260c09);
+}
+
+.celebration-template.invitation-minangkabau .cover-2 .cover-2__frame {
+  border: 1px solid #dfb764aa;
+  border-radius: 120px 120px 6px 6px;
+  outline: 1px solid #dfb76455;
+  outline-offset: -10px;
+  background: linear-gradient(160deg, #581c17df, #260c09f2);
+  box-shadow: 0 24px 70px #1b0708aa;
+}
+
+.invitation-minangkabau .invitation-monogram {
+  border-style: double;
+  color: #ffe2a1;
+  box-shadow: 0 0 0 5px #dfb76418;
+}
+
+.celebration-template.invitation-minangkabau .hero-2::before {
+  background:
+    radial-gradient(ellipse at top, #dfb76422, transparent 65%),
+    linear-gradient(180deg, #35120e66, #260c0999 50%, #35120eeb);
+}
+
+.invitation-minangkabau .hero-2__copy {
+  text-shadow: 0 3px 18px #260c09;
+}
+
+.invitation-minangkabau .invitation-intro,
+.invitation-minangkabau .invitation-events,
+.invitation-minangkabau .story-2 {
+  background:
+    radial-gradient(ellipse at top right, #af5c2422, transparent 65%),
+    var(--color-bg);
+}
+
+.invitation-minangkabau .couple-3__portrait {
+  border-color: #dfb764;
+  border-radius: 145px 145px 6px 6px;
+  background: #581c17;
+  box-shadow:
+    0 0 0 5px #35120e,
+    0 0 0 6px #dfb76466,
+    0 20px 40px #1b070866;
+}
+
+.invitation-minangkabau .invitation-event-card,
+.invitation-minangkabau .gift-2__card,
+.invitation-minangkabau .story-2__entry article {
+  border: 1px solid var(--invitation-line);
+  border-radius: 6px 28px;
+  background: linear-gradient(145deg, #64261c, #41130f);
+  box-shadow: 0 14px 28px #1b070844;
+}
+
+.invitation-minangkabau .countdown-2__unit {
+  border-style: double;
+  border-radius: 6px;
+  background: #581c17;
+}
+
+.invitation-minangkabau .invitation-form input,
+.invitation-minangkabau .invitation-form textarea,
+.invitation-minangkabau .invitation-form select {
+  background: #2c0f0c;
+  color: var(--color-text);
+}
+
+.invitation-minangkabau .gallery-3__item {
+  border-color: #dfb76488;
+}
+
+.invitation-minangkabau .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #a7772733, transparent 68%),
+    #260c09;
+}

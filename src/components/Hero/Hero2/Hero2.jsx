@@ -9,6 +9,7 @@ export default function Hero2({
   subtitle,
   title,
   date,
+  bottomOrnament,
   children,
 }) {
   return (
@@ -36,6 +37,11 @@ export default function Hero2({
         >
           Jelajahi cerita kami <span aria-hidden="true">↓</span>
         </a>
+        {bottomOrnament && (
+          <div className="hero-2__bottom-ornament" aria-hidden="true">
+            <img src={bottomOrnament} alt="" draggable="false" />
+          </div>
+        )}
       </div>
     </section>
   );

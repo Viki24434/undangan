@@ -1,0 +1,83 @@
+.invitation-betawi {
+  --color-bg: #102b23;
+  --color-text: #fff2d8;
+  --color-accent: #e0bb6a;
+  --invitation-muted: #c9c1a3;
+  --invitation-panel: #1c3c30;
+  --invitation-line: #e0bb6a55;
+  --invitation-on-accent: #102b23;
+  background: linear-gradient(155deg, #102b23, #1c3c30 55%, #0c211b);
+}
+
+.celebration-template.invitation-betawi .cover-2 .cover-2__frame {
+  border: 1px solid #e0bb6a99;
+  border-radius: 96px 96px 8px 8px;
+  outline: 1px solid #8b302d;
+  outline-offset: -10px;
+  background: linear-gradient(155deg, #204536e8, #0c211bf2);
+  box-shadow: 0 24px 60px #071c1688;
+}
+
+.invitation-betawi .invitation-monogram {
+  border-style: double;
+  color: #ffe3a7;
+  background: #8b302d33;
+  box-shadow: 0 0 0 5px #e0bb6a12;
+}
+
+.celebration-template.invitation-betawi .hero-2::before {
+  background:
+    radial-gradient(ellipse at top, #e0bb6a22, transparent 65%),
+    linear-gradient(180deg, #102b2355, #0c211b88 50%, #102b23e8);
+}
+
+.invitation-betawi .hero-2__copy {
+  text-shadow: 0 3px 18px #0c211b;
+}
+
+.invitation-betawi .invitation-intro,
+.invitation-betawi .invitation-events,
+.invitation-betawi .story-2 {
+  background:
+    radial-gradient(ellipse at top right, #8b302d33, transparent 68%),
+    var(--color-bg);
+}
+
+.invitation-betawi .couple-1-portrait {
+  border-color: #e0bb6a;
+  background: #1c3c30;
+  box-shadow:
+    0 0 0 4px #102b23,
+    0 0 0 5px #8b302d99,
+    0 16px 34px #071c1666;
+}
+
+.invitation-betawi .invitation-event-card,
+.invitation-betawi .gift-2__card,
+.invitation-betawi .story-2__entry article {
+  border: 1px solid var(--invitation-line);
+  border-radius: 4px 24px;
+  background: linear-gradient(145deg, #264c3c, #143429);
+  box-shadow: 0 14px 28px #071c1644;
+}
+
+.invitation-betawi .cd-1-box {
+  border: 1px solid #e0bb6a77;
+  border-radius: 8px;
+  background: #78302d;
+  color: #ffe3a7;
+}
+
+.invitation-betawi .invitation-form input,
+.invitation-betawi .invitation-form textarea,
+.invitation-betawi .invitation-form select {
+  background: #0c211b;
+  color: var(--color-text);
+}
+
+.invitation-betawi .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #8b302d55, transparent 68%),
+    #0c211b;
+}
