@@ -40,6 +40,7 @@ export default function ConsumerEditor() {
   const [preview, setPreview] = useState(null);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
+  const [pendingUploads, setPendingUploads] = useState(0);
   const editorRef = useRef(null);
 
   useEffect(() => {
@@ -154,6 +155,7 @@ export default function ConsumerEditor() {
             <button
               className="admin-button"
               type="button"
+              disabled={pendingUploads > 0}
               onClick={showPreview}
             >
               Preview ↗
@@ -178,6 +180,9 @@ export default function ConsumerEditor() {
           </p>
         )}
         <InvitationForm
+          onUploadStatus={(delta) =>
+            setPendingUploads((count) => Math.max(0, count + delta))
+          }
           form={form}
           templates={[template]}
           onChange={change}

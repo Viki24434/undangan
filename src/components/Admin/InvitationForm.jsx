@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import ImageField from './ImageField';
 import RepeatableFields from './RepeatableFields';
 import { prayerTemplates } from './prayerTemplates';
 import { packageName } from '../../config/invitationPackages';
@@ -11,8 +12,30 @@ export default function InvitationForm({
   onSubmit,
   busy,
   localOnly = false,
+  onUploadStatus,
 }) {
   const data = form.data;
+  const formRef = useRef(form);
+  useEffect(() => {
+    formRef.current = form;
+  }, [form]);
+  const [pendingUploads, setPendingUploads] = useState(0);
+  function uploadPending(delta) {
+    setPendingUploads((count) => Math.max(0, count + delta));
+    onUploadStatus?.(delta);
+  }
+  function uploadedDetail(key, value, personKey) {
+    const current = formRef.current;
+    onChange({
+      ...current,
+      data: {
+        ...current.data,
+        ...(personKey
+          ? { [personKey]: { ...current.data[personKey], [key]: value } }
+          : { [key]: value }),
+      },
+    });
+  }
   const [selectedPrayerTemplate, setSelectedPrayerTemplate] = useState('');
   function field(key, value) {
     onChange({ ...form, [key]: value });
@@ -41,7 +64,7 @@ export default function InvitationForm({
   }
   return (
     <form className="admin-form" onSubmit={onSubmit}>
-      <fieldset disabled={busy}>
+      <fieldset disabled={busy || pendingUploads > 0}>
         <section className="admin-form-section">
           <h2>Informasi undangan</h2>
           <div className="admin-field-grid">
@@ -103,15 +126,13 @@ export default function InvitationForm({
                 </select>
               </label>
             )}
-            <label>
-              Foto cover
-              <input
-                type="url"
-                required
-                value={data.image || ''}
-                onChange={(event) => detail('image', event.target.value)}
-              />
-            </label>
+            <ImageField
+              label="Foto cover"
+              value={data.image || ''}
+              onChange={(value) => uploadedDetail('image', value)}
+              localOnly={localOnly}
+              onPending={uploadPending}
+            />
           </div>
         </section>
         <section className="admin-form-section">
@@ -177,20 +198,33 @@ export default function InvitationForm({
                     ['father', 'Nama ayah'],
                     ['mother', 'Nama ibu'],
                     ['photo', 'URL foto'],
-                  ].map(([property, title]) => (
-                    <label key={property}>
-                      {title}
-                      <input
-                        required
-                        type={property === 'photo' ? 'url' : 'text'}
-                        maxLength={600}
-                        value={data[key][property] || ''}
-                        onChange={(event) =>
-                          person(key, property, event.target.value)
+                  ].map(([property, title]) =>
+                    property === 'photo' ? (
+                      <ImageField
+                        key={property}
+                        label="Foto mempelai"
+                        value={data[key].photo || ''}
+                        onChange={(value) =>
+                          uploadedDetail('photo', value, key)
                         }
+                        localOnly={localOnly}
+                        onPending={uploadPending}
                       />
-                    </label>
-                  ))}
+                    ) : (
+                      <label key={property}>
+                        {title}
+                        <input
+                          required
+                          type={property === 'photo' ? 'url' : 'text'}
+                          maxLength={600}
+                          value={data[key][property] || ''}
+                          onChange={(event) =>
+                            person(key, property, event.target.value)
+                          }
+                        />
+                      </label>
+                    ),
+                  )}
                 </div>
               ))}
             </div>
@@ -342,26 +376,52 @@ export default function InvitationForm({
             addLabel="Cerita"
           />
         )}
-        <RepeatableFields
-          title="Foto slideshow & galeri"
-          items={(data.photos || []).map((url) => ({ url }))}
-          fields={[
-            {
-              key: 'url',
-              label: 'URL foto (HTTPS)',
-              type: 'url',
-              max: 2000,
-            },
-          ]}
-          onChange={(items) =>
-            detail(
-              'photos',
-              items.map((item) => item.url),
-            )
-          }
-          addLabel="Foto"
-          maxItems={30}
-        />
+        <section className="admin-form-section">
+          <div className="admin-panel-heading">
+            <h2>Foto slideshow & galeri</h2>
+            <button
+              type="button"
+              className="admin-text-button"
+              disabled={(data.photos || []).length >= 30}
+              onClick={() => detail('photos', [...(data.photos || []), ''])}
+            >
+              Tambah foto
+            </button>
+          </div>
+          <div className="admin-field-grid">
+            {(data.photos || []).map((photo, index) => (
+              <div className="admin-repeat-item" key={index}>
+                <ImageField
+                  label={'Foto ' + (index + 1)}
+                  value={photo}
+                  localOnly={localOnly}
+                  onPending={uploadPending}
+                  onChange={(value) =>
+                    uploadedDetail(
+                      'photos',
+                      (formRef.current.data.photos || []).map(
+                        (item, itemIndex) =>
+                          itemIndex === index ? value : item,
+                      ),
+                    )
+                  }
+                />
+                <button
+                  type="button"
+                  className="admin-text-danger"
+                  onClick={() =>
+                    detail(
+                      'photos',
+                      data.photos.filter((_, itemIndex) => itemIndex !== index),
+                    )
+                  }
+                >
+                  Hapus foto
+                </button>
+              </div>
+            ))}
+          </div>
+        </section>
         {data.groom && (
           <RepeatableFields
             title="Rekening hadiah"

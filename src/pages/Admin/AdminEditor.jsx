@@ -88,7 +88,13 @@ export default function AdminEditor() {
       const photos = (form.data.photos || [])
         .map((value) => value.trim())
         .filter(Boolean);
-      if (photos.some((value) => !/^https?:\/\//i.test(value)))
+      if (
+        photos.some(
+          (value) =>
+            !/^https?:\/\//i.test(value) &&
+            !/^\/api\/media\/[a-f0-9-]+\.(jpg|png|webp)$/.test(value),
+        )
+      )
         throw new Error('URL galeri harus diawali http:// atau https://.');
       if (form.data.videoUrl && !getVideoSource(form.data.videoUrl))
         throw new Error(

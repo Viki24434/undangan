@@ -1,4 +1,4 @@
-﻿import { apiRequest } from './api';
+﻿import { apiRequest, API_BASE_URL } from './api';
 
 let csrfToken = '';
 async function request(path, options = {}) {
@@ -11,6 +11,18 @@ async function request(path, options = {}) {
   return result;
 }
 export const adminService = {
+  async uploadImage(blob, signal) {
+    const response = await fetch(API_BASE_URL + '/admin/uploads', {
+      method: 'POST',
+      credentials: 'include',
+      signal,
+      headers: { 'Content-Type': blob.type, 'X-CSRF-Token': csrfToken },
+      body: blob,
+    });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.message || 'Upload gambar gagal.');
+    return result.data.url;
+  },
   updatePackagePrice: (id, price) =>
     request('/admin/packages/' + encodeURIComponent(id), {
       method: 'PATCH',

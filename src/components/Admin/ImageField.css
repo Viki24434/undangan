@@ -1,0 +1,23 @@
+.image-field {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+.image-file-label {
+  padding: 12px;
+  border: 1px dashed var(--admin-line);
+  border-radius: 10px;
+  background: #f5f6f0;
+}
+.image-field .image-field-preview {
+  width: 100%;
+  max-width: 180px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--admin-line);
+}
+.image-field small {
+  font-size: 11px;
+  color: #73806f;
+}
