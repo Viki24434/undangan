@@ -52,3 +52,16 @@ export const invitationPackages = [
 export function packageName(id) {
   return invitationPackages.find((item) => item.id === id)?.name || 'Silver';
 }
+
+export function packagePriceText(item, { loading = false, error = '' } = {}) {
+  if (item?.priceMode === 'custom' || item?.id === 'exclusive')
+    return 'Harga custom';
+  if (loading) return 'Memuat harga…';
+  if (error) return 'Harga belum tersedia';
+  if (item?.price == null) return 'Harga belum ditentukan';
+  return new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    maximumFractionDigits: 0,
+  }).format(item.price);
+}

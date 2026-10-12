@@ -4,6 +4,7 @@ export const templateRegistry = [
   {
     id: 'elegant-gold-01',
     name: 'Elegant Gold Wedding',
+    palette: ['#151b18', '#d2b77b', '#202820'],
     category: 'Pernikahan',
     packageId: 'gold',
     description: 'Emas hangat, bingkai klasik, dan cerita yang elegan.',

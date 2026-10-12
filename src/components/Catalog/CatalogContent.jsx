@@ -1,5 +1,6 @@
 ﻿import { useState } from 'react';
 import useTemplates from '../../hooks/useTemplates';
+import usePackages from '../../hooks/usePackages';
 import Arrow from '../HomeLanding/Arrow';
 import TemplateCard from '../TemplateCard/TemplateCard';
 import CatalogHeader from './CatalogHeader';
@@ -8,6 +9,7 @@ import PackageCollection from './PackageCollection';
 import { invitationPackages } from '../../config/invitationPackages';
 
 export default function CatalogContent() {
+  const pricing = usePackages();
   const {
     templates: availableTemplates,
     categories,
@@ -48,6 +50,7 @@ export default function CatalogContent() {
     <main id="konten" className="catalog-content">
       <CatalogHeader />
       <PackageCollection
+        pricing={pricing}
         selected={packageId}
         onSelect={setPackageId}
         templates={availableTemplates}
@@ -110,7 +113,11 @@ export default function CatalogContent() {
         {templates.length > 0 ? (
           <div className="catalog-grid">
             {templates.map((template) => (
-              <TemplateCard key={template.id} template={template} />
+              <TemplateCard
+                key={template.id}
+                template={template}
+                pricing={pricing}
+              />
             ))}
           </div>
         ) : (

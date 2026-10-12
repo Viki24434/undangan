@@ -1,10 +1,13 @@
 ﻿import { Link } from 'react-router-dom';
 import Arrow from '../HomeLanding/Arrow';
 import './TemplateCard.css';
-import { packageName } from '../../config/invitationPackages';
+import { packageName, packagePriceText } from '../../config/invitationPackages';
 import '../Catalog/PackageCollection.css';
 
-export default function TemplateCard({ template }) {
+export default function TemplateCard({ template, pricing }) {
+  const selectedPackage = pricing?.packages.find(
+    (item) => item.id === template.packageId,
+  );
   return (
     <div className="template-card-item">
       <Link to={`/t/${template.id}`} className="invite-template">
@@ -26,11 +29,19 @@ export default function TemplateCard({ template }) {
         </div>
         <div className="invite-template-caption">
           <div>
-            <span
-              className={`template-package template-package--${template.packageId}`}
-            >
-              {packageName(template.packageId)}
-            </span>
+            <div className="template-card-package-row">
+              <span
+                className={`template-package template-package--${template.packageId}`}
+              >
+                {packageName(template.packageId)}
+              </span>
+              <span className="template-card-price">
+                {packagePriceText(
+                  selectedPackage || { id: template.packageId },
+                  pricing,
+                )}
+              </span>
+            </div>
             <h3>{template.name}</h3>
             {template.palette && (
               <div className="template-palette" aria-label="Palet warna tema">
@@ -43,7 +54,6 @@ export default function TemplateCard({ template }) {
               {template.description || 'Desain pilihan untuk momen istimewamu.'}
             </p>
           </div>
-          <Arrow />
         </div>
       </Link>
       <Link className="template-edit-link" to={`/edit/${template.id}`}>

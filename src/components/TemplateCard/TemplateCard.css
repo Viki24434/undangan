@@ -11,3 +11,28 @@
   border-radius: 50%;
   border: 1px solid #00000018;
 }
+.invite-template-caption .template-card-price {
+  margin-left: auto;
+  color: #927137;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.template-card-item .invite-template-caption > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.template-card-package-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.template-card-package-row .template-package {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}

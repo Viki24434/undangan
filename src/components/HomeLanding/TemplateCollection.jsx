@@ -1,10 +1,12 @@
 ﻿import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useTemplates from '../../hooks/useTemplates';
+import usePackages from '../../hooks/usePackages';
 import Arrow from './Arrow';
 import TemplateCard from '../TemplateCard/TemplateCard';
 
 export default function TemplateCollection() {
+  const pricing = usePackages();
   const { templates: availableTemplates, categories, error } = useTemplates();
   const [category, setCategory] = useState('Semua');
   const templates = availableTemplates.filter(
@@ -48,7 +50,11 @@ export default function TemplateCollection() {
       {templates.length ? (
         <div className="invite-collection-grid">
           {templates.slice(0, 6).map((template) => (
-            <TemplateCard key={template.id} template={template} />
+            <TemplateCard
+              key={template.id}
+              template={template}
+              pricing={pricing}
+            />
           ))}
           <aside className="invite-collection-note">
             <span className="invite-flower">✳</span>

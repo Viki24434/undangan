@@ -1,8 +1,13 @@
-import usePackages from '../../hooks/usePackages';
+import { packagePriceText } from '../../config/invitationPackages';
 import './PackageCollection.css';
 
-export default function PackageCollection({ selected, onSelect, templates }) {
-  const { packages, loading, error } = usePackages();
+export default function PackageCollection({
+  selected,
+  onSelect,
+  templates,
+  pricing,
+}) {
+  const { packages, error } = pricing;
   return (
     <section className="package-collection" aria-labelledby="package-title">
       <div className="invite-section-heading">
@@ -37,19 +42,7 @@ export default function PackageCollection({ selected, onSelect, templates }) {
               </div>
               <h3>{item.name}</h3>
               <strong className="package-price">
-                {item.priceMode === 'custom'
-                  ? 'Harga custom'
-                  : loading
-                    ? 'Memuat harga…'
-                    : error
-                      ? 'Harga belum tersedia'
-                      : item.price === null
-                        ? 'Harga belum ditentukan'
-                        : new Intl.NumberFormat('id-ID', {
-                            style: 'currency',
-                            currency: 'IDR',
-                            maximumFractionDigits: 0,
-                          }).format(item.price)}
+                {packagePriceText(item, pricing)}
               </strong>
               <p>{item.description}</p>
               <ul>
