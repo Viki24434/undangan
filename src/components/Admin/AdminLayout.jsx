@@ -45,6 +45,8 @@ export default function AdminLayout() {
             Undangan
           </NavLink>
           <NavLink to="/admin/undangan/baru">Buat undangan</NavLink>
+          <NavLink to="/admin/template">Paket template</NavLink>
+          <NavLink to="/admin/paket">Harga paket</NavLink>
           <Link to="/katalog">Katalog template ↗</Link>
         </nav>
         <div className="admin-account">

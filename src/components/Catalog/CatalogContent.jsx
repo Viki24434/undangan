@@ -4,6 +4,8 @@ import Arrow from '../HomeLanding/Arrow';
 import TemplateCard from '../TemplateCard/TemplateCard';
 import CatalogHeader from './CatalogHeader';
 import CatalogFilters from './CatalogFilters';
+import PackageCollection from './PackageCollection';
+import { invitationPackages } from '../../config/invitationPackages';
 
 export default function CatalogContent() {
   const {
@@ -15,6 +17,7 @@ export default function CatalogContent() {
   const [category, setCategory] = useState('Semua');
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState('default');
+  const [packageId, setPackageId] = useState('all');
   const search = query.trim().toLocaleLowerCase('id');
   const templates = availableTemplates.filter((template) => {
     const matchesCategory =
@@ -22,7 +25,9 @@ export default function CatalogContent() {
     const matchesSearch = `${template.name} ${template.category}`
       .toLocaleLowerCase('id')
       .includes(search);
-    return matchesCategory && matchesSearch;
+    const matchesPackage =
+      packageId === 'all' || template.packageId === packageId;
+    return matchesCategory && matchesSearch && matchesPackage;
   });
 
   if (sort !== 'default') {
@@ -36,11 +41,17 @@ export default function CatalogContent() {
     setCategory('Semua');
     setQuery('');
     setSort('default');
+    setPackageId('all');
   }
 
   return (
     <main id="konten" className="catalog-content">
       <CatalogHeader />
+      <PackageCollection
+        selected={packageId}
+        onSelect={setPackageId}
+        templates={availableTemplates}
+      />
       <section
         className="catalog-collection"
         id="koleksi"
@@ -71,9 +82,26 @@ export default function CatalogContent() {
           sort={sort}
           onSortChange={setSort}
         />
+        <label className="package-filter">
+          Paket undangan
+          <select
+            value={packageId}
+            onChange={(event) => setPackageId(event.target.value)}
+          >
+            <option value="all">Semua paket</option>
+            {invitationPackages.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.name}
+              </option>
+            ))}
+          </select>
+        </label>
         <div className="catalog-result-row">
           <p role="status">{templates.length} template ditemukan</p>
-          {(query || category !== 'Semua' || sort !== 'default') && (
+          {(query ||
+            category !== 'Semua' ||
+            sort !== 'default' ||
+            packageId !== 'all') && (
             <button type="button" onClick={resetFilters}>
               Reset filter
             </button>

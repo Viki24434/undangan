@@ -2,6 +2,7 @@
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { adminService } from '../../services/adminService';
 import { templateRegistry } from '../../config/templateRegistry';
+import useTemplates from '../../hooks/useTemplates';
 import { templateDefaults } from '../../config/templateDefaults';
 import InvitationForm from '../../components/Admin/InvitationForm';
 import GuestManagement from '../../components/Admin/GuestManagement';
@@ -22,6 +23,7 @@ function localDate(value) {
 }
 
 export default function AdminEditor() {
+  const { templates: availableTemplates } = useTemplates();
   const { id } = useParams();
   const navigate = useNavigate();
   const [form, setForm] = useState(null);
@@ -32,12 +34,10 @@ export default function AdminEditor() {
   useEffect(() => {
     const controller = new AbortController();
     const load = id
-      ? adminService
-          .find(id, controller.signal)
-          .then(({ data }) => ({
-            ...data,
-            eventDate: localDate(data.eventDate),
-          }))
+      ? adminService.find(id, controller.signal).then(({ data }) => ({
+          ...data,
+          eventDate: localDate(data.eventDate),
+        }))
       : templateDefaults(templateRegistry[0].id).then((data) => ({
           title: '',
           slug: '',
@@ -212,7 +212,7 @@ export default function AdminEditor() {
       <section className="admin-panel">
         <InvitationForm
           form={form}
-          templates={templateRegistry}
+          templates={availableTemplates}
           onChange={setForm}
           onTemplateChange={setConfirmTemplate}
           onSubmit={save}

@@ -1,0 +1,48 @@
+.admin-price-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.admin-price-card {
+  padding: 28px;
+  background: #fffdf8;
+  border: 1px solid var(--admin-line);
+  border-radius: 18px;
+}
+
+.admin-price-card form {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.admin-price-card label {
+  font-size: 13px;
+}
+.admin-price-card input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--admin-line);
+  border-radius: 10px;
+  background: white;
+  color: var(--admin-ink);
+}
+.admin-price-card button {
+  justify-self: start;
+  margin-top: 8px;
+}
+.admin-price-custom {
+  display: block;
+  margin: 20px 0 12px;
+  color: #94713a;
+  font:
+    26px Georgia,
+    serif;
+}
+
+@media (max-width: 650px) {
+  .admin-price-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

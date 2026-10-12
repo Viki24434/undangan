@@ -1,6 +1,8 @@
 ﻿import { Link } from 'react-router-dom';
 import Arrow from '../HomeLanding/Arrow';
 import './TemplateCard.css';
+import { packageName } from '../../config/invitationPackages';
+import '../Catalog/PackageCollection.css';
 
 export default function TemplateCard({ template }) {
   return (
@@ -23,6 +25,11 @@ export default function TemplateCard({ template }) {
       </div>
       <div className="invite-template-caption">
         <div>
+          <span
+            className={`template-package template-package--${template.packageId}`}
+          >
+            {packageName(template.packageId)}
+          </span>
           <h3>{template.name}</h3>
           {template.palette && (
             <div className="template-palette" aria-label="Palet warna tema">

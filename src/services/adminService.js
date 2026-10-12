@@ -11,6 +11,16 @@ async function request(path, options = {}) {
   return result;
 }
 export const adminService = {
+  updatePackagePrice: (id, price) =>
+    request('/admin/packages/' + encodeURIComponent(id), {
+      method: 'PATCH',
+      body: { price },
+    }),
+  updateTemplatePackage: (id, packageId) =>
+    request('/admin/templates/' + encodeURIComponent(id), {
+      method: 'PATCH',
+      body: { packageId },
+    }),
   session: (signal) => request('/auth/session', { signal }),
   login: (body, setup = false) =>
     request(setup ? '/auth/setup' : '/auth/login', { method: 'POST', body }),

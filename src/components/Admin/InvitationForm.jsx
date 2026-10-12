@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import RepeatableFields from './RepeatableFields';
 import { prayerTemplates } from './prayerTemplates';
+import { packageName } from '../../config/invitationPackages';
 
 export default function InvitationForm({
   form,
@@ -72,7 +73,7 @@ export default function InvitationForm({
               >
                 {templates.map((template) => (
                   <option key={template.id} value={template.id}>
-                    {template.name}
+                    {template.name} — {packageName(template.packageId)}
                   </option>
                 ))}
               </select>
@@ -259,7 +260,9 @@ export default function InvitationForm({
         <section className="admin-form-section">
           <div className="admin-panel-heading">
             <h2>Template doa siap pakai</h2>
-            <small>Pilih doa untuk menambahkannya ke daftar, lalu edit bila perlu.</small>
+            <small>
+              Pilih doa untuk menambahkannya ke daftar, lalu edit bila perlu.
+            </small>
           </div>
           <div className="admin-field-grid">
             <label>

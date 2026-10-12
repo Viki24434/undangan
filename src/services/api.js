@@ -43,6 +43,7 @@ export async function apiRequest(
 }
 
 export const invitationService = {
+  packages: (signal) => apiRequest('/packages', { signal }),
   templates: (signal) => apiRequest('/templates', { signal }),
   template: (id, signal) =>
     apiRequest(`/templates/${encodeURIComponent(id)}`, { signal }),
