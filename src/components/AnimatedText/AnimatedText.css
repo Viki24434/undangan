@@ -1,0 +1,20 @@
+.animated-text-word {
+  display: inline-block;
+  white-space: pre;
+}
+
+.animated-text-character {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-text-measure {
+  visibility: hidden;
+}
+
+.animated-text-glyph {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  overflow: hidden;
+}

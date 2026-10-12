@@ -30,3 +30,22 @@
   text-transform: uppercase;
   font-weight: 600;
 }
+
+@keyframes countdownDigitRoll {
+  from {
+    opacity: 0;
+    transform: translateY(-65%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.cd-1-box h3 {
+  overflow: hidden;
+  font-variant-numeric: tabular-nums;
+}
+.cd-1-number {
+  display: inline-block;
+  animation: countdownDigitRoll 320ms ease-out both;
+}

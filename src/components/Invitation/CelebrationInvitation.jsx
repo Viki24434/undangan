@@ -1,4 +1,5 @@
-﻿import { useInvitationData } from './InvitationContext';
+import AnimatedText from '../AnimatedText/AnimatedText';
+import { useInvitationData } from './InvitationContext';
 import InvitationLayout from './InvitationLayout';
 import EventSection from './EventSection';
 import InvitationGallery from './InvitationGallery';
@@ -37,7 +38,9 @@ export default function CelebrationInvitation({
           {data.symbol}
         </span>
         <span className="invitation-kicker">{data.eyebrow}</span>
-        <h2>{data.heading}</h2>
+        <h2>
+          <AnimatedText text={data.heading} effect="type" />
+        </h2>
         <p>{data.introduction}</p>
         <div className="celebration-honoree">
           <span>{data.honoreeLabel}</span>

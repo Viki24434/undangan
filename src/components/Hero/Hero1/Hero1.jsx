@@ -1,3 +1,4 @@
+import AnimatedText from '../../AnimatedText/AnimatedText';
 import './Hero1.css';
 import HeroSlideshow from '../HeroSlideshow';
 
@@ -26,7 +27,7 @@ export default function Hero1({
         </p>
 
         <h1 className="hero-1-title animate-zoom-in has-delay delay-500">
-          {title}
+          <AnimatedText text={title} effect="type" />
         </h1>
 
         {quote && (

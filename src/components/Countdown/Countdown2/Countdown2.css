@@ -37,3 +37,9 @@
     font-size: 25px;
   }
 }
+
+.countdown-2__number {
+  font-variant-numeric: tabular-nums;
+  animation: countdownFlip 380ms ease-out both;
+  transform-origin: center;
+}

@@ -1,3 +1,4 @@
+import AnimatedText from '../../AnimatedText/AnimatedText';
 import './Hero2.css';
 import HeroSlideshow from '../HeroSlideshow';
 
@@ -22,7 +23,9 @@ export default function Hero2({
         <span className="invitation-kicker animate-fade-in-down delay-300">
           {subtitle}
         </span>
-        <h1 className="animate-blur-reveal delay-500">{title}</h1>
+        <h1 className="animate-blur-reveal delay-500">
+          <AnimatedText text={title} effect="scramble" />
+        </h1>
         <span className="invitation-divider" aria-hidden="true">
           ✧
         </span>

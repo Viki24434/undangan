@@ -1,3 +1,4 @@
+import AnimatedText from '../../AnimatedText/AnimatedText';
 import './Story2.css';
 import ScrollReveal from '../../ScrollReveal/ScrollReveal';
 
@@ -6,7 +7,9 @@ export default function Story2({ stories }) {
     <section className="invitation-section story-2">
       <ScrollReveal animationClass="animate-soft-rise">
         <span className="invitation-kicker">CHAPTERS OF OUR STORY</span>
-        <h2>Perjalanan kami</h2>
+        <h2>
+          <AnimatedText text="Perjalanan kami" />
+        </h2>
         <p>Setiap langkah kecil membawa kami ke hari yang istimewa ini.</p>
       </ScrollReveal>
       <ol className="story-2__timeline">
@@ -17,7 +20,9 @@ export default function Story2({ stories }) {
             </span>
             <ScrollReveal
               as="article"
-              animationClass="animate-soft-rise"
+              animationClass={
+                index % 2 === 0 ? 'animate-slide-left' : 'animate-slide-right'
+              }
               delay={`delay-${Math.min(index * 100, 900)}`}
             >
               <span className="story-2__date">{story.date}</span>

@@ -14,7 +14,13 @@ export default function Gallery2({ photos }) {
           <ScrollReveal
             as="figure"
             className="gallery-2__item"
-            animationClass="animate-blur-reveal"
+            animationClass={
+              index % 3 === 0
+                ? 'animate-zoom-in'
+                : index % 3 === 1
+                  ? 'animate-slide-left'
+                  : 'animate-slide-right'
+            }
             delay={`delay-${Math.min((index % 5) * 100, 900)}`}
             key={`${photo}-${index}`}
           >

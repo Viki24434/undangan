@@ -18,11 +18,13 @@ export default function Countdown2({ targetDate }) {
         <ScrollReveal
           as="div"
           className="countdown-2__unit"
-          animationClass="animate-soft-rise"
+          animationClass="animate-countdown-flip"
           delay={`delay-${index * 100}`}
           key={unit}
         >
-          <strong>{String(timeLeft[unit]).padStart(2, '0')}</strong>
+          <strong className="countdown-2__number" key={timeLeft[unit]}>
+            {String(timeLeft[unit]).padStart(2, '0')}
+          </strong>
           <span>{label}</span>
         </ScrollReveal>
       ))}
