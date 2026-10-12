@@ -1,0 +1,126 @@
+.invitation-jawa-paes {
+  --color-bg: #211912;
+  --color-text: #f5ecdc;
+  --color-accent: #d6b16e;
+  --invitation-muted: #c4b69c;
+  --invitation-panel: #33261b;
+  --invitation-line: #d6b16e66;
+  --invitation-on-accent: #251a12;
+  background-image:
+    radial-gradient(ellipse at 100% 0, #80603b40, transparent 46%),
+    radial-gradient(ellipse at 0 56%, #53603a30, transparent 44%),
+    linear-gradient(160deg, #211912, #302319 54%, #1b1510);
+}
+
+.celebration-template.invitation-jawa-paes .cover-2 .invitation-cover-shade {
+  background:
+    linear-gradient(180deg, #21191266, #17110dee),
+    radial-gradient(ellipse at 50% 24%, #d6b16e38, transparent 72%);
+}
+
+.celebration-template.invitation-jawa-paes .cover-2 .cover-2__frame {
+  border-color: #d6b16e99;
+  border-radius: 180px 180px 12px 12px;
+  background: linear-gradient(160deg, #493521d9, #211811ed);
+  box-shadow: inset 0 0 0 7px #d6b16e0d, 0 22px 64px #100b08bf;
+}
+
+.invitation-jawa-paes .invitation-monogram {
+  border-color: var(--color-accent);
+  color: #f0d49b;
+  box-shadow: 0 0 0 6px #d6b16e1a;
+}
+
+.celebration-template.invitation-jawa-paes .hero-2::before {
+  background:
+    radial-gradient(ellipse 78% 42% at 50% 0, #d6b16e30, transparent 100%),
+    linear-gradient(180deg, #21191244, #17110de0);
+}
+
+.celebration-template.invitation-jawa-paes .hero-2 .invitation-kicker,
+.celebration-template.invitation-jawa-paes .hero-2 .invitation-divider {
+  color: #f0d49b;
+}
+
+.celebration-template.invitation-jawa-paes .hero-2__copy {
+  border-color: #d6b16e77;
+  text-shadow: 0 2px 18px #17110d;
+}
+
+.invitation-jawa-paes .invitation-intro {
+  background:
+    url('/assets/png/Export_20261012_093801/kain_batik.png') left -32px bottom -42px /
+      150px auto no-repeat,
+    radial-gradient(ellipse at 50% 0, #82613a38, transparent 68%);
+}
+
+.invitation-jawa-paes .couple-3 {
+  background:
+    radial-gradient(ellipse at 50% 45%, #493622, transparent 72%),
+    var(--color-bg);
+}
+
+.invitation-jawa-paes .couple-3__portrait {
+  border-color: var(--color-accent);
+  background: #33261b;
+  box-shadow:
+    0 0 0 7px var(--color-bg),
+    0 0 0 8px #d6b16e66,
+    0 18px 38px #100b0880,
+    inset 0 0 0 5px #d6b16e18;
+}
+
+.invitation-jawa-paes .couple-3__person h3,
+.invitation-jawa-paes .couple-3__ampersand {
+  color: #f0d49b;
+}
+
+.invitation-jawa-paes .invitation-events,
+.invitation-jawa-paes .story-2,
+.invitation-jawa-paes .invitation-guestbook,
+.invitation-jawa-paes .invitation-video {
+  background:
+    radial-gradient(ellipse at 50% 0, #79603c45, transparent 72%),
+    var(--invitation-panel);
+}
+
+.invitation-jawa-paes .invitation-event-card,
+.invitation-jawa-paes .invitation-events .cd-1-box,
+.invitation-jawa-paes .story-2__entry article,
+.invitation-jawa-paes .invitation-prayer-list article,
+.invitation-jawa-paes .wishes-2 .invitation-form {
+  border-color: var(--invitation-line);
+  background: linear-gradient(145deg, #493622, #2a2017);
+  box-shadow: 0 14px 34px #100b0866;
+}
+
+.invitation-jawa-paes .invitation-event-card {
+  border-top: 2px solid var(--color-accent);
+  border-radius: 90px 90px 10px 10px;
+}
+
+.invitation-jawa-paes .gallery-3__item {
+  background: var(--invitation-panel);
+  box-shadow: 0 12px 28px #100b0866;
+}
+
+.invitation-jawa-paes .gift-1-card,
+.invitation-jawa-paes .gift-2__card {
+  border-color: var(--invitation-line);
+  background:
+    radial-gradient(ellipse at top, #60482b, transparent 72%),
+    #2a2017;
+  box-shadow: 0 16px 38px #100b0866;
+}
+
+.invitation-jawa-paes .invitation-form input,
+.invitation-jawa-paes .invitation-form textarea,
+.invitation-jawa-paes .invitation-form select {
+  background: #1b1510;
+}
+
+.invitation-jawa-paes .invitation-closing {
+  background:
+    radial-gradient(ellipse at 50% 0, #795d3970, transparent 64%),
+    #19130f;
+}

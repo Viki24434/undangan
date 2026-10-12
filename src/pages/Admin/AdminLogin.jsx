@@ -43,7 +43,7 @@ export default function AdminLogin() {
     <div className="admin-app admin-login-page">
       <section className="admin-login-card">
         <Link className="admin-brand" to="/">
-          inviteku ✳
+          ciptain ✳
         </Link>
         <span className="admin-eyebrow">ADMIN CENTER</span>
         <h1>

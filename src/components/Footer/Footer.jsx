@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
@@ -7,7 +6,7 @@ export default function Footer() {
     <footer className="footer-container">
       <div className="footer-content">
         <div className="footer-brand">
-          <h2>InviteKu.</h2>
+          <h2>Ciptain.</h2>
           <p>Platform pembuatan undangan digital premium terlengkap, termudah, dan paling elegan di Indonesia.</p>
         </div>
         <div className="footer-links">
@@ -28,7 +27,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2026 InviteKu. All rights reserved.</p>
+        <p>&copy; 2026 Ciptain. All rights reserved.</p>
       </div>
     </footer>
   );

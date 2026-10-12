@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <header className="invite-nav">
       <Link className="invite-brand" to="/">
-        inviteku<span>✳</span>
+        ciptain<span>✳</span>
       </Link>
       <button
         className="invite-menu"
@@ -38,6 +38,9 @@ export default function Navbar() {
           FAQ
         </a>
         <Link to="/admin">Admin center</Link>
+        <Link to="/panduan" onClick={() => setOpen(false)}>
+          Panduan
+        </Link>
         <Link className="invite-button small" to="/katalog">
           Jelajahi template <Arrow />
         </Link>

@@ -4,6 +4,8 @@ import EventSection from './EventSection';
 import InvitationGallery from './InvitationGallery';
 import Guestbook from './Guestbook';
 import Gallery1 from '../Gallery/Gallery1/Gallery1';
+import Gallery2 from '../Gallery/Gallery2/Gallery2';
+import Gallery3 from '../Gallery/Gallery3/Gallery3';
 import ScrollReveal from '../ScrollReveal/ScrollReveal';
 import OptionalSections from './OptionalSections';
 
@@ -63,6 +65,10 @@ export default function CelebrationInvitation({
       />
       {components.gallery === 1 ? (
         <Gallery1 photos={data.photos} />
+      ) : components.gallery === 3 ? (
+        <Gallery3 photos={data.photos} />
+      ) : components.gallery === 2 ? (
+        <Gallery2 photos={data.photos} />
       ) : (
         <InvitationGallery photos={data.photos} />
       )}

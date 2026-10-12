@@ -1,4 +1,3 @@
-import React from 'react';
 import './HomeNavbar.css';
 import Button from '../Button/Button';
 
@@ -6,7 +5,7 @@ export default function HomeNavbar() {
   return (
     <nav className="home-navbar">
       <a href="/" className="nav-brand">
-        InviteKu.
+        Ciptain.
       </a>
       <div className="nav-links">
         <a href="#beranda">Beranda</a>

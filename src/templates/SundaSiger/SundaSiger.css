@@ -1,0 +1,126 @@
+.invitation-sunda-siger {
+  --color-bg: #17251d;
+  --color-text: #f2ead8;
+  --color-accent: #d8b66d;
+  --invitation-muted: #c5b99e;
+  --invitation-panel: #24382d;
+  --invitation-line: #d8b66d66;
+  --invitation-on-accent: #1b241a;
+  background-image:
+    radial-gradient(ellipse at 100% 0, #65744745, transparent 46%),
+    radial-gradient(ellipse at 0 58%, #72523230, transparent 44%),
+    linear-gradient(160deg, #17251d, #1e3025 54%, #131e18);
+}
+
+.celebration-template.invitation-sunda-siger .cover-2 .invitation-cover-shade {
+  background:
+    linear-gradient(180deg, #17251d66, #101a14eb),
+    radial-gradient(ellipse at 50% 24%, #d8b66d35, transparent 72%);
+}
+
+.celebration-template.invitation-sunda-siger .cover-2 .cover-2__frame {
+  border-color: #d8b66d99;
+  border-radius: 180px 180px 12px 12px;
+  background: linear-gradient(160deg, #2d4938cc, #142019ed);
+  box-shadow: inset 0 0 0 7px #d8b66d0d, 0 22px 64px #090e0bcc;
+}
+
+.invitation-sunda-siger .invitation-monogram {
+  border-color: var(--color-accent);
+  color: #f2d99f;
+  box-shadow: 0 0 0 6px #d8b66d1a;
+}
+
+.celebration-template.invitation-sunda-siger .hero-2::before {
+  background:
+    radial-gradient(ellipse 78% 42% at 50% 0, #d8b66d30, transparent 100%),
+    linear-gradient(180deg, #15231944, #101a14d9);
+}
+
+.celebration-template.invitation-sunda-siger .hero-2 .invitation-kicker,
+.celebration-template.invitation-sunda-siger .hero-2 .invitation-divider {
+  color: #f2d99f;
+}
+
+.celebration-template.invitation-sunda-siger .hero-2__copy {
+  border-color: #d8b66d77;
+  text-shadow: 0 2px 18px #101a14;
+}
+
+.invitation-sunda-siger .invitation-intro {
+  background:
+    url('/assets/png/Export_20261012_093753/kujang.png') left 10px bottom 8px /
+      72px auto no-repeat,
+    radial-gradient(ellipse at 50% 0, #62764b38, transparent 68%);
+}
+
+.invitation-sunda-siger .couple-3 {
+  background:
+    radial-gradient(ellipse at 50% 45%, #344a35, transparent 72%),
+    var(--color-bg);
+}
+
+.invitation-sunda-siger .couple-3__portrait {
+  border-color: var(--color-accent);
+  background: #24382d;
+  box-shadow:
+    0 0 0 7px var(--color-bg),
+    0 0 0 8px #d8b66d66,
+    0 18px 38px #080e0a66,
+    inset 0 0 0 5px #d8b66d18;
+}
+
+.invitation-sunda-siger .couple-3__person h3,
+.invitation-sunda-siger .couple-3__ampersand {
+  color: #f2d99f;
+}
+
+.invitation-sunda-siger .invitation-events,
+.invitation-sunda-siger .story-2,
+.invitation-sunda-siger .invitation-guestbook,
+.invitation-sunda-siger .invitation-video {
+  background:
+    radial-gradient(ellipse at 50% 0, #52684445, transparent 72%),
+    var(--invitation-panel);
+}
+
+.invitation-sunda-siger .invitation-event-card,
+.invitation-sunda-siger .invitation-events .cd-1-box,
+.invitation-sunda-siger .story-2__entry article,
+.invitation-sunda-siger .invitation-prayer-list article,
+.invitation-sunda-siger .wishes-2 .invitation-form {
+  border-color: var(--invitation-line);
+  background: linear-gradient(145deg, #304636, #1b2c22);
+  box-shadow: 0 14px 34px #090e0b66;
+}
+
+.invitation-sunda-siger .invitation-event-card {
+  border-top: 2px solid var(--color-accent);
+  border-radius: 90px 90px 10px 10px;
+}
+
+.invitation-sunda-siger .gallery-3__item {
+  background: var(--invitation-panel);
+  box-shadow: 0 12px 28px #090e0b66;
+}
+
+.invitation-sunda-siger .gift-1-card,
+.invitation-sunda-siger .gift-2__card {
+  border-color: var(--invitation-line);
+  background:
+    radial-gradient(ellipse at top, #496043, transparent 72%),
+    #1b2b21;
+  box-shadow: 0 16px 38px #090e0b66;
+}
+
+.invitation-sunda-siger .invitation-form input,
+.invitation-sunda-siger .invitation-form textarea,
+.invitation-sunda-siger .invitation-form select {
+  background: #142019;
+}
+
+.invitation-sunda-siger .invitation-closing {
+  background:
+    radial-gradient(ellipse at 50% 0, #52684470, transparent 64%),
+    #121d16;
+}

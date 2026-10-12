@@ -1,0 +1,88 @@
+.couple-3 {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 45%, var(--invitation-panel), transparent 72%),
+    var(--color-bg);
+}
+
+.couple-3__stack {
+  display: grid;
+  justify-items: center;
+  max-width: 540px;
+  margin: 38px auto 0;
+}
+
+.couple-3__person {
+  width: 100%;
+  min-width: 0;
+}
+
+.couple-3__portrait {
+  position: relative;
+  width: min(100%, 390px);
+  aspect-ratio: 4 / 5;
+  margin: 0 auto 22px;
+  padding: 9px;
+  border: 1px solid var(--color-accent);
+  border-radius: 190px 190px 12px 12px;
+  background: var(--color-bg);
+  box-shadow:
+    0 20px 44px color-mix(in srgb, var(--color-text) 18%, transparent),
+    inset 0 0 0 5px var(--invitation-panel);
+}
+
+.couple-3__portrait > img:first-child {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.couple-3__person .invitation-kicker {
+  font-size: 9px;
+}
+
+.couple-3__person h3 {
+  margin: 8px 0;
+  color: var(--color-accent);
+  font-size: clamp(30px, 8vw, 42px);
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.couple-3__person p {
+  max-width: 380px;
+  margin: 0 auto;
+  color: var(--invitation-muted);
+  font-size: 12px;
+}
+
+.couple-3__ampersand {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  margin: 16px 0;
+  border: 1px solid var(--invitation-line);
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-accent);
+  font: italic 34px var(--font-heading);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--color-text) 14%, transparent);
+}
+
+@media (max-width: 420px) {
+  .couple-3__portrait {
+    width: min(100%, 330px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .couple-3__portrait img {
+    transition: none;
+  }
+}

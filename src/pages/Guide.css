@@ -1,0 +1,276 @@
+.guide-page {
+  min-height: 100vh;
+}
+
+.guide-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 30px 8% 72px;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse at 88% 48%, #dce2ceaa, transparent 40%),
+    linear-gradient(130deg, #faf9f4 35%, #eef0e6);
+}
+
+.guide-breadcrumb {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: clamp(48px, 8vw, 96px);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.guide-breadcrumb a {
+  text-decoration: underline !important;
+  text-underline-offset: 4px;
+}
+
+.guide-hero-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+}
+
+.guide-hero h1 {
+  margin: 18px 0 24px;
+  font-size: clamp(42px, 7vw, 82px);
+}
+
+.guide-hero h1 em,
+.guide-section-heading h2 em,
+.guide-checklist-intro h2 em,
+.guide-faq-section h2 em,
+.guide-cta h2 em {
+  color: #71815e;
+}
+
+.guide-hero-copy > p {
+  max-width: 540px;
+  font-size: 15px;
+}
+
+.guide-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.guide-hero-note {
+  position: absolute;
+  right: 9%;
+  bottom: 64px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #778463;
+  font: 18px Georgia, serif;
+}
+
+.guide-hero-note i {
+  width: 44px;
+  height: 1px;
+  background: #a5ad93;
+}
+
+.guide-section,
+.guide-checklist-section,
+.guide-faq-section {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(36px, 8vw, 110px);
+  padding: 88px 8%;
+}
+
+.guide-section-heading h2,
+.guide-checklist-intro h2,
+.guide-faq-section h2,
+.guide-cta h2 {
+  margin: 16px 0;
+  font-size: clamp(34px, 4.6vw, 54px);
+}
+
+.guide-section-heading > p,
+.guide-checklist-intro > p,
+.guide-faq-section > div:first-child > p {
+  max-width: 360px;
+  font-size: 13px;
+}
+
+.guide-step-list,
+.guide-checklist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guide-step-list li {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.guide-step-list li:first-child {
+  padding-top: 0;
+}
+
+.guide-step-number {
+  color: #87946b;
+  font: 24px Georgia, serif;
+}
+
+.guide-step-list h3,
+.guide-checklist h3 {
+  margin: 0 0 7px;
+  font: 24px Georgia, serif;
+}
+
+.guide-step-list p,
+.guide-checklist p {
+  max-width: 480px;
+  font-size: 13px;
+}
+
+.guide-step-list a {
+  display: inline-flex;
+  gap: 9px;
+  margin-top: 14px;
+  color: #586848;
+  font-size: 12px;
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+
+.guide-checklist-section {
+  background:
+    radial-gradient(ellipse at 100% 0, #77845d22, transparent 48%),
+    #eff0e8;
+}
+
+.guide-checklist {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 24px;
+}
+
+.guide-checklist li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.guide-checklist li > span {
+  display: grid;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid #aeb69e;
+  border-radius: 50%;
+  color: #6e7c58;
+  font-size: 13px;
+}
+
+.guide-checklist h3 {
+  font-size: 19px;
+}
+
+.guide-faq-list {
+  border-top: 1px solid var(--line);
+}
+
+.guide-faq-list details {
+  border-bottom: 1px solid var(--line);
+  padding: 20px 0;
+}
+
+.guide-faq-list summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  cursor: pointer;
+  font: 19px Georgia, serif;
+  list-style: none;
+}
+
+.guide-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.guide-faq-list summary span {
+  flex: 0 0 auto;
+  color: #78865e;
+  font: 24px 'Segoe UI', sans-serif;
+  transition: transform 180ms ease;
+}
+
+.guide-faq-list details[open] summary span {
+  transform: rotate(45deg);
+}
+
+.guide-faq-list details p {
+  max-width: 560px;
+  padding: 12px 28px 0 0;
+  font-size: 13px;
+}
+
+.guide-cta {
+  position: relative;
+  overflow: hidden;
+  padding: 74px 24px 86px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0, #8d9c6b35, transparent 62%),
+    #e6e9dc;
+}
+
+.guide-cta h2 {
+  margin: 18px 0;
+}
+
+.guide-cta > p {
+  margin-bottom: 26px;
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .guide-hero {
+    padding: 24px 7% 50px;
+  }
+
+  .guide-hero-note {
+    position: static;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  .guide-section,
+  .guide-checklist-section,
+  .guide-faq-section {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 64px 7%;
+  }
+}
+
+@media (max-width: 480px) {
+  .guide-checklist {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .guide-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .guide-faq-list summary {
+    font-size: 17px;
+  }
+}

@@ -137,7 +137,7 @@ export default function InvitationLayout({
               istimewa ini.
             </p>
             <h3>{displayTitle}</h3>
-            <Link to="/katalog">Temukan undanganmu di InviteKu ↗</Link>
+            <Link to="/katalog">Temukan undanganmu di Ciptain ↗</Link>
           </footer>
         </main>
       )}

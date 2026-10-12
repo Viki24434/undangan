@@ -21,6 +21,34 @@ const blush = floralSet('Export_20261011_150336');
 const rose = floralSet('Export_20261011_150344');
 const peony = floralSet('Export_20261011_151409');
 const sunflower = floralSet('Export_20261011_170632');
+const sundaExport = 'Export_20261012_093753';
+const sunda = {
+  corner: png(sundaExport, 'sudut_kiri.png'),
+  top: png(sundaExport, 'atas.png'),
+  bottom: png(sundaExport, 'bawah.png'),
+  side: png(sundaExport, 'samping.png'),
+  bouquet: png(sundaExport, 'bucket.png'),
+  angklung: png(sundaExport, 'angklung.png'),
+  bendo: png(sundaExport, 'bendo.png'),
+  kujang: png(sundaExport, 'kujang.png'),
+  crown: png(sundaExport, 'mahkota.png'),
+  umbrella: png(sundaExport, 'payung.png'),
+  siger: png(sundaExport, 'siger.png'),
+};
+const jawaExport = 'Export_20261012_093801';
+const jawa = {
+  corner: png(jawaExport, 'sudut_kiri.png'),
+  top: png(jawaExport, 'atas.png'),
+  bottom: png(jawaExport, 'bawah.png'),
+  bouquet: png(jawaExport, 'bucket.png'),
+  blangkon: png(jawaExport, 'blangkon.png'),
+  batik: png(jawaExport, 'kain_batik.png'),
+  mayang: png(jawaExport, 'kembar_mayang.png'),
+  keris: png(jawaExport, 'keris.png'),
+  crown: png(jawaExport, 'mahkota.png'),
+  ronce: png(jawaExport, 'ronce.png'),
+  tuwuhan: png(jawaExport, 'tuwuhan.png'),
+};
 
 export const ornamentAssets = {
   'blush-corner': asset(blush.corner, 'corner'),
@@ -63,4 +91,26 @@ export const ornamentAssets = {
   'sunflower-leaf-spray': asset(sunflower.leaf1, 'branch'),
   'sunflower-leaf-spray-light': asset(sunflower.leaf2, 'branch'),
   'sunflower-leaf-accent': asset(sunflower.leaf3, 'branch'),
+  'sunda-corner': asset(sunda.corner, 'corner'),
+  'sunda-top-garland': asset(sunda.top, 'garland'),
+  'sunda-bottom-garland': asset(sunda.bottom, 'garland'),
+  'sunda-side-garland': asset(sunda.side, 'side'),
+  'sunda-bouquet': asset(sunda.bouquet, 'bouquet'),
+  'sunda-angklung': asset(sunda.angklung, 'arrangement'),
+  'sunda-bendo': asset(sunda.bendo, 'arrangement'),
+  'sunda-kujang': asset(sunda.kujang, 'arrangement'),
+  'sunda-crown': asset(sunda.crown, 'arrangement'),
+  'sunda-umbrella': asset(sunda.umbrella, 'arrangement'),
+  'sunda-siger': asset(sunda.siger, 'arrangement'),
+  'jawa-corner': asset(jawa.corner, 'corner'),
+  'jawa-top-garland': asset(jawa.top, 'garland'),
+  'jawa-bottom-garland': asset(jawa.bottom, 'garland'),
+  'jawa-bouquet': asset(jawa.bouquet, 'bouquet'),
+  'jawa-blangkon': asset(jawa.blangkon, 'arrangement'),
+  'jawa-batik': asset(jawa.batik, 'arrangement'),
+  'jawa-kembar-mayang': asset(jawa.mayang, 'arrangement'),
+  'jawa-keris': asset(jawa.keris, 'arrangement'),
+  'jawa-crown': asset(jawa.crown, 'arrangement'),
+  'jawa-ronce': asset(jawa.ronce, 'arrangement'),
+  'jawa-tuwuhan': asset(jawa.tuwuhan, 'arrangement'),
 };

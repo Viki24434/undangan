@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Catalog from './pages/Catalog';
 import TemplateViewer from './pages/TemplateViewer';
+import Guide from './pages/Guide';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<Home />} />
 
         <Route path="/katalog" element={<Catalog />} />
+        <Route path="/panduan" element={<Guide />} />
 
         <Route path="/t/:id" element={<TemplateViewer />} />
         <Route path="/u/:slug" element={<InvitationPage />} />

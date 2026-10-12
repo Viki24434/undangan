@@ -10,10 +10,10 @@ export default function PinkBlush() {
       components={{
         cover: 1,
         hero: 1,
-        couple: 2,
+        couple: 3,
         story: 1,
         countdown: 2,
-        gallery: 2,
+        gallery: 3,
         gift: 1,
         wishes: 2,
       }}

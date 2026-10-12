@@ -154,6 +154,26 @@ export const templateRegistry = [
     palette: ['#3b192c', '#e6a3bd', '#57263f'],
     component: lazy(() => import('../templates/PinkBlush/PinkBlush')),
   },
+  {
+    id: 'sunda-siger-01',
+    name: 'Sunda Siger Wedding',
+    category: 'Pernikahan',
+    description:
+      'Ornamen siger, kujang, dan janur dalam nuansa hijau hutan dan emas.',
+    img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    palette: ['#17251d', '#d8b66d', '#24382d'],
+    component: lazy(() => import('../templates/SundaSiger/SundaSiger')),
+  },
+  {
+    id: 'jawa-paes-01',
+    name: 'Jawa Paes Wedding',
+    category: 'Pernikahan',
+    description:
+      'Batik, kembar mayang, blangkon, dan paes dalam nuansa cokelat dan emas.',
+    img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    palette: ['#211912', '#d6b16e', '#493521'],
+    component: lazy(() => import('../templates/JawaPaes/JawaPaes')),
+  },
 ];
 
 export const templateCategories = [

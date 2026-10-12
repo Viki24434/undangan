@@ -13,8 +13,14 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
         },
       },
+      allowedHosts: [
+        'smelting-rinse-snugness.ngrok-free.dev'
+      ]
     },
     preview: {
+      allowedHosts: [
+        'smelting-rinse-snugness.ngrok-free.dev'
+      ],
       proxy: {
         '/api': {
           target: env.BACKEND_URL || 'http://127.0.0.1:3001',
