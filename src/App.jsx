@@ -4,6 +4,7 @@ import AdminDashboard from './pages/Admin/AdminDashboard';
 import AdminEditor from './pages/Admin/AdminEditor';
 import AdminPreview from './pages/Admin/AdminPreview';
 import AdminTemplates from './pages/Admin/AdminTemplates';
+import AdminTemplateEditor from './pages/Admin/AdminTemplateEditor';
 import AdminPackages from './pages/Admin/AdminPackages';
 import InvitationPage from './pages/InvitationPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -21,6 +22,7 @@ function App() {
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
           <Route path="template" element={<AdminTemplates />} />
+          <Route path="template/:id" element={<AdminTemplateEditor />} />
           <Route path="paket" element={<AdminPackages />} />
           <Route path="undangan/baru" element={<AdminEditor key="new" />} />
           <Route path="undangan/:id" element={<AdminEditor />} />

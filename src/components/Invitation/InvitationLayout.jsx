@@ -41,6 +41,17 @@ export default function InvitationLayout({
   const Cover = variants.cover === 1 ? Cover1 : Cover2;
   const Hero = variants.hero === 1 ? Hero1 : Hero2;
   const decorations = ornamentPresets[theme] || {};
+  const templateTheme = invitation?.data.theme || {};
+  const fontStyles = {
+    classic: {
+      '--font-heading': "'Times New Roman', Georgia, serif",
+      '--font-body': 'Georgia, serif',
+    },
+    modern: {
+      '--font-heading': "'Segoe UI', Arial, sans-serif",
+      '--font-body': "'Segoe UI', Arial, sans-serif",
+    },
+  }[templateTheme.font] || {};
   const heroBottom = decorations.hero?.find((item) =>
     item.asset.endsWith('-bottom-garland'),
   );
@@ -93,6 +104,13 @@ export default function InvitationLayout({
     <div
       className={`celebration-template ${theme}`}
       style={{
+        ...(templateTheme.background && {
+          '--color-bg': templateTheme.background,
+        }),
+        ...(templateTheme.accent && {
+          '--color-accent': templateTheme.accent,
+        }),
+        ...fontStyles,
         '--template-background-art': decorations.background
           ? `url("${ornamentAssets[decorations.background.main].src}")`
           : 'none',

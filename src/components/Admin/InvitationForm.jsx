@@ -13,6 +13,8 @@ export default function InvitationForm({
   busy,
   localOnly = false,
   onUploadStatus,
+  templateMode = false,
+  themeDefaults = {},
 }) {
   const data = form.data;
   const formRef = useRef(form);
@@ -66,18 +68,45 @@ export default function InvitationForm({
     <form className="admin-form" onSubmit={onSubmit}>
       <fieldset disabled={busy || pendingUploads > 0}>
         <section className="admin-form-section">
-          <h2>Informasi undangan</h2>
+          <h2>{templateMode ? 'Default template' : 'Informasi undangan'}</h2>
           <div className="admin-field-grid">
-            <label>
-              Judul undangan
-              <input
-                required
-                maxLength={160}
-                value={form.title}
-                onChange={(event) => field('title', event.target.value)}
-              />
-            </label>
-            {!localOnly && (
+            {templateMode ? (
+              <>
+                <label>
+                  Judul default (opsional)
+                  <input
+                    maxLength={160}
+                    value={data.title || ''}
+                    onChange={(event) => detail('title', event.target.value)}
+                  />
+                </label>
+                <label>
+                  Tanggal & waktu acara default (WIB)
+                  <input
+                    type="datetime-local"
+                    required
+                    value={(data.targetDate || '').slice(0, 16)}
+                    onChange={(event) =>
+                      detail(
+                        'targetDate',
+                        `${event.target.value}:00+07:00`,
+                      )
+                    }
+                  />
+                </label>
+              </>
+            ) : (
+              <label>
+                Judul undangan
+                <input
+                  required
+                  maxLength={160}
+                  value={form.title}
+                  onChange={(event) => field('title', event.target.value)}
+                />
+              </label>
+            )}
+            {!localOnly && !templateMode && (
               <label>
                 Tautan undangan
                 <input
@@ -91,30 +120,34 @@ export default function InvitationForm({
                 <small>Huruf kecil, angka, dan tanda hubung.</small>
               </label>
             )}
-            <label>
-              Template
-              <select
-                disabled={localOnly}
-                value={form.templateId}
-                onChange={(event) => onTemplateChange(event.target.value)}
-              >
-                {templates.map((template) => (
-                  <option key={template.id} value={template.id}>
-                    {template.name} — {packageName(template.packageId)}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              Tanggal & waktu acara (WIB)
-              <input
-                type="datetime-local"
-                required
-                value={form.eventDate}
-                onChange={(event) => field('eventDate', event.target.value)}
-              />
-            </label>
-            {!localOnly && (
+            {!templateMode && (
+              <>
+                <label>
+                  Template
+                  <select
+                    disabled={localOnly}
+                    value={form.templateId}
+                    onChange={(event) => onTemplateChange(event.target.value)}
+                  >
+                    {templates.map((template) => (
+                      <option key={template.id} value={template.id}>
+                        {template.name} — {packageName(template.packageId)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  Tanggal & waktu acara (WIB)
+                  <input
+                    type="datetime-local"
+                    required
+                    value={form.eventDate}
+                    onChange={(event) => field('eventDate', event.target.value)}
+                  />
+                </label>
+              </>
+            )}
+            {!localOnly && !templateMode && (
               <label>
                 Status
                 <select
@@ -127,7 +160,7 @@ export default function InvitationForm({
               </label>
             )}
             <ImageField
-              label="Foto cover"
+              label={templateMode ? 'Foto default cover' : 'Foto cover'}
               value={data.image || ''}
               onChange={(value) => uploadedDetail('image', value)}
               localOnly={localOnly}
@@ -135,6 +168,51 @@ export default function InvitationForm({
             />
           </div>
         </section>
+        {templateMode && (
+          <section className="admin-form-section">
+            <h2>Warna & font template</h2>
+            <div className="admin-field-grid">
+              {[
+                ['background', 'Warna latar', themeDefaults.background],
+                ['accent', 'Warna utama / aksen', themeDefaults.accent],
+              ].map(([key, label, fallback]) => (
+                <label key={key}>
+                  {label}
+                  <input
+                    type="color"
+                    value={data.theme?.[key] || fallback || '#ffffff'}
+                    onChange={(event) =>
+                      detail('theme', {
+                        ...data.theme,
+                        [key]: event.target.value,
+                      })
+                    }
+                  />
+                </label>
+              ))}
+              <label>
+                Font
+                <select
+                  value={data.theme?.font || 'default'}
+                  onChange={(event) =>
+                    detail('theme', {
+                      ...data.theme,
+                      font: event.target.value,
+                    })
+                  }
+                >
+                  <option value="default">Bawaan template</option>
+                  <option value="classic">Serif klasik</option>
+                  <option value="modern">Sans modern</option>
+                </select>
+              </label>
+            </div>
+            <small>
+              Pilih warna untuk mengubah latar dan aksen; font aman tanpa
+              memasukkan kode CSS.
+            </small>
+          </section>
+        )}
         <section className="admin-form-section">
           <h2>Musik undangan</h2>
           <div className="admin-field-grid">
@@ -253,10 +331,57 @@ export default function InvitationForm({
             </div>
           </section>
         )}
+        {templateMode && (
+          <section className="admin-form-section">
+            <h2>Teks tambahan template</h2>
+            <div className="admin-field-grid">
+              {Object.entries(data)
+                .filter(
+                  ([key, value]) =>
+                    typeof value === 'string' &&
+                    ![
+                      'title',
+                      'targetDate',
+                      'image',
+                      'musicUrl',
+                      'videoUrl',
+                      'honoree',
+                      'family',
+                      'heading',
+                      'introduction',
+                    ].includes(key),
+                )
+                .map(([key, value]) => (
+                  <label key={key}>
+                    {key
+                      .replace(/([A-Z])/g, ' $1')
+                      .replace(/^./, (letter) => letter.toUpperCase())}
+                    {value.length > 100 ? (
+                      <textarea
+                        rows={3}
+                        maxLength={3000}
+                        value={value}
+                        onChange={(event) => detail(key, event.target.value)}
+                      />
+                    ) : (
+                      <input
+                        maxLength={600}
+                        value={value}
+                        onChange={(event) => detail(key, event.target.value)}
+                      />
+                    )}
+                  </label>
+                ))}
+            </div>
+          </section>
+        )}
         <RepeatableFields
           title="Jadwal & lokasi"
           items={data.events}
           fields={[
+            ...(templateMode
+              ? [{ key: 'date', label: 'Tanggal acara' }]
+              : []),
             { key: 'title', label: 'Nama acara' },
             { key: 'time', label: 'Waktu (contoh 09.00–10.00 WIB)' },
             { key: 'venue', label: 'Nama tempat' },
@@ -449,14 +574,18 @@ export default function InvitationForm({
         )}
         <div className="admin-save-bar">
           <p>
-            {localOnly
+            {templateMode
+              ? 'Perubahan menjadi konten default untuk template ini.'
+              : localOnly
               ? 'Perubahan disimpan di browser perangkat ini.'
               : 'Draft dapat dipreview sebelum diterbitkan.'}
           </p>
           <button className="admin-button" type="submit">
             {busy
               ? 'Menyimpan…'
-              : localOnly
+              : templateMode
+                ? 'Simpan template'
+                : localOnly
                 ? 'Simpan di perangkat'
                 : 'Simpan undangan'}
           </button>

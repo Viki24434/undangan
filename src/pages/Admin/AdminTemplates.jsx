@@ -83,6 +83,7 @@ export default function AdminTemplates() {
                 <th>Template</th>
                 <th>Tema acara</th>
                 <th>Paket</th>
+                <th>Kelola</th>
                 <th>Demo</th>
               </tr>
             </thead>
@@ -106,6 +107,9 @@ export default function AdminTemplates() {
                         </option>
                       ))}
                     </select>
+                  </td>
+                  <td>
+                    <Link to={`/admin/template/${template.id}`}>Edit isi</Link>
                   </td>
                   <td>
                     <Link

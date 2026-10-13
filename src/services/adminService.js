@@ -33,6 +33,11 @@ export const adminService = {
       method: 'PATCH',
       body: { packageId },
     }),
+  updateTemplate: (id, data) =>
+    request('/admin/templates/' + encodeURIComponent(id), {
+      method: 'PATCH',
+      body: { data },
+    }),
   session: (signal) => request('/auth/session', { signal }),
   login: (body, setup = false) =>
     request(setup ? '/auth/setup' : '/auth/login', { method: 'POST', body }),
