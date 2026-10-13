@@ -252,6 +252,71 @@ export const templateRegistry = [
     palette: ['#faf3e7', '#a37835', '#d9b998'],
     component: lazy(() => import('../templates/Bali/Bali')),
   },
+  {
+    ...{
+      id: 'palembang-01',
+      name: 'Palembang Wedding',
+      category: 'Pernikahan',
+      packageId: 'gold',
+      description:
+        'Merah delima dan emas dengan mahkota, kain Palembang, pending, serta tepak.',
+      img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    },
+    palette: ['#391016', '#e5bd70', '#601c26'],
+    component: lazy(() => import('../templates/Palembang/Palembang')),
+  },
+  {
+    ...{
+      id: 'makasar-01',
+      name: 'Makasar Wedding',
+      category: 'Pernikahan',
+      packageId: 'gold',
+      description:
+        'Hijau zamrud dan emas dengan passapu, pinang goyang, genno susun, serta kain Makasar.',
+      img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    },
+    palette: ['#0b302b', '#dfbc6d', '#19483c'],
+    component: lazy(() => import('../templates/Makasar/Makasar')),
+  },
+  {
+    ...{
+      id: 'batak-01',
+      name: 'Batak Wedding',
+      category: 'Pernikahan',
+      packageId: 'gold',
+      description:
+        'Hitam arang, merah, dan tembaga dengan kain Batak, sortali, pinar, serta ornamen ukiran.',
+      img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    },
+    palette: ['#191717', '#ceaa75', '#872f2b'],
+    component: lazy(() => import('../templates/Batak/Batak')),
+  },
+  {
+    ...{
+      id: 'aceh-01',
+      name: 'Aceh Wedding',
+      category: 'Pernikahan',
+      packageId: 'gold',
+      description:
+        'Hitam hangat, merah, dan emas dengan kupiah, mahkota, rencong, serta ornamen kain Aceh.',
+      img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    },
+    palette: ['#21140f', '#e3b653', '#7e251e'],
+    component: lazy(() => import('../templates/Aceh/Aceh')),
+  },
+  {
+    ...{
+      id: 'papua-01',
+      name: 'Papua Wedding',
+      category: 'Pernikahan',
+      packageId: 'gold',
+      description:
+        'Warna pasir dan kayu dengan lukisan kulit kayu Asei, noken, tifa, serta manik-manik.',
+      img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    },
+    palette: ['#f0e2cf', '#83502f', '#dfc6a6'],
+    component: lazy(() => import('../templates/Papua/Papua')),
+  },
 ];
 
 export const templateCategories = [

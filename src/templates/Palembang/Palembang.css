@@ -1,0 +1,83 @@
+.invitation-palembang {
+  --color-bg: #391016;
+  --color-text: #fff0d6;
+  --color-accent: #e5bd70;
+  --invitation-muted: #d7b69d;
+  --invitation-panel: #601c26;
+  --invitation-line: #e5bd7055;
+  --invitation-on-accent: #240a10;
+  background: linear-gradient(155deg, #391016, #601c26 55%, #240a10);
+}
+
+.celebration-template.invitation-palembang .cover-2 .cover-2__frame {
+  border: 1px solid #e5bd7099;
+  border-radius: 145px 145px 8px 8px;
+  outline: 1px solid #e5bd7055;
+  outline-offset: -10px;
+  background: linear-gradient(155deg, #601c26e8, #240a10f2);
+  box-shadow: 0 24px 60px #240a10aa;
+}
+
+.invitation-palembang .invitation-monogram {
+  border-style: double;
+  color: #e5bd70;
+  box-shadow: 0 0 0 5px #e5bd7018;
+}
+
+.celebration-template.invitation-palembang .hero-2::before {
+  background:
+    radial-gradient(ellipse at top, #bf593044, transparent 65%),
+    linear-gradient(180deg, #39101655, #240a1088 50%, #391016ed);
+}
+
+.invitation-palembang .hero-2__copy {
+  text-shadow: 0 3px 18px #240a10;
+}
+
+.invitation-palembang .invitation-intro,
+.invitation-palembang .invitation-events,
+.invitation-palembang .story-2 {
+  background:
+    radial-gradient(ellipse at top right, #bf593044, transparent 68%),
+    var(--color-bg);
+}
+
+.invitation-palembang .couple-3__portrait {
+  border-color: #e5bd70;
+  background: #601c26;
+  box-shadow:
+    0 0 0 5px #391016,
+    0 0 0 6px #e5bd7055,
+    0 20px 40px #240a1088;
+}
+
+.invitation-palembang .invitation-event-card,
+.invitation-palembang .gift-2__card,
+.invitation-palembang .story-2__entry article {
+  border: 1px solid var(--invitation-line);
+  border-radius: 6px 28px;
+  background: linear-gradient(145deg, #601c26, #391016);
+  box-shadow: 0 14px 28px #240a1044;
+}
+
+.invitation-palembang .countdown-2__unit,
+.invitation-palembang .cd-1-box {
+  border: 1px solid var(--invitation-line);
+  border-radius: 8px;
+  background: var(--invitation-panel);
+  color: var(--color-accent);
+}
+
+.invitation-palembang .invitation-form input,
+.invitation-palembang .invitation-form textarea,
+.invitation-palembang .invitation-form select {
+  background: #240a10;
+  color: var(--color-text);
+}
+
+.invitation-palembang .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #bf593044, transparent 68%),
+    #240a10;
+}

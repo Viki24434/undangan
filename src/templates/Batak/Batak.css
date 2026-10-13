@@ -1,0 +1,92 @@
+.invitation-batak {
+  --color-bg: #191717;
+  --color-text: #f5ead9;
+  --color-accent: #ceaa75;
+  --invitation-muted: #bfb0a0;
+  --invitation-panel: #302322;
+  --invitation-line: #ceaa7555;
+  --invitation-on-accent: #100f0f;
+  background: linear-gradient(155deg, #191717, #302322 55%, #100f0f);
+}
+
+.celebration-template.invitation-batak .cover-2 .cover-2__frame {
+  border: 1px solid #ceaa7599;
+  border-radius: 145px 145px 8px 8px;
+  outline: 1px solid #ceaa7555;
+  outline-offset: -10px;
+  background: linear-gradient(155deg, #302322e8, #100f0ff2);
+  box-shadow: 0 24px 60px #100f0faa;
+}
+
+.invitation-batak .invitation-monogram {
+  border-style: double;
+  color: #ceaa75;
+  box-shadow: 0 0 0 5px #ceaa7518;
+}
+
+.celebration-template.invitation-batak .hero-2::before {
+  background:
+    radial-gradient(ellipse at top, #872f2b44, transparent 65%),
+    linear-gradient(180deg, #19171755, #100f0f88 50%, #191717ed);
+}
+
+.invitation-batak .hero-2__copy {
+  text-shadow: 0 3px 18px #100f0f;
+}
+
+.invitation-batak .invitation-intro,
+.invitation-batak .invitation-events,
+.invitation-batak .story-2 {
+  background:
+    radial-gradient(ellipse at top right, #872f2b44, transparent 68%),
+    var(--color-bg);
+}
+
+.invitation-batak .couple-2__portrait {
+  border-color: #ceaa75;
+  background: #302322;
+  box-shadow:
+    0 0 0 5px #191717,
+    0 0 0 6px #ceaa7555,
+    0 20px 40px #100f0f88;
+}
+
+.invitation-batak .invitation-event-card,
+.invitation-batak .gift-2__card,
+.invitation-batak .story-2__entry article {
+  border: 1px solid var(--invitation-line);
+  border-radius: 6px 28px;
+  background: linear-gradient(145deg, #302322, #191717);
+  box-shadow: 0 14px 28px #100f0f44;
+}
+
+.invitation-batak .countdown-2__unit,
+.invitation-batak .cd-1-box {
+  border: 1px solid var(--invitation-line);
+  border-radius: 8px;
+  background: var(--invitation-panel);
+  color: var(--color-accent);
+}
+
+.invitation-batak .invitation-form input,
+.invitation-batak .invitation-form textarea,
+.invitation-batak .invitation-form select {
+  background: #100f0f;
+  color: var(--color-text);
+}
+
+.invitation-batak .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #872f2b44, transparent 68%),
+    #100f0f;
+}
+
+.invitation-batak .story-1-item {
+  border-color: var(--invitation-line);
+}
+.invitation-batak .invitation-button {
+  background: #872f2b;
+  color: #f5ead9 !important;
+  border-color: #ceaa7577;
+}

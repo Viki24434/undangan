@@ -51,126 +51,127 @@ const jawa = {
 };
 
 export const ornamentAssets = {
-  'bali-corner': asset(
-    png('adat_bali', 'sudut_kiri.png'),
-    'corner',
+  'papua-corner': asset(png('adat_papua', 'sudut_kiri.png'), 'corner'),
+  'papua-top-garland': asset(png('adat_papua', 'atas.png'), 'garland'),
+  'papua-bottom-garland': asset(png('adat_papua', 'bawah.png'), 'garland'),
+  'papua-side-garland': asset(png('adat_papua', 'samping.png'), 'side'),
+  'papua-kapak': asset(png('adat_papua', 'kapak_batu.png'), 'arrangement'),
+  'papua-lukisan': asset(
+    png('adat_papua', 'lukisan_kulit_kayu_asei.png'),
+    'arrangement',
   ),
-  'bali-top-garland': asset(
-    png('adat_bali', 'atas.png'),
+  'papua-manik': asset(png('adat_papua', 'manik_manik.png'), 'arrangement'),
+  'papua-noken': asset(png('adat_papua', 'noken.png'), 'arrangement'),
+  'papua-pelaminan': asset(png('adat_papua', 'pelaminan.png'), 'arrangement'),
+  'papua-tifa': asset(png('adat_papua', 'tifa.png'), 'arrangement'),
+  'papua-wadah': asset(png('adat_papua', 'wadah_kayu.png'), 'arrangement'),
+  'aceh-corner': asset(png('adat_aceh', 'adasd.png'), 'corner'),
+  'aceh-top-garland': asset(png('adat_aceh', 'atas.png'), 'garland'),
+  'aceh-bottom-garland': asset(png('adat_aceh', 'bawah.png'), 'garland'),
+  'aceh-side-garland': asset(png('adat_aceh', 'sampping.png'), 'side'),
+  'aceh-kain': asset(png('adat_aceh', 'kain_aceh.png'), 'arrangement'),
+  'aceh-kalung': asset(png('adat_aceh', 'kalung_genno.png'), 'arrangement'),
+  'aceh-kupiah': asset(png('adat_aceh', 'kupiah.png'), 'arrangement'),
+  'aceh-crown': asset(png('adat_aceh', 'mahkota.png'), 'arrangement'),
+  'aceh-pelaminan': asset(png('adat_aceh', 'pelaminan.png'), 'arrangement'),
+  'aceh-rencong': asset(png('adat_aceh', 'rencong.png'), 'arrangement'),
+  'aceh-simplah': asset(png('adat_aceh', 'simplah.png'), 'arrangement'),
+  'batak-corner': asset(png('adat_batak', 'sudut_kiri.png'), 'corner'),
+  'batak-top-garland': asset(png('adat_batak', 'atas.png'), 'garland'),
+  'batak-bottom-garland': asset(png('adat_batak', 'bawah.png'), 'garland'),
+  'batak-side-garland': asset(png('adat_batak', 'samping.png'), 'side'),
+  'batak-bouquet': asset(png('adat_batak', 'bucket.png'), 'bouquet'),
+  'batak-kain': asset(png('adat_batak', 'kain_batak.png'), 'arrangement'),
+  'batak-kalung': asset(png('adat_batak', 'kalung.png'), 'arrangement'),
+  'batak-pelaminan': asset(png('adat_batak', 'pelaminan.png'), 'arrangement'),
+  'batak-pinar': asset(png('adat_batak', 'pinar.png'), 'arrangement'),
+  'batak-sortali': asset(png('adat_batak', 'sortali.png'), 'arrangement'),
+  'batak-syal': asset(png('adat_batak', 'syal_batak.png'), 'arrangement'),
+  'palembang-corner': asset(png('adat_palembang', 'sudut_kiri.png'), 'corner'),
+  'palembang-top-garland': asset(png('adat_palembang', 'atas.png'), 'garland'),
+  'palembang-bottom-garland': asset(
+    png('adat_palembang', 'bawah.png'),
     'garland',
   ),
-  'bali-bottom-garland': asset(
-    png('adat_bali', 'bawah.png'),
-    'garland',
-  ),
-  'bali-side-garland': asset(
-    png('adat_bali', 'samping.png'),
-    'side',
-  ),
-  'bali-bokor': asset(
-    png('adat_bali', 'bokor.png'),
+  'palembang-side-garland': asset(png('adat_palembang', 'samping.png'), 'side'),
+  'palembang-bouquet': asset(png('adat_palembang', 'bucket.png'), 'bouquet'),
+  'palembang-anting': asset(png('adat_palembang', 'anting.png'), 'arrangement'),
+  'palembang-kain': asset(
+    png('adat_palembang', 'kain_palembang.png'),
     'arrangement',
   ),
-  'bali-destar': asset(
-    png('adat_bali', 'destar.png'),
+  'palembang-kain-detail': asset(
+    png('adat_palembang', 'kain_palembang2.png'),
     'arrangement',
   ),
-  'bali-crown': asset(
-    png('adat_bali', 'mahkota.png'),
+  'palembang-crown': asset(png('adat_palembang', 'mahkota.png'), 'arrangement'),
+  'palembang-pending': asset(
+    png('adat_palembang', 'pending.png'),
     'arrangement',
   ),
-  'bali-subeng': asset(
-    png('adat_bali', 'subeng.png'),
+  'palembang-tepak': asset(png('adat_palembang', 'tepak.png'), 'arrangement'),
+  'makasar-corner': asset(png('adat_makasar', 'sudut_kiri.png'), 'corner'),
+  'makasar-top-garland': asset(png('adat_makasar', 'atas.png'), 'garland'),
+  'makasar-bottom-garland': asset(png('adat_makasar', 'bawah.png'), 'garland'),
+  'makasar-side-garland': asset(png('adat_makasar', 'samping.png'), 'side'),
+  'makasar-baju': asset(png('adat_makasar', 'baju.png'), 'arrangement'),
+  'makasar-genno-susun': asset(
+    png('adat_makasar', 'genno_susun.png'),
     'arrangement',
   ),
-  'bali-kain': asset(
-    png('adat_bali', 'kain_bali.png'),
+  'makasar-kain': asset(png('adat_makasar', 'kain_makasar.png'), 'arrangement'),
+  'makasar-passapu': asset(png('adat_makasar', 'passapu.png'), 'arrangement'),
+  'makasar-pelaminan': asset(
+    png('adat_makasar', 'pelaminan.png'),
     'arrangement',
   ),
-  'bali-pelaminan': asset(
-    png('adat_bali', 'pelaminan.png'),
+  'makasar-pinang-goyang': asset(
+    png('adat_makasar', 'pinang_goyang.png'),
     'arrangement',
   ),
-  'bali-keris': asset(
-    png('adat_bali', 'keris_bali.png'),
+  'makasar-ponto-gessa': asset(
+    png('adat_makasar', 'ponto_gessa.png'),
     'arrangement',
   ),
-  'betawi-corner': asset(
-    png('ada_betawi', 'sudut_kiri.png'),
-    'corner',
-  ),
-  'betawi-top-garland': asset(
-    png('ada_betawi', 'atas.png'),
-    'garland',
-  ),
-  'betawi-bottom-garland': asset(
-    png('ada_betawi', 'bawah.png'),
-    'garland',
-  ),
-  'betawi-side-garland': asset(
-    png('ada_betawi', 'samping.png'),
-    'side',
-  ),
-  'betawi-bouquet': asset(
-    png('ada_betawi', 'bucket.png'),
-    'bouquet',
-  ),
-  'betawi-safa': asset(
-    png('ada_betawi', 'safa.png'),
-    'arrangement',
-  ),
-  'betawi-crown': asset(
-    png('ada_betawi', 'mahkota.png'),
-    'arrangement',
-  ),
+  'bali-corner': asset(png('adat_bali', 'sudut_kiri.png'), 'corner'),
+  'bali-top-garland': asset(png('adat_bali', 'atas.png'), 'garland'),
+  'bali-bottom-garland': asset(png('adat_bali', 'bawah.png'), 'garland'),
+  'bali-side-garland': asset(png('adat_bali', 'samping.png'), 'side'),
+  'bali-bokor': asset(png('adat_bali', 'bokor.png'), 'arrangement'),
+  'bali-destar': asset(png('adat_bali', 'destar.png'), 'arrangement'),
+  'bali-crown': asset(png('adat_bali', 'mahkota.png'), 'arrangement'),
+  'bali-subeng': asset(png('adat_bali', 'subeng.png'), 'arrangement'),
+  'bali-kain': asset(png('adat_bali', 'kain_bali.png'), 'arrangement'),
+  'bali-pelaminan': asset(png('adat_bali', 'pelaminan.png'), 'arrangement'),
+  'bali-keris': asset(png('adat_bali', 'keris_bali.png'), 'arrangement'),
+  'betawi-corner': asset(png('ada_betawi', 'sudut_kiri.png'), 'corner'),
+  'betawi-top-garland': asset(png('ada_betawi', 'atas.png'), 'garland'),
+  'betawi-bottom-garland': asset(png('ada_betawi', 'bawah.png'), 'garland'),
+  'betawi-side-garland': asset(png('ada_betawi', 'samping.png'), 'side'),
+  'betawi-bouquet': asset(png('ada_betawi', 'bucket.png'), 'bouquet'),
+  'betawi-safa': asset(png('ada_betawi', 'safa.png'), 'arrangement'),
+  'betawi-crown': asset(png('ada_betawi', 'mahkota.png'), 'arrangement'),
   'betawi-cucuk-sanggul': asset(
     png('ada_betawi', 'cucuk_sanggul.png'),
     'arrangement',
   ),
-  'betawi-kain': asset(
-    png('ada_betawi', 'kain_betawi.png'),
-    'arrangement',
-  ),
-  'betawi-pelaminan': asset(
-    png('ada_betawi', 'pelaminan.png'),
-    'arrangement',
-  ),
-  'minang-corner': asset(
-    png('adat_minangkabau', 'sudut_kiri.png'),
-    'corner',
-  ),
-  'minang-top-garland': asset(
-    png('adat_minangkabau', 'atas.png'),
-    'garland',
-  ),
+  'betawi-kain': asset(png('ada_betawi', 'kain_betawi.png'), 'arrangement'),
+  'betawi-pelaminan': asset(png('ada_betawi', 'pelaminan.png'), 'arrangement'),
+  'minang-corner': asset(png('adat_minangkabau', 'sudut_kiri.png'), 'corner'),
+  'minang-top-garland': asset(png('adat_minangkabau', 'atas.png'), 'garland'),
   'minang-bottom-garland': asset(
     png('adat_minangkabau', 'bawah.png'),
     'garland',
   ),
-  'minang-side-garland': asset(
-    png('adat_minangkabau', 'samping.png'),
-    'side',
-  ),
-  'minang-bouquet': asset(
-    png('adat_minangkabau', 'bucket.png'),
-    'bouquet',
-  ),
-  'minang-deta': asset(
-    png('adat_minangkabau', 'deta.png'),
-    'arrangement',
-  ),
-  'minang-dulang': asset(
-    png('adat_minangkabau', 'dulang.png'),
-    'arrangement',
-  ),
+  'minang-side-garland': asset(png('adat_minangkabau', 'samping.png'), 'side'),
+  'minang-bouquet': asset(png('adat_minangkabau', 'bucket.png'), 'bouquet'),
+  'minang-deta': asset(png('adat_minangkabau', 'deta.png'), 'arrangement'),
+  'minang-dulang': asset(png('adat_minangkabau', 'dulang.png'), 'arrangement'),
   'minang-songket': asset(
     png('adat_minangkabau', 'kain_songket.png'),
     'arrangement',
   ),
-  'minang-crown': asset(
-    png('adat_minangkabau', 'mahkota.png'),
-    'arrangement',
-  ),
+  'minang-crown': asset(png('adat_minangkabau', 'mahkota.png'), 'arrangement'),
   'minang-pelaminan': asset(
     png('adat_minangkabau', 'pelaminan.png'),
     'arrangement',

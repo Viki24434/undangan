@@ -38,6 +38,223 @@ const portraitFlowers = (
 });
 
 export const ornamentPresets = {
+  'invitation-papua': {
+    backgroundArt: 'papua-lukisan',
+    cover: [
+      corner('papua-corner', 'topLeft', '31%'),
+      corner('papua-corner', 'topRight', '31%'),
+    ],
+    hero: [
+      {
+        asset: 'papua-side-garland',
+        position: { top: '18%', right: '-9%' },
+        width: '24%',
+        opacity: 0.8,
+      },
+    ],
+    couple: {
+      groom: [
+        {
+          asset: 'papua-tifa',
+          position: { left: '-12%' },
+          width: '26%',
+          rotate: -8,
+        },
+      ],
+      bride: [
+        {
+          asset: 'papua-manik',
+          position: { right: '-12%' },
+          width: '30%',
+          rotate: 8,
+        },
+      ],
+    },
+    closing: [
+      {
+        asset: 'papua-pelaminan',
+        position: { right: '-8%', bottom: '-8%' },
+        width: '48%',
+        opacity: 0.6,
+      },
+    ],
+  },
+  'invitation-aceh': {
+    backgroundArt: 'aceh-kain',
+    cover: [
+      corner('aceh-corner', 'topLeft', '31%'),
+      corner('aceh-corner', 'topRight', '31%'),
+    ],
+    hero: [
+      {
+        asset: 'aceh-side-garland',
+        position: { top: '18%', left: '-9%' },
+        width: '24%',
+        opacity: 0.8,
+      },
+    ],
+    couple: {
+      groom: [
+        {
+          asset: 'aceh-kupiah',
+          position: { left: '-12%' },
+          width: '34%',
+          rotate: -8,
+        },
+      ],
+      bride: [
+        {
+          asset: 'aceh-crown',
+          position: { right: '-12%' },
+          width: '34%',
+          rotate: 8,
+        },
+      ],
+    },
+    closing: [
+      {
+        asset: 'aceh-pelaminan',
+        position: { right: '-8%', bottom: '-8%' },
+        width: '48%',
+        opacity: 0.65,
+      },
+      {
+        asset: 'aceh-rencong',
+        position: { left: '-4%', bottom: '5%' },
+        width: '20%',
+        opacity: 0.65,
+      },
+    ],
+  },
+  'invitation-batak': {
+    backgroundArt: 'batak-kain',
+    cover: [
+      corner('batak-corner', 'topLeft', '31%'),
+      corner('batak-corner', 'topRight', '31%'),
+    ],
+    hero: [
+      {
+        asset: 'batak-side-garland',
+        position: { top: '18%', right: '-9%' },
+        width: '24%',
+        opacity: 0.8,
+      },
+    ],
+    couple: {
+      groom: [
+        {
+          asset: 'batak-syal',
+          position: { left: '-12%' },
+          width: '30%',
+          rotate: -8,
+        },
+      ],
+      bride: [
+        {
+          asset: 'batak-sortali',
+          position: { right: '-12%' },
+          width: '34%',
+          rotate: 8,
+        },
+      ],
+    },
+    closing: [
+      {
+        asset: 'batak-pelaminan',
+        position: { right: '-8%', bottom: '-8%' },
+        width: '48%',
+        opacity: 0.65,
+      },
+    ],
+  },
+  'invitation-palembang': {
+    backgroundArt: 'palembang-kain-detail',
+    cover: [
+      corner('palembang-corner', 'topLeft', '31%'),
+      corner('palembang-corner', 'topRight', '31%'),
+    ],
+    hero: [
+      {
+        asset: 'palembang-side-garland',
+        position: { top: '18%', right: '-9%' },
+        width: '24%',
+        opacity: 0.8,
+      },
+    ],
+    couple: {
+      groom: [
+        {
+          asset: 'palembang-pending',
+          position: { left: '-12%' },
+          width: '28%',
+          rotate: -10,
+        },
+      ],
+      bride: [
+        {
+          asset: 'palembang-crown',
+          position: { right: '-12%' },
+          width: '34%',
+          rotate: 8,
+        },
+      ],
+    },
+    closing: [
+      {
+        asset: 'palembang-bouquet',
+        position: { right: '-8%', bottom: '-5%' },
+        width: '42%',
+        opacity: 0.75,
+      },
+    ],
+  },
+  'invitation-makasar': {
+    backgroundArt: 'makasar-kain',
+    cover: [
+      corner('makasar-corner', 'topLeft', '31%'),
+      corner('makasar-corner', 'topRight', '31%'),
+    ],
+    hero: [
+      {
+        asset: 'makasar-side-garland',
+        position: { top: '18%', left: '-9%' },
+        width: '24%',
+        opacity: 0.8,
+      },
+    ],
+    couple: {
+      groom: [
+        {
+          asset: 'makasar-passapu',
+          position: { left: '-12%' },
+          width: '34%',
+          rotate: -8,
+        },
+      ],
+      bride: [
+        {
+          asset: 'makasar-pinang-goyang',
+          position: { right: '-12%' },
+          width: '30%',
+          rotate: 8,
+        },
+      ],
+    },
+    closing: [
+      {
+        asset: 'makasar-pelaminan',
+        position: { right: '-8%', bottom: '-8%' },
+        width: '48%',
+        opacity: 0.7,
+      },
+      {
+        asset: 'makasar-ponto-gessa',
+        position: { left: '-5%', bottom: '8%' },
+        width: '20%',
+        opacity: 0.6,
+      },
+    ],
+  },
   'invitation-bali': {
     cover: [
       corner('bali-corner', 'topLeft', '31%'),
@@ -602,6 +819,11 @@ export const ornamentPresets = {
 };
 
 const themeFamilies = {
+  'invitation-papua': 'papua',
+  'invitation-aceh': 'aceh',
+  'invitation-batak': 'batak',
+  'invitation-palembang': 'palembang',
+  'invitation-makasar': 'makasar',
   'invitation-bali': 'bali',
   'invitation-betawi': 'betawi',
   'invitation-minangkabau': 'minang',
@@ -628,6 +850,11 @@ const themeFamilies = {
 };
 
 const familyDetails = {
+  papua: ['papua-kapak', 'papua-noken', 'papua-wadah'],
+  aceh: ['aceh-kalung', 'aceh-simplah', 'aceh-pelaminan'],
+  batak: ['batak-kalung', 'batak-kain', 'batak-pinar'],
+  palembang: ['palembang-anting', 'palembang-kain', 'palembang-tepak'],
+  makasar: ['makasar-genno-susun', 'makasar-baju', 'makasar-pelaminan'],
   bali: ['bali-subeng', 'bali-kain', 'bali-pelaminan'],
   betawi: ['betawi-cucuk-sanggul', 'betawi-kain', 'betawi-pelaminan'],
   minang: ['minang-pelaminan', 'minang-songket', 'minang-dulang'],
@@ -652,9 +879,17 @@ const dividerItem = (asset) => ({ asset, animation: false });
 for (const [theme, family] of Object.entries(themeFamilies)) {
   const preset = ornamentPresets[theme];
   const [flower, leaf, spray] = familyDetails[family];
-  const centerpiece = family === 'bali' ? 'bali-bokor' : `${family}-bouquet`;
+  const centerpiece =
+    {
+      bali: 'bali-bokor',
+      makasar: 'makasar-pelaminan',
+      aceh: 'aceh-pelaminan',
+      papua: 'papua-pelaminan',
+    }[family] || `${family}-bouquet`;
   preset.background = {
-    main: family === 'minang' ? 'minang-rumah-gadang' : centerpiece,
+    main:
+      preset.backgroundArt ||
+      (family === 'minang' ? 'minang-rumah-gadang' : centerpiece),
     edge: family === 'jawa' ? 'jawa-tuwuhan' : `${family}-side-garland`,
   };
   preset.dividers = {
@@ -672,7 +907,20 @@ for (const [theme, family] of Object.entries(themeFamilies)) {
       },
     ];
   }
-  if (!['sunda', 'jawa', 'minang', 'betawi', 'bali'].includes(family)) {
+  if (
+    ![
+      'sunda',
+      'jawa',
+      'minang',
+      'betawi',
+      'bali',
+      'palembang',
+      'makasar',
+      'batak',
+      'aceh',
+      'papua',
+    ].includes(family)
+  ) {
     if (!preset.hero.some((item) => item.asset === `${family}-top-garland`)) {
       preset.hero.push({
         asset: `${family}-top-garland`,

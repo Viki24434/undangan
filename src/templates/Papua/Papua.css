@@ -1,0 +1,78 @@
+.invitation-papua {
+  --color-bg: #f0e2cf;
+  --color-text: #3a2a20;
+  --color-accent: #83502f;
+  --invitation-muted: #79614c;
+  --invitation-panel: #dfc6a6;
+  --invitation-line: #83502f44;
+  --invitation-on-accent: #fff7eb;
+  background: linear-gradient(155deg, #f8efdf, #f0e2cf 55%, #dfc6a6);
+}
+
+.celebration-template.invitation-papua .cover-2 .cover-2__frame {
+  border: 1px solid #83502f88;
+  border-radius: 90px 90px 8px 8px;
+  outline: 1px solid #83502f55;
+  outline-offset: -10px;
+  background: linear-gradient(155deg, #f8efdff2, #dfc6a6ed);
+  color: var(--color-text);
+  box-shadow: 0 24px 60px #3a2a2033;
+}
+
+.invitation-papua .invitation-cover-frame .invitation-kicker,
+.invitation-papua .invitation-cover-frame .invitation-date,
+.invitation-papua .invitation-cover-frame .invitation-back {
+  color: var(--color-text);
+}
+
+.invitation-papua .invitation-monogram {
+  border-style: double;
+  color: var(--color-accent);
+}
+
+.celebration-template.invitation-papua .hero-2::before {
+  background: linear-gradient(180deg, #3a2a2055, #3a2a2088 50%, #24190fdd);
+}
+
+.invitation-papua .hero-2__copy {
+  text-shadow: 0 3px 18px #24190f;
+}
+
+.invitation-papua .couple-1-portrait {
+  border-color: #83502f;
+  background: #dfc6a6;
+  box-shadow:
+    0 0 0 5px #f0e2cf,
+    0 0 0 6px #83502f55,
+    0 20px 40px #83502f22;
+}
+
+.invitation-papua .invitation-event-card,
+.invitation-papua .gift-2__card,
+.invitation-papua .story-2__entry article {
+  border: 1px solid var(--invitation-line);
+  border-radius: 12px 4px;
+  background: linear-gradient(145deg, #f8efdf, #ead7bd);
+  box-shadow: 0 14px 28px #83502f15;
+}
+
+.invitation-papua .cd-1-box {
+  border: 1px solid #83502f77;
+  border-radius: 8px;
+  background: #83502f;
+  color: #fff7eb;
+}
+
+.invitation-papua .invitation-form input,
+.invitation-papua .invitation-form textarea,
+.invitation-papua .invitation-form select {
+  background: #fff7eb;
+  color: var(--color-text);
+}
+
+.invitation-papua .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #b5663533, transparent 68%),
+    #dfc6a6;
+}

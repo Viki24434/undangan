@@ -1,0 +1,89 @@
+.invitation-aceh {
+  --color-bg: #21140f;
+  --color-text: #fff1d0;
+  --color-accent: #e3b653;
+  --invitation-muted: #cdb49a;
+  --invitation-panel: #4d1b17;
+  --invitation-line: #e3b65355;
+  --invitation-on-accent: #150c08;
+  background: linear-gradient(155deg, #21140f, #4d1b17 55%, #150c08);
+}
+
+.celebration-template.invitation-aceh .cover-2 .cover-2__frame {
+  border: 1px solid #e3b65399;
+  border-radius: 145px 145px 8px 8px;
+  outline: 1px solid #e3b65355;
+  outline-offset: -10px;
+  background: linear-gradient(155deg, #4d1b17e8, #150c08f2);
+  box-shadow: 0 24px 60px #150c08aa;
+}
+
+.invitation-aceh .invitation-monogram {
+  border-style: double;
+  color: #e3b653;
+  box-shadow: 0 0 0 5px #e3b65318;
+}
+
+.celebration-template.invitation-aceh .hero-2::before {
+  background:
+    radial-gradient(ellipse at top, #a6422444, transparent 65%),
+    linear-gradient(180deg, #21140f55, #150c0888 50%, #21140fed);
+}
+
+.invitation-aceh .hero-2__copy {
+  text-shadow: 0 3px 18px #150c08;
+}
+
+.invitation-aceh .invitation-intro,
+.invitation-aceh .invitation-events,
+.invitation-aceh .story-2 {
+  background:
+    radial-gradient(ellipse at top right, #a6422444, transparent 68%),
+    var(--color-bg);
+}
+
+.invitation-aceh .couple-3__portrait {
+  border-color: #e3b653;
+  background: #4d1b17;
+  box-shadow:
+    0 0 0 5px #21140f,
+    0 0 0 6px #e3b65355,
+    0 20px 40px #150c0888;
+}
+
+.invitation-aceh .invitation-event-card,
+.invitation-aceh .gift-2__card,
+.invitation-aceh .story-2__entry article {
+  border: 1px solid var(--invitation-line);
+  border-radius: 6px 28px;
+  background: linear-gradient(145deg, #4d1b17, #21140f);
+  box-shadow: 0 14px 28px #150c0844;
+}
+
+.invitation-aceh .countdown-2__unit,
+.invitation-aceh .cd-1-box {
+  border: 1px solid var(--invitation-line);
+  border-radius: 8px;
+  background: var(--invitation-panel);
+  color: var(--color-accent);
+}
+
+.invitation-aceh .invitation-form input,
+.invitation-aceh .invitation-form textarea,
+.invitation-aceh .invitation-form select {
+  background: #150c08;
+  color: var(--color-text);
+}
+
+.invitation-aceh .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #a6422444, transparent 68%),
+    #150c08;
+}
+
+.invitation-aceh .cd-1-box {
+  border: 1px solid var(--invitation-line);
+  background: #7e251e;
+  color: #fff1d0;
+}

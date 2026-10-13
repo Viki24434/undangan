@@ -1,0 +1,83 @@
+.invitation-makasar {
+  --color-bg: #0b302b;
+  --color-text: #fff2da;
+  --color-accent: #dfbc6d;
+  --invitation-muted: #bfcbb0;
+  --invitation-panel: #19483c;
+  --invitation-line: #dfbc6d55;
+  --invitation-on-accent: #06221e;
+  background: linear-gradient(155deg, #0b302b, #19483c 55%, #06221e);
+}
+
+.celebration-template.invitation-makasar .cover-2 .cover-2__frame {
+  border: 1px solid #dfbc6d99;
+  border-radius: 110px 110px 10px 10px;
+  outline: 1px solid #dfbc6d55;
+  outline-offset: -10px;
+  background: linear-gradient(155deg, #19483ce8, #06221ef2);
+  box-shadow: 0 24px 60px #06221eaa;
+}
+
+.invitation-makasar .invitation-monogram {
+  border-style: double;
+  color: #dfbc6d;
+  box-shadow: 0 0 0 5px #dfbc6d18;
+}
+
+.celebration-template.invitation-makasar .hero-2::before {
+  background:
+    radial-gradient(ellipse at top, #b3963b33, transparent 65%),
+    linear-gradient(180deg, #0b302b55, #06221e88 50%, #0b302bed);
+}
+
+.invitation-makasar .hero-2__copy {
+  text-shadow: 0 3px 18px #06221e;
+}
+
+.invitation-makasar .invitation-intro,
+.invitation-makasar .invitation-events,
+.invitation-makasar .story-2 {
+  background:
+    radial-gradient(ellipse at top right, #b3963b33, transparent 68%),
+    var(--color-bg);
+}
+
+.invitation-makasar .couple-1-portrait {
+  border-color: #dfbc6d;
+  background: #19483c;
+  box-shadow:
+    0 0 0 5px #0b302b,
+    0 0 0 6px #dfbc6d55,
+    0 20px 40px #06221e88;
+}
+
+.invitation-makasar .invitation-event-card,
+.invitation-makasar .gift-2__card,
+.invitation-makasar .story-2__entry article {
+  border: 1px solid var(--invitation-line);
+  border-radius: 6px 28px;
+  background: linear-gradient(145deg, #19483c, #0b302b);
+  box-shadow: 0 14px 28px #06221e44;
+}
+
+.invitation-makasar .countdown-2__unit,
+.invitation-makasar .cd-1-box {
+  border: 1px solid var(--invitation-line);
+  border-radius: 8px;
+  background: var(--invitation-panel);
+  color: var(--color-accent);
+}
+
+.invitation-makasar .invitation-form input,
+.invitation-makasar .invitation-form textarea,
+.invitation-makasar .invitation-form select {
+  background: #06221e;
+  color: var(--color-text);
+}
+
+.invitation-makasar .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #b3963b33, transparent 68%),
+    #06221e;
+}
