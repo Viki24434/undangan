@@ -1,0 +1,83 @@
+.invitation-black-gold-luxury-birthday {
+  --color-bg: #101010;
+  --color-text: #f6ecda;
+  --color-accent: #d6b66e;
+  --invitation-muted: #b9aa8f;
+  --invitation-panel: #282219;
+  --invitation-line: #d6b66e55;
+  --invitation-on-accent: #18130d;
+  background: linear-gradient(155deg, #101010, #282219 55%, #090909);
+}
+
+.celebration-template.invitation-black-gold-luxury-birthday
+  .cover-2
+  .cover-2__frame {
+  border: 1px solid #d6b66e99;
+  border-radius: 120px 120px 6px 6px;
+  outline: 1px solid #d6b66e44;
+  outline-offset: -10px;
+  background: linear-gradient(155deg, #282219eb, #090909f2);
+  box-shadow: 0 24px 60px #0009;
+}
+
+.invitation-black-gold-luxury-birthday .invitation-monogram {
+  border-style: double;
+  color: #eed7a0;
+  background: #d6b66e0a;
+  box-shadow: 0 0 0 5px #d6b66e12;
+}
+
+.celebration-template.invitation-black-gold-luxury-birthday .hero-2::before {
+  background:
+    radial-gradient(ellipse at top, #d6b66e22, transparent 65%),
+    linear-gradient(180deg, #10101066, #10101088 50%, #090909e8);
+}
+
+.invitation-black-gold-luxury-birthday .hero-2__copy {
+  text-shadow: 0 3px 18px #090909;
+}
+
+.invitation-black-gold-luxury-birthday .invitation-intro {
+  background:
+    radial-gradient(ellipse at top, #d6b66e15, transparent 70%), var(--color-bg);
+}
+
+.invitation-black-gold-luxury-birthday .celebration-honoree {
+  max-width: 320px;
+  margin: 28px auto;
+  padding: 30px 20px;
+  border: 1px solid var(--invitation-line);
+  border-radius: 80px 80px 6px 6px;
+  background: linear-gradient(145deg, #282219, #16130f);
+  box-shadow:
+    inset 0 0 0 6px #d6b66e08,
+    0 16px 34px #0004;
+}
+
+.invitation-black-gold-luxury-birthday .celebration-notes article,
+.invitation-black-gold-luxury-birthday .invitation-event-card {
+  border: 1px solid var(--invitation-line);
+  border-radius: 8px;
+  background: linear-gradient(145deg, #282219, #16130f);
+  box-shadow: 0 12px 26px #0004;
+}
+
+.invitation-black-gold-luxury-birthday .countdown-2__unit {
+  border-style: double;
+  border-radius: 8px;
+  background: #1b1712;
+}
+
+.invitation-black-gold-luxury-birthday .invitation-form input,
+.invitation-black-gold-luxury-birthday .invitation-form textarea,
+.invitation-black-gold-luxury-birthday .invitation-form select {
+  background: #16130f;
+  color: var(--color-text);
+}
+
+.invitation-black-gold-luxury-birthday .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #d6b66e22, transparent 65%),
+    #090909;
+}

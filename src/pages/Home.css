@@ -127,6 +127,7 @@
   display: none;
 }
 .invite-hero {
+  overflow: clip;
   max-width: 1440px;
   margin: auto;
   padding: 68px 6% 70px;

@@ -317,6 +317,37 @@ export const templateRegistry = [
     palette: ['#f0e2cf', '#83502f', '#dfc6a6'],
     component: lazy(() => import('../templates/Papua/Papua')),
   },
+  {
+    ...{
+      id: 'cream-pink-birthday-01',
+      name: 'Happy Birthday Cream Pink',
+      category: 'Ulang tahun',
+      packageId: 'silver',
+      description:
+        'Krem hangat dan pink pastel dengan balon, kue, pita, serta kejutan kecil yang ceria.',
+      img: 'https://images.unsplash.com/photo-1530103862676-de8892b12fa6?w=1200&q=85',
+    },
+    palette: ['#fff7e9', '#c46e8e', '#f5d9e2'],
+    component: lazy(
+      () => import('../templates/CreamPinkBirthday/CreamPinkBirthday'),
+    ),
+  },
+  {
+    ...{
+      id: 'black-gold-luxury-birthday-01',
+      name: 'Black Gold Luxury Birthday',
+      category: 'Ulang tahun',
+      packageId: 'silver',
+      description:
+        'Hitam elegan dan emas champagne dengan balon, kue, bintang, serta kado untuk pesta berkelas.',
+      img: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1200&q=85',
+    },
+    palette: ['#101010', '#d6b66e', '#282219'],
+    component: lazy(
+      () =>
+        import('../templates/BlackGoldLuxuryBirthday/BlackGoldLuxuryBirthday'),
+    ),
+  },
 ];
 
 export const templateCategories = [

@@ -38,6 +38,82 @@ const portraitFlowers = (
 });
 
 export const ornamentPresets = {
+  'invitation-black-gold-luxury-birthday': {
+    backgroundArt: 'party-gold-ribbon',
+    cover: [
+      corner('party-gold-corner', 'topLeft', '34%'),
+      corner('party-gold-corner', 'bottomRight', '30%'),
+      {
+        asset: 'party-gold-party-hat',
+        position: { right: '-3%', top: '37%' },
+        width: '18%',
+        rotate: 12,
+      },
+    ],
+    hero: [
+      {
+        asset: 'party-gold-side-garland',
+        position: { top: '18%', left: '-9%' },
+        width: '24%',
+        opacity: 0.75,
+      },
+      {
+        asset: 'party-gold-accent',
+        position: { top: '20%', right: '-8%' },
+        width: '22%',
+        opacity: 0.7,
+      },
+    ],
+    closing: [
+      {
+        asset: 'party-gold-gift-stack',
+        position: { right: '-4%', bottom: '-5%' },
+        width: '36%',
+        opacity: 0.85,
+      },
+      {
+        asset: 'party-gold-bouquet',
+        position: { left: '-10%', top: '-2%' },
+        width: '30%',
+        opacity: 0.65,
+      },
+    ],
+  },
+  'invitation-cream-pink-birthday': {
+    backgroundArt: 'cream-pink-ribbon',
+    cover: [
+      corner('cream-pink-corner', 'topLeft', '35%'),
+      corner('cream-pink-corner', 'bottomRight', '30%'),
+      {
+        asset: 'cream-pink-party-hat',
+        position: { right: '-3%', top: '38%' },
+        width: '20%',
+        rotate: 12,
+      },
+    ],
+    hero: [
+      {
+        asset: 'cream-pink-side-garland',
+        position: { top: '18%', left: '-9%' },
+        width: '24%',
+        opacity: 0.8,
+      },
+    ],
+    closing: [
+      {
+        asset: 'cream-pink-gift-stack',
+        position: { right: '-4%', bottom: '-5%' },
+        width: '36%',
+        opacity: 0.85,
+      },
+      {
+        asset: 'cream-pink-bouquet',
+        position: { left: '-10%', top: '-2%' },
+        width: '32%',
+        opacity: 0.65,
+      },
+    ],
+  },
   'invitation-papua': {
     backgroundArt: 'papua-lukisan',
     cover: [
@@ -819,6 +895,8 @@ export const ornamentPresets = {
 };
 
 const themeFamilies = {
+  'invitation-black-gold-luxury-birthday': 'party-gold',
+  'invitation-cream-pink-birthday': 'cream-pink',
   'invitation-papua': 'papua',
   'invitation-aceh': 'aceh',
   'invitation-batak': 'batak',
@@ -850,6 +928,8 @@ const themeFamilies = {
 };
 
 const familyDetails = {
+  'party-gold': ['party-gold-gift', 'party-gold-ribbon', 'party-gold-cake'],
+  'cream-pink': ['cream-pink-gift', 'cream-pink-ribbon', 'cream-pink-cake'],
   papua: ['papua-kapak', 'papua-noken', 'papua-wadah'],
   aceh: ['aceh-kalung', 'aceh-simplah', 'aceh-pelaminan'],
   batak: ['batak-kalung', 'batak-kain', 'batak-pinar'],
@@ -919,6 +999,8 @@ for (const [theme, family] of Object.entries(themeFamilies)) {
       'batak',
       'aceh',
       'papua',
+      'cream-pink',
+      'party-gold',
     ].includes(family)
   ) {
     if (!preset.hero.some((item) => item.asset === `${family}-top-garland`)) {

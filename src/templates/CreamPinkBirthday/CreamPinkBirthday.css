@@ -1,0 +1,87 @@
+.invitation-cream-pink-birthday {
+  --color-bg: #fff7e9;
+  --color-text: #5b3a45;
+  --color-accent: #c46e8e;
+  --invitation-muted: #94707b;
+  --invitation-panel: #f5d9e2;
+  --invitation-line: #c46e8e44;
+  --invitation-on-accent: #ffffff;
+  background: linear-gradient(155deg, #fffaf1, #fff7e9 55%, #f5d9e2);
+}
+
+.celebration-template.invitation-cream-pink-birthday .cover-2 .cover-2__frame {
+  border: 1px solid #c46e8e66;
+  border-radius: 100px 100px 28px 28px;
+  background: linear-gradient(155deg, #fffaf1f2, #f5d9e2ef);
+  color: var(--color-text);
+  box-shadow: 0 24px 60px #c46e8e22;
+}
+
+.invitation-cream-pink-birthday .invitation-cover-frame .invitation-kicker,
+.invitation-cream-pink-birthday .invitation-cover-frame .invitation-date,
+.invitation-cream-pink-birthday .invitation-cover-frame .invitation-back {
+  color: var(--color-text);
+}
+
+.invitation-cream-pink-birthday .invitation-monogram {
+  color: var(--color-accent);
+  border-style: double;
+  background: #fffaf188;
+}
+
+.celebration-template.invitation-cream-pink-birthday .hero-2::before {
+  background: linear-gradient(180deg, #6d435333, #5b3a4566 50%, #5b3a45bb);
+}
+
+.invitation-cream-pink-birthday .hero-2__copy {
+  text-shadow: 0 3px 16px #5b3a45;
+}
+
+.invitation-cream-pink-birthday .invitation-intro {
+  background:
+    radial-gradient(ellipse at top, #f5d9e299, transparent 70%), var(--color-bg);
+}
+
+.invitation-cream-pink-birthday .celebration-honoree {
+  max-width: 320px;
+  margin: 28px auto;
+  padding: 28px 20px;
+  border: 1px solid var(--invitation-line);
+  border-radius: 80px 80px 24px 24px;
+  background: linear-gradient(145deg, #fffaf1, #f9e6eb);
+  box-shadow: 0 12px 30px #c46e8e12;
+}
+
+.invitation-cream-pink-birthday .celebration-notes article,
+.invitation-cream-pink-birthday .invitation-event-card {
+  border: 1px solid var(--invitation-line);
+  border-radius: 28px;
+  background: #fffaf1;
+  box-shadow: 0 12px 26px #c46e8e12;
+}
+
+.invitation-cream-pink-birthday .cd-1-box {
+  border: 1px solid var(--invitation-line);
+  border-radius: 20px;
+  background: #f5d9e2;
+  color: #9a4a69;
+}
+
+.invitation-cream-pink-birthday .gallery-2__item {
+  border-color: #dfb9c6;
+  box-shadow: 0 12px 26px #c46e8e18;
+}
+
+.invitation-cream-pink-birthday .invitation-form input,
+.invitation-cream-pink-birthday .invitation-form textarea,
+.invitation-cream-pink-birthday .invitation-form select {
+  background: #fffaf1;
+  color: var(--color-text);
+}
+
+.invitation-cream-pink-birthday .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #dfb4c055, transparent 65%),
+    #f9e6eb;
+}

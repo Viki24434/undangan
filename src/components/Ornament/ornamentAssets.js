@@ -51,6 +51,90 @@ const jawa = {
 };
 
 export const ornamentAssets = {
+  'party-gold-corner': asset(
+    png('birthday_black_gold_luxury', 'sudut_kiri.png'),
+    'corner',
+  ),
+  'party-gold-top-garland': asset(
+    png('birthday_black_gold_luxury', 'atas.png'),
+    'garland',
+  ),
+  'party-gold-bottom-garland': asset(
+    png('birthday_black_gold_luxury', 'bawah.png'),
+    'garland',
+  ),
+  'party-gold-side-garland': asset(
+    png('birthday_black_gold_luxury', 'samping.png'),
+    'side',
+  ),
+  'party-gold-bouquet': asset(
+    png('birthday_black_gold_luxury', 'bucket.png'),
+    'bouquet',
+  ),
+  'party-gold-cake': asset(
+    png('birthday_black_gold_luxury', 'bolu.png'),
+    'arrangement',
+  ),
+  'party-gold-gift': asset(
+    png('birthday_black_gold_luxury', 'kado.png'),
+    'arrangement',
+  ),
+  'party-gold-ribbon': asset(
+    png('birthday_black_gold_luxury', 'pita.png'),
+    'arrangement',
+  ),
+  'party-gold-party-hat': asset(
+    png('birthday_black_gold_luxury', 'topi_kerucut.png'),
+    'arrangement',
+  ),
+  'party-gold-gift-stack': asset(
+    png('birthday_black_gold_luxury', 'tumpukan_kado.png'),
+    'arrangement',
+  ),
+  'party-gold-accent': asset(
+    png('birthday_black_gold_luxury', 'hiasan.png'),
+    'arrangement',
+  ),
+  'cream-pink-corner': asset(
+    png('birthday_cream_pink', 'kiri_atas.png'),
+    'corner',
+  ),
+  'cream-pink-top-garland': asset(
+    png('birthday_cream_pink', 'atas.png'),
+    'garland',
+  ),
+  'cream-pink-bottom-garland': asset(
+    png('birthday_cream_pink', 'bawah.png'),
+    'garland',
+  ),
+  'cream-pink-side-garland': asset(
+    png('birthday_cream_pink', 'samping.png'),
+    'side',
+  ),
+  'cream-pink-bouquet': asset(
+    png('birthday_cream_pink', 'bucket.png'),
+    'bouquet',
+  ),
+  'cream-pink-cake': asset(
+    png('birthday_cream_pink', 'bolu.png'),
+    'arrangement',
+  ),
+  'cream-pink-gift': asset(
+    png('birthday_cream_pink', 'kado.png'),
+    'arrangement',
+  ),
+  'cream-pink-ribbon': asset(
+    png('birthday_cream_pink', 'pita.png'),
+    'arrangement',
+  ),
+  'cream-pink-party-hat': asset(
+    png('birthday_cream_pink', 'topi_kerucut.png'),
+    'arrangement',
+  ),
+  'cream-pink-gift-stack': asset(
+    png('birthday_cream_pink', 'tumpukan_kado.png'),
+    'arrangement',
+  ),
   'papua-corner': asset(png('adat_papua', 'sudut_kiri.png'), 'corner'),
   'papua-top-garland': asset(png('adat_papua', 'atas.png'), 'garland'),
   'papua-bottom-garland': asset(png('adat_papua', 'bawah.png'), 'garland'),
