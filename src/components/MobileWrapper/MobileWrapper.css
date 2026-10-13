@@ -122,3 +122,35 @@
     12px 'Segoe UI',
     sans-serif;
 }
+.mw-order-btn {
+  position: fixed;
+  top: 66px;
+  right: 14px;
+  z-index: 20;
+  padding: 12px 16px;
+  border: 1px solid #25d366;
+  border-radius: 24px;
+  background: #128c4b;
+  color: white;
+  text-decoration: none;
+  font:
+    12px 'Segoe UI',
+    sans-serif;
+}
+.mw-order-btn.is-disabled {
+  border-color: #ffffff44;
+  background: #414141;
+  color: #ddd;
+}
+.mw-order-error {
+  position: fixed;
+  top: 118px;
+  right: 14px;
+  z-index: 20;
+  max-width: min(350px, calc(100vw - 28px));
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #fff3cd;
+  color: #594717;
+  font: 12px 'Segoe UI', sans-serif;
+}

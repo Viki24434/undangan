@@ -38,6 +38,8 @@ export const adminService = {
       method: 'PATCH',
       body: { data },
     }),
+  updateSocialLinks: (body) =>
+    request('/admin/social-links', { method: 'PATCH', body }),
   session: (signal) => request('/auth/session', { signal }),
   login: (body, setup = false) =>
     request(setup ? '/auth/setup' : '/auth/login', { method: 'POST', body }),

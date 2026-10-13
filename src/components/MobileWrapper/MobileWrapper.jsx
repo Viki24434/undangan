@@ -7,6 +7,8 @@ export default function MobileWrapper({
   backTo = '/katalog',
   onBack,
   editTo,
+  orderTo,
+  orderError,
 }) {
   const defaultBg =
     'https://images.unsplash.com/photo-1519741497674-611481863552?q=80';
@@ -40,6 +42,26 @@ export default function MobileWrapper({
         <Link to={editTo} className="mw-edit-btn">
           Edit template ini ↗
         </Link>
+      )}
+      {orderTo !== undefined &&
+        (orderTo ? (
+          <a
+            href={orderTo}
+            className="mw-order-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Pesan template ini ↗
+          </a>
+        ) : (
+          <span className="mw-order-btn is-disabled">
+            WhatsApp belum diatur
+          </span>
+        ))}
+      {orderError && (
+        <p className="mw-order-error" role="status">
+          {orderError}
+        </p>
       )}
 
       <div className="mw-device">{children}</div>

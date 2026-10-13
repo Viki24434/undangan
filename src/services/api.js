@@ -45,6 +45,7 @@ export async function apiRequest(
 export const invitationService = {
   packages: (signal) => apiRequest('/packages', { signal }),
   templates: (signal) => apiRequest('/templates', { signal }),
+  socialLinks: (signal) => apiRequest('/social-links', { signal }),
   template: (id, signal) =>
     apiRequest(`/templates/${encodeURIComponent(id)}`, { signal }),
   invitation: (slug, signal) =>

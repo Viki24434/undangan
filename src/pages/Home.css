@@ -682,6 +682,9 @@
   gap: 30px;
   font-size: 12px;
 }
+.invite-footer .invite-social-links {
+  gap: 16px;
+}
 .invite-footer > small {
   width: 100%;
   padding-top: 25px;

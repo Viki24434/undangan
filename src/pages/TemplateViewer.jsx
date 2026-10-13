@@ -8,18 +8,44 @@ import './InvitationPage.css';
 
 export default function TemplateViewer() {
   const { id } = useParams();
-  const [state, setState] = useState({ id: '', template: null, error: '' });
+  const [state, setState] = useState({
+    id: '',
+    template: null,
+    socialLinks: null,
+    socialError: '',
+    error: '',
+  });
   const renderer = templateRegistry.find((template) => template.id === id);
 
   useEffect(() => {
     const controller = new AbortController();
-    invitationService
-      .template(id, controller.signal)
-      .then(({ data }) => setState({ id, template: data, error: '' }))
+    Promise.allSettled([
+      invitationService.template(id, controller.signal),
+      invitationService.socialLinks(controller.signal),
+    ])
+      .then(([templateResult, socialResult]) => {
+        if (templateResult.status === 'rejected') throw templateResult.reason;
+        setState({
+          id,
+          template: templateResult.value.data,
+          socialLinks:
+            socialResult.status === 'fulfilled' ? socialResult.value.data : null,
+          socialError:
+            socialResult.status === 'rejected'
+              ? `Tautan WhatsApp tidak dapat dimuat: ${socialResult.reason.message}`
+              : '',
+          error: '',
+        });
+      })
       .catch((error) => {
-        if (error.name !== 'AbortError') {
-          setState({ id, template: null, error: error.message });
-        }
+        if (error.name !== 'AbortError')
+          setState({
+            id,
+            template: null,
+            socialLinks: null,
+            socialError: '',
+            error: error.message,
+          });
       });
     return () => controller.abort();
   }, [id]);
@@ -43,10 +69,19 @@ export default function TemplateViewer() {
   const template = state.template;
   const Template = renderer.component;
   const data = template.data;
+  const orderTo = state.socialLinks?.whatsapp
+    ? `https://wa.me/${state.socialLinks.whatsapp}?text=${encodeURIComponent(
+        `Halo, saya tertarik memesan template ${template.name}. ${window.location.origin}/t/${id}`,
+      )}`
+    : '';
   const invitation = {
     id: template.id,
     templateId: template.id,
-    title: data.title || `${data.groom.name} & ${data.bride.name}`,
+    title:
+      data.title ||
+      (data.groom && data.bride
+        ? `${data.groom.name} & ${data.bride.name}`
+        : data.honoree || template.name),
     eventDate: data.targetDate,
     data,
     preview: true,
@@ -57,6 +92,8 @@ export default function TemplateViewer() {
       <MobileWrapper
         bgImage={data.image || template.img}
         editTo={`/edit/${id}`}
+        orderTo={orderTo}
+        orderError={state.socialError}
       >
         <Suspense
           fallback={
