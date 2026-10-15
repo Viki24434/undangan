@@ -348,6 +348,52 @@ export const templateRegistry = [
         import('../templates/BlackGoldLuxuryBirthday/BlackGoldLuxuryBirthday'),
     ),
   },
+  {
+    ...{
+      id: 'cute-boy-birthday-01',
+      name: 'Cute Boy Birthday',
+      category: 'Ulang tahun',
+      packageId: 'silver',
+      description:
+        'Biru ceria, mint, dan bintang kuning dengan balon, kue, serta kado untuk si kecil.',
+      img: 'https://images.unsplash.com/photo-1530103862676-de8892b12fa6?w=1200&q=85',
+    },
+    palette: ['#edf8ff', '#3282b5', '#d4eee5'],
+    component: lazy(
+      () => import('../templates/CuteBoyBirthday/CuteBoyBirthday'),
+    ),
+  },
+  {
+    ...{
+      id: 'cute-girl-birthday-01',
+      name: 'Cute Girl Birthday',
+      category: 'Ulang tahun',
+      packageId: 'silver',
+      description:
+        'Pink lembut, lavender, dan pita manis dengan balon serta kue untuk pesta kecil yang ceria.',
+      img: 'https://images.unsplash.com/photo-1530103862676-de8892b12fa6?w=1200&q=85',
+    },
+    palette: ['#fff1f6', '#b86695', '#eadcf5'],
+    component: lazy(
+      () => import('../templates/CuteGirlBirthday/CuteGirlBirthday'),
+    ),
+  },
+  {
+    ...{
+      id: 'rose-gold-elegant-birthday-01',
+      name: 'Rose Gold Elegant Birthday',
+      category: 'Ulang tahun',
+      packageId: 'silver',
+      description:
+        'Blush, champagne, dan emas mawar dengan balon, pita, serta detail pesta yang anggun.',
+      img: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1200&q=85',
+    },
+    palette: ['#fcf3ec', '#a86c59', '#ecd7cb'],
+    component: lazy(
+      () =>
+        import('../templates/RoseGoldElegantBirthday/RoseGoldElegantBirthday'),
+    ),
+  },
 ];
 
 export const templateCategories = [

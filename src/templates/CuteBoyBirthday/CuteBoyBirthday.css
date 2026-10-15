@@ -1,0 +1,84 @@
+.invitation-cute-boy-birthday {
+  --color-bg: #edf8ff;
+  --color-text: #294c62;
+  --color-accent: #3282b5;
+  --invitation-muted: #678699;
+  --invitation-panel: #d4eee5;
+  --invitation-line: #3282b544;
+  --invitation-on-accent: #ffffff;
+  background: linear-gradient(155deg, #f8fdff, #edf8ff 55%, #d4eee5);
+}
+
+.celebration-template.invitation-cute-boy-birthday .cover-2 .cover-2__frame {
+  border: 1px solid #3282b566;
+  border-radius: 80px 80px 28px 28px;
+  background: linear-gradient(155deg, #f8fdfff2, #d4eee5ef);
+  color: var(--color-text);
+  box-shadow: 0 24px 60px #3282b522;
+}
+
+.invitation-cute-boy-birthday .invitation-cover-frame .invitation-kicker,
+.invitation-cute-boy-birthday .invitation-cover-frame .invitation-date,
+.invitation-cute-boy-birthday .invitation-cover-frame .invitation-back {
+  color: var(--color-text);
+}
+
+.invitation-cute-boy-birthday .invitation-monogram {
+  color: var(--color-accent);
+  border-style: double;
+  background: #f8fdff88;
+}
+
+.celebration-template.invitation-cute-boy-birthday .hero-2::before,
+.celebration-template.invitation-cute-boy-birthday .hero-1-overlay {
+  background: linear-gradient(180deg, #21476333, #21476366 50%, #214763bb);
+}
+
+.invitation-cute-boy-birthday .hero-2__copy {
+  text-shadow: 0 3px 16px #214763;
+}
+
+.invitation-cute-boy-birthday .invitation-intro {
+  background:
+    radial-gradient(ellipse at top, #f3d86b33, transparent 70%), var(--color-bg);
+}
+
+.invitation-cute-boy-birthday .celebration-honoree {
+  max-width: 320px;
+  margin: 28px auto;
+  padding: 28px 20px;
+  border: 1px solid var(--invitation-line);
+  border-radius: 80px 80px 28px 28px;
+  background: linear-gradient(145deg, #f8fdff, #d4eee5);
+  box-shadow: 0 12px 30px #3282b512;
+}
+
+.invitation-cute-boy-birthday .celebration-notes article,
+.invitation-cute-boy-birthday .invitation-event-card {
+  border: 1px solid var(--invitation-line);
+  border-radius: 28px;
+  background: #f8fdff;
+  box-shadow: 0 12px 26px #3282b512;
+}
+
+.invitation-cute-boy-birthday .cd-1-box,
+.invitation-cute-boy-birthday .countdown-2__unit {
+  border: 1px solid var(--invitation-line);
+  border-radius: 20px;
+  background: #d4eee5;
+  color: #3282b5;
+}
+
+.invitation-cute-boy-birthday .invitation-form input,
+.invitation-cute-boy-birthday .invitation-form textarea,
+.invitation-cute-boy-birthday .invitation-form select {
+  background: #f8fdff;
+  color: var(--color-text);
+}
+
+.invitation-cute-boy-birthday .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #f3d86b33, transparent 65%),
+    #d4eee5;
+}

@@ -1,0 +1,84 @@
+.invitation-cute-girl-birthday {
+  --color-bg: #fff1f6;
+  --color-text: #63415c;
+  --color-accent: #b86695;
+  --invitation-muted: #94738d;
+  --invitation-panel: #eadcf5;
+  --invitation-line: #b8669544;
+  --invitation-on-accent: #ffffff;
+  background: linear-gradient(155deg, #fffafd, #fff1f6 55%, #eadcf5);
+}
+
+.celebration-template.invitation-cute-girl-birthday .cover-2 .cover-2__frame {
+  border: 1px solid #b8669566;
+  border-radius: 110px 110px 32px 32px;
+  background: linear-gradient(155deg, #fffafdf2, #eadcf5ef);
+  color: var(--color-text);
+  box-shadow: 0 24px 60px #b8669522;
+}
+
+.invitation-cute-girl-birthday .invitation-cover-frame .invitation-kicker,
+.invitation-cute-girl-birthday .invitation-cover-frame .invitation-date,
+.invitation-cute-girl-birthday .invitation-cover-frame .invitation-back {
+  color: var(--color-text);
+}
+
+.invitation-cute-girl-birthday .invitation-monogram {
+  color: var(--color-accent);
+  border-style: double;
+  background: #fffafd88;
+}
+
+.celebration-template.invitation-cute-girl-birthday .hero-2::before,
+.celebration-template.invitation-cute-girl-birthday .hero-1-overlay {
+  background: linear-gradient(180deg, #61385c33, #61385c66 50%, #61385cbb);
+}
+
+.invitation-cute-girl-birthday .hero-2__copy {
+  text-shadow: 0 3px 16px #61385c;
+}
+
+.invitation-cute-girl-birthday .invitation-intro {
+  background:
+    radial-gradient(ellipse at top, #d9bcf044, transparent 70%), var(--color-bg);
+}
+
+.invitation-cute-girl-birthday .celebration-honoree {
+  max-width: 320px;
+  margin: 28px auto;
+  padding: 28px 20px;
+  border: 1px solid var(--invitation-line);
+  border-radius: 110px 110px 32px 32px;
+  background: linear-gradient(145deg, #fffafd, #eadcf5);
+  box-shadow: 0 12px 30px #b8669512;
+}
+
+.invitation-cute-girl-birthday .celebration-notes article,
+.invitation-cute-girl-birthday .invitation-event-card {
+  border: 1px solid var(--invitation-line);
+  border-radius: 28px;
+  background: #fffafd;
+  box-shadow: 0 12px 26px #b8669512;
+}
+
+.invitation-cute-girl-birthday .cd-1-box,
+.invitation-cute-girl-birthday .countdown-2__unit {
+  border: 1px solid var(--invitation-line);
+  border-radius: 20px;
+  background: #eadcf5;
+  color: #b86695;
+}
+
+.invitation-cute-girl-birthday .invitation-form input,
+.invitation-cute-girl-birthday .invitation-form textarea,
+.invitation-cute-girl-birthday .invitation-form select {
+  background: #fffafd;
+  color: var(--color-text);
+}
+
+.invitation-cute-girl-birthday .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #d9bcf044, transparent 65%),
+    #eadcf5;
+}

@@ -51,6 +51,114 @@ const jawa = {
 };
 
 export const ornamentAssets = {
+  'cute-boy-corner': asset(
+    png('birthday_cute_boy', 'sudut_kiri.png'),
+    'corner',
+  ),
+  'cute-boy-top-garland': asset(
+    png('birthday_cute_boy', 'atas.png'),
+    'garland',
+  ),
+  'cute-boy-bottom-garland': asset(
+    png('birthday_cute_boy', 'bawah.png'),
+    'garland',
+  ),
+  'cute-boy-side-garland': asset(
+    png('birthday_cute_boy', 'samping.png'),
+    'side',
+  ),
+  'cute-boy-bouquet': asset(png('birthday_cute_boy', 'balon.png'), 'bouquet'),
+  'cute-boy-cake': asset(png('birthday_cute_boy', 'kur.png'), 'arrangement'),
+  'cute-boy-gift': asset(png('birthday_cute_boy', 'kado.png'), 'arrangement'),
+  'cute-boy-ribbon': asset(png('birthday_cute_boy', 'pita.png'), 'arrangement'),
+  'cute-boy-party-hat': asset(
+    png('birthday_cute_boy', 'topi_ketucut.png'),
+    'arrangement',
+  ),
+  'cute-boy-gift-stack': asset(
+    png('birthday_cute_boy', 'tumpukan_kado.png'),
+    'arrangement',
+  ),
+  'cute-boy-accent': asset(
+    png('birthday_cute_boy', 'hiasan.png'),
+    'arrangement',
+  ),
+  'cute-girl-corner': asset(
+    png('birthday_cute_girl', 'sudut_kiri.png'),
+    'corner',
+  ),
+  'cute-girl-top-garland': asset(
+    png('birthday_cute_girl', 'atas.png'),
+    'garland',
+  ),
+  'cute-girl-bottom-garland': asset(
+    png('birthday_cute_girl', 'bawah.png'),
+    'garland',
+  ),
+  'cute-girl-side-garland': asset(
+    png('birthday_cute_girl', 'samping.png'),
+    'side',
+  ),
+  'cute-girl-bouquet': asset(png('birthday_cute_girl', 'balon.png'), 'bouquet'),
+  'cute-girl-cake': asset(png('birthday_cute_girl', 'kue.png'), 'arrangement'),
+  'cute-girl-gift': asset(png('birthday_cute_girl', 'kado.png'), 'arrangement'),
+  'cute-girl-ribbon': asset(
+    png('birthday_cute_girl', 'pita.png'),
+    'arrangement',
+  ),
+  'cute-girl-party-hat': asset(
+    png('birthday_cute_girl', 'topi_kerucut.png'),
+    'arrangement',
+  ),
+  'cute-girl-gift-stack': asset(
+    png('birthday_cute_girl', 'tumpukan_kado.png'),
+    'arrangement',
+  ),
+  'cute-girl-accent': asset(
+    png('birthday_cute_girl', 'hiasan.png'),
+    'arrangement',
+  ),
+  'party-rose-gold-corner': asset(
+    png('birthday_rose_gold_elegant', 'sudut_kiri.png'),
+    'corner',
+  ),
+  'party-rose-gold-top-garland': asset(
+    png('birthday_rose_gold_elegant', 'atas.png'),
+    'garland',
+  ),
+  'party-rose-gold-bottom-garland': asset(
+    png('birthday_rose_gold_elegant', 'bawah.png'),
+    'garland',
+  ),
+  'party-rose-gold-side-garland': asset(
+    png('birthday_rose_gold_elegant', 'samping.png'),
+    'side',
+  ),
+  'party-rose-gold-bouquet': asset(
+    png('birthday_rose_gold_elegant', 'balon.png'),
+    'bouquet',
+  ),
+  'party-rose-gold-cake': asset(
+    png('birthday_rose_gold_elegant', 'kur.png'),
+    'arrangement',
+  ),
+  'party-rose-gold-gift': asset(
+    png('birthday_rose_gold_elegant', 'kado.png'),
+    'arrangement',
+  ),
+  'party-rose-gold-ribbon': asset(
+    png('birthday_rose_gold_elegant', 'pita.png'),
+    'arrangement',
+  ),
+  'party-rose-gold-party-hat': asset(
+    png('birthday_rose_gold_elegant', 'topi_kerucut.png'),
+    'arrangement',
+  ),
+  'party-rose-gold-gift-stack': asset(
+    png('birthday_rose_gold_elegant', 'tumpukan_kado.png'),
+    'arrangement',
+  ),
+
   'party-gold-corner': asset(
     png('birthday_black_gold_luxury', 'sudut_kiri.png'),
     'corner',

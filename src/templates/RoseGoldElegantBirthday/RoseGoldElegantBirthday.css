@@ -1,0 +1,90 @@
+.invitation-rose-gold-elegant-birthday {
+  --color-bg: #fcf3ec;
+  --color-text: #60443c;
+  --color-accent: #a86c59;
+  --invitation-muted: #97776d;
+  --invitation-panel: #ecd7cb;
+  --invitation-line: #a86c5944;
+  --invitation-on-accent: #ffffff;
+  background: linear-gradient(155deg, #fffaf6, #fcf3ec 55%, #ecd7cb);
+}
+
+.celebration-template.invitation-rose-gold-elegant-birthday
+  .cover-2
+  .cover-2__frame {
+  border: 1px solid #a86c5966;
+  border-radius: 130px 130px 8px 8px;
+  background: linear-gradient(155deg, #fffaf6f2, #ecd7cbef);
+  color: var(--color-text);
+  box-shadow: 0 24px 60px #a86c5922;
+}
+
+.invitation-rose-gold-elegant-birthday
+  .invitation-cover-frame
+  .invitation-kicker,
+.invitation-rose-gold-elegant-birthday .invitation-cover-frame .invitation-date,
+.invitation-rose-gold-elegant-birthday
+  .invitation-cover-frame
+  .invitation-back {
+  color: var(--color-text);
+}
+
+.invitation-rose-gold-elegant-birthday .invitation-monogram {
+  color: var(--color-accent);
+  border-style: double;
+  background: #fffaf688;
+}
+
+.celebration-template.invitation-rose-gold-elegant-birthday .hero-2::before,
+.celebration-template.invitation-rose-gold-elegant-birthday .hero-1-overlay {
+  background: linear-gradient(180deg, #61403533, #61403566 50%, #614035bb);
+}
+
+.invitation-rose-gold-elegant-birthday .hero-2__copy {
+  text-shadow: 0 3px 16px #614035;
+}
+
+.invitation-rose-gold-elegant-birthday .invitation-intro {
+  background:
+    radial-gradient(ellipse at top, #d4a18c33, transparent 70%), var(--color-bg);
+}
+
+.invitation-rose-gold-elegant-birthday .celebration-honoree {
+  max-width: 320px;
+  margin: 28px auto;
+  padding: 28px 20px;
+  border: 1px solid var(--invitation-line);
+  border-radius: 130px 130px 8px 8px;
+  background: linear-gradient(145deg, #fffaf6, #ecd7cb);
+  box-shadow: 0 12px 30px #a86c5912;
+}
+
+.invitation-rose-gold-elegant-birthday .celebration-notes article,
+.invitation-rose-gold-elegant-birthday .invitation-event-card {
+  border: 1px solid var(--invitation-line);
+  border-radius: 8px 28px;
+  background: #fffaf6;
+  box-shadow: 0 12px 26px #a86c5912;
+}
+
+.invitation-rose-gold-elegant-birthday .cd-1-box,
+.invitation-rose-gold-elegant-birthday .countdown-2__unit {
+  border: 1px solid var(--invitation-line);
+  border-radius: 8px;
+  background: #ecd7cb;
+  color: #a86c59;
+}
+
+.invitation-rose-gold-elegant-birthday .invitation-form input,
+.invitation-rose-gold-elegant-birthday .invitation-form textarea,
+.invitation-rose-gold-elegant-birthday .invitation-form select {
+  background: #fffaf6;
+  color: var(--color-text);
+}
+
+.invitation-rose-gold-elegant-birthday .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #d4a18c33, transparent 65%),
+    #ecd7cb;
+}
