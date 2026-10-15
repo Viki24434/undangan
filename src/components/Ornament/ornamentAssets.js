@@ -51,6 +51,175 @@ const jawa = {
 };
 
 export const ornamentAssets = {
+  'celestial-corner': asset(
+    png('celestial_moon_and_star', 'sudut_kiri.png'),
+    'corner',
+  ),
+  'celestial-top-garland': asset(
+    png('celestial_moon_and_star', 'atas.png'),
+    'garland',
+  ),
+  'celestial-bottom-garland': asset(
+    png('celestial_moon_and_star', 'bawah.png'),
+    'garland',
+  ),
+  'celestial-side-garland': asset(
+    png('celestial_moon_and_star', 'samping.png'),
+    'side',
+  ),
+  'celestial-rings': asset(
+    png('celestial_moon_and_star', 'cincin.png'),
+    'arrangement',
+  ),
+  'celestial-constellation': asset(
+    png('celestial_moon_and_star', 'hiasan1.png'),
+    'arrangement',
+  ),
+  'celestial-accent': asset(
+    png('celestial_moon_and_star', 'hiasan2.png'),
+    'arrangement',
+  ),
+  'celestial-flower': asset(
+    png('celestial_moon_and_star', 'hiasan3.png'),
+    'arrangement',
+  ),
+  'celestial-candles': asset(
+    png('celestial_moon_and_star', 'lilin.png'),
+    'arrangement',
+  ),
+  'celestial-crown': asset(
+    png('celestial_moon_and_star', 'mahkota.png'),
+    'arrangement',
+  ),
+  'celestial-moon': asset(
+    png('celestial_moon_and_star', 'platat_moon_and_start.png'),
+    'arrangement',
+  ),
+  'islamic-corner': asset(
+    png('islamic_elegant_wedding', 'sudut_kiri.png'),
+    'corner',
+  ),
+  'islamic-top-garland': asset(
+    png('islamic_elegant_wedding', 'atas.png'),
+    'garland',
+  ),
+  'islamic-bottom-garland': asset(
+    png('islamic_elegant_wedding', 'bawah.png'),
+    'garland',
+  ),
+  'islamic-side-garland': asset(
+    png('islamic_elegant_wedding', 'samping.png'),
+    'side',
+  ),
+  'islamic-rings': asset(
+    png('islamic_elegant_wedding', 'cincin.png'),
+    'arrangement',
+  ),
+  'islamic-flower': asset(
+    png('islamic_elegant_wedding', 'hiasan_bunga.png'),
+    'flower',
+  ),
+  'islamic-lantern': asset(
+    png('islamic_elegant_wedding', 'lampion.png'),
+    'arrangement',
+  ),
+  'islamic-ribbon': asset(
+    png('islamic_elegant_wedding', 'pita.png'),
+    'arrangement',
+  ),
+  'islamic-tugu': asset(
+    png('islamic_elegant_wedding', 'tugu.png'),
+    'arrangement',
+  ),
+  'islamic-arrangement': asset(
+    png('islamic_elegant_wedding', 'utama.png'),
+    'arrangement',
+  ),
+  'rustic-boho-corner': asset(
+    png('rustic_boho_wedding', 'sudut_kiri.png'),
+    'corner',
+  ),
+  'rustic-boho-top-garland': asset(
+    png('rustic_boho_wedding', 'atas.png'),
+    'garland',
+  ),
+  'rustic-boho-bottom-garland': asset(
+    png('rustic_boho_wedding', 'bawah.png'),
+    'garland',
+  ),
+  'rustic-boho-side-garland': asset(
+    png('rustic_boho_wedding', 'samping.png'),
+    'side',
+  ),
+  'rustic-boho-bouquet': asset(
+    png('rustic_boho_wedding', 'bunga_dan_pot.png'),
+    'bouquet',
+  ),
+  'rustic-boho-leaf': asset(png('rustic_boho_wedding', 'daun.png'), 'branch'),
+  'rustic-boho-lantern': asset(
+    png('rustic_boho_wedding', 'hiasan1.png'),
+    'arrangement',
+  ),
+  'rustic-boho-accent': asset(
+    png('rustic_boho_wedding', 'hiasan2.png'),
+    'arrangement',
+  ),
+  'rustic-boho-detail': asset(
+    png('rustic_boho_wedding', 'hiasan3.png'),
+    'arrangement',
+  ),
+  'rustic-boho-arrangement': asset(
+    png('rustic_boho_wedding', 'hiasan_utama.png'),
+    'arrangement',
+  ),
+  'rustic-boho-ribbon': asset(
+    png('rustic_boho_wedding', 'pita.png'),
+    'arrangement',
+  ),
+  'royal-gold-corner': asset(
+    png('royal_gold_luxury', 'sudut_kiri.png'),
+    'corner',
+  ),
+  'royal-gold-top-garland': asset(
+    png('royal_gold_luxury', 'atas.png'),
+    'garland',
+  ),
+  'royal-gold-bottom-garland': asset(
+    png('royal_gold_luxury', 'bawah.png'),
+    'garland',
+  ),
+  'royal-gold-side-garland': asset(
+    png('royal_gold_luxury', 'samping.png'),
+    'side',
+  ),
+  'royal-gold-bouquet': asset(
+    png('royal_gold_luxury', 'bucket.png'),
+    'bouquet',
+  ),
+  'royal-gold-mirror': asset(
+    png('royal_gold_luxury', 'cermin.png'),
+    'arrangement',
+  ),
+  'royal-gold-accent': asset(
+    png('royal_gold_luxury', 'hiasan.png'),
+    'arrangement',
+  ),
+  'royal-gold-pearls': asset(
+    png('royal_gold_luxury', 'hiasan_mutiara.png'),
+    'arrangement',
+  ),
+  'royal-gold-candles': asset(
+    png('royal_gold_luxury', 'lilin.png'),
+    'arrangement',
+  ),
+  'royal-gold-crown': asset(
+    png('royal_gold_luxury', 'mahkota.png'),
+    'arrangement',
+  ),
+  'royal-gold-ribbon': asset(
+    png('royal_gold_luxury', 'pita.png'),
+    'arrangement',
+  ),
   'cute-boy-corner': asset(
     png('birthday_cute_boy', 'sudut_kiri.png'),
     'corner',

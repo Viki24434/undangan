@@ -1,0 +1,89 @@
+.invitation-rustic-boho {
+  --color-bg: #f4ecdf;
+  --color-text: #4e4030;
+  --color-accent: #98714f;
+  --invitation-muted: #897963;
+  --invitation-panel: #e4d5be;
+  --invitation-line: #98714f44;
+  --invitation-on-accent: #fffaf1;
+  background: linear-gradient(155deg, #faf5eb, #f4ecdf 55%, #e4d5be);
+}
+
+.celebration-template.invitation-rustic-boho .cover-2 .cover-2__frame {
+  border: 1px solid #98714f77;
+  border-radius: 140px 140px 12px 12px;
+  background: linear-gradient(155deg, #faf5ebf2, #e4d5beef);
+  color: var(--color-text);
+  box-shadow: 0 24px 60px #6e796022;
+}
+
+.invitation-rustic-boho .invitation-cover-frame .invitation-kicker,
+.invitation-rustic-boho .invitation-cover-frame .invitation-date,
+.invitation-rustic-boho .invitation-cover-frame .invitation-back {
+  color: var(--color-text);
+}
+
+.invitation-rustic-boho .invitation-monogram {
+  border-color: #6e796066;
+  color: #6e7960;
+  background: #faf5eb88;
+}
+
+.celebration-template.invitation-rustic-boho .hero-2::before {
+  background:
+    radial-gradient(ellipse at top, #e4d5be22, transparent 65%),
+    linear-gradient(180deg, #38412e44, #38412e66 50%, #33291fe0);
+}
+
+.invitation-rustic-boho .hero-2__copy {
+  text-shadow: 0 3px 18px #33291f;
+}
+
+.invitation-rustic-boho .invitation-intro {
+  background:
+    radial-gradient(ellipse at top, #6e796015, transparent 70%), var(--color-bg);
+}
+
+.invitation-rustic-boho .couple-1-portrait {
+  border-color: #6e796088;
+  background: #faf5eb;
+  box-shadow:
+    0 0 0 5px #f4ecdf,
+    0 0 0 6px #98714f33,
+    0 18px 36px #98714f18;
+}
+
+.invitation-rustic-boho .invitation-event-card,
+.invitation-rustic-boho .story-1-item,
+.invitation-rustic-boho .gift-2__card {
+  border: 1px solid var(--invitation-line);
+  border-radius: 30px 6px;
+  background: linear-gradient(145deg, #faf5eb, #ede2ce);
+  box-shadow: 0 12px 28px #98714f12;
+}
+
+.invitation-rustic-boho .cd-1-box {
+  border: 1px solid #6e796066;
+  border-radius: 16px;
+  background: #6e7960;
+  color: #fffaf1;
+}
+
+.invitation-rustic-boho .gallery-2__item {
+  border-color: #98714f55;
+  box-shadow: 0 12px 28px #98714f18;
+}
+
+.invitation-rustic-boho .invitation-form input,
+.invitation-rustic-boho .invitation-form textarea,
+.invitation-rustic-boho .invitation-form select {
+  background: #faf5eb;
+  color: var(--color-text);
+}
+
+.invitation-rustic-boho .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #6e796022, transparent 65%),
+    #e4d5be;
+}

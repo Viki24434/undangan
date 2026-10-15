@@ -394,6 +394,60 @@ export const templateRegistry = [
         import('../templates/RoseGoldElegantBirthday/RoseGoldElegantBirthday'),
     ),
   },
+  {
+    ...{
+      id: 'royal-gold-luxury-01',
+      name: 'Royal Gold Luxury Wedding',
+      category: 'Pernikahan',
+      packageId: 'gold',
+      description:
+        'Ivory dan emas hangat dengan mahkota, mutiara, ukiran klasik, dan lilin untuk pernikahan yang megah.',
+      img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85',
+    },
+    palette: ['#f7efdc', '#98702e', '#e8d5ad'],
+    component: lazy(
+      () => import('../templates/RoyalGoldLuxury/RoyalGoldLuxury'),
+    ),
+  },
+  {
+    id: 'rustic-boho-wedding-01',
+    name: 'Rustic Boho Wedding',
+    category: 'Pernikahan',
+    packageId: 'gold',
+    description:
+      'Krem hangat, sage, dan kayu dengan dedaunan kering, lentera, serta rangkaian bunga rustic.',
+    img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    palette: ['#f4ecdf', '#98714f', '#6e7960'],
+    component: lazy(
+      () => import('../templates/RusticBohoWedding/RusticBohoWedding'),
+    ),
+  },
+  {
+    id: 'islamic-elegant-wedding-01',
+    name: 'Islamic Elegant Wedding',
+    category: 'Pernikahan',
+    packageId: 'gold',
+    description:
+      'Hijau zamrud, ivory, dan emas dengan lengkung geometris, lampion, bunga, serta detail cincin.',
+    img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85',
+    palette: ['#12362d', '#d9ba78', '#f4eddf'],
+    component: lazy(
+      () => import('../templates/IslamicElegantWedding/IslamicElegantWedding'),
+    ),
+  },
+  {
+    id: 'celestial-moon-and-star-01',
+    name: 'Celestial Moon & Star Wedding',
+    category: 'Pernikahan',
+    packageId: 'gold',
+    description:
+      'Biru malam dan emas dengan bulan sabit, bintang, kristal, serta bunga untuk pernikahan yang romantis.',
+    img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85',
+    palette: ['#101b33', '#d4b574', '#1b2b49'],
+    component: lazy(
+      () => import('../templates/CelestialMoonStar/CelestialMoonStar'),
+    ),
+  },
 ];
 
 export const templateCategories = [

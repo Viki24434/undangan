@@ -1,0 +1,90 @@
+.invitation-royal-gold-luxury {
+  --color-bg: #f7efdc;
+  --color-text: #4d3a24;
+  --color-accent: #98702e;
+  --invitation-muted: #887356;
+  --invitation-panel: #e8d5ad;
+  --invitation-line: #98702e44;
+  --invitation-on-accent: #fffaf0;
+  background: linear-gradient(155deg, #fffaf0, #f7efdc 55%, #e8d5ad);
+}
+
+.celebration-template.invitation-royal-gold-luxury .cover-2 .cover-2__frame {
+  border: 1px solid #98702e88;
+  border-radius: 150px 150px 8px 8px;
+  outline: 1px solid #98702e55;
+  outline-offset: -10px;
+  background: linear-gradient(155deg, #fffaf0f2, #e8d5adef);
+  color: var(--color-text);
+  box-shadow:
+    inset 0 0 0 6px #fffaf066,
+    0 24px 60px #98702e22;
+}
+
+.invitation-royal-gold-luxury .invitation-cover-frame .invitation-kicker,
+.invitation-royal-gold-luxury .invitation-cover-frame .invitation-date,
+.invitation-royal-gold-luxury .invitation-cover-frame .invitation-back {
+  color: var(--color-text);
+}
+
+.invitation-royal-gold-luxury .invitation-monogram {
+  color: var(--color-accent);
+  border-style: double;
+  background: #fffaf088;
+  box-shadow: 0 0 0 5px #98702e12;
+}
+
+.celebration-template.invitation-royal-gold-luxury .hero-2::before {
+  background:
+    radial-gradient(ellipse at top, #e8d5ad22, transparent 65%),
+    linear-gradient(180deg, #4d3a2444, #4d3a2477 50%, #31210fdd);
+}
+
+.invitation-royal-gold-luxury .hero-2__copy {
+  text-shadow: 0 3px 18px #31210f;
+}
+
+.invitation-royal-gold-luxury .invitation-intro {
+  background:
+    radial-gradient(ellipse at top, #e8d5ad66, transparent 70%), var(--color-bg);
+}
+
+.invitation-royal-gold-luxury .couple-3__portrait {
+  border: 3px double #98702e;
+  border-radius: 150px 150px 12px 12px;
+  background: #fffaf0;
+  box-shadow:
+    0 0 0 5px #f7efdc,
+    0 0 0 6px #98702e55,
+    0 18px 36px #98702e22;
+}
+
+.invitation-royal-gold-luxury .invitation-event-card,
+.invitation-royal-gold-luxury .story-2__entry article,
+.invitation-royal-gold-luxury .gift-2__card {
+  border: 1px solid var(--invitation-line);
+  border-radius: 60px 60px 8px 8px;
+  background: linear-gradient(145deg, #fffaf0, #f0e2c6);
+  box-shadow:
+    inset 0 0 0 5px #fffaf066,
+    0 12px 28px #98702e12;
+}
+
+.invitation-royal-gold-luxury .countdown-2__unit {
+  border-style: double;
+  background: #fffaf0;
+}
+
+.invitation-royal-gold-luxury .invitation-form input,
+.invitation-royal-gold-luxury .invitation-form textarea,
+.invitation-royal-gold-luxury .invitation-form select {
+  background: #fffaf0;
+  color: var(--color-text);
+}
+
+.invitation-royal-gold-luxury .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #bd975144, transparent 65%),
+    #e8d5ad;
+}

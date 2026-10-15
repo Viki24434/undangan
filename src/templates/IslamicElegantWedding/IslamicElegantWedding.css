@@ -1,0 +1,87 @@
+.invitation-islamic-elegant {
+  --color-bg: #12362d;
+  --color-text: #f4eddf;
+  --color-accent: #d9ba78;
+  --invitation-muted: #b7c1a9;
+  --invitation-panel: #214d3e;
+  --invitation-line: #d9ba7855;
+  --invitation-on-accent: #12362d;
+  background: linear-gradient(155deg, #12362d, #214d3e 55%, #0b241e);
+}
+
+.celebration-template.invitation-islamic-elegant .cover-2 .cover-2__frame {
+  border: 1px solid #d9ba7899;
+  border-radius: 150px 150px 10px 10px;
+  outline: 1px solid #d9ba7855;
+  outline-offset: -10px;
+  background: linear-gradient(155deg, #214d3eeb, #0b241ef2);
+  box-shadow:
+    inset 0 0 0 6px #f4eddf08,
+    0 24px 60px #061a1588;
+}
+
+.invitation-islamic-elegant .invitation-monogram {
+  border-style: double;
+  color: #f0d99e;
+  box-shadow: 0 0 0 5px #d9ba7812;
+}
+
+.celebration-template.invitation-islamic-elegant .hero-2::before {
+  background:
+    radial-gradient(ellipse at top, #d9ba7822, transparent 65%),
+    linear-gradient(180deg, #12362d55, #0b241e88 50%, #12362de8);
+}
+
+.invitation-islamic-elegant .hero-2__copy {
+  text-shadow: 0 3px 18px #0b241e;
+}
+
+.invitation-islamic-elegant .invitation-intro {
+  background:
+    radial-gradient(ellipse at top, #d9ba7812, transparent 70%), var(--color-bg);
+}
+
+.celebration-template.invitation-islamic-elegant .invitation-section::before,
+.celebration-template.invitation-islamic-elegant .invitation-section:nth-of-type(even)::before {
+  transform: none;
+}
+
+.invitation-islamic-elegant .couple-3__portrait {
+  border: 3px double #d9ba78;
+  border-radius: 150px 150px 10px 10px;
+  background: #214d3e;
+  box-shadow:
+    0 0 0 5px #12362d,
+    0 0 0 6px #d9ba7844,
+    0 18px 36px #061a1555;
+}
+
+.invitation-islamic-elegant .invitation-event-card,
+.invitation-islamic-elegant .story-2__entry article,
+.invitation-islamic-elegant .gift-2__card,
+.invitation-islamic-elegant .invitation-prayer-list article {
+  border: 1px solid var(--invitation-line);
+  border-radius: 50px 50px 10px 10px;
+  background: linear-gradient(145deg, #214d3e, #12362d);
+  box-shadow: 0 12px 28px #061a1533;
+}
+
+.invitation-islamic-elegant .countdown-2__unit {
+  border-style: double;
+  border-radius: 48% 48% 8px 8px;
+  background: #1a4236;
+}
+
+.invitation-islamic-elegant .invitation-form input,
+.invitation-islamic-elegant .invitation-form textarea,
+.invitation-islamic-elegant .invitation-form select {
+  background: #0b241e;
+  color: var(--color-text);
+}
+
+.invitation-islamic-elegant .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #d9ba7822, transparent 65%),
+    #0b241e;
+}

@@ -1,0 +1,90 @@
+.invitation-celestial-moon-star {
+  --color-bg: #101b33;
+  --color-text: #f3eddf;
+  --color-accent: #d4b574;
+  --invitation-muted: #abb7ce;
+  --invitation-panel: #1b2b49;
+  --invitation-line: #d4b57455;
+  --invitation-on-accent: #101b33;
+  background:
+    radial-gradient(ellipse at top right, #415a8533, transparent 50%),
+    linear-gradient(155deg, #101b33, #1b2b49 55%, #090f20);
+}
+
+.celebration-template.invitation-celestial-moon-star .cover-2 .cover-2__frame {
+  border: 1px solid #d4b57499;
+  border-radius: 150px 150px 10px 10px;
+  outline: 1px solid #d4b57444;
+  outline-offset: -10px;
+  background: linear-gradient(155deg, #1b2b49eb, #090f20f2);
+  box-shadow:
+    inset 0 0 0 6px #f3eddf08,
+    0 24px 60px #05091888;
+}
+
+.invitation-celestial-moon-star .invitation-monogram {
+  border-style: double;
+  color: #eddaa9;
+  box-shadow: 0 0 0 5px #d4b57412;
+}
+
+.celebration-template.invitation-celestial-moon-star .hero-2::before {
+  background:
+    radial-gradient(ellipse at top, #7e99cb22, transparent 65%),
+    linear-gradient(180deg, #101b3355, #090f2088 50%, #101b33e8);
+}
+
+.invitation-celestial-moon-star .hero-2__copy {
+  text-shadow: 0 3px 18px #090f20;
+}
+
+.invitation-celestial-moon-star .invitation-intro {
+  background:
+    radial-gradient(circle at 18% 14%, #eddaa977 1px, transparent 2px),
+    radial-gradient(circle at 82% 38%, #eddaa955 1px, transparent 2px),
+    radial-gradient(ellipse at top, #415a8533, transparent 70%), var(--color-bg);
+}
+
+.celebration-template.invitation-celestial-moon-star
+  .invitation-section::before,
+.celebration-template.invitation-celestial-moon-star
+  .invitation-section:nth-of-type(even)::before {
+  transform: none;
+}
+
+.invitation-celestial-moon-star .couple-2__portrait {
+  border: 3px double #d4b574;
+  background: #1b2b49;
+  box-shadow:
+    0 0 0 5px #101b33,
+    0 0 0 6px #d4b57444,
+    0 18px 36px #05091855;
+}
+
+.invitation-celestial-moon-star .invitation-event-card,
+.invitation-celestial-moon-star .story-2__entry article,
+.invitation-celestial-moon-star .gift-2__card {
+  border: 1px solid var(--invitation-line);
+  border-radius: 48px 48px 10px 10px;
+  background: linear-gradient(145deg, #1b2b49, #101b33);
+  box-shadow: 0 12px 28px #05091833;
+}
+
+.invitation-celestial-moon-star .countdown-2__unit {
+  border-style: double;
+  background: #15233f;
+}
+
+.invitation-celestial-moon-star .invitation-form input,
+.invitation-celestial-moon-star .invitation-form textarea,
+.invitation-celestial-moon-star .invitation-form select {
+  background: #090f20;
+  color: var(--color-text);
+}
+
+.invitation-celestial-moon-star .invitation-closing {
+  border-top: 1px solid var(--invitation-line);
+  background:
+    radial-gradient(ellipse at bottom right, #415a8533, transparent 65%),
+    #090f20;
+}

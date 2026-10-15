@@ -38,6 +38,217 @@ const portraitFlowers = (
 });
 
 export const ornamentPresets = {
+  'invitation-celestial-moon-star': {
+    backgroundArt: 'celestial-moon',
+    cover: [
+      corner('celestial-corner', 'topLeft', '33%'),
+      corner('celestial-corner', 'bottomRight', '30%'),
+    ],
+    hero: [
+      {
+        asset: 'celestial-side-garland',
+        position: { top: '18%', left: '-9%' },
+        width: '24%',
+        opacity: 0.75,
+      },
+      {
+        asset: 'celestial-constellation',
+        position: { top: '16%', right: '-6%' },
+        width: '24%',
+        opacity: 0.8,
+      },
+    ],
+    couple: {
+      groom: [
+        {
+          asset: 'celestial-accent',
+          position: { left: '-12%' },
+          width: '32%',
+          rotate: -8,
+        },
+      ],
+      bride: [
+        {
+          asset: 'celestial-crown',
+          position: { right: '-12%' },
+          width: '32%',
+          rotate: 8,
+        },
+      ],
+    },
+    closing: [
+      {
+        asset: 'celestial-flower',
+        position: { right: '-8%', bottom: '-5%' },
+        width: '38%',
+        opacity: 0.8,
+      },
+      {
+        asset: 'celestial-candles',
+        position: { left: '-7%', bottom: '2%' },
+        width: '25%',
+        opacity: 0.65,
+      },
+    ],
+  },
+  'invitation-islamic-elegant': {
+    backgroundArt: 'islamic-tugu',
+    cover: [
+      corner('islamic-corner', 'topLeft', '33%'),
+      corner('islamic-corner', 'bottomRight', '30%'),
+    ],
+    hero: [
+      {
+        asset: 'islamic-side-garland',
+        position: { top: '18%', left: '-9%' },
+        width: '24%',
+        opacity: 0.75,
+      },
+      {
+        asset: 'islamic-lantern',
+        position: { top: '14%', right: '-6%' },
+        width: '22%',
+        opacity: 0.85,
+      },
+    ],
+    couple: {
+      groom: [
+        {
+          asset: 'islamic-flower',
+          position: { left: '-12%' },
+          width: '32%',
+          rotate: -10,
+        },
+      ],
+      bride: [
+        {
+          asset: 'islamic-flower',
+          position: { right: '-12%' },
+          width: '32%',
+          rotate: 10,
+          flipX: true,
+        },
+      ],
+    },
+    closing: [
+      {
+        asset: 'islamic-arrangement',
+        position: { right: '-8%', bottom: '-8%' },
+        width: '48%',
+        opacity: 0.75,
+      },
+    ],
+  },
+  'invitation-rustic-boho': {
+    backgroundArt: 'rustic-boho-leaf',
+    cover: [
+      corner('rustic-boho-corner', 'topLeft', '34%'),
+      corner('rustic-boho-corner', 'bottomRight', '30%'),
+    ],
+    hero: [
+      {
+        asset: 'rustic-boho-side-garland',
+        position: { top: '18%', left: '-9%' },
+        width: '24%',
+        opacity: 0.75,
+      },
+      {
+        asset: 'rustic-boho-lantern',
+        position: { top: '14%', right: '-6%' },
+        width: '23%',
+        opacity: 0.85,
+      },
+    ],
+    couple: {
+      groom: [
+        {
+          asset: 'rustic-boho-leaf',
+          position: { left: '-12%' },
+          width: '34%',
+          rotate: -12,
+        },
+      ],
+      bride: [
+        {
+          asset: 'rustic-boho-accent',
+          position: { right: '-12%' },
+          width: '32%',
+          rotate: 8,
+        },
+      ],
+    },
+    closing: [
+      {
+        asset: 'rustic-boho-arrangement',
+        position: { right: '-8%', bottom: '-8%' },
+        width: '48%',
+        opacity: 0.8,
+      },
+      {
+        asset: 'rustic-boho-bouquet',
+        position: { left: '-7%', bottom: '-3%' },
+        width: '28%',
+        opacity: 0.65,
+      },
+    ],
+  },
+  'invitation-royal-gold-luxury': {
+    backgroundArt: 'royal-gold-mirror',
+    cover: [
+      {
+        asset: 'royal-gold-corner',
+        position: { top: '-3%', left: '-5%' },
+        width: '32%',
+        rotate: 90,
+      },
+      {
+        asset: 'royal-gold-corner',
+        position: { top: '-3%', right: '-5%' },
+        width: '32%',
+        rotate: 180,
+      },
+    ],
+    hero: [
+      {
+        asset: 'royal-gold-side-garland',
+        position: { top: '18%', right: '-9%' },
+        width: '24%',
+        opacity: 0.75,
+      },
+    ],
+    couple: {
+      groom: [
+        {
+          asset: 'royal-gold-accent',
+          position: { left: '-12%' },
+          width: '32%',
+          rotate: -8,
+        },
+      ],
+      bride: [
+        {
+          asset: 'royal-gold-crown',
+          position: { right: '-12%' },
+          width: '34%',
+          rotate: 8,
+        },
+      ],
+    },
+    closing: [
+      {
+        asset: 'royal-gold-bouquet',
+        position: { right: '-8%', bottom: '-5%' },
+        width: '40%',
+        opacity: 0.8,
+      },
+      {
+        asset: 'royal-gold-candles',
+        position: { left: '-7%', bottom: '2%' },
+        width: '25%',
+        opacity: 0.65,
+      },
+    ],
+  },
   'invitation-cute-boy-birthday': {
     backgroundArt: 'cute-boy-ribbon',
     cover: [
@@ -1013,6 +1224,10 @@ export const ornamentPresets = {
 };
 
 const themeFamilies = {
+  'invitation-celestial-moon-star': 'celestial',
+  'invitation-islamic-elegant': 'islamic',
+  'invitation-rustic-boho': 'rustic-boho',
+  'invitation-royal-gold-luxury': 'royal-gold',
   'invitation-cute-boy-birthday': 'cute-boy',
   'invitation-cute-girl-birthday': 'cute-girl',
   'invitation-rose-gold-elegant-birthday': 'party-rose-gold',
@@ -1050,6 +1265,22 @@ const themeFamilies = {
 };
 
 const familyDetails = {
+  celestial: [
+    'celestial-rings',
+    'celestial-constellation',
+    'celestial-candles',
+  ],
+  islamic: ['islamic-rings', 'islamic-ribbon', 'islamic-lantern'],
+  'rustic-boho': [
+    'rustic-boho-arrangement',
+    'rustic-boho-ribbon',
+    'rustic-boho-detail',
+  ],
+  'royal-gold': [
+    'royal-gold-pearls',
+    'royal-gold-ribbon',
+    'royal-gold-candles',
+  ],
   'cute-boy': ['cute-boy-gift', 'cute-boy-ribbon', 'cute-boy-cake'],
   'cute-girl': ['cute-girl-gift', 'cute-girl-ribbon', 'cute-girl-cake'],
   'party-rose-gold': [
@@ -1095,6 +1326,8 @@ for (const [theme, family] of Object.entries(themeFamilies)) {
       makasar: 'makasar-pelaminan',
       aceh: 'aceh-pelaminan',
       papua: 'papua-pelaminan',
+      islamic: 'islamic-arrangement',
+      celestial: 'celestial-moon',
     }[family] || `${family}-bouquet`;
   preset.background = {
     main:
@@ -1134,6 +1367,10 @@ for (const [theme, family] of Object.entries(themeFamilies)) {
       'cute-boy',
       'cute-girl',
       'party-rose-gold',
+      'royal-gold',
+      'rustic-boho',
+      'islamic',
+      'celestial',
     ].includes(family)
   ) {
     if (!preset.hero.some((item) => item.asset === `${family}-top-garland`)) {
