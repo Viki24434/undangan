@@ -1,3 +1,5 @@
+import './PlatinumAtmosphere.css';
+
 const lights = Array.from({ length: 10 }, (_, index) => ({
   left: `${(index * 37 + 11) % 100}%`,
   top: `${(index * 23 + 8) % 100}%`,

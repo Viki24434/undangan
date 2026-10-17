@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import PlatinumAtmosphere from './PlatinumAtmosphere';
+import PlatinumAtmosphere from '../PlatinumAtmosphere/PlatinumAtmosphere';
 import './PlatinumMotion.css';
 
 export default function PlatinumMotion() {

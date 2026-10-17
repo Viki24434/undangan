@@ -1,6 +1,6 @@
 import ScrollReveal from '../ScrollReveal/ScrollReveal';
 import { getVideoSource } from './videoUrl';
-import PlatinumChapter from '../Platinum/PlatinumChapter';
+import PlatinumChapter from '../Animation/PlatinumChapter/PlatinumChapter';
 
 function AgendaSection({ items }) {
   if (!items.length) return null;

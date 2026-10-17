@@ -11,11 +11,11 @@ import Cover1 from '../Cover/Cover1/Cover1';
 import Cover2 from '../Cover/Cover2/Cover2';
 import Hero1 from '../Hero/Hero1/Hero1';
 import Hero2 from '../Hero/Hero2/Hero2';
-import PlatinumCover from '../Platinum/PlatinumCover';
-import PlatinumHero from '../Platinum/PlatinumHero';
-import PlatinumNavigation from '../Platinum/PlatinumNavigation';
-import PlatinumMotion from '../Platinum/PlatinumMotion';
-import PlatinumChapter from '../Platinum/PlatinumChapter';
+import PlatinumCover1 from '../Cover/PlatinumCover1/PlatinumCover1';
+import PlatinumHero1 from '../Hero/PlatinumHero1/PlatinumHero1';
+import PlatinumNavbar from '../Navbar/PlatinumNavbar/PlatinumNavbar';
+import PlatinumMotion from '../Animation/PlatinumMotion/PlatinumMotion';
+import PlatinumChapter from '../Animation/PlatinumChapter/PlatinumChapter';
 import './Invitation.css';
 
 export default function InvitationLayout({
@@ -48,12 +48,12 @@ export default function InvitationLayout({
   const musicUrl = invitation?.data.musicUrl || defaultMusic;
   const Cover =
     variants.cover === 3
-      ? PlatinumCover
+      ? PlatinumCover1
       : variants.cover === 1
         ? Cover1
         : Cover2;
   const Hero =
-    variants.hero === 3 ? PlatinumHero : variants.hero === 1 ? Hero1 : Hero2;
+    variants.hero === 3 ? PlatinumHero1 : variants.hero === 1 ? Hero1 : Hero2;
   const decorations = ornamentPresets[theme] || {};
   const templateTheme = invitation?.data.theme || {};
   const fontStyles =
@@ -199,7 +199,7 @@ export default function InvitationLayout({
             </Hero>
           )}
           {variants.experience === 'platinum' ? (
-            <PlatinumNavigation />
+            <PlatinumNavbar />
           ) : (
             <nav
               className="invitation-section-nav"

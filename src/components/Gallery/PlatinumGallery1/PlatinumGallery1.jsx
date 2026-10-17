@@ -1,16 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import PlatinumChapter from './PlatinumChapter';
-import ScrollReveal from '../ScrollReveal/ScrollReveal';
-import './PlatinumPhotoStory.css';
+import PlatinumChapter from '../../Animation/PlatinumChapter/PlatinumChapter';
+import ScrollReveal from '../../ScrollReveal/ScrollReveal';
+import './PlatinumGallery1.css';
 
 const slideDuration = 3000;
 
-export default function PlatinumPhotoStory({
-  image,
-  images = [],
-  title,
-  theme,
-}) {
+export default function PlatinumGallery1({ image, images = [], title, theme }) {
   const ref = useRef(null);
   const touchRef = useRef(null);
   const slides = useMemo(() => {

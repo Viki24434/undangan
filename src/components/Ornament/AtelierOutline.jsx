@@ -1,4 +1,4 @@
-export default function ChampagneOutline() {
+export default function AtelierOutline() {
   return (
     <svg
       className="champagne-outline"

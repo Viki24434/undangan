@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import PlatinumAtmosphere from './PlatinumAtmosphere';
-import OrnamentArtwork from '../Ornament/OrnamentArtwork';
-import './PlatinumCover.css';
+import PlatinumAtmosphere from '../../Animation/PlatinumAtmosphere/PlatinumAtmosphere';
+import OrnamentArtwork from '../../Ornament/OrnamentArtwork';
+import './PlatinumCover1.css';
 
-export default function PlatinumCover({
+export default function PlatinumCover1({
   title,
   subtitle,
   date,

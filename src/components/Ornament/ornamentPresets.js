@@ -1498,7 +1498,7 @@ ornamentPresets['invitation-platinum-aurora'] = {
   waxSeal: 'aurora-segel-lilin',
   envelope: 'aurora-amplop',
   envelopeFlap: 'aurora-tutup-amplop',
-  background: { main: 'aurora-ranting-gantung', edge: 'aurora-daun-kiri' },
+  background: { main: 'aurora-daun-kanan', edge: 'aurora-daun-kiri' },
   cover: [
     {
       asset: 'aurora-atas-kiri',

@@ -1,6 +1,6 @@
-import { ornamentAssets } from '../Ornament/ornamentAssets';
+import { ornamentAssets } from './ornamentAssets';
 
-export default function ChampagneArtwork({
+export default function AtelierArtwork({
   name,
   fill = false,
   align = 'center',

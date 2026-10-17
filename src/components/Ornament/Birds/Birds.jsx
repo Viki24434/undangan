@@ -1,4 +1,4 @@
-import './HeroBirds.css';
+import './Birds.css';
 
 const flocks = [
   {
@@ -43,7 +43,7 @@ const flocks = [
   },
 ];
 
-export default function HeroBirds() {
+export default function Birds() {
   return (
     <svg
       className="hero-birds"

@@ -1,5 +1,5 @@
 import WeddingInvitation from '../../components/Invitation/WeddingInvitation';
-import '../../components/Platinum/Platinum.css';
+import '../../styles/platinum.css';
 import './PlatinumChampagne.css';
 
 export default function PlatinumChampagne() {

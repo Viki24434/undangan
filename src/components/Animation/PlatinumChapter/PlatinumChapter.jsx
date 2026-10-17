@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { ornamentAssets } from '../Ornament/ornamentAssets';
+import { ornamentAssets } from '../../Ornament/ornamentAssets';
 import './PlatinumChapter.css';
 
 const compositions = {
@@ -29,7 +29,7 @@ const families = {
   'invitation-platinum-aurora': {
     'leaf-left': 'aurora-daun-kiri',
     'leaf-right': 'aurora-daun-kanan',
-    'branch-left': 'aurora-ranting-gantung',
+    'branch-left': 'aurora-daun-kiri',
     'flower-left': 'aurora-bawah-kiri',
     'flower-right': 'aurora-bawah-kanan',
   },

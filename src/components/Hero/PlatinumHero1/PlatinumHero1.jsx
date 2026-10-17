@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import HeroSlideshow from '../Hero/HeroSlideshow';
+import HeroSlideshow from '../HeroSlideshow';
 import CinematicScene from './CinematicScene';
-import './PlatinumHero.css';
+import './PlatinumHero1.css';
 
-export default function PlatinumHero({
+export default function PlatinumHero1({
   image,
   images,
   sunlightEnabled,

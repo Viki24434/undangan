@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import './PlatinumNavbar.css';
 
 const chapters = [
   ['invitation-intro', 'Cerita'],
@@ -7,7 +8,7 @@ const chapters = [
   ['invitation-wishes', 'Ucapan'],
 ];
 
-export default function PlatinumNavigation() {
+export default function PlatinumNavbar() {
   const ref = useRef(null);
   const [active, setActive] = useState('invitation-intro');
 

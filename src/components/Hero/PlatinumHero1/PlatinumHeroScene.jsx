@@ -1,7 +1,7 @@
-import ChampagneArtwork from './ChampagneArtwork';
-import ChampagneOutline from './ChampagneOutline';
-import HeroBirds from './HeroBirds';
-import './ChampagneScene.css';
+import AtelierArtwork from '../../Ornament/AtelierArtwork';
+import AtelierOutline from '../../Ornament/AtelierOutline';
+import Birds from '../../Ornament/Birds/Birds';
+import './PlatinumHeroScene.css';
 
 const layers = [
   ['langit', 'background'],
@@ -22,7 +22,7 @@ const layers = [
   ['pagar', 'pagar-bunga'],
 ];
 
-export default function ChampagneScene({ family = 'champagne' }) {
+export default function PlatinumHeroScene({ family = 'champagne' }) {
   const sceneLayers =
     family === 'aurora'
       ? [
@@ -44,7 +44,7 @@ export default function ChampagneScene({ family = 'champagne' }) {
           style={{ '--layer-delay': `${Math.min(index * 0.12, 1.4)}s` }}
           key={position}
         >
-          <ChampagneArtwork
+          <AtelierArtwork
             family={family}
             name={name}
             fill={name === 'background' || name === 'bukit'}
@@ -58,11 +58,11 @@ export default function ChampagneScene({ family = 'champagne' }) {
           />
         </div>
       ))}
-      <HeroBirds />
+      <Birds />
       <div className="champagne-scenery__sunlight" />
       <div className="champagne-scenery__mist" />
       <div className="champagne-scenery__name-panel">
-        <ChampagneOutline />
+        <AtelierOutline />
       </div>
     </div>
   );

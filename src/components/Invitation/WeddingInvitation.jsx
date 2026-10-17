@@ -17,8 +17,8 @@ import Gift2 from '../Gift/Gift2/Gift2';
 import { ornamentPresets } from '../Ornament/ornamentPresets';
 import ScrollReveal from '../ScrollReveal/ScrollReveal';
 import OptionalSections from './OptionalSections';
-import PlatinumChapter from '../Platinum/PlatinumChapter';
-import PlatinumPhotoStory from '../Platinum/PlatinumPhotoStory';
+import PlatinumChapter from '../Animation/PlatinumChapter/PlatinumChapter';
+import PlatinumGallery1 from '../Gallery/PlatinumGallery1/PlatinumGallery1';
 
 export default function WeddingInvitation({
   theme,
@@ -59,7 +59,7 @@ export default function WeddingInvitation({
       variants={components}
     >
       {animated && (
-        <PlatinumPhotoStory
+        <PlatinumGallery1
           image={data.image}
           images={data.photos}
           title={invitation?.title || `${data.groom.name} & ${data.bride.name}`}
