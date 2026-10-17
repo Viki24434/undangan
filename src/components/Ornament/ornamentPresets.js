@@ -1437,3 +1437,116 @@ for (const [theme, family] of Object.entries(themeFamilies)) {
     },
   ];
 }
+
+ornamentPresets['invitation-platinum-champagne'] = {
+  paperTexture: 'champagne-teksur-kertas',
+  waxSeal: 'champagne-segel-lilin',
+  background: { main: 'champagne-ranting-daun', edge: 'champagne-daun-kiri' },
+  cover: [
+    {
+      asset: 'champagne-atas-kiri',
+      position: { top: '-4%', left: '-9%' },
+      width: '42%',
+    },
+    {
+      asset: 'champagne-atas-kanan',
+      position: { top: '-4%', right: '-9%' },
+      width: '42%',
+    },
+  ],
+  hero: [],
+  couple: {
+    groom: [
+      {
+        asset: 'champagne-bunga-kiri',
+        position: { left: '-12%' },
+        width: '35%',
+        rotate: -12,
+      },
+    ],
+    bride: [
+      {
+        asset: 'champagne-bunga-kanan',
+        position: { right: '-12%' },
+        width: '35%',
+        rotate: 12,
+      },
+    ],
+  },
+  dividers: {
+    story: [dividerItem('champagne-ranting-daun')],
+    events: [dividerItem('champagne-mahkota')],
+    gallery: [dividerItem('champagne-pagar-bunga')],
+    wishes: [dividerItem('champagne-bunga-kanan')],
+  },
+  closing: [
+    {
+      asset: 'champagne-bawah-kiri',
+      position: { bottom: '-3%', left: '-10%' },
+      width: '46%',
+    },
+    {
+      asset: 'champagne-bawah-kanan',
+      position: { bottom: '-3%', right: '-10%' },
+      width: '46%',
+    },
+  ],
+};
+
+ornamentPresets['invitation-platinum-aurora'] = {
+  paperTexture: 'aurora-tekstur-kertas',
+  waxSeal: 'aurora-segel-lilin',
+  envelope: 'aurora-amplop',
+  envelopeFlap: 'aurora-tutup-amplop',
+  background: { main: 'aurora-ranting-gantung', edge: 'aurora-daun-kiri' },
+  cover: [
+    {
+      asset: 'aurora-atas-kiri',
+      position: { top: '-2%', left: '-9%' },
+      width: '44%',
+    },
+    {
+      asset: 'aurora-atas-kanan',
+      position: { top: '-2%', right: '-9%' },
+      width: '44%',
+    },
+  ],
+  hero: [],
+  couple: {
+    groom: [
+      {
+        asset: 'aurora-bunga',
+        position: { left: '-12%' },
+        width: '35%',
+        rotate: -12,
+      },
+    ],
+    bride: [
+      {
+        asset: 'aurora-bunga',
+        position: { right: '-12%' },
+        width: '35%',
+        rotate: 12,
+        flipX: true,
+      },
+    ],
+  },
+  dividers: {
+    story: [dividerItem('aurora-bunga')],
+    events: [dividerItem('aurora-mahkota')],
+    gallery: [dividerItem('aurora-bunga-pembatas')],
+    wishes: [dividerItem('aurora-lentera')],
+  },
+  closing: [
+    {
+      asset: 'aurora-bawah-kiri',
+      position: { bottom: '-3%', left: '-10%' },
+      width: '46%',
+    },
+    {
+      asset: 'aurora-bawah-kanan',
+      position: { bottom: '-3%', right: '-10%' },
+      width: '46%',
+    },
+  ],
+};

@@ -1,5 +1,6 @@
 import ScrollReveal from '../ScrollReveal/ScrollReveal';
 import { getVideoSource } from './videoUrl';
+import PlatinumChapter from '../Platinum/PlatinumChapter';
 
 function AgendaSection({ items }) {
   if (!items.length) return null;
@@ -90,6 +91,8 @@ function PrayerSection({ items }) {
 }
 
 export default function OptionalSections({
+  theme,
+  animated = false,
   agenda = [],
   videoUrl = '',
   prayers = [],
@@ -99,9 +102,21 @@ export default function OptionalSections({
 
   return (
     <>
-      <AgendaSection items={visibleAgenda} />
-      <VideoSection value={videoUrl} />
-      <PrayerSection items={visiblePrayers} />
+      {visibleAgenda.length > 0 && (
+        <PlatinumChapter enabled={animated} theme={theme} chapter="agenda">
+          <AgendaSection items={visibleAgenda} />
+        </PlatinumChapter>
+      )}
+      {getVideoSource(videoUrl) && (
+        <PlatinumChapter enabled={animated} theme={theme} chapter="video">
+          <VideoSection value={videoUrl} />
+        </PlatinumChapter>
+      )}
+      {visiblePrayers.length > 0 && (
+        <PlatinumChapter enabled={animated} theme={theme} chapter="prayers">
+          <PrayerSection items={visiblePrayers} />
+        </PlatinumChapter>
+      )}
     </>
   );
 }

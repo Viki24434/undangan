@@ -1,0 +1,20 @@
+.guest-photo-upload {
+  background: var(--invitation-panel);
+}
+.guest-photo-upload__notice {
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid var(--invitation-line);
+  border-radius: 12px;
+  font-size: 12px !important;
+}
+.guest-photo-upload input[type='file'] {
+  overflow: hidden;
+}
+.guest-photo-upload__files {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 11px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}

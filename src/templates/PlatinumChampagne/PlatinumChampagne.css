@@ -1,0 +1,25 @@
+.invitation-platinum-champagne {
+  --color-bg: #f7f1e7;
+  --color-text: #463b31;
+  --color-accent: #926f40;
+  --invitation-muted: #7e7164;
+  --invitation-panel: #eae0cf;
+  --invitation-line: #926f4044;
+  --invitation-on-accent: #fffaf0;
+  --platinum-glow: #cfb89155;
+  --platinum-paper: #f7f1e7ed;
+}
+
+.invitation-platinum-champagne .platinum-envelope__letter {
+  background-image:
+    linear-gradient(#fffaf077, #fffaf077), var(--template-paper-art);
+  background-size: cover;
+}
+.invitation-platinum-champagne .platinum-cover__seal {
+  background: var(--template-seal-art) center / contain no-repeat;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: #6b4929;
+  filter: drop-shadow(0 4px 5px #00000033);
+}

@@ -1,4 +1,5 @@
 import { ornamentAssets } from './ornamentAssets';
+import OrnamentArtwork from './OrnamentArtwork';
 import './DecorationLayer.css';
 
 export default function DecorationLayer({ items = [], className = '' }) {
@@ -54,10 +55,8 @@ export default function DecorationLayer({ items = [], className = '' }) {
               animationDelay: `${-(index % 6) * 1.15}s`,
             }}
           >
-            <img
-              src={asset.src}
-              alt=""
-              draggable="false"
+            <OrnamentArtwork
+              asset={asset}
               style={{
                 transform,
                 transformOrigin: item.transformOrigin || 'center',

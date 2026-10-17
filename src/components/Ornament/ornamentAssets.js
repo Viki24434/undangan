@@ -1,3 +1,6 @@
+import { champagneAssets } from './champagneAssets';
+import { auroraAssets } from './auroraAssets';
+
 const png = (exportName, filename) =>
   `/assets/png/${exportName}/${encodeURIComponent(filename)}`;
 
@@ -51,6 +54,8 @@ const jawa = {
 };
 
 export const ornamentAssets = {
+  ...champagneAssets,
+  ...auroraAssets,
   'celestial-corner': asset(
     png('celestial_moon_and_star', 'sudut_kiri.png'),
     'corner',

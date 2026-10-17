@@ -1,10 +1,20 @@
 ﻿import CalendarButton from './CalendarButton';
 import Countdown1 from '../Countdown/Countdown1/Countdown1';
 import Countdown2 from '../Countdown/Countdown2/Countdown2';
+import Countdown3 from '../Countdown/Countdown3/Countdown3';
 import ScrollReveal from '../ScrollReveal/ScrollReveal';
 
-export default function EventSection({ targetDate, events, countdownVariant = 2 }) {
-  const Countdown = countdownVariant === 1 ? Countdown1 : Countdown2;
+export default function EventSection({
+  targetDate,
+  events,
+  countdownVariant = 2,
+}) {
+  const Countdown =
+    countdownVariant === 3
+      ? Countdown3
+      : countdownVariant === 1
+        ? Countdown1
+        : Countdown2;
 
   return (
     <section

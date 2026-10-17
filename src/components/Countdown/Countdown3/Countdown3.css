@@ -1,0 +1,76 @@
+.countdown-3 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  width: min(100%, 440px);
+  margin: 36px auto 44px;
+}
+.countdown-3__unit {
+  min-width: 0;
+}
+.countdown-3__dial {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+}
+.countdown-3__dial svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  transform: rotate(-90deg);
+}
+.countdown-3__dial circle {
+  fill: none;
+  stroke-width: 1.5;
+}
+.countdown-3__track {
+  stroke: var(--invitation-line);
+}
+.countdown-3__progress {
+  stroke: var(--color-accent);
+  transition: stroke-dashoffset 700ms ease;
+}
+.countdown-3__dial strong {
+  font: clamp(20px, 6vw, 32px) var(--font-heading);
+  font-variant-numeric: tabular-nums;
+  animation: platinumDigitReveal 450ms ease both;
+  color: var(--color-accent);
+}
+.countdown-3__unit > span {
+  display: block;
+  margin-top: 8px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+@keyframes platinumDigitReveal {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+@keyframes platinumOrbitReveal {
+  from {
+    opacity: 0;
+    transform: rotate(-12deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+.platinum-orbit-reveal {
+  animation: platinumOrbitReveal 1s ease both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .countdown-3 *,
+  .platinum-orbit-reveal {
+    animation: none !important;
+    transition: none !important;
+  }
+}

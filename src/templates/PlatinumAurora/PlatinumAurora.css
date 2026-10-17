@@ -1,0 +1,84 @@
+.invitation-platinum-aurora {
+  --color-bg: #101b2b;
+  --color-text: #edeef2;
+  --color-accent: #c9bc98;
+  --invitation-muted: #aab8c7;
+  --invitation-panel: #1c2b3e;
+  --invitation-line: #c9bc9840;
+  --invitation-on-accent: #101b2b;
+  --platinum-glow: #789fa73d;
+  --platinum-paper: #17263bed;
+  --landscape-ground: #23394a;
+  --landscape-floor: #172b3b;
+}
+.invitation-platinum-aurora .invitation-section::before,
+.invitation-platinum-aurora .invitation-section:nth-of-type(even)::before {
+  transform: none;
+}
+
+.invitation-platinum-aurora .platinum-envelope__letter {
+  background-image:
+    linear-gradient(#fffaf077, #fffaf077), var(--template-paper-art);
+  background-size: cover;
+  color: #343d52;
+}
+.invitation-platinum-aurora .platinum-cover__seal {
+  background: var(--template-seal-art) center / contain no-repeat;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: #4f5260;
+  filter: drop-shadow(0 4px 5px #00000055);
+}
+.invitation-platinum-aurora .platinum-envelope__front svg,
+.invitation-platinum-aurora .platinum-envelope__flap svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.invitation-platinum-aurora .champagne-scenery__name-panel {
+  background: linear-gradient(180deg, #15283be8, #112136c9);
+  box-shadow: inset 0 0 35px #a9cce210;
+}
+.invitation-platinum-aurora .champagne-scenery__layer--pohon-kiri,
+.invitation-platinum-aurora .champagne-scenery__layer--pohon-kanan {
+  width: 30%;
+  bottom: 18%;
+}
+.invitation-platinum-aurora .champagne-scenery__layer--pohon-kiri {
+  left: -5%;
+}
+.invitation-platinum-aurora .champagne-scenery__layer--pohon-kanan {
+  right: -5%;
+}
+.invitation-platinum-aurora .champagne-scenery__layer--bulan {
+  width: 15%;
+  height: 9%;
+  top: 6%;
+  left: 22%;
+  z-index: 2;
+  filter: drop-shadow(0 0 12px #c1d9ef44);
+}
+.invitation-platinum-aurora .champagne-scenery__layer--balustrade {
+  width: 110%;
+  height: 8%;
+  bottom: 12%;
+  left: -5%;
+  z-index: 4;
+}
+.invitation-platinum-aurora .champagne-scenery__layer--lentera {
+  width: 12%;
+  height: 14%;
+  bottom: 8.5%;
+  right: 21%;
+  z-index: 7;
+}
+.invitation-platinum-aurora .champagne-scenery__sunlight {
+  background: radial-gradient(ellipse at 30% 15%, #a0cce988, transparent 65%);
+}
+.invitation-platinum-aurora .champagne-scenery__mist {
+  background: radial-gradient(ellipse at center, #91aacb55, transparent 66%);
+}
+.invitation-platinum-aurora .hero-birds {
+  color: #c1d0df;
+}

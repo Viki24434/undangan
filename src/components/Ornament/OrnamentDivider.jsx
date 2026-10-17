@@ -1,4 +1,5 @@
 import { ornamentAssets } from './ornamentAssets';
+import OrnamentArtwork from './OrnamentArtwork';
 import { ornamentPresets } from './ornamentPresets';
 import './OrnamentDivider.css';
 
@@ -12,7 +13,7 @@ export default function OrnamentDivider({ theme, section }) {
     <div className="ornament-divider" aria-hidden="true">
       <span className="ornament-divider__line" />
       <div className="ornament-divider__art">
-        <img src={asset.src} alt="" loading="lazy" draggable="false" />
+        <OrnamentArtwork asset={asset} />
       </div>
       <span className="ornament-divider__line" />
     </div>

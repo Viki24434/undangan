@@ -11,6 +11,24 @@ async function request(path, options = {}) {
   return result;
 }
 export const adminService = {
+  async downloadGuestPhoto(invitationId, photo) {
+    const response = await fetch(
+      `${API_BASE_URL}/admin/invitations/${encodeURIComponent(invitationId)}/photos/${encodeURIComponent(photo.id)}`,
+      { credentials: 'include' },
+    );
+    if (!response.ok) {
+      const result = await response.json();
+      throw new Error(result.message || 'Foto belum dapat diunduh.');
+    }
+    const url = URL.createObjectURL(await response.blob());
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = photo.filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  },
   async uploadImage(blob, signal) {
     const response = await fetch(API_BASE_URL + '/admin/uploads', {
       method: 'POST',

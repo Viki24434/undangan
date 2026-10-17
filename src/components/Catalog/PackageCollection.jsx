@@ -18,7 +18,8 @@ export default function PackageCollection({
           </h2>
         </div>
         <p>
-          Mulai dari Silver dan Gold. Koleksi Platinum dan Exclusive menyusul.
+          Pilih Silver, Gold, atau Platinum untuk momenmu. Exclusive hadir
+          dengan konsep khusus.
         </p>
       </div>
       <div className="package-grid">

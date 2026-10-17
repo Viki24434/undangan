@@ -27,13 +27,14 @@ export const invitationPackages = [
     id: 'platinum',
     name: 'Platinum',
     symbol: '✦',
-    available: false,
+    available: true,
     description:
-      'Direncanakan untuk pernikahan dengan pengalaman yang lebih kaya.',
+      'Pengalaman pernikahan sinematik dengan detail dan interaksi yang lebih kaya.',
     features: [
-      'Animasi pernikahan lebih beragam',
-      'Fitur tambahan akan dikembangkan',
-      'Detail koleksi akan diumumkan',
+      'Cover segel surat dan hero editorial',
+      'Countdown cincin dan navigasi bab aktif',
+      'Galeri layar penuh dengan kontrol foto',
+      'Seluruh fitur undangan pernikahan Gold',
     ],
   },
   {

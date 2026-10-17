@@ -3,11 +3,14 @@ import { ornamentAssets } from '../Ornament/ornamentAssets';
 import './PortraitDecoration.css';
 
 export default function PortraitDecoration({ items = [] }) {
-  const family = items[0]?.asset.split('-')[0] || 'blush';
-  const bottomAsset = `${family}-bottom-garland`;
-  const garland = ornamentAssets[bottomAsset]
-    ? bottomAsset
-    : 'blush-bottom-garland';
+  const garland =
+    Object.keys(ornamentAssets).find(
+      (key) =>
+        key.endsWith('-bottom-garland') &&
+        items.some((item) =>
+          item.asset.startsWith(key.replace('bottom-garland', '')),
+        ),
+    ) || 'blush-bottom-garland';
   const decorations = items
     .filter((item) => item.asset !== garland)
     .map((item) => ({

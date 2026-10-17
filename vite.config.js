@@ -7,6 +7,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     server: {
+      port: 2125,
       proxy: {
         '/api': {
           target: env.BACKEND_URL || 'http://127.0.0.1:3001',

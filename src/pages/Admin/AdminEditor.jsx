@@ -6,6 +6,7 @@ import useTemplates from '../../hooks/useTemplates';
 import { templateDefaults } from '../../config/templateDefaults';
 import InvitationForm from '../../components/Admin/InvitationForm';
 import GuestManagement from '../../components/Admin/GuestManagement';
+import GuestPhotoManagement from '../../components/Admin/GuestPhotoManagement';
 import { getVideoSource } from '../../components/Invitation/videoUrl';
 
 function localDate(value) {
@@ -226,6 +227,7 @@ export default function AdminEditor() {
         />
       </section>
       {id && <GuestManagement invitationId={id} />}
+      {id && <GuestPhotoManagement invitationId={id} />}
     </>
   );
 }

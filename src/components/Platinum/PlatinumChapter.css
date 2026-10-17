@@ -1,0 +1,251 @@
+.platinum-chapter {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+.platinum-chapter__ornaments {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  pointer-events: none;
+}
+.platinum-chapter__art {
+  position: absolute;
+  display: block;
+  width: clamp(70px, 23%, 120px);
+  --chapter-play-state: paused;
+}
+.platinum-chapter__art[data-visible='true'] {
+  --chapter-play-state: running;
+}
+.platinum-chapter__art--leaf-left {
+  left: -12%;
+  top: 18%;
+}
+.platinum-chapter__art--leaf-right {
+  right: -12%;
+  bottom: 14%;
+}
+.platinum-chapter__art--branch-left {
+  left: -14%;
+  top: 30%;
+  width: clamp(95px, 30%, 150px);
+}
+.platinum-chapter__art--flower-left {
+  left: -9%;
+  bottom: 5%;
+  width: clamp(60px, 18%, 95px);
+}
+.platinum-chapter__art--flower-right {
+  right: -9%;
+  top: 12%;
+  width: clamp(60px, 18%, 95px);
+}
+.platinum-chapter--couple .platinum-chapter__art--leaf-left {
+  top: 26%;
+}
+.platinum-chapter--couple .platinum-chapter__art--leaf-right {
+  bottom: 20%;
+}
+.platinum-chapter--gallery .platinum-chapter__art--branch-left {
+  top: 10%;
+}
+.platinum-chapter--gallery .platinum-chapter__art--flower-right {
+  top: auto;
+  bottom: 4%;
+}
+.platinum-chapter--wishes .platinum-chapter__art--leaf-left {
+  top: 40%;
+}
+.platinum-chapter--guide .platinum-chapter__art--leaf-left {
+  top: 8%;
+}
+.platinum-chapter--closing .platinum-chapter__art--branch-left {
+  top: 4%;
+}
+.platinum-chapter__entry,
+.platinum-chapter__wind,
+.platinum-chapter__tip {
+  display: block;
+  transform-origin: var(--chapter-origin);
+}
+.platinum-chapter__entry {
+  opacity: 0;
+}
+.platinum-chapter__tip > img,
+.platinum-chapter__tip > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.platinum-chapter__art[data-entered='true'] .platinum-chapter__entry {
+  animation: chapterBotanicalReveal 2.6s var(--chapter-delay) ease-in-out both;
+  animation-play-state: var(--chapter-play-state);
+}
+.platinum-chapter__art[data-entered='true'] .platinum-chapter__wind {
+  animation: chapterWindGust var(--chapter-duration) var(--chapter-delay)
+    ease-in-out infinite both;
+  animation-play-state: var(--chapter-play-state);
+}
+.platinum-chapter__art[data-entered='true'] .platinum-chapter__tip {
+  animation: chapterTipResponse var(--chapter-duration) var(--chapter-delay)
+    ease-in-out infinite both;
+  animation-play-state: var(--chapter-play-state);
+}
+.platinum-chapter--story .story-2__entry article {
+  transform-origin: left center;
+}
+.platinum-chapter--story .story-2__entry:nth-child(even) article {
+  transform-origin: right center;
+}
+.platinum-chapter--story .story-2__entry article.animate-slide-left {
+  animation-name: chapterStoryLeft;
+  animation-duration: 1.1s;
+}
+.platinum-chapter--story .story-2__entry article.animate-slide-right {
+  animation-name: chapterStoryRight;
+  animation-duration: 1.1s;
+}
+.platinum-chapter--gallery .gallery-4__frame img {
+  animation: chapterPhotoDrift 16s ease-in-out infinite alternate;
+  animation-play-state: var(--platinum-play-state, paused);
+}
+.platinum-chapter--gallery .gallery-4__frame:nth-child(even) img {
+  animation-direction: alternate-reverse;
+  animation-duration: 19s;
+}
+.platinum-chapter--prayers .invitation-prayer-list article {
+  transition:
+    border-color 0.4s,
+    box-shadow 0.4s;
+}
+.platinum-chapter--prayers .invitation-prayer-list article:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 10px 30px var(--invitation-line);
+}
+@keyframes chapterBotanicalReveal {
+  0% {
+    opacity: 0;
+    transform: rotate(calc(-22deg * var(--chapter-direction))) scaleX(0.94)
+      skewX(calc(-2deg * var(--chapter-direction)));
+  }
+  24% {
+    opacity: 1;
+  }
+  62% {
+    transform: rotate(calc(3deg * var(--chapter-direction))) scaleX(1.005)
+      skewX(0deg);
+  }
+  82% {
+    transform: rotate(calc(-0.8deg * var(--chapter-direction)));
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes chapterWindGust {
+  0%,
+  100% {
+    transform: rotate(0deg) skewX(0deg);
+  }
+  15% {
+    transform: rotate(
+      calc(-2deg * var(--chapter-force) * var(--chapter-direction))
+    );
+  }
+  32% {
+    transform: rotate(
+        calc(7deg * var(--chapter-force) * var(--chapter-direction))
+      )
+      skewX(calc(1deg * var(--chapter-force)));
+  }
+  45% {
+    transform: rotate(
+        calc(-3deg * var(--chapter-force) * var(--chapter-direction))
+      )
+      skewX(calc(-0.4deg * var(--chapter-force)));
+  }
+  59% {
+    transform: rotate(
+      calc(0.7deg * var(--chapter-force) * var(--chapter-direction))
+    );
+  }
+  77% {
+    transform: rotate(
+      calc(-2.5deg * var(--chapter-force) * var(--chapter-direction))
+    );
+  }
+  89% {
+    transform: rotate(
+      calc(1.5deg * var(--chapter-force) * var(--chapter-direction))
+    );
+  }
+}
+@keyframes chapterTipResponse {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  23% {
+    transform: rotate(calc(-0.7deg * var(--chapter-direction)));
+  }
+  39% {
+    transform: rotate(
+      calc(1.8deg * var(--chapter-force) * var(--chapter-direction))
+    );
+  }
+  51% {
+    transform: rotate(
+      calc(-1.2deg * var(--chapter-force) * var(--chapter-direction))
+    );
+  }
+  67% {
+    transform: rotate(calc(0.4deg * var(--chapter-direction)));
+  }
+  84% {
+    transform: rotate(calc(-0.7deg * var(--chapter-direction)));
+  }
+  94% {
+    transform: rotate(calc(0.3deg * var(--chapter-direction)));
+  }
+}
+@keyframes chapterStoryLeft {
+  from {
+    opacity: 0;
+    transform: perspective(800px) rotateY(9deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes chapterStoryRight {
+  from {
+    opacity: 0;
+    transform: perspective(800px) rotateY(-9deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes chapterPhotoDrift {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.035);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .platinum-chapter *,
+  .platinum-chapter *::before,
+  .platinum-chapter *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .platinum-chapter__entry {
+    opacity: 1;
+  }
+}

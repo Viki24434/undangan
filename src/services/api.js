@@ -43,6 +43,25 @@ export async function apiRequest(
 }
 
 export const invitationService = {
+  async sendPhoto(slug, name, blob) {
+    let response;
+    try {
+      response = await fetch(
+        `${API_BASE_URL}/invitations/${encodeURIComponent(slug)}/photos?to=${encodeURIComponent(name)}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': blob.type },
+          body: blob,
+        },
+      );
+    } catch {
+      throw new Error('Foto belum terkirim. Periksa koneksi lalu coba lagi.');
+    }
+    const result = await response.json();
+    if (!response.ok || !result.success)
+      throw new Error(result.message || 'Foto belum dapat dikirim.');
+    return result.data;
+  },
   packages: (signal) => apiRequest('/packages', { signal }),
   templates: (signal) => apiRequest('/templates', { signal }),
   socialLinks: (signal) => apiRequest('/social-links', { signal }),

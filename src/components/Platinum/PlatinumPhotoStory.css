@@ -1,0 +1,224 @@
+.platinum-photo-story {
+  position: relative;
+  background: var(--color-bg);
+}
+.platinum-photo-story > p {
+  max-width: 280px;
+  margin-inline: auto;
+}
+.platinum-photo-story__stack {
+  position: relative;
+  width: min(82%, 320px);
+  margin: 46px auto 35px;
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+}
+.platinum-photo-story__back,
+.platinum-photo-story__card {
+  padding: 9px 9px 0;
+  background: color-mix(in srgb, var(--color-bg) 90%, white);
+  border: 1px solid var(--invitation-line);
+  box-shadow: 0 16px 36px #0000001c;
+}
+.platinum-photo-story__back {
+  position: absolute;
+  inset: 0;
+  padding-bottom: 40px;
+  pointer-events: none;
+}
+.platinum-photo-story__back--2 {
+  transform: translate(10px, 2px) rotate(7deg);
+  opacity: 0.55;
+}
+.platinum-photo-story__back--1 {
+  transform: translate(-8px, 2px) rotate(-5deg);
+  opacity: 0.8;
+}
+.platinum-photo-story__back img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.platinum-photo-story__card {
+  position: relative;
+  margin: 0;
+  transform-origin: center bottom;
+  animation: photoStoryCardReveal 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.platinum-photo-story__image {
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--invitation-panel);
+}
+.platinum-photo-story__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: photoStoryPortraitDrift 12s ease-out both;
+  animation-play-state: paused;
+}
+.platinum-photo-story[data-playing='true'] .platinum-photo-story__image img {
+  animation-play-state: running;
+}
+.platinum-photo-story__card figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 40px;
+  padding: 9px 4px;
+  font: 10px var(--font-heading);
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+.platinum-photo-story__card figcaption span:first-child {
+  overflow-wrap: anywhere;
+}
+.platinum-photo-story__card figcaption span:last-child {
+  font: 8px var(--font-body);
+  letter-spacing: 2px;
+  color: var(--invitation-muted);
+}
+.platinum-photo-story__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+.platinum-photo-story__controls button {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--invitation-line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 18px;
+  cursor: pointer;
+}
+.platinum-photo-story__controls button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.platinum-photo-story__controls button:not(:disabled):hover {
+  border-color: var(--color-accent);
+  background: var(--invitation-line);
+}
+.platinum-photo-story__counter {
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
+}
+.platinum-photo-story__counter i {
+  font-style: normal;
+  color: var(--invitation-muted);
+  margin: 0 4px;
+}
+.platinum-photo-story__dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 12px auto 0;
+  max-width: 260px;
+}
+.platinum-photo-story__dots button {
+  display: grid;
+  place-items: center;
+  border: 0;
+  padding: 0;
+  width: 26px;
+  height: 30px;
+  background: transparent;
+  cursor: pointer;
+}
+.platinum-photo-story__dots span {
+  width: 4px;
+  height: 4px;
+  background: var(--invitation-muted);
+  border-radius: 50%;
+  transition:
+    width 0.3s,
+    background 0.3s;
+}
+.platinum-photo-story__dots [aria-current] span {
+  width: 14px;
+  border-radius: 4px;
+  background: var(--color-accent);
+}
+.platinum-photo-story__playback {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border: 0;
+  background: transparent;
+  color: var(--color-text);
+  font: 10px var(--font-body);
+  cursor: pointer;
+}
+.platinum-photo-story__progress {
+  width: 100px;
+  height: 1px;
+  margin: 8px auto 0;
+  background: var(--invitation-line);
+  overflow: hidden;
+}
+.platinum-photo-story__progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--color-accent);
+  transform-origin: left;
+  animation: photoStoryProgress var(--photo-duration) linear both;
+}
+.platinum-photo-story .platinum-photo-story__hint {
+  margin: 15px auto 0;
+  font-size: 10px;
+  color: var(--invitation-muted);
+}
+.platinum-chapter--photos .platinum-chapter__art--branch-left {
+  top: 22%;
+}
+.platinum-chapter--photos .platinum-chapter__art--leaf-right {
+  bottom: 22%;
+}
+.platinum-chapter--photos .platinum-chapter__art--flower-right {
+  top: auto;
+  bottom: 7%;
+}
+@keyframes photoStoryCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px) rotate(6deg) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes photoStoryPortraitDrift {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.055);
+  }
+}
+@keyframes photoStoryProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .platinum-photo-story *,
+  .platinum-photo-story *::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}

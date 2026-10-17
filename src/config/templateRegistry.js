@@ -448,6 +448,30 @@ export const templateRegistry = [
       () => import('../templates/CelestialMoonStar/CelestialMoonStar'),
     ),
   },
+  {
+    id: 'platinum-aurora-01',
+    name: 'Aurora Nocturne Wedding',
+    category: 'Pernikahan',
+    packageId: 'platinum',
+    description:
+      'Biru malam, cahaya aurora, dan detail bulan dengan cover segel surat, countdown cincin, serta galeri layar penuh.',
+    img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85',
+    palette: ['#101b2b', '#c9bc98', '#1c2b3e'],
+    component: lazy(() => import('../templates/PlatinumAurora/PlatinumAurora')),
+  },
+  {
+    id: 'platinum-champagne-01',
+    name: 'Champagne Atelier Wedding',
+    category: 'Pernikahan',
+    packageId: 'platinum',
+    description:
+      'Ivory dan champagne dengan bingkai editorial, bunga royal, cover segel surat, countdown cincin, serta galeri layar penuh.',
+    img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    palette: ['#f7f1e7', '#926f40', '#eae0cf'],
+    component: lazy(
+      () => import('../templates/PlatinumChampagne/PlatinumChampagne'),
+    ),
+  },
 ];
 
 export const templateCategories = [

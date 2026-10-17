@@ -5,6 +5,7 @@ export default function Cover2({
   title,
   subtitle,
   date,
+  guestName,
   monogram,
   image,
   onOpen,
@@ -19,14 +20,20 @@ export default function Cover2({
       {children}
       <div className="invitation-cover-frame cover-2__frame animate-blur-reveal">
         <span className="invitation-monogram animate-breathe">{monogram}</span>
-        <span className="invitation-kicker animate-fade-in-down delay-100">{subtitle}</span>
+        <span className="invitation-kicker animate-fade-in-down delay-100">
+          {subtitle}
+        </span>
         <h1 className="animate-soft-rise delay-200">{title}</h1>
         <p className="invitation-date animate-fade-in delay-300">{date}</p>
         <span className="invitation-divider" aria-hidden="true">
           ✧
         </span>
-        <p>Kepada orang-orang tersayang</p>
-        <h2>Tamu Undangan</h2>
+        {guestName && (
+          <>
+            <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+            <h2 className="cover-2__guest-name">{guestName}</h2>
+          </>
+        )}
         <button className="invitation-button" onClick={onOpen}>
           Buka undangan <span aria-hidden="true">↗</span>
         </button>

@@ -1,15 +1,21 @@
 ﻿import { useInvitation } from './InvitationContext';
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import DecorationLayer from '../Ornament/DecorationLayer';
 import { ornamentPresets } from '../Ornament/ornamentPresets';
 import { ornamentAssets } from '../Ornament/ornamentAssets';
 import GuestGuide from './GuestGuide';
+import GuestPhotoUpload from './GuestPhotoUpload';
 import InvitationMusic from './InvitationMusic';
 import Cover1 from '../Cover/Cover1/Cover1';
 import Cover2 from '../Cover/Cover2/Cover2';
 import Hero1 from '../Hero/Hero1/Hero1';
 import Hero2 from '../Hero/Hero2/Hero2';
+import PlatinumCover from '../Platinum/PlatinumCover';
+import PlatinumHero from '../Platinum/PlatinumHero';
+import PlatinumNavigation from '../Platinum/PlatinumNavigation';
+import PlatinumMotion from '../Platinum/PlatinumMotion';
+import PlatinumChapter from '../Platinum/PlatinumChapter';
 import './Invitation.css';
 
 export default function InvitationLayout({
@@ -25,6 +31,8 @@ export default function InvitationLayout({
   children,
 }) {
   const invitation = useInvitation();
+  const [searchParams] = useSearchParams();
+  const guestName = searchParams.get('to')?.trim();
   const displayTitle = invitation?.title || title;
   const [opened, setOpened] = useState(false);
   const [coverOpening, setCoverOpening] = useState(false);
@@ -34,36 +42,47 @@ export default function InvitationLayout({
   const musicEnabled = invitation?.data.musicEnabled !== false;
   const defaultMusic = /birthday/.test(theme)
     ? '/audio/celebration.wav'
-    : /celestial|moon/.test(theme)
+    : /celestial|moon|aurora/.test(theme)
       ? '/audio/starlight.wav'
       : '/audio/romance.wav';
   const musicUrl = invitation?.data.musicUrl || defaultMusic;
-  const Cover = variants.cover === 1 ? Cover1 : Cover2;
-  const Hero = variants.hero === 1 ? Hero1 : Hero2;
+  const Cover =
+    variants.cover === 3
+      ? PlatinumCover
+      : variants.cover === 1
+        ? Cover1
+        : Cover2;
+  const Hero =
+    variants.hero === 3 ? PlatinumHero : variants.hero === 1 ? Hero1 : Hero2;
   const decorations = ornamentPresets[theme] || {};
   const templateTheme = invitation?.data.theme || {};
-  const fontStyles = {
-    classic: {
-      '--font-heading': "'Times New Roman', Georgia, serif",
-      '--font-body': 'Georgia, serif',
-    },
-    modern: {
-      '--font-heading': "'Segoe UI', Arial, sans-serif",
-      '--font-body': "'Segoe UI', Arial, sans-serif",
-    },
-  }[templateTheme.font] || {};
+  const fontStyles =
+    {
+      classic: {
+        '--font-heading': "'Times New Roman', Georgia, serif",
+        '--font-body': 'Georgia, serif',
+      },
+      modern: {
+        '--font-heading': "'Segoe UI', Arial, sans-serif",
+        '--font-body': "'Segoe UI', Arial, sans-serif",
+      },
+    }[templateTheme.font] || {};
   const heroBottom = decorations.hero?.find((item) =>
     item.asset.endsWith('-bottom-garland'),
   );
 
   function openInvitation() {
+    if (opened) return;
     setOpened(true);
     setCoverOpening(true);
     window.clearTimeout(coverTimerRef.current);
-    coverTimerRef.current = window.setTimeout(() => {
-      setCoverOpening(false);
-      coverTimerRef.current = null;
-    }, 950);
+    coverTimerRef.current = window.setTimeout(
+      () => {
+        setCoverOpening(false);
+        coverTimerRef.current = null;
+      },
+      variants.cover === 3 ? 2500 : 950,
+    );
     if (musicEnabled) musicRef.current?.play();
     requestAnimationFrame(() => contentRef.current?.focus());
   }
@@ -80,7 +99,7 @@ export default function InvitationLayout({
       <Cover
         title={displayTitle}
         subtitle={subtitle}
-        guestName={invitation?.guestName}
+        guestName={guestName}
         onOpen={openInvitation}
         isOpened={false}
         bgImage={image}
@@ -92,9 +111,17 @@ export default function InvitationLayout({
         title={displayTitle}
         subtitle={subtitle}
         date={date}
+        guestName={guestName}
         monogram={monogram}
         image={image}
         onOpen={openInvitation}
+        isOpening={coverOpening}
+        envelopeArt={
+          decorations.envelope && ornamentAssets[decorations.envelope]
+        }
+        flapArt={
+          decorations.envelopeFlap && ornamentAssets[decorations.envelopeFlap]
+        }
       >
         <DecorationLayer items={decorations.cover} />
       </Cover>
@@ -111,6 +138,12 @@ export default function InvitationLayout({
           '--color-accent': templateTheme.accent,
         }),
         ...fontStyles,
+        '--template-paper-art': decorations.paperTexture
+          ? `url("${ornamentAssets[decorations.paperTexture].src}")`
+          : 'none',
+        '--template-seal-art': decorations.waxSeal
+          ? `url("${ornamentAssets[decorations.waxSeal].src}")`
+          : 'none',
         '--template-background-art': decorations.background
           ? `url("${ornamentAssets[decorations.background.main].src}")`
           : 'none',
@@ -124,10 +157,11 @@ export default function InvitationLayout({
       )}
       {opened && (
         <main
-          className="invitation-content animate-fade-in"
+          className={`invitation-content animate-fade-in${variants.experience === 'platinum' ? ' platinum-living' : ''}`}
           ref={contentRef}
           tabIndex={-1}
         >
+          {variants.experience === 'platinum' && <PlatinumMotion />}
           {variants.hero === 1 ? (
             <Hero
               bgImage={image}
@@ -150,6 +184,8 @@ export default function InvitationLayout({
               subtitle={subtitle}
               title={displayTitle}
               date={date}
+              theme={theme}
+              ready={!coverOpening}
               bottomOrnament={
                 heroBottom && ornamentAssets[heroBottom.asset].src
               }
@@ -162,35 +198,66 @@ export default function InvitationLayout({
               />
             </Hero>
           )}
-          <nav className="invitation-section-nav" aria-label="Bagian undangan">
-            <a href="#invitation-intro">Pembuka</a>
-            <a href="#invitation-events">Acara</a>
-            <a href="#invitation-gallery">Galeri</a>
-            <a href="#invitation-wishes">Ucapan</a>
-          </nav>
+          {variants.experience === 'platinum' ? (
+            <PlatinumNavigation />
+          ) : (
+            <nav
+              className="invitation-section-nav"
+              aria-label="Bagian undangan"
+            >
+              <a href="#invitation-intro">Pembuka</a>
+              <a href="#invitation-events">Acara</a>
+              <a href="#invitation-gallery">Galeri</a>
+              <a href="#invitation-wishes">Ucapan</a>
+            </nav>
+          )}
           {children}
-          <GuestGuide />
-          <footer className="invitation-closing">
-            <DecorationLayer items={decorations.closing} />
-            <span className="invitation-monogram">{monogram}</span>
-            <span className="invitation-kicker">WITH LOVE & GRATITUDE</span>
-            <h2>Terima kasih</h2>
-            <p>
-              Kehadiran dan doa baikmu menjadi bagian terindah dari hari
-              istimewa ini.
-            </p>
-            <h3>{displayTitle}</h3>
-            <Link to="/katalog">Temukan undanganmu di Ciptain ↗</Link>
-          </footer>
+          <GuestPhotoUpload
+            platinum={
+              invitation?.packageId
+                ? invitation.packageId === 'platinum'
+                : variants.experience === 'platinum'
+            }
+          />
+          <PlatinumChapter
+            enabled={variants.experience === 'platinum'}
+            theme={theme}
+            chapter="guide"
+          >
+            <GuestGuide />
+          </PlatinumChapter>
+          <PlatinumChapter
+            enabled={variants.experience === 'platinum'}
+            theme={theme}
+            chapter="closing"
+          >
+            <footer className="invitation-closing">
+              <DecorationLayer items={decorations.closing} />
+              <span className="invitation-monogram">{monogram}</span>
+              <span className="invitation-kicker">WITH LOVE & GRATITUDE</span>
+              <h2>Terima kasih</h2>
+              <p>
+                Kehadiran dan doa baikmu menjadi bagian terindah dari hari
+                istimewa ini.
+              </p>
+              <h3>{displayTitle}</h3>
+              <Link to="/katalog">Temukan undanganmu di Ciptain ↗</Link>
+            </footer>
+          </PlatinumChapter>
         </main>
       )}
       {(!opened || coverOpening) && (
         <div
-          className={`invitation-cover-exit${coverOpening ? ' is-opening' : ''}`}
+          className={`invitation-cover-exit${variants.cover === 3 ? ' invitation-cover-exit--platinum' : ''}${coverOpening ? ' is-opening' : ''}`}
+          aria-hidden={coverOpening || undefined}
           onAnimationEnd={(event) => {
             if (
               event.target === event.currentTarget &&
-              event.animationName === 'coverDismiss'
+              [
+                'coverDismiss',
+                'platinumEnvelopeDismiss',
+                'platinumAddressFade',
+              ].includes(event.animationName)
             ) {
               window.clearTimeout(coverTimerRef.current);
               coverTimerRef.current = null;

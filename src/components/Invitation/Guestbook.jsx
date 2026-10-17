@@ -1,7 +1,7 @@
 ﻿import { useEffect, useState } from 'react';
 import { invitationService } from '../../services/api';
+import { useSearchParams } from 'react-router-dom';
 import { useInvitation } from './InvitationContext';
-import RsvpForm from './RsvpForm';
 import Wishes1 from '../Wishes/Wishes1/Wishes1';
 import Wishes2 from '../Wishes/Wishes2/Wishes2';
 import ScrollReveal from '../ScrollReveal/ScrollReveal';
@@ -9,6 +9,8 @@ import ScrollReveal from '../ScrollReveal/ScrollReveal';
 export default function Guestbook({ initialWishes = [], variant = 2 }) {
   const Wishes = variant === 1 ? Wishes1 : Wishes2;
   const invitation = useInvitation();
+  const [searchParams] = useSearchParams();
+  const recipientName = searchParams.get('to')?.trim() || '';
   const slug = invitation?.preview ? undefined : invitation?.slug;
   const [busy, setBusy] = useState(false);
   const [total, setTotal] = useState(0);
@@ -30,44 +32,75 @@ export default function Guestbook({ initialWishes = [], variant = 2 }) {
       });
     return () => controller.abort();
   }, [slug]);
-  const [name, setName] = useState('');
+  const [manualName, setName] = useState('');
+  const name = recipientName || manualName;
   const [message, setMessage] = useState('');
   const [attendance, setAttendance] = useState('Hadir');
+  const [guestCount, setGuestCount] = useState(1);
+  const normalizeName = (value) =>
+    value.trim().normalize('NFKC').toLowerCase().replace(/\s+/g, ' ');
+  const existingWish = wishes.find(
+    (wish) => normalizeName(wish.name) === normalizeName(name),
+  );
 
   async function submitWish(event) {
     event.preventDefault();
     if (busy || !name.trim() || !message.trim()) return;
     setBusy(true);
     setStatus('');
+    let attendanceSaved = false;
     try {
       if (slug) {
-        await invitationService.sendWish(slug, {
+        await invitationService.rsvp(slug, {
           name: name.trim(),
-          message: message.trim(),
+          attendance,
+          guestCount: attendance === 'Tidak hadir' ? 0 : guestCount,
         });
-        setName('');
-        setMessage('');
-        setStatus('Ucapan berhasil disimpan.');
+        attendanceSaved = true;
+        const { data: savedWish, meta } = await invitationService.sendWish(
+          slug,
+          {
+            name: name.trim(),
+            message: message.trim(),
+          },
+        );
+        setWishes((current) => [
+          savedWish,
+          ...current.filter((wish) => wish.id !== savedWish.id),
+        ]);
+        setStatus(
+          meta?.updated
+            ? 'Kehadiran dan ucapan berhasil diperbarui.'
+            : 'Kehadiran dan ucapan berhasil disimpan.',
+        );
         try {
           const { data, meta } = await invitationService.wishes(slug);
           setWishes(data);
           setTotal(meta.total);
         } catch {
           setStatus(
-            'Ucapan sudah tersimpan. Muat ulang halaman untuk melihat daftar terbaru.',
+            'Ucapan sudah tersimpan. Daftar terbaru belum dapat dimuat.',
           );
         }
       } else {
         setWishes([
           { name: name.trim(), message: message.trim(), attendance },
-          ...wishes,
+          ...wishes.filter(
+            (wish) => normalizeName(wish.name) !== normalizeName(name),
+          ),
         ]);
-        setName('');
-        setMessage('');
-        setStatus('Terima kasih! Ucapanmu ditampilkan dalam preview ini.');
+        setStatus(
+          existingWish
+            ? 'Ucapanmu diperbarui dalam preview ini.'
+            : 'Terima kasih! Ucapanmu ditampilkan dalam preview ini.',
+        );
       }
     } catch (error) {
-      setStatus(error.message);
+      setStatus(
+        attendanceSaved
+          ? `Kehadiran sudah tersimpan, tetapi ucapan belum berhasil disimpan: ${error.message} Silakan kirim ulang.`
+          : error.message,
+      );
     } finally {
       setBusy(false);
     }
@@ -94,11 +127,6 @@ export default function Guestbook({ initialWishes = [], variant = 2 }) {
   }
   return (
     <Wishes>
-      {slug && (
-        <ScrollReveal animationClass="animate-soft-rise">
-          <RsvpForm slug={slug} />
-        </ScrollReveal>
-      )}
       <form className="invitation-form" onSubmit={submitWish}>
         <label>
           Nama
@@ -106,21 +134,36 @@ export default function Guestbook({ initialWishes = [], variant = 2 }) {
             required
             maxLength={80}
             value={name}
+            readOnly={Boolean(recipientName)}
+            disabled={busy}
             onChange={(event) => setName(event.target.value)}
             placeholder="Nama kamu"
           />
         </label>
-        {!slug && (
+        <label>
+          Kehadiran
+          <select
+            value={attendance}
+            disabled={busy}
+            onChange={(event) => setAttendance(event.target.value)}
+          >
+            <option>Hadir</option>
+            <option>Belum pasti</option>
+            <option>Tidak hadir</option>
+          </select>
+        </label>
+        {slug && attendance !== 'Tidak hadir' && (
           <label>
-            Kehadiran
-            <select
-              value={attendance}
-              onChange={(event) => setAttendance(event.target.value)}
-            >
-              <option>Hadir</option>
-              <option>Belum pasti</option>
-              <option>Tidak hadir</option>
-            </select>
+            Jumlah tamu
+            <input
+              type="number"
+              required
+              min={1}
+              max={20}
+              value={guestCount}
+              onChange={(event) => setGuestCount(Number(event.target.value))}
+              disabled={busy}
+            />
           </label>
         )}
         <label>
@@ -130,12 +173,17 @@ export default function Guestbook({ initialWishes = [], variant = 2 }) {
             rows={4}
             maxLength={600}
             value={message}
+            disabled={busy}
             onChange={(event) => setMessage(event.target.value)}
             placeholder="Tuliskan doa dan harapan baikmu…"
           />
         </label>
         <button className="invitation-button" type="submit" disabled={busy}>
-          {busy ? 'Memproses…' : 'Kirim ucapan ♡'}
+          {busy
+            ? 'Memproses…'
+            : existingWish
+              ? 'Perbarui ucapan ♡'
+              : 'Kirim ucapan ♡'}
         </button>
         {!slug && (
           <small>

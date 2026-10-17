@@ -15,3 +15,8 @@
 .cover-2 .invitation-cover-frame h1 {
   text-wrap: balance;
 }
+
+.cover-2 .cover-2__guest-name {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
