@@ -1,25 +1,21 @@
-:is(.invitation-platinum-aurora, .invitation-platinum-champagne) {
+.platinum-template {
   background:
     radial-gradient(ellipse at top left, var(--platinum-glow), transparent 50%),
     var(--color-bg);
 }
-:is(.invitation-platinum-aurora, .invitation-platinum-champagne)
-  .invitation-section {
+.platinum-template .invitation-section {
   scroll-margin-top: 72px;
 }
-:is(.invitation-platinum-aurora, .invitation-platinum-champagne)
-  .invitation-event-card {
+.platinum-template .invitation-event-card {
   border-radius: 100px 100px 6px 6px;
   background: linear-gradient(160deg, var(--invitation-panel), var(--color-bg));
   padding-top: 55px;
 }
-:is(.invitation-platinum-aurora, .invitation-platinum-champagne)
-  .invitation-form {
+.platinum-template .invitation-form {
   border-radius: 6px;
   background: var(--invitation-panel);
 }
-:is(.invitation-platinum-aurora, .invitation-platinum-champagne)
-  .invitation-closing {
+.platinum-template .invitation-closing {
   background: radial-gradient(
     ellipse at bottom,
     var(--platinum-glow),

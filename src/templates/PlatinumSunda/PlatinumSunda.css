@@ -1,0 +1,15 @@
+.invitation-platinum-sunda {
+  --color-bg: #17251d;
+  --color-text: #f2ead8;
+  --color-accent: #d8b66d;
+  --invitation-muted: #c5b99e;
+  --invitation-panel: #24382d;
+  --invitation-line: #d8b66d55;
+  --invitation-on-accent: #17251d;
+  --platinum-glow: #65744745;
+  --platinum-paper: #1b2c22ed;
+  --adat-panel-start: #1a2c21eb;
+  --adat-panel-end: #17251dce;
+  --landscape-ground: #596944;
+  --landscape-floor: #746648;
+}

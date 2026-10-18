@@ -7,14 +7,15 @@ export default function AtelierArtwork({
   family = 'champagne',
 }) {
   const asset = ornamentAssets[`${family}-${name}`];
-  const botanical = /^(pohon|daun|atas|bawah)-/.test(name);
+  const botanical =
+    asset.wind !== false && /^(pohon|daun|atas|bawah)-/.test(name);
 
   return (
     <svg
       className={botanical ? 'champagne-artwork--botanical' : undefined}
       viewBox={asset.viewBox.join(' ')}
       preserveAspectRatio={
-        fill
+        fill && asset.fit !== 'contain'
           ? 'xMidYMid slice'
           : align === 'bottom'
             ? 'xMidYMax meet'

@@ -1,0 +1,167 @@
+export const jawaPlatinumAssets = {
+  'platinum-jawa-amplop': {
+    src: '/assets/png/adat_jawa/amplop.png',
+    role: 'arrangement',
+    viewBox: [16, 160, 768, 479],
+    cropped: true,
+  },
+  'platinum-jawa-atas': {
+    src: '/assets/png/adat_jawa/atas.png',
+    role: 'garland',
+    viewBox: [16, 272, 768, 256],
+    cropped: true,
+  },
+  'platinum-jawa-atas-kanan': {
+    src: '/assets/png/adat_jawa/atas_kanan.png',
+    role: 'corner',
+    viewBox: [79, 16, 642, 768],
+    cropped: true,
+    wind: false,
+  },
+  'platinum-jawa-atas-kiri': {
+    src: '/assets/png/adat_jawa/atas_kiri.png',
+    role: 'corner',
+    viewBox: [79, 16, 642, 768],
+    cropped: true,
+    wind: false,
+  },
+  'platinum-jawa-background': {
+    src: '/assets/png/adat_jawa/background.png',
+    role: 'arrangement',
+    viewBox: [131, 16, 538, 768],
+    cropped: true,
+  },
+  'platinum-jawa-bawah': {
+    src: '/assets/png/adat_jawa/bawah.png',
+    role: 'garland',
+    viewBox: [16, 282, 768, 236],
+    cropped: true,
+  },
+  'platinum-jawa-bawah-kanan': {
+    src: '/assets/png/adat_jawa/bawah_kanan.png',
+    role: 'corner',
+    viewBox: [79, 16, 642, 768],
+    cropped: true,
+    wind: false,
+  },
+  'platinum-jawa-bawah-kiri': {
+    src: '/assets/png/adat_jawa/bawah_kiri.png',
+    role: 'corner',
+    viewBox: [79, 16, 642, 768],
+    cropped: true,
+    wind: false,
+  },
+  'platinum-jawa-blangkon': {
+    src: '/assets/png/adat_jawa/blangkon.png',
+    role: 'arrangement',
+    viewBox: [16, 66, 768, 668],
+    cropped: true,
+  },
+  'platinum-jawa-bucket': {
+    src: '/assets/png/adat_jawa/bucket.png',
+    role: 'arrangement',
+    viewBox: [279, 16, 242, 768],
+    cropped: true,
+  },
+  'platinum-jawa-bukit': {
+    src: '/assets/png/adat_jawa/bukit.png',
+    role: 'arrangement',
+    viewBox: [0, 185, 800, 414],
+    cropped: true,
+    fit: 'contain',
+  },
+  'platinum-jawa-daun-kanan': {
+    src: '/assets/png/adat_jawa/daun_kanan.png',
+    role: 'branch',
+    viewBox: [54, 16, 692, 768],
+    cropped: true,
+  },
+  'platinum-jawa-daun-kiri': {
+    src: '/assets/png/adat_jawa/daun_kiri.png',
+    role: 'branch',
+    viewBox: [74, 16, 651, 768],
+    cropped: true,
+  },
+  'platinum-jawa-kain-batik': {
+    src: '/assets/png/adat_jawa/kain_batik.png',
+    role: 'arrangement',
+    viewBox: [119, 16, 562, 768],
+    cropped: true,
+  },
+  'platinum-jawa-kembar-mayang': {
+    src: '/assets/png/adat_jawa/kembar_mayang.png',
+    role: 'arrangement',
+    viewBox: [245, 16, 311, 768],
+    cropped: true,
+  },
+  'platinum-jawa-keris': {
+    src: '/assets/png/adat_jawa/keris.png',
+    role: 'arrangement',
+    viewBox: [238, 16, 324, 768],
+    cropped: true,
+  },
+  'platinum-jawa-lantai': {
+    src: '/assets/png/adat_jawa/lantai.png',
+    role: 'arrangement',
+    viewBox: [16, 291, 768, 217],
+    cropped: true,
+  },
+  'platinum-jawa-mahkota': {
+    src: '/assets/png/adat_jawa/mahkota.png',
+    role: 'arrangement',
+    viewBox: [102, 16, 596, 768],
+    cropped: true,
+  },
+  'platinum-jawa-pohon-kanan': {
+    src: '/assets/png/adat_jawa/pohon_kanan.png',
+    role: 'side',
+    viewBox: [77, 16, 646, 768],
+    cropped: true,
+  },
+  'platinum-jawa-pohon-kiri': {
+    src: '/assets/png/adat_jawa/pohon_kiri.png',
+    role: 'side',
+    viewBox: [16, 86, 768, 629],
+    cropped: true,
+  },
+  'platinum-jawa-ronce': {
+    src: '/assets/png/adat_jawa/ronce.png',
+    role: 'arrangement',
+    viewBox: [254, 16, 293, 768],
+    cropped: true,
+  },
+  'platinum-jawa-segel-lilin': {
+    src: '/assets/png/adat_jawa/segel_lilin.png',
+    role: 'arrangement',
+    viewBox: [21, 16, 758, 768],
+    cropped: true,
+  },
+  'platinum-jawa-textur-kertas': {
+    src: '/assets/png/adat_jawa/textur_kertas.png',
+    role: 'arrangement',
+    viewBox: [102, 16, 596, 767],
+    cropped: true,
+  },
+  'platinum-jawa-tugu': {
+    src: '/assets/png/adat_jawa/tugu.png',
+    role: 'arrangement',
+    viewBox: [16, 84, 768, 632],
+    cropped: true,
+  },
+  'platinum-jawa-tutup-amplop': {
+    src: '/assets/png/adat_jawa/tutup_amplop.png',
+    role: 'arrangement',
+    viewBox: [16, 221, 768, 358],
+    cropped: true,
+  },
+  'platinum-jawa-tuwuhan': {
+    src: '/assets/png/adat_jawa/tuwuhan.png',
+    role: 'arrangement',
+    viewBox: [17, 209, 766, 382],
+    cropped: true,
+  },
+};
+jawaPlatinumAssets['platinum-jawa-bottom-garland'] =
+  jawaPlatinumAssets['platinum-jawa-bawah'];
+jawaPlatinumAssets['platinum-jawa-tekstur-kertas'] =
+  jawaPlatinumAssets['platinum-jawa-textur-kertas'];

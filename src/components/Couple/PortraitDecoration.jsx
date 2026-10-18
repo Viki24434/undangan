@@ -19,7 +19,7 @@ export default function PortraitDecoration({ items = [] }) {
         ...(item.position?.right !== undefined
           ? { right: item.position.right }
           : { left: item.position?.left || '-12%' }),
-        top: '-8%',
+        top: item.frameTop ?? '-8%',
       },
       zIndex: 1,
     }));

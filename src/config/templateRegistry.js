@@ -472,6 +472,28 @@ export const templateRegistry = [
       () => import('../templates/PlatinumChampagne/PlatinumChampagne'),
     ),
   },
+  {
+    id: 'platinum-sunda-01',
+    name: 'Sunda Pusaka Platinum',
+    category: 'Pernikahan',
+    packageId: 'platinum',
+    description:
+      'Adat Sunda dengan tugu, lanskap berlapis, amplop batik, animasi dedaunan, dan galeri foto Platinum.',
+    img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    palette: ['#17251d', '#d8b66d', '#24382d'],
+    component: lazy(() => import('../templates/PlatinumSunda/PlatinumSunda')),
+  },
+  {
+    id: 'platinum-jawa-01',
+    name: 'Jawa Pranaya Platinum',
+    category: 'Pernikahan',
+    packageId: 'platinum',
+    description:
+      'Adat Jawa dengan pendopo, ukiran batik, kembar mayang, cover surat, lanskap bergerak, dan galeri foto Platinum.',
+    img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    palette: ['#211912', '#d6b16e', '#33261b'],
+    component: lazy(() => import('../templates/PlatinumJawa/PlatinumJawa')),
+  },
 ];
 
 export const templateCategories = [

@@ -1,7 +1,8 @@
 import PlatinumHeroScene from './PlatinumHeroScene';
+import { platinumScenes } from '../../../config/platinumScenes';
 
 export default function CinematicScene({ theme }) {
-  const family =
-    theme === 'invitation-platinum-aurora' ? 'aurora' : 'champagne';
-  return <PlatinumHeroScene family={family} />;
+  const scene =
+    platinumScenes[theme] || platinumScenes['invitation-platinum-champagne'];
+  return <PlatinumHeroScene family={scene.family} layers={scene.layers} />;
 }

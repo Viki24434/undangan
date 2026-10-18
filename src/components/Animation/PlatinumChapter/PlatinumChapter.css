@@ -41,6 +41,11 @@
   top: 12%;
   width: clamp(60px, 18%, 95px);
 }
+.platinum-chapter__art--garland-top {
+  top: 4px;
+  left: 25%;
+  width: 50%;
+}
 .platinum-chapter--couple .platinum-chapter__art--leaf-left {
   top: 26%;
 }
@@ -81,6 +86,25 @@
 .platinum-chapter__art[data-entered='true'] .platinum-chapter__entry {
   animation: chapterBotanicalReveal 2.6s var(--chapter-delay) ease-in-out both;
   animation-play-state: var(--chapter-play-state);
+}
+.platinum-chapter__art[data-motion='static'][data-entered='true']
+  .platinum-chapter__entry {
+  animation-name: chapterOrnamentReveal;
+  animation-duration: 1.4s;
+}
+.platinum-chapter__art[data-motion='static'][data-entered='true']
+  :is(.platinum-chapter__wind, .platinum-chapter__tip) {
+  animation: none;
+}
+@keyframes chapterOrnamentReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 .platinum-chapter__art[data-entered='true'] .platinum-chapter__wind {
   animation: chapterWindGust var(--chapter-duration) var(--chapter-delay)

@@ -1550,3 +1550,134 @@ ornamentPresets['invitation-platinum-aurora'] = {
     },
   ],
 };
+
+ornamentPresets['invitation-platinum-sunda'] = {
+  paperTexture: 'platinum-sunda-tekstur-kertas',
+  waxSeal: 'platinum-sunda-segel-lilin',
+  envelope: 'platinum-sunda-amplop',
+  envelopeFlap: 'platinum-sunda-tutup-amplop',
+  background: {
+    main: 'platinum-sunda-daun-kanan',
+    edge: 'platinum-sunda-daun-kiri',
+  },
+  cover: [
+    {
+      asset: 'platinum-sunda-atas-kiri',
+      position: { top: '-2%', left: '-7%' },
+      width: '37%',
+      animation: false,
+    },
+    {
+      asset: 'platinum-sunda-atas-kanan',
+      position: { top: '-2%', right: '-7%' },
+      width: '37%',
+      animation: false,
+    },
+  ],
+  hero: [],
+  couple: {
+    groom: [
+      {
+        asset: 'platinum-sunda-daun-kiri',
+        position: { left: '-12%' },
+        width: '28%',
+      },
+    ],
+    bride: [
+      {
+        asset: 'platinum-sunda-daun-kiri',
+        position: { left: '-12%' },
+        width: '28%',
+      },
+      {
+        asset: 'platinum-sunda-samping',
+        position: { right: '8%' },
+        frameTop: '15%',
+        width: '10%',
+        transformOrigin: '50% 0%',
+      },
+    ],
+  },
+  dividers: {
+    story: [dividerItem('platinum-sunda-angklung')],
+    events: [dividerItem('platinum-sunda-kujang')],
+    gallery: [dividerItem('platinum-sunda-payung')],
+    wishes: [dividerItem('platinum-sunda-siger')],
+  },
+  closing: [
+    {
+      asset: 'platinum-sunda-bawah-kiri',
+      position: { bottom: '-3%', left: '-8%' },
+      width: '37%',
+      animation: false,
+    },
+    {
+      asset: 'platinum-sunda-bawah-kanan',
+      position: { bottom: '-3%', right: '-8%' },
+      width: '37%',
+      animation: false,
+    },
+  ],
+};
+
+ornamentPresets['invitation-platinum-jawa'] = {
+  paperTexture: 'platinum-jawa-tekstur-kertas',
+  waxSeal: 'platinum-jawa-segel-lilin',
+  envelope: 'platinum-jawa-amplop',
+  envelopeFlap: 'platinum-jawa-tutup-amplop',
+  background: {
+    main: 'platinum-jawa-daun-kanan',
+    edge: 'platinum-jawa-daun-kiri',
+  },
+  cover: [
+    {
+      asset: 'platinum-jawa-atas-kiri',
+      position: { top: '-2%', left: '-7%' },
+      width: '37%',
+      animation: false,
+    },
+    {
+      asset: 'platinum-jawa-atas-kanan',
+      position: { top: '-2%', right: '-7%' },
+      width: '37%',
+      animation: false,
+    },
+  ],
+  hero: [],
+  couple: {
+    groom: [
+      {
+        asset: 'platinum-jawa-daun-kiri',
+        position: { left: '-12%' },
+        width: '28%',
+      },
+    ],
+    bride: [
+      {
+        asset: 'platinum-jawa-daun-kanan',
+        position: { right: '-12%' },
+        width: '28%',
+      },
+    ],
+  },
+  dividers: {
+    story: [dividerItem('platinum-jawa-keris')],
+    events: [dividerItem('platinum-jawa-kembar-mayang')],
+    gallery: [dividerItem('platinum-jawa-tuwuhan')],
+    wishes: [dividerItem('platinum-jawa-kain-batik')],
+  },
+  closing: [
+    {
+      asset: 'platinum-jawa-bawah-kiri',
+      position: { bottom: '-3%', left: '-8%' },
+      width: '37%',
+      animation: false,
+    },
+    {
+      asset: 'platinum-jawa-bawah-kanan',
+      position: { bottom: '-3%', right: '-8%' },
+      width: '37%',
+      animation: false,
+    },
+  ],
+};

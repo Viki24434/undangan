@@ -20,7 +20,7 @@ export default function PlatinumHero1({
   );
   return (
     <section
-      className={`invitation-hero platinum-hero cinematic-hero${['invitation-platinum-champagne', 'invitation-platinum-aurora'].includes(theme) ? ' cinematic-hero--atelier' : ''}${ready ? ' is-ready' : ''}`}
+      className={`invitation-hero platinum-hero cinematic-hero cinematic-hero--atelier${ready ? ' is-ready' : ''}`}
     >
       <div className="cinematic-hero__stage" key={replay}>
         <div

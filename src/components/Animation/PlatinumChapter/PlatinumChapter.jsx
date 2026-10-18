@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { ornamentAssets } from '../../Ornament/ornamentAssets';
 import './PlatinumChapter.css';
+import { platinumScenes } from '../../../config/platinumScenes';
 
 const compositions = {
   photos: ['branch-left', 'leaf-right', 'flower-right'],
@@ -18,28 +19,17 @@ const compositions = {
   closing: ['branch-left', 'leaf-right'],
 };
 
-const families = {
-  'invitation-platinum-champagne': {
-    'leaf-left': 'champagne-daun-kiri',
-    'leaf-right': 'champagne-daun-kanan',
-    'branch-left': 'champagne-ranting-daun',
-    'flower-left': 'champagne-bunga-kiri',
-    'flower-right': 'champagne-bunga-kanan',
-  },
-  'invitation-platinum-aurora': {
-    'leaf-left': 'aurora-daun-kiri',
-    'leaf-right': 'aurora-daun-kanan',
-    'branch-left': 'aurora-daun-kiri',
-    'flower-left': 'aurora-bawah-kiri',
-    'flower-right': 'aurora-bawah-kanan',
-  },
-};
-
 function AnimatedChapter({ theme, chapter, children }) {
   const ref = useRef(null);
   const artRefs = useRef([]);
-  const assets = families[theme];
-  const composition = compositions[chapter] || compositions.intro;
+  const scene = platinumScenes[theme];
+  const composition = [
+    ...(compositions[chapter] || compositions.intro).map((position) => ({
+      position,
+      asset: scene.chapterAssets[position],
+    })),
+    ...(scene.chapterExtras?.[chapter] || []),
+  ];
 
   useEffect(() => {
     const elements = artRefs.current.filter(Boolean);
@@ -67,13 +57,14 @@ function AnimatedChapter({ theme, chapter, children }) {
     <div className={`platinum-chapter platinum-chapter--${chapter}`} ref={ref}>
       {children}
       <div className="platinum-chapter__ornaments" aria-hidden="true">
-        {composition.map((position, index) => {
-          const asset = ornamentAssets[assets[position]];
+        {composition.map(({ position, asset: assetKey, motion }, index) => {
+          const asset = ornamentAssets[assetKey];
           const right = position.endsWith('right');
           return (
             <span
               className={`platinum-chapter__art platinum-chapter__art--${position}`}
               key={position}
+              data-motion={motion}
               ref={(element) => {
                 artRefs.current[index] = element;
               }}
@@ -123,7 +114,7 @@ export default function PlatinumChapter({
   chapter,
   children,
 }) {
-  if (!enabled || !families[theme]) return children;
+  if (!enabled || !platinumScenes[theme]) return children;
   return (
     <AnimatedChapter theme={theme} chapter={chapter}>
       {children}

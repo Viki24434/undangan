@@ -129,7 +129,7 @@ export default function InvitationLayout({
 
   return (
     <div
-      className={`celebration-template ${theme}`}
+      className={`celebration-template ${theme}${variants.experience === 'platinum' ? ' platinum-template' : ''}${variants.adat ? ' platinum-adat' : ''}`}
       style={{
         ...(templateTheme.background && {
           '--color-bg': templateTheme.background,

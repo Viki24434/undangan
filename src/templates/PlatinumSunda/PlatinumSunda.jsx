@@ -1,0 +1,26 @@
+import WeddingInvitation from '../../components/Invitation/WeddingInvitation';
+import { data } from '../SundaSiger/data';
+import '../../styles/platinum.css';
+import '../../styles/platinumAdat.css';
+import './PlatinumSunda.css';
+
+export default function PlatinumSunda() {
+  return (
+    <WeddingInvitation
+      theme="invitation-platinum-sunda"
+      data={data}
+      components={{
+        cover: 3,
+        hero: 3,
+        couple: 3,
+        story: 2,
+        countdown: 3,
+        gallery: 4,
+        gift: 2,
+        wishes: 2,
+        experience: 'platinum',
+        adat: true,
+      }}
+    />
+  );
+}

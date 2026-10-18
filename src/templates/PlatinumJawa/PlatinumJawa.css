@@ -1,0 +1,15 @@
+.invitation-platinum-jawa {
+  --color-bg: #211912;
+  --color-text: #f5ecdc;
+  --color-accent: #d6b16e;
+  --invitation-muted: #c4b69c;
+  --invitation-panel: #33261b;
+  --invitation-line: #d6b16e55;
+  --invitation-on-accent: #251a12;
+  --platinum-glow: #80603b40;
+  --platinum-paper: #302319ed;
+  --adat-panel-start: #302319eb;
+  --adat-panel-end: #211912ce;
+  --landscape-ground: #626746;
+  --landscape-floor: #806e50;
+}

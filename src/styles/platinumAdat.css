@@ -1,0 +1,125 @@
+.platinum-adat .platinum-envelope__letter {
+  background-image:
+    linear-gradient(#fff8e855, #fff8e855), var(--template-paper-art);
+  background-size: cover;
+  color: #4a3824;
+}
+.platinum-adat .platinum-envelope__letter-monogram {
+  color: #826332;
+}
+.platinum-adat .platinum-cover__seal {
+  background: var(--template-seal-art) center / contain no-repeat;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: #fff0c8;
+  filter: drop-shadow(0 4px 5px #00000044);
+}
+.platinum-adat .platinum-envelope__front svg,
+.platinum-adat .platinum-envelope__flap svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.platinum-adat .champagne-scenery__name-panel {
+  background: linear-gradient(
+    180deg,
+    var(--adat-panel-start),
+    var(--adat-panel-end)
+  );
+  box-shadow: inset 0 0 35px #d8b66d0d;
+}
+.platinum-adat .champagne-scenery__layer--mahkota {
+  width: 16%;
+  height: 9%;
+  top: 17%;
+  left: 42%;
+}
+.platinum-adat .champagne-scenery__layer--kubah {
+  width: 78%;
+  height: 29%;
+  bottom: 9%;
+  left: 11%;
+}
+.platinum-adat .champagne-scenery__layer--pohon-kiri,
+.platinum-adat .champagne-scenery__layer--pohon-kanan {
+  width: 48%;
+  height: 33%;
+  bottom: 16%;
+}
+.platinum-adat .champagne-scenery__layer--pohon-kiri {
+  left: -20%;
+}
+.platinum-adat .champagne-scenery__layer--pohon-kanan {
+  right: -20%;
+}
+.platinum-adat .champagne-scenery__layer--lantai {
+  width: 140%;
+  height: 27%;
+  left: -20%;
+}
+.platinum-adat .champagne-scenery__layer--detail-kiri,
+.platinum-adat .champagne-scenery__layer--detail-kanan {
+  width: 12%;
+  height: 16%;
+  bottom: 8%;
+  z-index: 8;
+}
+.platinum-adat .champagne-scenery__layer--detail-kiri {
+  left: 8%;
+}
+.platinum-adat .champagne-scenery__layer--detail-kanan {
+  right: 8%;
+}
+.platinum-adat .champagne-scenery__layer--atas-kiri,
+.platinum-adat .champagne-scenery__layer--atas-kanan {
+  width: 37%;
+  height: 20%;
+  top: -2%;
+}
+.platinum-adat .champagne-scenery__layer--bawah-kiri,
+.platinum-adat .champagne-scenery__layer--bawah-kanan {
+  width: 37%;
+  height: 22%;
+}
+.platinum-adat
+  .cinematic-hero.is-ready
+  :is(
+    .champagne-scenery__layer--bawah-kiri,
+    .champagne-scenery__layer--bawah-kanan
+  ) {
+  animation-name: atelierSceneRise;
+  animation-duration: 1.4s;
+}
+.platinum-adat .champagne-scenery__layer--bukit svg {
+  transform-origin: center bottom;
+}
+.platinum-adat .champagne-scenery__layer--atas-kiri {
+  --corner-entry-x: -105%;
+}
+.platinum-adat .champagne-scenery__layer--atas-kanan {
+  --corner-entry-x: 105%;
+}
+.platinum-adat
+  .cinematic-hero.is-ready
+  :is(
+    .champagne-scenery__layer--atas-kiri,
+    .champagne-scenery__layer--atas-kanan
+  ) {
+  animation-name: adatCornerEnter;
+  animation-duration: 1.8s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes adatCornerEnter {
+  from {
+    opacity: 0;
+    transform: translate(var(--corner-entry-x), -105%);
+  }
+  25% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
