@@ -1681,3 +1681,65 @@ ornamentPresets['invitation-platinum-jawa'] = {
     },
   ],
 };
+
+ornamentPresets['invitation-platinum-minangkabau'] = {
+  paperTexture: 'platinum-minang-tekstur-kertas',
+  waxSeal: 'platinum-minang-segel-lilin',
+  envelope: 'platinum-minang-amplop',
+  envelopeFlap: 'platinum-minang-tutup-amplop',
+  background: {
+    main: 'platinum-minang-daun-kanan',
+    edge: 'platinum-minang-daun-kiri',
+  },
+  cover: [
+    {
+      asset: 'platinum-minang-atas-kiri',
+      position: { top: '-2%', left: '-7%' },
+      width: '37%',
+      animation: false,
+    },
+    {
+      asset: 'platinum-minang-atas-kanan',
+      position: { top: '-2%', right: '-7%' },
+      width: '37%',
+      animation: false,
+    },
+  ],
+  hero: [],
+  couple: {
+    groom: [
+      {
+        asset: 'platinum-minang-daun-kiri',
+        position: { left: '-12%' },
+        width: '28%',
+      },
+    ],
+    bride: [
+      {
+        asset: 'platinum-minang-daun-kanan',
+        position: { right: '-12%' },
+        width: '28%',
+      },
+    ],
+  },
+  dividers: {
+    story: [dividerItem('platinum-minang-rumah-gadang')],
+    events: [dividerItem('platinum-minang-dulang')],
+    gallery: [dividerItem('platinum-minang-pelaminan')],
+    wishes: [dividerItem('platinum-minang-kain-songket')],
+  },
+  closing: [
+    {
+      asset: 'platinum-minang-bawah-kiri',
+      position: { bottom: '-3%', left: '-8%' },
+      width: '37%',
+      animation: false,
+    },
+    {
+      asset: 'platinum-minang-bawah-kanan',
+      position: { bottom: '-3%', right: '-8%' },
+      width: '37%',
+      animation: false,
+    },
+  ],
+};

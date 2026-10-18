@@ -117,4 +117,40 @@ export const platinumScenes = {
       'flower-right': 'platinum-jawa-daun-kanan',
     },
   },
+  'invitation-platinum-minangkabau': {
+    family: 'platinum-minang',
+    chapterExtras: {
+      intro: [
+        {
+          position: 'garland-top',
+          asset: 'platinum-minang-atas',
+          motion: 'static',
+        },
+      ],
+    },
+    layers: [
+      ['langit', 'background'],
+      ['bukit', 'bukit', 'bottom'],
+      ['pohon-kiri', 'pohon-kiri'],
+      ['pohon-kanan', 'pohon-kanan'],
+      ['lantai', 'lantai', 'bottom'],
+      ['kubah', 'tugu', 'bottom'],
+      ['mahkota', 'mahkota'],
+      ['daun-kiri', 'daun-kiri'],
+      ['daun-kanan', 'daun-kanan'],
+      ['atas-kiri', 'atas-kiri'],
+      ['atas-kanan', 'atas-kanan'],
+      ['bawah-kiri', 'bawah-kiri'],
+      ['bawah-kanan', 'bawah-kanan'],
+      ['detail-kiri', 'bucket', 'bottom'],
+      ['detail-kanan', 'bucket', 'bottom'],
+    ],
+    chapterAssets: {
+      'leaf-left': 'platinum-minang-daun-kiri',
+      'leaf-right': 'platinum-minang-daun-kanan',
+      'branch-left': 'platinum-minang-daun-kiri',
+      'flower-left': 'platinum-minang-daun-kiri',
+      'flower-right': 'platinum-minang-daun-kanan',
+    },
+  },
 };
