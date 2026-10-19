@@ -4,5 +4,11 @@ import { platinumScenes } from '../../../config/platinumScenes';
 export default function CinematicScene({ theme }) {
   const scene =
     platinumScenes[theme] || platinumScenes['invitation-platinum-champagne'];
-  return <PlatinumHeroScene family={scene.family} layers={scene.layers} />;
+  return (
+    <PlatinumHeroScene
+      family={scene.family}
+      layers={scene.layers}
+      sky={scene.sky}
+    />
+  );
 }

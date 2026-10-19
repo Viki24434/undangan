@@ -1,0 +1,217 @@
+.invitation-platinum-nusantara {
+  --color-bg: #142b24;
+  --color-text: #fff4df;
+  --color-accent: #e2bc70;
+  --invitation-muted: #c8c9af;
+  --invitation-panel: #203f32;
+  --invitation-line: #e2bc7044;
+  --invitation-on-accent: #142b24;
+  --platinum-glow: #c1a15e38;
+  --platinum-paper: #18392ded;
+  --adat-panel-start: #fff4dfef;
+  --adat-panel-end: #f6e8cbd9;
+  --landscape-ground: #547147;
+  --landscape-floor: #9e8b66;
+}
+.invitation-platinum-nusantara .invitation-cover-exit {
+  height: 100%;
+  min-height: 0;
+  overflow: clip;
+}
+.invitation-platinum-nusantara .invitation-cover.platinum-cover {
+  height: 100%;
+  padding: clamp(14px, 2.8vh, 28px) 24px;
+  overflow: clip;
+}
+.invitation-platinum-nusantara .platinum-cover > .decoration-layer {
+  overflow: clip;
+}
+.invitation-platinum-nusantara .platinum-cover__composition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(8px, 1.4vh, 14px);
+  max-height: 100%;
+  padding-top: 0;
+}
+.invitation-platinum-nusantara .platinum-cover__heading {
+  flex-shrink: 0;
+}
+.invitation-platinum-nusantara .platinum-cover .platinum-edition {
+  margin-bottom: clamp(6px, 1.4vh, 12px);
+}
+.invitation-platinum-nusantara .platinum-cover .platinum-cover__heading h1 {
+  font-size: clamp(28px, min(9vw, 6vh), 42px);
+  margin: 10px 0;
+}
+.invitation-platinum-nusantara .platinum-cover .invitation-date {
+  margin-bottom: 0;
+}
+.invitation-platinum-nusantara .platinum-envelope {
+  flex: 0 1 auto;
+  height: clamp(140px, 30svh, 252px);
+  min-height: 100px;
+  margin: 0;
+}
+.invitation-platinum-nusantara .platinum-cover__open,
+.invitation-platinum-nusantara .platinum-cover .invitation-back {
+  flex-shrink: 0;
+}
+.invitation-platinum-nusantara .platinum-cover .invitation-back {
+  margin-top: 0;
+}
+.invitation-platinum-nusantara .platinum-cover .platinum-cover__recipient {
+  inset: 69% 12px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: clip;
+}
+.invitation-platinum-nusantara .platinum-cover__recipient p {
+  font-size: clamp(7px, 1.2vh, 8px);
+  line-height: 1.4;
+  margin: 0 0 3px;
+}
+.invitation-platinum-nusantara .platinum-cover .platinum-cover__recipient h2 {
+  font-size: clamp(14px, 3vh, 20px);
+  line-height: 1.15;
+}
+.invitation-platinum-nusantara .champagne-scenery__name-panel {
+  bottom: 45%;
+}
+.invitation-platinum-nusantara .cinematic-hero__copy {
+  inset: 19% 20% 47%;
+  color: #2d3e2d;
+}
+.invitation-platinum-nusantara
+  .cinematic-hero
+  .cinematic-hero__copy
+  .invitation-kicker,
+.invitation-platinum-nusantara .cinematic-hero__ampersand,
+.invitation-platinum-nusantara .cinematic-hero__date > span {
+  color: #85632e;
+}
+.invitation-platinum-nusantara .champagne-outline path {
+  stroke: #96743c;
+}
+.invitation-platinum-nusantara .champagne-scenery__layer--kubah {
+  width: 116%;
+  height: 38%;
+  bottom: 4%;
+  left: -8%;
+  z-index: 6;
+}
+.invitation-platinum-nusantara .champagne-scenery__layer--candi {
+  width: 94%;
+  height: 28%;
+  bottom: 4%;
+  left: 3%;
+  z-index: 8;
+}
+.invitation-platinum-nusantara .champagne-scenery__layer--monas {
+  width: 52%;
+  height: 24%;
+  bottom: 20%;
+  left: calc(24% - 1.5mm);
+  z-index: 5;
+}
+.invitation-platinum-nusantara .champagne-scenery__layer--gunungan {
+  width: 12%;
+  height: 16%;
+  bottom: 16%;
+  left: 15%;
+  z-index: 7;
+}
+.invitation-platinum-nusantara .champagne-scenery__layer--wayang {
+  width: 19%;
+  height: 19%;
+  bottom: 14%;
+  right: 12%;
+  z-index: 7;
+}
+.invitation-platinum-nusantara .champagne-scenery__layer--pohon-kiri,
+.invitation-platinum-nusantara .champagne-scenery__layer--pohon-kanan {
+  width: 55%;
+  height: 39%;
+}
+.invitation-platinum-nusantara .champagne-scenery__layer--pohon-kiri {
+  left: -26%;
+}
+.invitation-platinum-nusantara .champagne-scenery__layer--pohon-kanan {
+  right: -26%;
+}
+.invitation-platinum-nusantara .champagne-scenery__layer--daun-kiri,
+.invitation-platinum-nusantara .champagne-scenery__layer--daun-kanan {
+  width: 35%;
+  height: 35%;
+  top: 26%;
+}
+.invitation-platinum-nusantara .champagne-scenery__layer--daun-kiri {
+  left: -15%;
+}
+.invitation-platinum-nusantara .champagne-scenery__layer--daun-kanan {
+  right: -15%;
+}
+.invitation-platinum-nusantara .champagne-scenery__layer--atas-kiri,
+.invitation-platinum-nusantara .champagne-scenery__layer--atas-kanan {
+  width: 40%;
+  height: 22%;
+  top: -4%;
+}
+.invitation-platinum-nusantara .champagne-scenery__layer--bawah-kiri,
+.invitation-platinum-nusantara .champagne-scenery__layer--bawah-kanan {
+  width: 34%;
+  height: 19%;
+  bottom: -3%;
+}
+.invitation-platinum-nusantara .champagne-scenery__sunlight {
+  background: radial-gradient(ellipse at 30% 15%, #fff2c777, transparent 65%);
+}
+.invitation-platinum-nusantara .platinum-chapter__art--leaf-left,
+.invitation-platinum-nusantara .platinum-chapter__art--leaf-right {
+  width: clamp(100px, 31%, 155px);
+}
+.invitation-platinum-nusantara .platinum-chapter__art--leaf-left {
+  left: -18%;
+}
+.invitation-platinum-nusantara .platinum-chapter__art--leaf-right {
+  right: -18%;
+}
+.invitation-platinum-nusantara .platinum-chapter__art--branch-left {
+  width: clamp(115px, 35%, 175px);
+  left: -20%;
+}
+.invitation-platinum-nusantara .platinum-chapter__art--flower-left,
+.invitation-platinum-nusantara .platinum-chapter__art--flower-right {
+  width: clamp(75px, 23%, 115px);
+}
+.invitation-platinum-nusantara .platinum-chapter__art--flower-left {
+  left: -14%;
+}
+.invitation-platinum-nusantara .platinum-chapter__art--flower-right {
+  right: -14%;
+}
+.invitation-platinum-nusantara .platinum-chapter--intro {
+  background: radial-gradient(ellipse at 50% 0%, #d4ac4f12, transparent 65%);
+}
+.invitation-platinum-nusantara .story-2__entry article {
+  border-color: var(--invitation-line);
+  background: linear-gradient(145deg, #294e3b, #1a3328);
+}
+@media (max-height: 520px) {
+  .invitation-platinum-nusantara .platinum-cover .platinum-cover__recipient {
+    top: 61%;
+  }
+  .invitation-platinum-nusantara .platinum-cover .platinum-cover__seal {
+    top: 43%;
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
+  }
+  .invitation-platinum-nusantara
+    .platinum-cover
+    > .decoration-layer
+    .decoration-layer__item {
+    max-width: 26%;
+  }
+}

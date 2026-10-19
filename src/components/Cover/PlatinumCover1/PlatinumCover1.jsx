@@ -15,6 +15,7 @@ export default function PlatinumCover1({
   children,
   envelopeArt,
   flapArt,
+  paperArt,
 }) {
   return (
     <section
@@ -34,6 +35,11 @@ export default function PlatinumCover1({
         <div className="platinum-envelope">
           <div className="platinum-envelope__back" aria-hidden="true" />
           <div className="platinum-envelope__letter" aria-hidden="true">
+            {paperArt && (
+              <div className="platinum-envelope__paper">
+                <OrnamentArtwork asset={paperArt} fill />
+              </div>
+            )}
             <span className="platinum-envelope__letter-monogram">
               {monogram}
             </span>

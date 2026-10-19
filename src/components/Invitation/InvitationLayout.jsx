@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import DecorationLayer from '../Ornament/DecorationLayer';
 import { ornamentPresets } from '../Ornament/ornamentPresets';
 import { ornamentAssets } from '../Ornament/ornamentAssets';
+import { platinumScenes } from '../../config/platinumScenes';
 import GuestGuide from './GuestGuide';
 import GuestPhotoUpload from './GuestPhotoUpload';
 import InvitationMusic from './InvitationMusic';
@@ -55,6 +56,10 @@ export default function InvitationLayout({
   const Hero =
     variants.hero === 3 ? PlatinumHero1 : variants.hero === 1 ? Hero1 : Hero2;
   const decorations = ornamentPresets[theme] || {};
+  const scene = platinumScenes[theme];
+  const backgroundLeaf =
+    scene && ornamentAssets[scene.chapterAssets['leaf-left']];
+  const edgeLeaf = scene && ornamentAssets[scene.chapterAssets['leaf-right']];
   const templateTheme = invitation?.data.theme || {};
   const fontStyles =
     {
@@ -122,6 +127,9 @@ export default function InvitationLayout({
         flapArt={
           decorations.envelopeFlap && ornamentAssets[decorations.envelopeFlap]
         }
+        paperArt={
+          decorations.paperTexture && ornamentAssets[decorations.paperTexture]
+        }
       >
         <DecorationLayer items={decorations.cover} />
       </Cover>
@@ -138,9 +146,6 @@ export default function InvitationLayout({
           '--color-accent': templateTheme.accent,
         }),
         ...fontStyles,
-        '--template-paper-art': decorations.paperTexture
-          ? `url("${ornamentAssets[decorations.paperTexture].src}")`
-          : 'none',
         '--template-seal-art': decorations.waxSeal
           ? `url("${ornamentAssets[decorations.waxSeal].src}")`
           : 'none',
@@ -150,6 +155,10 @@ export default function InvitationLayout({
         '--template-edge-art': decorations.background
           ? `url("${ornamentAssets[decorations.background.edge].src}")`
           : 'none',
+        '--template-background-foliage': backgroundLeaf
+          ? `url("${backgroundLeaf.src}")`
+          : 'none',
+        '--template-edge-foliage': edgeLeaf ? `url("${edgeLeaf.src}")` : 'none',
       }}
     >
       {musicEnabled && (

@@ -74,12 +74,32 @@
   align-items: center;
   gap: 10px;
   padding: 20px 18px;
-  background: var(--color-bg);
+  background: #fff8e8;
   border: 1px solid var(--invitation-line);
   outline: 1px solid var(--invitation-line);
   outline-offset: -7px;
-  color: var(--color-text);
+  color: #4a3824;
   text-align: center;
+  isolation: isolate;
+  overflow: hidden;
+}
+.platinum-envelope__paper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.platinum-envelope__paper > svg,
+.platinum-envelope__paper > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.platinum-envelope__letter > span,
+.platinum-envelope__letter > strong {
+  position: relative;
+  z-index: 1;
 }
 .platinum-envelope__letter > span {
   font-size: 9px;

@@ -1,14 +1,16 @@
 import AtelierArtwork from '../../Ornament/AtelierArtwork';
 import AtelierOutline from '../../Ornament/AtelierOutline';
 import Birds from '../../Ornament/Birds/Birds';
+import Sky from '../../Ornament/Sky/Sky';
 import './PlatinumHeroScene.css';
 
-export default function PlatinumHeroScene({ family, layers }) {
+export default function PlatinumHeroScene({ family, layers, sky = 'day' }) {
   return (
     <div
       className={`champagne-scenery champagne-scenery--${family}`}
       aria-hidden="true"
     >
+      <Sky variant={sky} />
       <div className="champagne-scenery__ground" />
       {layers.map(([position, name, alignment], index) => (
         <div

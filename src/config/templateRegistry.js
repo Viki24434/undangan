@@ -507,6 +507,32 @@ export const templateRegistry = [
       () => import('../templates/PlatinumMinangkabau/PlatinumMinangkabau'),
     ),
   },
+  {
+    id: 'platinum-palembang-01',
+    name: 'Palembang Sriwijaya Platinum',
+    category: 'Pernikahan',
+    packageId: 'platinum',
+    description:
+      'Merah delima dan emas Palembang dengan tugu, tepak, pending, amplop songket, lanskap berlapis, dan galeri foto Platinum.',
+    img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    palette: ['#391016', '#e5bd70', '#601c26'],
+    component: lazy(
+      () => import('../templates/PlatinumPalembang/PlatinumPalembang'),
+    ),
+  },
+  {
+    id: 'platinum-nusantara-01',
+    name: 'Nusantara Pusaka Platinum',
+    category: 'Pernikahan',
+    packageId: 'platinum',
+    description:
+      'Zamrud dan emas dengan gerbang candi, lanskap tropis, bunga merah-putih, amplop batik, serta galeri foto Platinum.',
+    img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=85',
+    palette: ['#142b24', '#e2bc70', '#203f32'],
+    component: lazy(
+      () => import('../templates/PlatinumNusantara/PlatinumNusantara'),
+    ),
+  },
 ];
 
 export const templateCategories = [

@@ -1,0 +1,110 @@
+.platinum-sky {
+  position: absolute;
+  inset: 0 0 35%;
+  z-index: 1;
+  overflow: clip;
+  pointer-events: none;
+  color: #fff8e9;
+}
+.platinum-sky__content,
+.platinum-sky__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.platinum-sky__content {
+  opacity: 0;
+}
+.platinum-sky__glow {
+  position: absolute;
+  top: -12%;
+  left: -8%;
+  width: 86%;
+  height: 45%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #fff3c94d, transparent 68%);
+}
+.platinum-sky__cloud {
+  filter: blur(3px);
+}
+.platinum-sky--night {
+  color: #a7bfd7;
+}
+.platinum-sky--night .platinum-sky__cloud {
+  opacity: 0.45;
+}
+.platinum-sky--night .platinum-sky__glow {
+  background: radial-gradient(ellipse, #a9cde52b, transparent 68%);
+}
+.platinum-sky__stars {
+  fill: #fff5d4;
+}
+.platinum-sky__star {
+  opacity: 0.6;
+}
+.cinematic-hero.is-ready .platinum-sky__content {
+  animation: platinumSkyReveal 2s 0.2s ease both;
+}
+.cinematic-hero.is-ready .platinum-sky__cloud {
+  animation: platinumCloudDrift var(--cloud-duration) var(--cloud-phase)
+    ease-in-out infinite alternate both;
+}
+.cinematic-hero.is-ready .platinum-sky__glow {
+  animation: platinumSkyGlow 17s ease-in-out infinite alternate;
+}
+.cinematic-hero.is-ready .platinum-sky__star {
+  animation: platinumStarTwinkle var(--star-duration) var(--star-phase)
+    ease-in-out infinite alternate;
+}
+.cinematic-hero.is-ready .platinum-sky__content,
+.cinematic-hero.is-ready .platinum-sky__cloud,
+.cinematic-hero.is-ready .platinum-sky__glow,
+.cinematic-hero.is-ready .platinum-sky__star {
+  animation-play-state: var(--platinum-play-state, running);
+}
+@keyframes platinumSkyReveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes platinumCloudDrift {
+  from {
+    transform: translateX(calc(-18px * var(--cloud-direction)));
+  }
+  to {
+    transform: translateX(calc(32px * var(--cloud-direction)));
+  }
+}
+@keyframes platinumSkyGlow {
+  from {
+    opacity: 0.6;
+    transform: translateX(-4%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(5%);
+  }
+}
+@keyframes platinumStarTwinkle {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 0.95;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-hero.is-ready .platinum-sky__content,
+  .cinematic-hero.is-ready .platinum-sky__cloud,
+  .cinematic-hero.is-ready .platinum-sky__glow,
+  .cinematic-hero.is-ready .platinum-sky__star {
+    animation: none;
+  }
+  .platinum-sky__content {
+    opacity: 1;
+  }
+}

@@ -14,7 +14,12 @@ export default function OrnamentArtwork({
         aria-hidden="true"
         focusable="false"
       >
-        <image href={asset.src} width="800" height="800" />
+        <image
+          href={asset.src}
+          width="800"
+          height="800"
+          transform={asset.flipX ? 'translate(800 0) scale(-1 1)' : undefined}
+        />
       </svg>
     );
   }

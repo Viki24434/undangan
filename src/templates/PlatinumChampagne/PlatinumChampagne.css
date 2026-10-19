@@ -10,11 +10,6 @@
   --platinum-paper: #f7f1e7ed;
 }
 
-.invitation-platinum-champagne .platinum-envelope__letter {
-  background-image:
-    linear-gradient(#fffaf077, #fffaf077), var(--template-paper-art);
-  background-size: cover;
-}
 .invitation-platinum-champagne .platinum-cover__seal {
   background: var(--template-seal-art) center / contain no-repeat;
   border: 0;

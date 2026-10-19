@@ -1,7 +1,4 @@
 .platinum-adat .platinum-envelope__letter {
-  background-image:
-    linear-gradient(#fff8e855, #fff8e855), var(--template-paper-art);
-  background-size: cover;
   color: #4a3824;
 }
 .platinum-adat .platinum-envelope__letter-monogram {

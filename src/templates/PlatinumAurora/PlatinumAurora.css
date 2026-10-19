@@ -17,9 +17,6 @@
 }
 
 .invitation-platinum-aurora .platinum-envelope__letter {
-  background-image:
-    linear-gradient(#fffaf077, #fffaf077), var(--template-paper-art);
-  background-size: cover;
   color: #343d52;
 }
 .invitation-platinum-aurora .platinum-cover__seal {

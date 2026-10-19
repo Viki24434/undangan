@@ -3,6 +3,8 @@ import { auroraAssets } from './auroraAssets';
 import { sundaPlatinumAssets } from './sundaPlatinumAssets';
 import { jawaPlatinumAssets } from './jawaPlatinumAssets';
 import { minangkabauPlatinumAssets } from './minangkabauPlatinumAssets';
+import { palembangPlatinumAssets } from './palembangPlatinumAssets';
+import { nusantaraPlatinumAssets } from './nusantaraPlatinumAssets';
 
 const png = (exportName, filename) =>
   `/assets/png/${exportName}/${encodeURIComponent(filename)}`;
@@ -62,6 +64,8 @@ export const ornamentAssets = {
   ...sundaPlatinumAssets,
   ...jawaPlatinumAssets,
   ...minangkabauPlatinumAssets,
+  ...palembangPlatinumAssets,
+  ...nusantaraPlatinumAssets,
   'celestial-corner': asset(
     png('celestial_moon_and_star', 'sudut_kiri.png'),
     'corner',

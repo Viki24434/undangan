@@ -1,0 +1,81 @@
+.invitation-platinum-palembang {
+  --color-bg: #391016;
+  --color-text: #fff0d6;
+  --color-accent: #e5bd70;
+  --invitation-muted: #d7b69d;
+  --invitation-panel: #601c26;
+  --invitation-line: #e5bd7055;
+  --invitation-on-accent: #240a10;
+  --platinum-glow: #9e4a3840;
+  --platinum-paper: #4b1520ed;
+  --adat-panel-start: #5b1d27eb;
+  --adat-panel-end: #391016ce;
+  --landscape-ground: #64653c;
+  --landscape-floor: #916a43;
+}
+.invitation-platinum-palembang .champagne-scenery__layer--pagar {
+  width: 70%;
+  height: 7%;
+  left: 15%;
+  bottom: 0;
+  z-index: 9;
+}
+.invitation-platinum-palembang .champagne-scenery__layer--detail-kiri,
+.invitation-platinum-palembang .champagne-scenery__layer--detail-kanan {
+  width: 16%;
+  height: 11%;
+  bottom: 8%;
+}
+.invitation-platinum-palembang .champagne-scenery__layer--detail-kiri {
+  left: 5%;
+}
+.invitation-platinum-palembang .champagne-scenery__layer--detail-kanan {
+  right: 5%;
+}
+.invitation-platinum-palembang .champagne-scenery__layer--daun-kiri,
+.invitation-platinum-palembang .champagne-scenery__layer--daun-kanan {
+  width: 38%;
+  height: 36%;
+  top: 26%;
+}
+.invitation-platinum-palembang .champagne-scenery__layer--daun-kiri {
+  left: -12%;
+}
+.invitation-platinum-palembang .champagne-scenery__layer--daun-kanan {
+  right: -12%;
+}
+.invitation-platinum-palembang .champagne-scenery__layer--pohon-kiri,
+.invitation-platinum-palembang .champagne-scenery__layer--pohon-kanan {
+  width: 58%;
+  height: 40%;
+}
+.invitation-platinum-palembang .champagne-scenery__layer--pohon-kiri {
+  left: -24%;
+}
+.invitation-platinum-palembang .champagne-scenery__layer--pohon-kanan {
+  right: -24%;
+}
+.invitation-platinum-palembang .platinum-chapter__art--leaf-left,
+.invitation-platinum-palembang .platinum-chapter__art--leaf-right {
+  width: clamp(100px, 32%, 160px);
+}
+.invitation-platinum-palembang .platinum-chapter__art--leaf-left {
+  left: -17%;
+}
+.invitation-platinum-palembang .platinum-chapter__art--leaf-right {
+  right: -17%;
+}
+.invitation-platinum-palembang .platinum-chapter__art--branch-left {
+  width: clamp(120px, 38%, 190px);
+  left: -19%;
+}
+.invitation-platinum-palembang .platinum-chapter__art--flower-left,
+.invitation-platinum-palembang .platinum-chapter__art--flower-right {
+  width: clamp(85px, 27%, 135px);
+}
+.invitation-platinum-palembang .platinum-chapter__art--flower-left {
+  left: -14%;
+}
+.invitation-platinum-palembang .platinum-chapter__art--flower-right {
+  right: -14%;
+}

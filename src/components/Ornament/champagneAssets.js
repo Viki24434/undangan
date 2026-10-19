@@ -103,6 +103,7 @@ export const champagneAssets = {
     src: '/assets/png/champagne_atelier/teksur_kertas.png',
     role: 'arrangement',
     viewBox: [16, 44, 768, 711],
+    cropped: true,
   },
 };
 

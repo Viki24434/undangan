@@ -9,6 +9,14 @@ export default function AtelierArtwork({
   const asset = ornamentAssets[`${family}-${name}`];
   const botanical =
     asset.wind !== false && /^(pohon|daun|atas|bawah)-/.test(name);
+  const artwork = (
+    <image
+      href={asset.src}
+      width="800"
+      height="800"
+      transform={asset.flipX ? 'translate(800 0) scale(-1 1)' : undefined}
+    />
+  );
 
   return (
     <svg
@@ -27,11 +35,9 @@ export default function AtelierArtwork({
       focusable="false"
     >
       {botanical ? (
-        <g className="champagne-artwork__foliage">
-          <image href={asset.src} width="800" height="800" />
-        </g>
+        <g className="champagne-artwork__foliage">{artwork}</g>
       ) : (
-        <image href={asset.src} width="800" height="800" />
+        artwork
       )}
     </svg>
   );

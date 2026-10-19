@@ -18,6 +18,43 @@ export const atelierLayers = [
 ];
 
 export const platinumScenes = {
+  'invitation-platinum-nusantara': {
+    family: 'platinum-nusantara',
+    layers: [
+      ['langit', 'background'],
+      ['bukit', 'bukit', 'bottom'],
+      ['monas', 'monas', 'bottom'],
+      ['pohon-kiri', 'pohon-kiri'],
+      ['pohon-kanan', 'pohon-kanan'],
+      ['lantai', 'lantai', 'bottom'],
+      ['kubah', 'candi-bentar', 'bottom'],
+      ['candi', 'candi-borobudur', 'bottom'],
+      ['daun-kiri', 'daun-kiri'],
+      ['daun-kanan', 'daun-kanan'],
+      ['atas-kiri', 'atas-kiri'],
+      ['atas-kanan', 'atas-kanan'],
+      ['gunungan', 'gunungan-wayang', 'bottom'],
+      ['wayang', 'wayang', 'bottom'],
+      ['bawah-kiri', 'bawah-kiri'],
+      ['bawah-kanan', 'bawah-kanan'],
+    ],
+    chapterAssets: {
+      'leaf-left': 'platinum-nusantara-daun-kiri',
+      'leaf-right': 'platinum-nusantara-daun-kanan',
+      'branch-left': 'platinum-nusantara-daun-kiri',
+      'flower-left': 'platinum-nusantara-bawah-kiri',
+      'flower-right': 'platinum-nusantara-bawah-kanan',
+    },
+    chapterExtras: {
+      intro: [
+        {
+          position: 'garland-top',
+          asset: 'platinum-nusantara-atas',
+          motion: 'static',
+        },
+      ],
+    },
+  },
   'invitation-platinum-champagne': {
     family: 'champagne',
     layers: atelierLayers,
@@ -31,6 +68,7 @@ export const platinumScenes = {
   },
   'invitation-platinum-aurora': {
     family: 'aurora',
+    sky: 'night',
     layers: [
       ...atelierLayers,
       ['bulan', 'bulan'],
@@ -151,6 +189,43 @@ export const platinumScenes = {
       'branch-left': 'platinum-minang-daun-kiri',
       'flower-left': 'platinum-minang-daun-kiri',
       'flower-right': 'platinum-minang-daun-kanan',
+    },
+  },
+  'invitation-platinum-palembang': {
+    family: 'platinum-palembang',
+    chapterExtras: {
+      intro: [
+        {
+          position: 'garland-top',
+          asset: 'platinum-palembang-atas',
+          motion: 'static',
+        },
+      ],
+    },
+    layers: [
+      ['langit', 'background'],
+      ['bukit', 'bukit', 'bottom'],
+      ['pohon-kiri', 'pohon-kiri'],
+      ['pohon-kanan', 'pohon-kanan'],
+      ['lantai', 'lantai', 'bottom'],
+      ['kubah', 'tugu', 'bottom'],
+      ['mahkota', 'mahkota'],
+      ['daun-kiri', 'daun-kiri'],
+      ['daun-kanan', 'daun-kanan'],
+      ['atas-kiri', 'atas-kiri'],
+      ['atas-kanan', 'atas-kanan'],
+      ['bawah-kiri', 'bawah-kiri'],
+      ['bawah-kanan', 'bawah-kanan'],
+      ['detail-kiri', 'bucket', 'bottom'],
+      ['detail-kanan', 'bucket', 'bottom'],
+      ['pagar', 'bawah'],
+    ],
+    chapterAssets: {
+      'leaf-left': 'platinum-palembang-daun-kiri',
+      'leaf-right': 'platinum-palembang-daun-kanan',
+      'branch-left': 'platinum-palembang-daun-kiri',
+      'flower-left': 'platinum-palembang-daun-kiri',
+      'flower-right': 'platinum-palembang-daun-kanan',
     },
   },
 };

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { ornamentAssets } from '../../Ornament/ornamentAssets';
+import { ornamentPresets } from '../../Ornament/ornamentPresets';
 import './PlatinumChapter.css';
 import { platinumScenes } from '../../../config/platinumScenes';
 
@@ -23,6 +24,21 @@ function AnimatedChapter({ theme, chapter, children }) {
   const ref = useRef(null);
   const artRefs = useRef([]);
   const scene = platinumScenes[theme];
+  const motifs = ornamentPresets[theme]?.background?.motifs || [];
+  const chapterIndex = Math.max(0, Object.keys(compositions).indexOf(chapter));
+  const [background, edge] = motifs.length
+    ? [
+        motifs[chapterIndex % motifs.length],
+        motifs[(chapterIndex + 1) % motifs.length],
+      ].map((key) => ornamentAssets[key])
+    : [];
+  const backgroundStyle =
+    background && edge
+      ? {
+          '--template-background-art': `url("${background.src}")`,
+          '--template-edge-art': `url("${edge.src}")`,
+        }
+      : undefined;
   const composition = [
     ...(compositions[chapter] || compositions.intro).map((position) => ({
       position,
@@ -54,7 +70,12 @@ function AnimatedChapter({ theme, chapter, children }) {
   }, [theme, chapter]);
 
   return (
-    <div className={`platinum-chapter platinum-chapter--${chapter}`} ref={ref}>
+    <div
+      className={`platinum-chapter platinum-chapter--${chapter}`}
+      data-backdrop-side={chapterIndex % 2 ? 'right' : 'left'}
+      style={backgroundStyle}
+      ref={ref}
+    >
       {children}
       <div className="platinum-chapter__ornaments" aria-hidden="true">
         {composition.map(({ position, asset: assetKey, motion }, index) => {

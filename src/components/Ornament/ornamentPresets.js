@@ -37,7 +37,89 @@ const portraitFlowers = (
   ],
 });
 
+const dividerItem = (asset) => ({ asset, animation: false });
+
 export const ornamentPresets = {
+  'invitation-platinum-nusantara': {
+    paperTexture: 'platinum-nusantara-tekstur-kertas',
+    waxSeal: 'platinum-nusantara-segel-lilin',
+    envelope: 'platinum-nusantara-amplop',
+    envelopeFlap: 'platinum-nusantara-tutup-amplop',
+    background: {
+      main: 'platinum-nusantara-gunungan-wayang',
+      edge: 'platinum-nusantara-rumah-gadang',
+      motifs: [
+        'platinum-nusantara-gunungan-wayang',
+        'platinum-nusantara-rumah-gadang',
+        'platinum-nusantara-topeng-barong',
+        'platinum-nusantara-wayang',
+        'platinum-nusantara-candi-borobudur',
+      ],
+    },
+    cover: [
+      {
+        asset: 'platinum-nusantara-atas-kiri',
+        position: { top: '-3%', left: '-8%' },
+        width: '40%',
+        animation: false,
+      },
+      {
+        asset: 'platinum-nusantara-atas-kanan',
+        position: { top: '-3%', right: '-8%' },
+        width: '40%',
+        animation: false,
+      },
+      {
+        asset: 'platinum-nusantara-bawah-kiri',
+        position: { bottom: '-3%', left: '-8%' },
+        width: '36%',
+        animation: false,
+      },
+      {
+        asset: 'platinum-nusantara-bawah-kanan',
+        position: { bottom: '-3%', right: '-8%' },
+        width: '36%',
+        animation: false,
+      },
+    ],
+    hero: [],
+    couple: {
+      groom: [
+        {
+          asset: 'platinum-nusantara-daun-kiri',
+          position: { left: '-14%' },
+          width: '32%',
+        },
+      ],
+      bride: [
+        {
+          asset: 'platinum-nusantara-daun-kanan',
+          position: { right: '-14%' },
+          width: '32%',
+        },
+      ],
+    },
+    dividers: {
+      story: [dividerItem('platinum-nusantara-gunungan-wayang')],
+      events: [dividerItem('platinum-nusantara-wayang')],
+      gallery: [dividerItem('platinum-nusantara-rumah-gadang')],
+      wishes: [dividerItem('platinum-nusantara-topeng-barong')],
+    },
+    closing: [
+      {
+        asset: 'platinum-nusantara-bawah-kiri',
+        position: { bottom: '-3%', left: '-8%' },
+        width: '30%',
+        animation: false,
+      },
+      {
+        asset: 'platinum-nusantara-bawah-kanan',
+        position: { bottom: '-3%', right: '-8%' },
+        width: '30%',
+        animation: false,
+      },
+    ],
+  },
   'invitation-celestial-moon-star': {
     backgroundArt: 'celestial-moon',
     cover: [
@@ -1315,8 +1397,6 @@ const familyDetails = {
   jawa: ['jawa-batik', 'jawa-kembar-mayang', 'jawa-ronce'],
 };
 
-const dividerItem = (asset) => ({ asset, animation: false });
-
 for (const [theme, family] of Object.entries(themeFamilies)) {
   const preset = ornamentPresets[theme];
   const [flower, leaf, spray] = familyDetails[family];
@@ -1441,7 +1521,16 @@ for (const [theme, family] of Object.entries(themeFamilies)) {
 ornamentPresets['invitation-platinum-champagne'] = {
   paperTexture: 'champagne-teksur-kertas',
   waxSeal: 'champagne-segel-lilin',
-  background: { main: 'champagne-ranting-daun', edge: 'champagne-daun-kiri' },
+  background: {
+    main: 'champagne-bunga-kiri',
+    edge: 'champagne-mahkota',
+    motifs: [
+      'champagne-bunga-kiri',
+      'champagne-mahkota',
+      'champagne-dua-lilin',
+      'champagne-bunga-kanan',
+    ],
+  },
   cover: [
     {
       asset: 'champagne-atas-kiri',
@@ -1498,7 +1587,16 @@ ornamentPresets['invitation-platinum-aurora'] = {
   waxSeal: 'aurora-segel-lilin',
   envelope: 'aurora-amplop',
   envelopeFlap: 'aurora-tutup-amplop',
-  background: { main: 'aurora-daun-kanan', edge: 'aurora-daun-kiri' },
+  background: {
+    main: 'aurora-bulan',
+    edge: 'aurora-bunga',
+    motifs: [
+      'aurora-bulan',
+      'aurora-bunga',
+      'aurora-mahkota',
+      'aurora-lentera',
+    ],
+  },
   cover: [
     {
       asset: 'aurora-atas-kiri',
@@ -1557,8 +1655,14 @@ ornamentPresets['invitation-platinum-sunda'] = {
   envelope: 'platinum-sunda-amplop',
   envelopeFlap: 'platinum-sunda-tutup-amplop',
   background: {
-    main: 'platinum-sunda-daun-kanan',
-    edge: 'platinum-sunda-daun-kiri',
+    main: 'platinum-sunda-siger',
+    edge: 'platinum-sunda-angklung',
+    motifs: [
+      'platinum-sunda-siger',
+      'platinum-sunda-angklung',
+      'platinum-sunda-payung',
+      'platinum-sunda-kujang',
+    ],
   },
   cover: [
     {
@@ -1626,8 +1730,14 @@ ornamentPresets['invitation-platinum-jawa'] = {
   envelope: 'platinum-jawa-amplop',
   envelopeFlap: 'platinum-jawa-tutup-amplop',
   background: {
-    main: 'platinum-jawa-daun-kanan',
-    edge: 'platinum-jawa-daun-kiri',
+    main: 'platinum-jawa-kain-batik',
+    edge: 'platinum-jawa-keris',
+    motifs: [
+      'platinum-jawa-kain-batik',
+      'platinum-jawa-keris',
+      'platinum-jawa-mahkota',
+      'platinum-jawa-kembar-mayang',
+    ],
   },
   cover: [
     {
@@ -1688,8 +1798,14 @@ ornamentPresets['invitation-platinum-minangkabau'] = {
   envelope: 'platinum-minang-amplop',
   envelopeFlap: 'platinum-minang-tutup-amplop',
   background: {
-    main: 'platinum-minang-daun-kanan',
-    edge: 'platinum-minang-daun-kiri',
+    main: 'platinum-minang-kain-songket',
+    edge: 'platinum-minang-rumah-gadang',
+    motifs: [
+      'platinum-minang-kain-songket',
+      'platinum-minang-rumah-gadang',
+      'platinum-minang-mahkota',
+      'platinum-minang-pelaminan',
+    ],
   },
   cover: [
     {
@@ -1739,6 +1855,80 @@ ornamentPresets['invitation-platinum-minangkabau'] = {
       asset: 'platinum-minang-bawah-kanan',
       position: { bottom: '-3%', right: '-8%' },
       width: '37%',
+      animation: false,
+    },
+  ],
+};
+
+ornamentPresets['invitation-platinum-palembang'] = {
+  paperTexture: 'platinum-palembang-tekstur-kertas',
+  waxSeal: 'platinum-palembang-segel-lilin',
+  envelope: 'platinum-palembang-amplop',
+  envelopeFlap: 'platinum-palembang-tutup-amplop',
+  background: {
+    main: 'platinum-palembang-kain-palembang',
+    edge: 'platinum-palembang-pending',
+    motifs: [
+      'platinum-palembang-kain-palembang',
+      'platinum-palembang-tepak',
+      'platinum-palembang-kain-palembang2',
+      'platinum-palembang-pending',
+    ],
+  },
+  cover: [
+    {
+      asset: 'platinum-palembang-atas-kiri',
+      position: { top: '-2%', left: '-7%' },
+      width: '37%',
+      animation: false,
+    },
+    {
+      asset: 'platinum-palembang-atas-kanan',
+      position: { top: '-2%', right: '-7%' },
+      width: '37%',
+      animation: false,
+    },
+    {
+      asset: 'platinum-palembang-bawah-kiri',
+      position: { bottom: '-2%', left: '-7%' },
+      width: '37%',
+      animation: false,
+    },
+    {
+      asset: 'platinum-palembang-bawah-kanan',
+      position: { bottom: '-2%', right: '-7%' },
+      width: '37%',
+      animation: false,
+    },
+  ],
+  hero: [],
+  couple: {
+    groom: [
+      {
+        asset: 'platinum-palembang-daun-kiri',
+        position: { left: '-16%' },
+        width: '36%',
+      },
+    ],
+    bride: [
+      {
+        asset: 'platinum-palembang-daun-kanan',
+        position: { right: '-16%' },
+        width: '36%',
+      },
+    ],
+  },
+  dividers: {
+    story: [dividerItem('platinum-palembang-tepak')],
+    events: [dividerItem('platinum-palembang-pending')],
+    gallery: [dividerItem('platinum-palembang-anting')],
+    wishes: [dividerItem('platinum-palembang-kain-palembang')],
+  },
+  closing: [
+    {
+      asset: 'platinum-palembang-bawah',
+      position: { bottom: '0', left: '12%' },
+      width: '76%',
       animation: false,
     },
   ],

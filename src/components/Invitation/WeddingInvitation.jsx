@@ -27,6 +27,7 @@ export default function WeddingInvitation({
 }) {
   const data = useInvitationData(defaults);
   const invitation = useInvitation();
+  const animated = components.experience === 'platinum';
   const Couple =
     components.couple === 1
       ? Couple1
@@ -44,7 +45,6 @@ export default function WeddingInvitation({
           : Gallery2;
   const Gift = components.gift === 1 ? Gift1 : Gift2;
   const coupleDecorations = ornamentPresets[theme]?.couple;
-  const animated = components.experience === 'platinum';
 
   return (
     <InvitationLayout

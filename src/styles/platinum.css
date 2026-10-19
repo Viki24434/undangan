@@ -16,11 +16,72 @@
   background: var(--invitation-panel);
 }
 .platinum-template .invitation-closing {
+  isolation: isolate;
   background: radial-gradient(
     ellipse at bottom,
     var(--platinum-glow),
     transparent 65%
   );
+}
+.platinum-template :is(.invitation-section, .invitation-closing)::before,
+.platinum-template :is(.invitation-section, .invitation-closing)::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.platinum-template :is(.invitation-section, .invitation-closing)::before,
+.platinum-template .invitation-section:nth-of-type(even)::before {
+  width: min(115%, 560px);
+  aspect-ratio: 1;
+  left: -42%;
+  right: auto;
+  top: 8%;
+  bottom: auto;
+  background-image:
+    var(--template-background-art), var(--template-background-foliage, none);
+  background-size:
+    82% auto,
+    66% auto;
+  background-position:
+    center top,
+    right bottom;
+  opacity: 0.1;
+  transform: none;
+}
+.platinum-template :is(.invitation-section, .invitation-closing)::after,
+.platinum-template .invitation-section:nth-of-type(even)::after {
+  width: min(80%, 380px);
+  aspect-ratio: 1;
+  right: -32%;
+  left: auto;
+  bottom: 4%;
+  top: auto;
+  background-image:
+    var(--template-edge-art), var(--template-edge-foliage, none);
+  background-size:
+    90% auto,
+    70% auto;
+  background-position:
+    center bottom,
+    left top;
+  opacity: 0.13;
+  transform: none;
+}
+.platinum-template
+  .platinum-chapter[data-backdrop-side='right']
+  :is(.invitation-section, .invitation-closing)::before {
+  left: auto;
+  right: -42%;
+}
+.platinum-template
+  .platinum-chapter[data-backdrop-side='right']
+  :is(.invitation-section, .invitation-closing)::after {
+  right: auto;
+  left: -32%;
 }
 @media (prefers-reduced-motion: reduce) {
   .platinum-cover *,
