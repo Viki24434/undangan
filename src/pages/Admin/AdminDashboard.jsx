@@ -131,6 +131,9 @@ export default function AdminDashboard() {
                     <td>
                       <div className="admin-actions">
                         <Link to={`/admin/undangan/${item.id}`}>Kelola</Link>
+                        <Link to={`/admin/undangan/${item.id}/tamu`}>
+                          Daftar tamu
+                        </Link>
                         {item.status === 'published' && (
                           <Link
                             to={`/u/${item.slug}`}
@@ -146,7 +149,10 @@ export default function AdminDashboard() {
                       </div>
                       {confirmId === item.id && (
                         <div className="admin-delete-confirm">
-                          <p>Hapus undangan beserta RSVP dan ucapannya?</p>
+                          <p>
+                            Hapus undangan beserta daftar tamu, RSVP, dan
+                            ucapannya?
+                          </p>
                           <button
                             className="admin-button danger"
                             disabled={deleting === item.id}

@@ -10,6 +10,9 @@ export default defineConfig(({ mode }) => {
     .filter(Boolean);
   return {
     plugins: [react()],
+    optimizeDeps: {
+      include: ['exceljs'],
+    },
     server: {
       port: 2125,
       strictPort: true,

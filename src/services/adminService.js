@@ -86,6 +86,15 @@ export const adminService = {
       `/admin/invitations/${encodeURIComponent(id)}/${type}?limit=100&offset=${offset}`,
       { signal },
     ),
+  guestList: (id, signal) =>
+    request(`/admin/invitations/${encodeURIComponent(id)}/guest-list`, {
+      signal,
+    }),
+  saveGuestList: (id, guests, revision) =>
+    request(`/admin/invitations/${encodeURIComponent(id)}/guest-list`, {
+      method: 'PATCH',
+      body: { guests, revision },
+    }),
   removeWish: (id) =>
     request(`/admin/wishes/${encodeURIComponent(id)}`, { method: 'DELETE' }),
 };

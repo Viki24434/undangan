@@ -164,6 +164,12 @@ export default function AdminEditor() {
           <div className="admin-actions">
             <Link
               className="admin-button secondary"
+              to={`/admin/undangan/${id}/tamu`}
+            >
+              Daftar tamu
+            </Link>
+            <Link
+              className="admin-button secondary"
               to={`/admin/undangan/${id}/preview`}
               target="_blank"
               rel="noopener noreferrer"

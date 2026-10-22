@@ -2,6 +2,7 @@
 import AdminLogin from './pages/Admin/AdminLogin';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import AdminEditor from './pages/Admin/AdminEditor';
+import AdminGuestList from './pages/Admin/AdminGuestList';
 import AdminPreview from './pages/Admin/AdminPreview';
 import AdminTemplates from './pages/Admin/AdminTemplates';
 import AdminTemplateEditor from './pages/Admin/AdminTemplateEditor';
@@ -28,6 +29,7 @@ function App() {
           <Route path="sosial-media" element={<AdminSocialLinks />} />
           <Route path="undangan/baru" element={<AdminEditor key="new" />} />
           <Route path="undangan/:id" element={<AdminEditor />} />
+          <Route path="undangan/:id/tamu" element={<AdminGuestList />} />
           <Route path="undangan/:id/preview" element={<AdminPreview />} />
         </Route>
         <Route path="/" element={<Home />} />
