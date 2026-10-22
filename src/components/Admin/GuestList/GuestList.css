@@ -124,6 +124,66 @@
   gap: 12px;
 }
 
+.guest-message-presets {
+  margin-bottom: 22px;
+}
+
+.guest-message-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  align-items: start;
+}
+
+.guest-message-grid textarea {
+  line-height: 1.7;
+}
+
+.guest-message-help {
+  display: grid;
+  gap: 12px;
+}
+
+.guest-message-tags {
+  gap: 8px;
+}
+
+.guest-message-tags .admin-button {
+  padding: 7px 10px;
+}
+
+.guest-message-preview {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--admin-line);
+  border-radius: 12px;
+  background: #f1f4ec;
+}
+
+.guest-message-preview h3 {
+  font-size: 15px;
+}
+
+.guest-message-bubble {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 20px;
+  border-radius: 0 14px 14px;
+  background: #fffef8;
+  font-size: 12px;
+  line-height: 1.8;
+  max-height: 540px;
+  overflow-y: auto;
+}
+
+@media (max-width: 1100px) {
+  .guest-message-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 @media (max-width: 680px) {
   .admin-form .guest-form-grid,
   .guest-filters {

@@ -14,15 +14,26 @@ import {
 import GuestEntryForm from '../../components/Admin/GuestList/GuestEntryForm';
 import GuestImportPanel from '../../components/Admin/GuestList/GuestImportPanel';
 import GuestListTable from '../../components/Admin/GuestList/GuestListTable';
+import GuestMessageEditor from '../../components/Admin/GuestList/GuestMessageEditor';
+import {
+  DEFAULT_GUEST_MESSAGE,
+  guestMessageError,
+} from '../../services/guestMessage';
 import '../../components/Admin/GuestList/GuestList.css';
 
 const PAGE_SIZE = 25;
 
-export default function AdminGuestList() {
-  const { id } = useParams();
+function guestDocumentSnapshot(document) {
+  return JSON.stringify({
+    guests: document?.guests || [],
+    messageTemplate: document?.messageTemplate ?? DEFAULT_GUEST_MESSAGE,
+  });
+}
+
+function GuestList({ id }) {
   const navigate = useNavigate();
   const [document, setDocument] = useState(null);
-  const [saved, setSaved] = useState('[]');
+  const [saved, setSaved] = useState(() => guestDocumentSnapshot(null));
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
   const [busy, setBusy] = useState('');
@@ -32,7 +43,7 @@ export default function AdminGuestList() {
   const [filter, setFilter] = useState('all');
   const [page, setPage] = useState(0);
   const formAnchor = useRef(null);
-  const snapshot = JSON.stringify(document?.guests || []);
+  const snapshot = guestDocumentSnapshot(document);
   const dirty = snapshot !== saved;
   const recoveryKey = `invitation-guests:${id}`;
 
@@ -42,7 +53,11 @@ export default function AdminGuestList() {
       .guestList(id, controller.signal)
       .then(({ data }) => {
         if (controller.signal.aborted) return;
-        setSaved(JSON.stringify(data.guests));
+        data = {
+          ...data,
+          messageTemplate: data.messageTemplate || DEFAULT_GUEST_MESSAGE,
+        };
+        setSaved(guestDocumentSnapshot(data));
         try {
           const recovery = JSON.parse(
             sessionStorage.getItem(recoveryKey) || 'null',
@@ -51,7 +66,14 @@ export default function AdminGuestList() {
             recovery?.revision === data.revision &&
             Array.isArray(recovery.guests)
           ) {
-            data = { ...data, guests: recovery.guests };
+            data = {
+              ...data,
+              guests: recovery.guests,
+              messageTemplate:
+                typeof recovery.messageTemplate === 'string'
+                  ? recovery.messageTemplate
+                  : data.messageTemplate,
+            };
             setNotice(
               'Perubahan yang belum disimpan telah dipulihkan dari tab ini.',
             );
@@ -76,6 +98,7 @@ export default function AdminGuestList() {
           recoveryKey,
           JSON.stringify({
             guests: document.guests,
+            messageTemplate: document.messageTemplate,
             revision: document.revision,
           }),
         );
@@ -127,11 +150,14 @@ export default function AdminGuestList() {
     setError('');
     setNotice('');
     try {
+      const messageError = guestMessageError(document.messageTemplate);
+      if (messageError) throw new Error(messageError);
       if (
         new Blob([
           JSON.stringify({
             guests: document.guests,
             revision: document.revision,
+            messageTemplate: document.messageTemplate,
           }),
         ]).size > 2097152
       )
@@ -142,9 +168,10 @@ export default function AdminGuestList() {
         id,
         document.guests,
         document.revision,
+        document.messageTemplate,
       );
       setDocument((current) => ({ ...current, ...data }));
-      setSaved(snapshot);
+      setSaved(guestDocumentSnapshot({ ...document, ...data }));
       setNotice('Daftar tamu berhasil disimpan.');
     } catch (error) {
       if (error.status === 401) navigate('/admin/login');
@@ -330,6 +357,19 @@ export default function AdminGuestList() {
         onApply={applyImport}
         onCancel={() => setPreview(null)}
       />
+      <GuestMessageEditor
+        value={document.messageTemplate}
+        invitation={invitation}
+        sampleName={guests[0]?.name}
+        disabled={!!busy}
+        onChange={(messageTemplate) => {
+          setDocument((current) => ({ ...current, messageTemplate }));
+          setNotice(
+            'Pesan diperbarui. Klik Simpan daftar tamu untuk menyimpan.',
+          );
+          setError('');
+        }}
+      />
       <div ref={formAnchor}>
         <GuestEntryForm
           key={editing?.id || 'new'}
@@ -384,6 +424,7 @@ export default function AdminGuestList() {
           <GuestListTable
             guests={visible}
             invitation={invitation}
+            messageTemplate={document.messageTemplate}
             busy={!!busy}
             onEdit={(guest) => {
               setEditing(guest);
@@ -444,4 +485,9 @@ export default function AdminGuestList() {
       </section>
     </div>
   );
+}
+
+export default function AdminGuestList() {
+  const { id } = useParams();
+  return <GuestList key={id} id={id} />;
 }

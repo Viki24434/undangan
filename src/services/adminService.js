@@ -90,10 +90,10 @@ export const adminService = {
     request(`/admin/invitations/${encodeURIComponent(id)}/guest-list`, {
       signal,
     }),
-  saveGuestList: (id, guests, revision) =>
+  saveGuestList: (id, guests, revision, messageTemplate) =>
     request(`/admin/invitations/${encodeURIComponent(id)}/guest-list`, {
       method: 'PATCH',
-      body: { guests, revision },
+      body: { guests, revision, messageTemplate },
     }),
   removeWish: (id) =>
     request(`/admin/wishes/${encodeURIComponent(id)}`, { method: 'DELETE' }),

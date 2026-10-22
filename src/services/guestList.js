@@ -1,3 +1,9 @@
+import {
+  DEFAULT_GUEST_MESSAGE,
+  guestMessageError,
+  renderGuestMessage,
+} from './guestMessage';
+
 export const GUEST_LIMIT = 5000;
 
 export const guestNameKey = (name) =>
@@ -63,11 +69,20 @@ export function invitationGuestUrl(slug, name) {
   return url.href;
 }
 
-export function guestWhatsAppUrl(guest, invitation) {
+export function guestWhatsAppUrl(
+  guest,
+  invitation,
+  template = DEFAULT_GUEST_MESSAGE,
+) {
   let phone = guest.phone.replace(/\D/g, '');
   if (phone.startsWith('0')) phone = `62${phone.slice(1)}`;
   if (!/^\d{8,15}$/.test(phone)) return '';
+  if (guestMessageError(template)) return '';
   const link = invitationGuestUrl(invitation.slug, guest.name);
-  const message = `Yth. ${guest.name},\n\nDengan senang hati kami mengundang Anda dalam acara ${invitation.title}.\n\nSilakan buka undangan berikut:\n${link}\n\nTerima kasih.`;
+  const message = renderGuestMessage(template.trim(), {
+    name: guest.name,
+    title: invitation.title,
+    link,
+  });
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 }

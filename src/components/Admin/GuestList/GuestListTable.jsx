@@ -4,6 +4,7 @@ import { guestWhatsAppUrl } from '../../../services/guestList';
 export default function GuestListTable({
   guests,
   invitation,
+  messageTemplate,
   busy,
   onEdit,
   onRemove,
@@ -24,7 +25,11 @@ export default function GuestListTable({
         </thead>
         <tbody>
           {guests.map((guest) => {
-            const whatsapp = guestWhatsAppUrl(guest, invitation);
+            const whatsapp = guestWhatsAppUrl(
+              guest,
+              invitation,
+              messageTemplate,
+            );
             const published = invitation.status === 'published';
             return (
               <tr key={guest.id}>
