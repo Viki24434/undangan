@@ -63,8 +63,42 @@ export function mergeGuests(current, incoming) {
   };
 }
 
-export function invitationGuestUrl(slug, name) {
-  const url = new URL(`/u/${encodeURIComponent(slug)}`, window.location.origin);
+export function normalizeInvitationUrl(value) {
+  const input = value.trim();
+  if (!input) return '';
+  if (!/^https?:\/\//i.test(input) && !/^\/(?!\/)/.test(input))
+    throw new Error(
+      'Gunakan link lengkap berawalan https:// atau alamat /u/nama-undangan.',
+    );
+  let url;
+  try {
+    url = new URL(input, window.location.origin);
+  } catch {
+    throw new Error('Link undangan belum valid. Periksa kembali alamatnya.');
+  }
+  if (
+    !['https:', 'http:'].includes(url.protocol) ||
+    url.username ||
+    url.password
+  )
+    throw new Error(
+      'Link undangan harus menggunakan HTTP atau HTTPS tanpa kredensial.',
+    );
+  if (/^\/(admin|edit|t)(\/|$)/.test(url.pathname))
+    throw new Error(
+      'Gunakan link undangan yang sudah terbit, bukan link editor atau demo.',
+    );
+  url.searchParams.delete('to');
+  url.hash = '';
+  return url.href;
+}
+
+export function invitationGuestUrl(slug, name, baseUrl) {
+  if (!baseUrl && !slug) return '';
+  const url = new URL(
+    baseUrl || `/u/${encodeURIComponent(slug)}`,
+    window.location.origin,
+  );
   url.searchParams.set('to', name);
   return url.href;
 }
@@ -78,7 +112,8 @@ export function guestWhatsAppUrl(
   if (phone.startsWith('0')) phone = `62${phone.slice(1)}`;
   if (!/^\d{8,15}$/.test(phone)) return '';
   if (guestMessageError(template)) return '';
-  const link = invitationGuestUrl(invitation.slug, guest.name);
+  const link = invitationGuestUrl(invitation.slug, guest.name, invitation.url);
+  if (!link) return '';
   const message = renderGuestMessage(template.trim(), {
     name: guest.name,
     title: invitation.title,

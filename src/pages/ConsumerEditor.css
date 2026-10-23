@@ -23,6 +23,15 @@
   border-radius: 8px;
   color: var(--admin-ink);
 }
+.consumer-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 8px 0 28px;
+}
+.consumer-guests .admin-panel-heading {
+  align-items: flex-start;
+}
 .template-edit-link {
   display: flex;
   justify-content: space-between;

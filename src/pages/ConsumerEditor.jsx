@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { templateRegistry } from '../config/templateRegistry';
 import { templateDefaults } from '../config/templateDefaults';
 import {
@@ -10,6 +10,12 @@ import {
 import { InvitationContext } from '../components/Invitation/InvitationContext';
 import InvitationForm from '../components/Admin/InvitationForm';
 import MobileWrapper from '../components/MobileWrapper/MobileWrapper';
+import ConsumerGuestManager from '../components/Consumer/ConsumerGuestManager';
+import {
+  createLocalGuestList,
+  readLocalGuestList,
+  writeLocalGuestList,
+} from '../services/localGuestLists';
 import '../components/Admin/Admin.css';
 import './ConsumerEditor.css';
 
@@ -33,14 +39,17 @@ function initialForm(template, data) {
   };
 }
 
-export default function ConsumerEditor() {
-  const { id } = useParams();
+function ConsumerEditorContent({ id }) {
+  const [, setSearchParams] = useSearchParams();
   const template = templateRegistry.find((item) => item.id === id);
   const [form, setForm] = useState(null);
   const [preview, setPreview] = useState(null);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
   const [pendingUploads, setPendingUploads] = useState(0);
+  const [guestBusy, setGuestBusy] = useState(false);
+  const [tab, setTab] = useState('invitation');
+  const [guestList, setGuestList] = useState(createLocalGuestList);
   const editorRef = useRef(null);
 
   useEffect(() => {
@@ -59,7 +68,16 @@ export default function ConsumerEditor() {
       try {
         const value =
           saved || initialForm(template, await templateDefaults(id));
-        if (active) setForm(value);
+        if (active) {
+          setForm(value);
+          try {
+            setGuestList(readLocalGuestList(id));
+          } catch {
+            setNotice(
+              'Daftar tamu lama tidak dapat dibaca. Salinan lama tetap ada sampai Anda mengubah daftar tamu.',
+            );
+          }
+        }
       } catch (error) {
         if (active) setError(error.message);
       }
@@ -71,6 +89,7 @@ export default function ConsumerEditor() {
   }, [id, template]);
 
   function saveLocal(value) {
+    setNotice('');
     try {
       writeLocalDraft(value);
       setNotice('Tersimpan di browser perangkat ini.');
@@ -87,11 +106,41 @@ export default function ConsumerEditor() {
     saveLocal(value);
   }
 
-  function showPreview() {
-    if (!editorRef.current?.querySelector('form')?.reportValidity()) return;
+  function changeGuestList(value) {
+    setGuestList(value);
+    setNotice('');
     try {
+      writeLocalGuestList(id, value);
+      setNotice('Daftar tamu dan pesan tersimpan di browser perangkat ini.');
+      setError('');
+    } catch (error) {
+      const reason =
+        error.name === 'Error'
+          ? error.message
+          : 'Browser belum dapat menyimpan daftar tamu dan pesan.';
+      setError(
+        `${reason} Unduh salinan draft agar perubahan tetap memiliki cadangan.`,
+      );
+    }
+  }
+
+  function showPreview(guestName) {
+    const invitationForm = editorRef.current?.querySelector('form');
+    if (invitationForm && !invitationForm.reportValidity()) return;
+    try {
+      if (!form.title.trim())
+        throw new Error('Isi judul undangan terlebih dahulu.');
       if (!form.data.events?.length)
         throw new Error('Tambahkan minimal satu jadwal acara.');
+      if (typeof guestName === 'string')
+        setSearchParams(
+          (current) => {
+            const next = new URLSearchParams(current);
+            next.set('to', guestName);
+            return next;
+          },
+          { replace: true },
+        );
       setPreview(localPreview(form));
     } catch (error) {
       setError(error.message);
@@ -99,9 +148,12 @@ export default function ConsumerEditor() {
   }
 
   function download() {
-    const blob = new Blob([JSON.stringify({ version: 1, form }, null, 2)], {
-      type: 'application/json',
-    });
+    const blob = new Blob(
+      [JSON.stringify({ version: 1, form, guestList }, null, 2)],
+      {
+        type: 'application/json',
+      },
+    );
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
@@ -137,7 +189,7 @@ export default function ConsumerEditor() {
   }
 
   return (
-    <div className="admin-app consumer-editor" ref={editorRef}>
+    <div className="admin-app consumer-editor">
       <main className="consumer-main">
         <header className="admin-page-heading">
           <div>
@@ -155,8 +207,8 @@ export default function ConsumerEditor() {
             <button
               className="admin-button"
               type="button"
-              disabled={pendingUploads > 0}
-              onClick={showPreview}
+              disabled={pendingUploads > 0 || guestBusy}
+              onClick={() => showPreview()}
             >
               Preview ↗
             </button>
@@ -179,22 +231,65 @@ export default function ConsumerEditor() {
             {notice}
           </p>
         )}
-        <InvitationForm
-          onUploadStatus={(delta) =>
-            setPendingUploads((count) => Math.max(0, count + delta))
-          }
-          form={form}
-          templates={[template]}
-          onChange={change}
-          onTemplateChange={() => {}}
-          onSubmit={(event) => {
-            event.preventDefault();
-            saveLocal(form);
-          }}
-          busy={false}
-          localOnly
-        />
+        <div
+          className="consumer-tabs"
+          role="group"
+          aria-label="Bagian editor customer"
+        >
+          <button
+            type="button"
+            className={`admin-button ${tab === 'invitation' ? '' : 'secondary'}`}
+            aria-pressed={tab === 'invitation'}
+            disabled={pendingUploads > 0 || guestBusy}
+            onClick={() => setTab('invitation')}
+          >
+            Isi undangan
+          </button>
+          <button
+            type="button"
+            className={`admin-button ${tab === 'guests' ? '' : 'secondary'}`}
+            aria-pressed={tab === 'guests'}
+            disabled={pendingUploads > 0 || guestBusy}
+            onClick={() => setTab('guests')}
+          >
+            Daftar tamu & pesan (
+            {guestList.guests.length.toLocaleString('id-ID')})
+          </button>
+        </div>
+        {tab === 'guests' ? (
+          <ConsumerGuestManager
+            value={guestList}
+            title={form.title}
+            templateId={id}
+            onChange={changeGuestList}
+            onPreview={(guest) => showPreview(guest.name)}
+            onBusyChange={setGuestBusy}
+          />
+        ) : (
+          <div ref={editorRef}>
+            <InvitationForm
+              onUploadStatus={(delta) =>
+                setPendingUploads((count) => Math.max(0, count + delta))
+              }
+              form={form}
+              templates={[template]}
+              onChange={change}
+              onTemplateChange={() => {}}
+              onSubmit={(event) => {
+                event.preventDefault();
+                saveLocal(form);
+              }}
+              busy={false}
+              localOnly
+            />
+          </div>
+        )}
       </main>
     </div>
   );
+}
+
+export default function ConsumerEditor() {
+  const { id } = useParams();
+  return <ConsumerEditorContent key={id} id={id} />;
 }

@@ -14,6 +14,7 @@ export default function GuestMessageEditor({
   sampleName,
   disabled,
   onChange,
+  saveHint = 'Klik Simpan daftar tamu setelah selesai mengubah pesan.',
 }) {
   const editor = useRef(null);
   const [name, setName] = useState(sampleName || 'Nama Tamu');
@@ -22,7 +23,9 @@ export default function GuestMessageEditor({
   const preview = renderGuestMessage(value, {
     name: previewName,
     title: invitation.title,
-    link: invitationGuestUrl(invitation.slug, previewName),
+    link:
+      invitationGuestUrl(invitation.slug, previewName, invitation.url) ||
+      '[Link undangan pribadi]',
   });
 
   function insertTag(tag) {
@@ -72,6 +75,7 @@ export default function GuestMessageEditor({
               rows={18}
               maxLength={GUEST_MESSAGE_LIMIT}
               disabled={disabled}
+              aria-label="Isi pesan"
               aria-invalid={!!error}
               aria-describedby="guest-message-help"
               onChange={(event) => onChange(event.target.value)}
@@ -80,7 +84,7 @@ export default function GuestMessageEditor({
           <div className="guest-message-help" id="guest-message-help">
             <p>
               Klik tag untuk menyisipkan data otomatis. Tag link pribadi wajib
-              ada. Klik Simpan daftar tamu setelah selesai mengubah pesan.
+              ada. {saveHint}
             </p>
             <div className="admin-actions guest-message-tags">
               {GUEST_MESSAGE_TAGS.map(({ tag, label }) => (

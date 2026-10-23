@@ -10,6 +10,7 @@ export default function GuestListTable({
   onRemove,
   onToggle,
   onCopy,
+  onPreview,
 }) {
   const [confirmId, setConfirmId] = useState('');
   return (
@@ -54,6 +55,11 @@ export default function GuestListTable({
                 </td>
                 <td data-label="Aksi">
                   <div className="admin-actions guest-row-actions">
+                    {onPreview && (
+                      <button disabled={busy} onClick={() => onPreview(guest)}>
+                        Preview
+                      </button>
+                    )}
                     <button
                       disabled={busy || !published}
                       onClick={() => onCopy(guest)}
