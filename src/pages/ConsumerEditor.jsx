@@ -11,6 +11,7 @@ import { InvitationContext } from '../components/Invitation/InvitationContext';
 import InvitationForm from '../components/Admin/InvitationForm';
 import MobileWrapper from '../components/MobileWrapper/MobileWrapper';
 import ConsumerGuestManager from '../components/Consumer/ConsumerGuestManager';
+import CustomerSubmissionForm from '../components/Consumer/CustomerSubmissionForm';
 import {
   createLocalGuestList,
   readLocalGuestList,
@@ -48,6 +49,7 @@ function ConsumerEditorContent({ id }) {
   const [notice, setNotice] = useState('');
   const [pendingUploads, setPendingUploads] = useState(0);
   const [guestBusy, setGuestBusy] = useState(false);
+  const [submissionBusy, setSubmissionBusy] = useState(false);
   const [tab, setTab] = useState('invitation');
   const [guestList, setGuestList] = useState(createLocalGuestList);
   const editorRef = useRef(null);
@@ -199,19 +201,29 @@ function ConsumerEditorContent({ id }) {
             <span className="admin-eyebrow">BUAT CERITAMU SENDIRI</span>
             <h1>Edit {template.name}</h1>
             <p>
-              Perubahan disimpan otomatis di browser ini dan tidak dikirim ke
-              server. Draft hanya tersedia di perangkat dan browser yang sama.
+              Selama mengedit, draft disimpan otomatis di browser perangkat ini.
+              Data baru dikirim saat Anda memilih Kirim ke admin.
             </p>
           </div>
           <div className="admin-actions">
             <button
               className="admin-button"
               type="button"
-              disabled={pendingUploads > 0 || guestBusy}
+              disabled={pendingUploads > 0 || guestBusy || submissionBusy}
               onClick={() => showPreview()}
             >
               Preview ↗
             </button>
+            {tab !== 'send' && (
+              <button
+                className="admin-button secondary"
+                type="button"
+                disabled={pendingUploads > 0 || guestBusy || submissionBusy}
+                onClick={() => setTab('send')}
+              >
+                Kirim ke admin
+              </button>
+            )}
             <button
               className="consumer-download"
               type="button"
@@ -240,7 +252,7 @@ function ConsumerEditorContent({ id }) {
             type="button"
             className={`admin-button ${tab === 'invitation' ? '' : 'secondary'}`}
             aria-pressed={tab === 'invitation'}
-            disabled={pendingUploads > 0 || guestBusy}
+            disabled={pendingUploads > 0 || guestBusy || submissionBusy}
             onClick={() => setTab('invitation')}
           >
             Isi undangan
@@ -249,14 +261,29 @@ function ConsumerEditorContent({ id }) {
             type="button"
             className={`admin-button ${tab === 'guests' ? '' : 'secondary'}`}
             aria-pressed={tab === 'guests'}
-            disabled={pendingUploads > 0 || guestBusy}
+            disabled={pendingUploads > 0 || guestBusy || submissionBusy}
             onClick={() => setTab('guests')}
           >
             Daftar tamu & pesan (
             {guestList.guests.length.toLocaleString('id-ID')})
           </button>
+          <button
+            type="button"
+            className={`admin-button ${tab === 'send' ? '' : 'secondary'}`}
+            aria-pressed={tab === 'send'}
+            disabled={pendingUploads > 0 || guestBusy || submissionBusy}
+            onClick={() => setTab('send')}
+          >
+            Kirim hasil edit
+          </button>
         </div>
-        {tab === 'guests' ? (
+        {tab === 'send' ? (
+          <CustomerSubmissionForm
+            form={form}
+            guestList={guestList}
+            onBusyChange={setSubmissionBusy}
+          />
+        ) : tab === 'guests' ? (
           <ConsumerGuestManager
             value={guestList}
             title={form.title}

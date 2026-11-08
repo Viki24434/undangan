@@ -11,6 +11,35 @@ async function request(path, options = {}) {
   return result;
 }
 export const adminService = {
+  submissions: (offset = 0, status = '', signal) =>
+    request(
+      `/admin/submissions?limit=20&offset=${offset}&status=${encodeURIComponent(status)}`,
+      { signal },
+    ),
+  submission: (id, signal) =>
+    request(`/admin/submissions/${encodeURIComponent(id)}`, { signal }),
+  acceptSubmission: (id, slug) =>
+    request(`/admin/submissions/${encodeURIComponent(id)}/accept`, {
+      method: 'POST',
+      body: { slug },
+    }),
+  rejectSubmission: (id, note) =>
+    request(`/admin/submissions/${encodeURIComponent(id)}/reject`, {
+      method: 'POST',
+      body: { note },
+    }),
+  removeSubmission: (id) =>
+    request(`/admin/submissions/${encodeURIComponent(id)}`, {
+      method: 'DELETE',
+    }),
+  async submissionImage(id, hash, signal) {
+    const response = await fetch(
+      `${API_BASE_URL}/admin/submissions/${encodeURIComponent(id)}/images/${hash}`,
+      { credentials: 'include', signal },
+    );
+    if (!response.ok) throw new Error('Gambar kiriman belum dapat dimuat.');
+    return response.blob();
+  },
   async downloadGuestPhoto(invitationId, photo) {
     const response = await fetch(
       `${API_BASE_URL}/admin/invitations/${encodeURIComponent(invitationId)}/photos/${encodeURIComponent(photo.id)}`,

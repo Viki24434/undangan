@@ -8,6 +8,9 @@ import AdminTemplates from './pages/Admin/AdminTemplates';
 import AdminTemplateEditor from './pages/Admin/AdminTemplateEditor';
 import AdminPackages from './pages/Admin/AdminPackages';
 import AdminSocialLinks from './pages/Admin/AdminSocialLinks';
+import AdminSubmissions from './pages/Admin/AdminSubmissions';
+import AdminSubmission from './pages/Admin/AdminSubmission';
+import AdminSubmissionPreview from './pages/Admin/AdminSubmissionPreview';
 import InvitationPage from './pages/InvitationPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
@@ -27,6 +30,12 @@ function App() {
           <Route path="template/:id" element={<AdminTemplateEditor />} />
           <Route path="paket" element={<AdminPackages />} />
           <Route path="sosial-media" element={<AdminSocialLinks />} />
+          <Route path="kiriman" element={<AdminSubmissions />} />
+          <Route path="kiriman/:id" element={<AdminSubmission />} />
+          <Route
+            path="kiriman/:id/preview"
+            element={<AdminSubmissionPreview />}
+          />
           <Route path="undangan/baru" element={<AdminEditor key="new" />} />
           <Route path="undangan/:id" element={<AdminEditor />} />
           <Route path="undangan/:id/tamu" element={<AdminGuestList />} />

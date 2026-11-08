@@ -29,6 +29,25 @@
   gap: 12px;
   padding: 8px 0 28px;
 }
+.consumer-submission-summary {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 20px;
+  border: 1px solid var(--admin-line);
+  border-radius: 10px;
+  background: #f1f4ec;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.consumer-submission .admin-form fieldset {
+  display: grid;
+  gap: 20px;
+}
+.consumer-submission .admin-success p {
+  margin-top: 8px;
+  overflow-wrap: anywhere;
+}
 .consumer-guests .admin-panel-heading {
   align-items: flex-start;
 }

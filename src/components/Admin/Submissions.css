@@ -1,0 +1,44 @@
+.submission-contact {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 24px 0 0;
+  font-size: 13px;
+}
+.submission-contact dt {
+  color: #73806f;
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+.submission-contact dd {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.submission-review-form {
+  margin-top: 22px;
+}
+.submission-reject {
+  margin-top: 28px;
+  font-size: 13px;
+}
+.submission-reject summary {
+  cursor: pointer;
+  margin-bottom: 18px;
+}
+.submission-message {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    13px/1.8 'Segoe UI',
+    sans-serif;
+  padding: 20px;
+  margin-bottom: 0;
+  background: #f1f4ec;
+  border-radius: 8px;
+}
+@media (max-width: 650px) {
+  .submission-contact {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
