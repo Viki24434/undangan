@@ -3,23 +3,12 @@ import { useInvitation, useInvitationData } from './InvitationContext';
 import InvitationLayout from './InvitationLayout';
 import EventSection from './EventSection';
 import Guestbook from './Guestbook';
-import Couple1 from '../Couple/Couple1/Couple1';
-import Couple2 from '../Couple/Couple2/Couple2';
-import Couple3 from '../Couple/Couple3/Couple3';
-import Story1 from '../Story/Story1/Story1';
-import Story2 from '../Story/Story2/Story2';
-import Gallery1 from '../Gallery/Gallery1/Gallery1';
-import Gallery2 from '../Gallery/Gallery2/Gallery2';
-import Gallery3 from '../Gallery/Gallery3/Gallery3';
-import Gallery4 from '../Gallery/Gallery4/Gallery4';
-import Gift1 from '../Gift/Gift1/Gift1';
-import Gift2 from '../Gift/Gift2/Gift2';
+import { invitationVariants } from './invitationVariants';
 import { ornamentPresets } from '../Ornament/ornamentPresets';
 import ScrollReveal from '../ScrollReveal/ScrollReveal';
 import OptionalSections from './OptionalSections';
 import PlatinumChapter from '../Animation/PlatinumChapter/PlatinumChapter';
 import PlatinumGallery1 from '../Gallery/PlatinumGallery1/PlatinumGallery1';
-import InvitationGallery from './InvitationGallery';
 import useTemplateComponents from './useTemplateComponents';
 
 export default function WeddingInvitation({
@@ -32,23 +21,15 @@ export default function WeddingInvitation({
   const components = useTemplateComponents(componentDefaults, theme, true);
   const animated = components.experience === 'platinum';
   const Couple =
-    components.couple === 1
-      ? Couple1
-      : components.couple === 3
-        ? Couple3
-        : Couple2;
-  const Story = components.story === 1 ? Story1 : Story2;
+    invitationVariants.couple[components.couple] ||
+    invitationVariants.couple[2];
+  const Story =
+    invitationVariants.story[components.story] || invitationVariants.story[2];
   const Gallery =
-    components.gallery === 0
-      ? InvitationGallery
-      : components.gallery === 4
-        ? Gallery4
-        : components.gallery === 1
-          ? Gallery1
-          : components.gallery === 3
-            ? Gallery3
-            : Gallery2;
-  const Gift = components.gift === 1 ? Gift1 : Gift2;
+    invitationVariants.gallery[components.gallery] ||
+    invitationVariants.gallery[2];
+  const Gift =
+    invitationVariants.gift[components.gift] || invitationVariants.gift[2];
   const coupleDecorations = ornamentPresets[theme]?.couple;
 
   return (

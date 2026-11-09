@@ -1,11 +1,10 @@
 ﻿import { useEffect, useState } from 'react';
 import { invitationService } from '../services/api';
-import { templateRegistry } from '../config/templateRegistry';
 import { resolveTemplate } from '../config/templateRenderer';
 
 export default function useTemplates() {
   const [state, setState] = useState({
-    templates: templateRegistry,
+    templates: [],
     loading: true,
     error: '',
   });
@@ -24,7 +23,7 @@ export default function useTemplates() {
       .catch((error) => {
         if (error.name !== 'AbortError')
           setState({
-            templates: templateRegistry,
+            templates: [],
             loading: false,
             error: error.message,
           });

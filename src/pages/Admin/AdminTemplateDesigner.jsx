@@ -41,7 +41,8 @@ import '../../components/TemplateDesign/TemplateDesigner.css';
 function Designer({ id }) {
   const navigate = useNavigate();
   const { templates } = useTemplates();
-  const [sourceId, setSourceId] = useState(id || 'elegant-gold-01');
+  const [selectedSourceId, setSourceId] = useState('');
+  const sourceId = selectedSourceId || id || templates[0]?.id || '';
   const [template, setTemplate] = useState(null);
   const [history, setHistory] = useState({
     past: [],
@@ -92,6 +93,7 @@ function Designer({ id }) {
   const dirty = template && fingerprint !== saved;
 
   useEffect(() => {
+    if (!sourceId) return;
     const controller = new AbortController();
     invitationService
       .template(sourceId, controller.signal)

@@ -39,6 +39,11 @@ export async function apiRequest(
     error.status = response.status;
     throw error;
   }
+  if (
+    method !== 'GET' &&
+    /^\/admin\/(templates|packages|social-links)(\/|$)/.test(path)
+  )
+    invalidateCatalog();
   return result;
 }
 
@@ -62,9 +67,12 @@ export const invitationService = {
       throw new Error(result.message || 'Foto belum dapat dikirim.');
     return result.data;
   },
-  packages: (signal) => apiRequest('/packages', { signal }),
-  templates: (signal) => apiRequest('/templates', { signal }),
-  socialLinks: (signal) => apiRequest('/social-links', { signal }),
+  packages: (signal) =>
+    cachedCatalog('packages', () => apiRequest('/packages'), signal),
+  templates: (signal) =>
+    cachedCatalog('templates', () => apiRequest('/templates'), signal),
+  socialLinks: (signal) =>
+    cachedCatalog('social-links', () => apiRequest('/social-links'), signal),
   template: (id, signal) =>
     apiRequest(`/templates/${encodeURIComponent(id)}`, { signal }),
   invitation: (slug, signal) =>
@@ -85,3 +93,4 @@ export const invitationService = {
       body,
     }),
 };
+import { cachedCatalog, invalidateCatalog } from './catalogCache';

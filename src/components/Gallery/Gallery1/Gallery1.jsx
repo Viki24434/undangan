@@ -25,6 +25,8 @@ export default function Gallery1({ photos }) {
             delay={index % 2 === 0 ? 'delay-100' : 'delay-300'}
           >
             <img
+              loading="lazy"
+              decoding="async"
               src={photo}
               alt={`Galeri ${index + 1}`}
               className="gallery-1-img"

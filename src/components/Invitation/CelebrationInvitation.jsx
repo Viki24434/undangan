@@ -3,14 +3,10 @@ import AnimatedText from '../AnimatedText/AnimatedText';
 import { useInvitationData } from './InvitationContext';
 import InvitationLayout from './InvitationLayout';
 import EventSection from './EventSection';
-import InvitationGallery from './InvitationGallery';
 import Guestbook from './Guestbook';
-import Gallery1 from '../Gallery/Gallery1/Gallery1';
-import Gallery2 from '../Gallery/Gallery2/Gallery2';
-import Gallery3 from '../Gallery/Gallery3/Gallery3';
 import ScrollReveal from '../ScrollReveal/ScrollReveal';
 import OptionalSections from './OptionalSections';
-import Gallery4 from '../Gallery/Gallery4/Gallery4';
+import { invitationVariants } from './invitationVariants';
 import useTemplateComponents from './useTemplateComponents';
 
 export default function CelebrationInvitation({
@@ -20,6 +16,9 @@ export default function CelebrationInvitation({
 }) {
   const data = useInvitationData(defaults);
   const components = useTemplateComponents(componentDefaults, theme);
+  const Gallery =
+    invitationVariants.gallery[components.gallery] ||
+    invitationVariants.gallery[0];
   return (
     <InvitationLayout
       theme={theme}
@@ -72,17 +71,7 @@ export default function CelebrationInvitation({
         prayers={data.prayers}
       />
       <OrnamentDivider theme={theme} section="gallery" />
-      {components.gallery === 4 ? (
-        <Gallery4 photos={data.photos} />
-      ) : components.gallery === 1 ? (
-        <Gallery1 photos={data.photos} />
-      ) : components.gallery === 3 ? (
-        <Gallery3 photos={data.photos} />
-      ) : components.gallery === 2 ? (
-        <Gallery2 photos={data.photos} />
-      ) : (
-        <InvitationGallery photos={data.photos} />
-      )}
+      <Gallery photos={data.photos} />
       <OrnamentDivider theme={theme} section="wishes" />
       <Guestbook initialWishes={data.wishes} variant={components.wishes} />
     </InvitationLayout>

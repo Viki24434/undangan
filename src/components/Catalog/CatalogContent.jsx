@@ -73,7 +73,7 @@ export default function CatalogContent() {
           {loading
             ? 'Memuat koleksi dari server…'
             : error
-              ? `${error} Koleksi demo ditampilkan.`
+              ? 'Koleksi belum dapat dimuat. Silakan coba lagi.'
               : ''}
         </p>
         <CatalogFilters

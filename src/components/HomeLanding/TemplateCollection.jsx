@@ -7,7 +7,12 @@ import TemplateCard from '../TemplateCard/TemplateCard';
 
 export default function TemplateCollection() {
   const pricing = usePackages();
-  const { templates: availableTemplates, categories, error } = useTemplates();
+  const {
+    templates: availableTemplates,
+    categories,
+    loading,
+    error,
+  } = useTemplates();
   const [category, setCategory] = useState('Semua');
   const templates = availableTemplates.filter(
     (t) => category === 'Semua' || t.category === category,
@@ -43,9 +48,11 @@ export default function TemplateCollection() {
         ))}
       </div>
       <p role="status">
-        {error
-          ? 'Koneksi backend belum tersedia. Koleksi demo ditampilkan.'
-          : ''}
+        {loading
+          ? 'Memuat koleksi dari server…'
+          : error
+            ? 'Koleksi belum dapat dimuat. Silakan coba lagi.'
+            : ''}
       </p>
       {templates.length ? (
         <div className="invite-collection-grid">

@@ -1,6 +1,6 @@
 import { invitationService } from '../services/api';
-export async function templateDefaults(id) {
-  const { data: template } = await invitationService.template(id);
+export async function templateDefaults(id, signal) {
+  const { data: template } = await invitationService.template(id, signal);
   return {
     ...structuredClone(template.data),
     agenda: template.data.agenda || [],

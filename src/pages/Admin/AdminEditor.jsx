@@ -1,7 +1,7 @@
 ﻿import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { adminService } from '../../services/adminService';
-import { templateRegistry } from '../../config/templateRegistry';
+import { invitationService } from '../../services/api';
 import useTemplates from '../../hooks/useTemplates';
 import { templateDefaults } from '../../config/templateDefaults';
 import InvitationForm from '../../components/Admin/InvitationForm';
@@ -39,14 +39,25 @@ export default function AdminEditor() {
           ...data,
           eventDate: localDate(data.eventDate),
         }))
-      : templateDefaults(templateRegistry[0].id).then((data) => ({
-          title: '',
-          slug: '',
-          templateId: templateRegistry[0].id,
-          eventDate: localDate(data.targetDate),
-          status: 'draft',
-          data,
-        }));
+      : invitationService
+          .templates(controller.signal)
+          .then(async ({ data }) => {
+            const template = data[0];
+            if (!template)
+              throw new Error('Tambahkan template terlebih dahulu.');
+            const defaults = await templateDefaults(
+              template.id,
+              controller.signal,
+            );
+            return {
+              title: '',
+              slug: '',
+              templateId: template.id,
+              eventDate: localDate(defaults.targetDate),
+              status: 'draft',
+              data: defaults,
+            };
+          });
     load
       .then((value) => {
         if (!controller.signal.aborted) {

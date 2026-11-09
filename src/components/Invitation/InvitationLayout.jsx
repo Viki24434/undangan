@@ -1,5 +1,5 @@
 ﻿import { useInvitation } from './InvitationContext';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useContext, useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import DecorationLayer from '../Ornament/DecorationLayer';
 import { ornamentPresets } from '../Ornament/ornamentPresets';
@@ -8,21 +8,19 @@ import { platinumScenes } from '../../config/platinumScenes';
 import GuestGuide from './GuestGuide';
 import GuestPhotoUpload from './GuestPhotoUpload';
 import InvitationMusic from './InvitationMusic';
-import Cover1 from '../Cover/Cover1/Cover1';
-import Cover2 from '../Cover/Cover2/Cover2';
-import Hero1 from '../Hero/Hero1/Hero1';
-import Hero2 from '../Hero/Hero2/Hero2';
-import PlatinumCover1 from '../Cover/PlatinumCover1/PlatinumCover1';
-import PlatinumHero1 from '../Hero/PlatinumHero1/PlatinumHero1';
+import { invitationVariants } from './invitationVariants';
 import PlatinumNavbar from '../Navbar/PlatinumNavbar/PlatinumNavbar';
 import PlatinumMotion from '../Animation/PlatinumMotion/PlatinumMotion';
 import PlatinumChapter from '../Animation/PlatinumChapter/PlatinumChapter';
 import './Invitation.css';
-import TemplateDesignRuntime from '../TemplateDesign/TemplateDesignRuntime';
 import { DesignEditorContext } from '../TemplateDesign/DesignEditorContext';
 import { themeAttributes, themeStyles } from '../../config/invitationTheme';
 import './InvitationTheme.css';
 import './InvitationGradients.css';
+
+const TemplateDesignRuntime = lazy(
+  () => import('../TemplateDesign/TemplateDesignRuntime'),
+);
 
 export default function InvitationLayout({
   theme,
@@ -56,19 +54,22 @@ export default function InvitationLayout({
       : '/audio/romance.wav';
   const musicUrl = invitation?.data.musicUrl || defaultMusic;
   const Cover =
-    variants.cover === 3
-      ? PlatinumCover1
-      : variants.cover === 1
-        ? Cover1
-        : Cover2;
+    invitationVariants.cover[variants.cover] || invitationVariants.cover[2];
   const Hero =
-    variants.hero === 3 ? PlatinumHero1 : variants.hero === 1 ? Hero1 : Hero2;
+    invitationVariants.hero[variants.hero] || invitationVariants.hero[2];
   const decorations = ornamentPresets[theme] || {};
   const scene = platinumScenes[theme];
   const backgroundLeaf =
     scene && ornamentAssets[scene.chapterAssets['leaf-left']];
   const edgeLeaf = scene && ornamentAssets[scene.chapterAssets['leaf-right']];
   const templateTheme = invitation?.data.theme || {};
+  const design = invitation?.data.design;
+  const runtimeEnabled = Boolean(
+    designEditor ||
+    Object.keys(design?.native || {}).length ||
+    Object.keys(design?.sections || {}).length ||
+    Object.keys(templateTheme.sections || {}).length,
+  );
   const fontStyles =
     {
       classic: {
@@ -287,7 +288,11 @@ export default function InvitationLayout({
           {cover}
         </div>
       )}
-      <TemplateDesignRuntime root={designRoot} />
+      {runtimeEnabled && (
+        <Suspense fallback={null}>
+          <TemplateDesignRuntime root={designRoot} />
+        </Suspense>
+      )}
     </div>
   );
 }

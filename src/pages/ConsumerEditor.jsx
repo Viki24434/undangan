@@ -75,6 +75,10 @@ function ConsumerEditorContent({ id }) {
       try {
         const value =
           saved || initialForm(template, await templateDefaults(id));
+        value.data = {
+          ...value.data,
+          presentation: value.data.presentation || template.presentation,
+        };
         if (active) {
           setForm(value);
           try {

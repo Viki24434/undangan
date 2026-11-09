@@ -2,12 +2,12 @@
 import { invitationService } from '../../services/api';
 import { useSearchParams } from 'react-router-dom';
 import { useInvitation } from './InvitationContext';
-import Wishes1 from '../Wishes/Wishes1/Wishes1';
-import Wishes2 from '../Wishes/Wishes2/Wishes2';
+import { invitationVariants } from './invitationVariants';
 import ScrollReveal from '../ScrollReveal/ScrollReveal';
 
 export default function Guestbook({ initialWishes = [], variant = 2 }) {
-  const Wishes = variant === 1 ? Wishes1 : Wishes2;
+  const Wishes =
+    invitationVariants.wishes[variant] || invitationVariants.wishes[2];
   const invitation = useInvitation();
   const [searchParams] = useSearchParams();
   const recipientName = searchParams.get('to')?.trim() || '';
