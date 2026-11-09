@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
       strictPort: true,
       proxy: {
         '/api': {
-          target: env.BACKEND_URL || 'http://127.0.0.1:3001',
+          target: env.BACKEND_URL || 'http://127.0.0.1/undangan-back/public',
           changeOrigin: true,
         },
       },
@@ -30,7 +30,7 @@ export default defineConfig(({ mode }) => {
       allowedHosts,
       proxy: {
         '/api': {
-          target: env.BACKEND_URL || 'http://127.0.0.1:3001',
+          target: env.BACKEND_URL || 'http://127.0.0.1/undangan-back/public',
           changeOrigin: true,
         },
       },

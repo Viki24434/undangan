@@ -29,7 +29,7 @@ export async function apiRequest(
   } catch (error) {
     if (error.name === 'AbortError') throw error;
     throw new Error(
-      'Backend belum dapat dihubungi. Pastikan server Node.js aktif.',
+      'Backend belum dapat dihubungi. Pastikan Apache XAMPP atau server PHP aktif.',
       { cause: error },
     );
   }
