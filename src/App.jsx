@@ -6,6 +6,7 @@ import AdminGuestList from './pages/Admin/AdminGuestList';
 import AdminPreview from './pages/Admin/AdminPreview';
 import AdminTemplates from './pages/Admin/AdminTemplates';
 import AdminTemplateEditor from './pages/Admin/AdminTemplateEditor';
+import AdminTemplateDesigner from './pages/Admin/AdminTemplateDesigner';
 import AdminPackages from './pages/Admin/AdminPackages';
 import AdminSocialLinks from './pages/Admin/AdminSocialLinks';
 import AdminSubmissions from './pages/Admin/AdminSubmissions';
@@ -28,6 +29,11 @@ function App() {
           <Route index element={<AdminDashboard />} />
           <Route path="template" element={<AdminTemplates />} />
           <Route path="template/:id" element={<AdminTemplateEditor />} />
+          <Route path="template/baru" element={<AdminTemplateDesigner />} />
+          <Route
+            path="template/:id/desain"
+            element={<AdminTemplateDesigner />}
+          />
           <Route path="paket" element={<AdminPackages />} />
           <Route path="sosial-media" element={<AdminSocialLinks />} />
           <Route path="kiriman" element={<AdminSubmissions />} />

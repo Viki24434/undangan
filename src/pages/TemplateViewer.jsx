@@ -1,6 +1,6 @@
 ﻿import { Suspense, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { templateRegistry } from '../config/templateRegistry';
+import { resolveTemplate } from '../config/templateRenderer';
 import { invitationService } from '../services/api';
 import { InvitationContext } from '../components/Invitation/InvitationContext';
 import MobileWrapper from '../components/MobileWrapper/MobileWrapper';
@@ -15,7 +15,7 @@ export default function TemplateViewer() {
     socialError: '',
     error: '',
   });
-  const renderer = templateRegistry.find((template) => template.id === id);
+  const renderer = resolveTemplate(state.template);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -29,7 +29,9 @@ export default function TemplateViewer() {
           id,
           template: templateResult.value.data,
           socialLinks:
-            socialResult.status === 'fulfilled' ? socialResult.value.data : null,
+            socialResult.status === 'fulfilled'
+              ? socialResult.value.data
+              : null,
           socialError:
             socialResult.status === 'rejected'
               ? `Tautan WhatsApp tidak dapat dimuat: ${socialResult.reason.message}`

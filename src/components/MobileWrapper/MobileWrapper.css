@@ -42,12 +42,22 @@
   background: white;
   color: black;
 }
-.mw-device {
+.mw-preview-frame {
   position: relative;
   z-index: 2;
-  width: 400px;
-  height: 850px;
-  max-height: 90vh;
+  width: 424px;
+  height: calc(min(850px, 90vh) + 24px);
+  flex-shrink: 0;
+}
+.mw-preview-scrollbar {
+  left: calc(100% + 10px);
+}
+.mw-device {
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
   --invitation-screen-height: min(850px, 90vh);
   background-color: #1a1a1a;
   border: 12px solid #000000;
@@ -56,16 +66,12 @@
   overflow-y: auto;
   overflow-x: hidden;
   transform: translateZ(0);
+  scrollbar-width: none;
 }
 .mw-device::-webkit-scrollbar {
-  width: 4px;
-}
-.mw-device::-webkit-scrollbar-track {
-  background: transparent;
-}
-.mw-device::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
+  display: none;
+  width: 0;
+  height: 0;
 }
 @media (max-width: 768px) {
   .mw-desktop-bg {
@@ -88,12 +94,22 @@
     border-radius: 0;
     box-shadow: none;
   }
+  .mw-preview-frame {
+    width: 100%;
+    height: 100vh;
+  }
+  .mw-preview-scrollbar {
+    display: none;
+  }
 }
 @supports (height: 100dvh) {
   @media (max-width: 768px) {
     .mw-device {
       height: 100dvh;
       --invitation-screen-height: 100dvh;
+    }
+    .mw-preview-frame {
+      height: 100dvh;
     }
   }
 }
@@ -152,5 +168,7 @@
   border-radius: 8px;
   background: #fff3cd;
   color: #594717;
-  font: 12px 'Segoe UI', sans-serif;
+  font:
+    12px 'Segoe UI',
+    sans-serif;
 }

@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { templateRegistry } from '../../config/templateRegistry';
+import { resolveTemplate } from '../../config/templateRenderer';
 import { adminService } from '../../services/adminService';
 import { invitationService } from '../../services/api';
 import { InvitationContext } from '../../components/Invitation/InvitationContext';
@@ -19,8 +19,8 @@ function previewTitle(data, template) {
 export default function AdminTemplateEditor() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const templateInfo = templateRegistry.find((item) => item.id === id);
   const [template, setTemplate] = useState(null);
+  const templateInfo = resolveTemplate(template);
   const [form, setForm] = useState(null);
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
@@ -94,11 +94,7 @@ export default function AdminTemplateEditor() {
   if (!template || !form || !templateInfo) {
     return (
       <div className="admin-panel">
-        <p role="status">
-          {!templateInfo
-            ? 'Template tidak ditemukan.'
-            : error || 'Memuat template…'}
-        </p>
+        <p role="status">{error || 'Memuat template…'}</p>
         <Link to="/admin/template">Kembali ke daftar template</Link>
       </div>
     );
@@ -109,6 +105,7 @@ export default function AdminTemplateEditor() {
     const invitation = {
       id: template.id,
       templateId: template.id,
+      rendererId: template.rendererId,
       title: previewTitle(form.data, template),
       eventDate: form.data.targetDate,
       data: form.data,
@@ -146,6 +143,12 @@ export default function AdminTemplateEditor() {
           </p>
         </div>
         <div className="admin-actions">
+          <Link
+            className="admin-button secondary"
+            to={`/admin/template/${id}/desain`}
+          >
+            Edit desain & ornamen
+          </Link>
           <button
             className="admin-button secondary"
             type="button"

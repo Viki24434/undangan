@@ -1,5 +1,12 @@
 ﻿import { useEffect, useState } from 'react';
-import { Link, NavLink, Navigate, Outlet, useNavigate } from 'react-router-dom';
+import {
+  Link,
+  NavLink,
+  Navigate,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import { adminService } from '../../services/adminService';
 import './Admin.css';
 
@@ -7,6 +14,7 @@ export default function AdminLayout() {
   const [session, setSession] = useState(null);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   useEffect(() => {
     const controller = new AbortController();
     adminService
@@ -46,7 +54,15 @@ export default function AdminLayout() {
           </NavLink>
           <NavLink to="/admin/undangan/baru">Buat undangan</NavLink>
           <NavLink to="/admin/kiriman">Kiriman customer</NavLink>
-          <NavLink to="/admin/template">Paket template</NavLink>
+          <NavLink
+            to="/admin/template"
+            end={/^\/admin\/template\/baru\/?$/.test(pathname)}
+          >
+            Paket template
+          </NavLink>
+          <NavLink to="/admin/template/baru">
+            Buat template custom
+          </NavLink>
           <NavLink to="/admin/paket">Harga paket</NavLink>
           <NavLink to="/admin/sosial-media">Sosial media</NavLink>
           <Link to="/katalog">Katalog template ↗</Link>

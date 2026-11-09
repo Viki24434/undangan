@@ -1,0 +1,436 @@
+:is(
+  .celebration-template[data-template-theme][data-theme-background='true'],
+  .celebration-template[data-template-theme] [data-theme-background='true']
+):is(
+  .invitation-section,
+  .invitation-intro,
+  .invitation-closing,
+  .couple-1-container,
+  .couple-2,
+  .couple-3,
+  .story-1-container,
+  .story-2
+),
+:is(
+    .celebration-template[data-template-theme][data-theme-background='true'],
+    .celebration-template[data-template-theme] [data-theme-background='true']
+  )
+  :is(
+    .invitation-section,
+    .invitation-intro,
+    .invitation-closing,
+    .couple-1-container,
+    .couple-2,
+    .couple-3,
+    .story-1-container,
+    .story-2
+  ) {
+  background-color: var(--custom-background) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-surface='true'],
+  .celebration-template[data-template-theme] [data-theme-surface='true']
+):is(
+  .invitation-event-card,
+  .invitation-cover-frame,
+  .cover-1-content,
+  .invitation-form,
+  .gift-1-card,
+  .gift-2__card,
+  .invitation-wish,
+  .wish-item,
+  .couple-1-card,
+  .couple-2__person,
+  .couple-3__person,
+  .countdown-2__unit,
+  .cd-1-box
+),
+:is(
+    .celebration-template[data-template-theme][data-theme-surface='true'],
+    .celebration-template[data-template-theme] [data-theme-surface='true']
+  )
+  :is(
+    .invitation-event-card,
+    .invitation-cover-frame,
+    .cover-1-content,
+    .invitation-form,
+    .gift-1-card,
+    .gift-2__card,
+    .invitation-wish,
+    .wish-item,
+    .couple-1-card,
+    .couple-2__person,
+    .couple-3__person,
+    .countdown-2__unit,
+    .cd-1-box
+  ) {
+  background: var(--custom-surface) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-paper='true'],
+  .celebration-template[data-template-theme] [data-theme-paper='true']
+):is(
+  .platinum-envelope__letter,
+  .cinematic-hero__panel,
+  .cinematic-hero__archway
+),
+:is(
+    .celebration-template[data-template-theme][data-theme-paper='true'],
+    .celebration-template[data-template-theme] [data-theme-paper='true']
+  )
+  :is(
+    .platinum-envelope__letter,
+    .cinematic-hero__panel,
+    .cinematic-hero__archway
+  ) {
+  background: var(--custom-paper) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-text='true'],
+  .celebration-template[data-template-theme] [data-theme-text='true']
+):is(.invitation-cover, .cover-1-wrapper, .invitation-hero, .hero-1-container),
+:is(
+    .celebration-template[data-template-theme][data-theme-text='true'],
+    .celebration-template[data-template-theme] [data-theme-text='true']
+  )
+  :is(
+    .invitation-cover,
+    .cover-1-wrapper,
+    .invitation-hero,
+    .hero-1-container
+  ) {
+  --color-text: var(--custom-text) !important;
+  color: var(--custom-text) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-text='true'],
+  .celebration-template[data-template-theme] [data-theme-text='true']
+):is(
+  p,
+  li,
+  label,
+  blockquote,
+  td,
+  th,
+  .invitation-date,
+  .invitation-back,
+  .hero-1-title,
+  .hero-1-quote,
+  .platinum-cover__heading,
+  .platinum-cover__open,
+  .platinum-envelope__letter
+),
+:is(
+    .celebration-template[data-template-theme][data-theme-text='true'],
+    .celebration-template[data-template-theme] [data-theme-text='true']
+  )
+  :is(
+    p,
+    li,
+    label,
+    blockquote,
+    td,
+    th,
+    .invitation-date,
+    .invitation-back,
+    .hero-1-title,
+    .hero-1-quote,
+    .platinum-cover__heading,
+    .platinum-cover__open,
+    .platinum-envelope__letter
+  ) {
+  color: var(--custom-text) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-accent='true'],
+  .celebration-template[data-template-theme] [data-theme-accent='true']
+):is(.invitation-cover, .cover-1-wrapper, .invitation-hero, .hero-1-container),
+:is(
+    .celebration-template[data-template-theme][data-theme-accent='true'],
+    .celebration-template[data-template-theme] [data-theme-accent='true']
+  )
+  :is(
+    .invitation-cover,
+    .cover-1-wrapper,
+    .invitation-hero,
+    .hero-1-container
+  ) {
+  --color-accent: var(--custom-accent) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-accent='true'],
+  .celebration-template[data-template-theme] [data-theme-accent='true']
+):is(
+  .invitation-kicker,
+  .invitation-divider,
+  .invitation-monogram,
+  .platinum-edition,
+  .platinum-envelope__letter-monogram,
+  .hero-1-subtitle,
+  .cinematic-hero__ampersand,
+  em
+),
+:is(
+    .celebration-template[data-template-theme][data-theme-accent='true'],
+    .celebration-template[data-template-theme] [data-theme-accent='true']
+  )
+  :is(
+    .invitation-kicker,
+    .invitation-divider,
+    .invitation-monogram,
+    .platinum-edition,
+    .platinum-envelope__letter-monogram,
+    .hero-1-subtitle,
+    .cinematic-hero__ampersand,
+    em
+  ) {
+  color: var(--custom-accent) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-muted='true'],
+  .celebration-template[data-template-theme] [data-theme-muted='true']
+):is(
+  small,
+  .invitation-back,
+  .invitation-demo-note,
+  .gift-2__status,
+  .story-2__date,
+  .invitation-form-status
+),
+:is(
+    .celebration-template[data-template-theme][data-theme-muted='true'],
+    .celebration-template[data-template-theme] [data-theme-muted='true']
+  )
+  :is(
+    small,
+    .invitation-back,
+    .invitation-demo-note,
+    .gift-2__status,
+    .story-2__date,
+    .invitation-form-status
+  ) {
+  color: var(--custom-muted) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-heading='true'],
+  .celebration-template[data-template-theme] [data-theme-heading='true']
+):is(h1, h2, h3, h4),
+:is(
+    .celebration-template[data-template-theme][data-theme-heading='true'],
+    .celebration-template[data-template-theme] [data-theme-heading='true']
+  )
+  :is(h1, h2, h3, h4) {
+  color: var(--custom-heading) !important;
+}
+:is(
+    .celebration-template[data-template-theme][data-theme-heading='true'],
+    .celebration-template[data-template-theme] [data-theme-heading='true']
+  ):is(h1, h2, h3, h4)
+  :is(span, em, strong),
+:is(
+    .celebration-template[data-template-theme][data-theme-heading='true'],
+    .celebration-template[data-template-theme] [data-theme-heading='true']
+  )
+  :is(h1, h2, h3, h4)
+  :is(span, em, strong) {
+  color: var(--custom-heading) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-border='true'],
+  .celebration-template[data-template-theme] [data-theme-border='true']
+):is(
+  input,
+  textarea,
+  select,
+  .invitation-button,
+  .invitation-cover-frame,
+  .cover-1-content,
+  .cinematic-hero__panel,
+  .cinematic-hero__archway,
+  .invitation-event-card,
+  .invitation-monogram,
+  .platinum-envelope,
+  .platinum-envelope__letter,
+  .couple-1-portrait,
+  .couple-2__portrait,
+  .couple-3__portrait,
+  .gift-1-card,
+  .gift-2__card,
+  .cd-1-box,
+  .countdown-2__unit
+),
+:is(
+    .celebration-template[data-template-theme][data-theme-border='true'],
+    .celebration-template[data-template-theme] [data-theme-border='true']
+  )
+  :is(
+    input,
+    textarea,
+    select,
+    .invitation-button,
+    .invitation-cover-frame,
+    .cover-1-content,
+    .cinematic-hero__panel,
+    .cinematic-hero__archway,
+    .invitation-event-card,
+    .invitation-monogram,
+    .platinum-envelope,
+    .platinum-envelope__letter,
+    .couple-1-portrait,
+    .couple-2__portrait,
+    .couple-3__portrait,
+    .gift-1-card,
+    .gift-2__card,
+    .cd-1-box,
+    .countdown-2__unit
+  ) {
+  border-color: var(--custom-border) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-border='true'],
+  .celebration-template[data-template-theme] [data-theme-border='true']
+):is(.countdown-3__track, .countdown-3__progress),
+:is(
+    .celebration-template[data-template-theme][data-theme-border='true'],
+    .celebration-template[data-template-theme] [data-theme-border='true']
+  )
+  :is(.countdown-3__track, .countdown-3__progress) {
+  stroke: var(--custom-border) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-button-background='true'],
+  .celebration-template[data-template-theme]
+    [data-theme-button-background='true']
+):is(button, .invitation-button),
+:is(
+    .celebration-template[data-template-theme][data-theme-button-background='true'],
+    .celebration-template[data-template-theme]
+      [data-theme-button-background='true']
+  )
+  :is(button, .invitation-button) {
+  background: var(--custom-button-background) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-button-text='true'],
+  .celebration-template[data-template-theme] [data-theme-button-text='true']
+):is(button, .invitation-button),
+:is(
+    .celebration-template[data-template-theme][data-theme-button-text='true'],
+    .celebration-template[data-template-theme] [data-theme-button-text='true']
+  )
+  :is(button, .invitation-button) {
+  color: var(--custom-button-text) !important;
+}
+:is(
+    .celebration-template[data-template-theme][data-theme-button-text='true'],
+    .celebration-template[data-template-theme] [data-theme-button-text='true']
+  ):is(button, .invitation-button)
+  :is(span, strong),
+:is(
+    .celebration-template[data-template-theme][data-theme-button-text='true'],
+    .celebration-template[data-template-theme] [data-theme-button-text='true']
+  )
+  :is(button, .invitation-button)
+  :is(span, strong) {
+  color: var(--custom-button-text) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-input-background='true'],
+  .celebration-template[data-template-theme]
+    [data-theme-input-background='true']
+):is(input, textarea, select),
+:is(
+    .celebration-template[data-template-theme][data-theme-input-background='true'],
+    .celebration-template[data-template-theme]
+      [data-theme-input-background='true']
+  )
+  :is(input, textarea, select) {
+  background: var(--custom-input-background) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-input-text='true'],
+  .celebration-template[data-template-theme] [data-theme-input-text='true']
+):is(input, textarea, select),
+:is(
+    .celebration-template[data-template-theme][data-theme-input-text='true'],
+    .celebration-template[data-template-theme] [data-theme-input-text='true']
+  )
+  :is(input, textarea, select) {
+  color: var(--custom-input-text) !important;
+}
+:is(
+    .celebration-template[data-template-theme][data-theme-input-text='true'],
+    .celebration-template[data-template-theme] [data-theme-input-text='true']
+  )
+  input::placeholder {
+  color: var(--custom-input-text) !important;
+  opacity: 0.65;
+}
+:is(
+    .celebration-template[data-template-theme][data-theme-input-text='true'],
+    .celebration-template[data-template-theme] [data-theme-input-text='true']
+  )
+  textarea::placeholder {
+  color: var(--custom-input-text) !important;
+  opacity: 0.65;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-navigation='true'],
+  .celebration-template[data-template-theme] [data-theme-navigation='true']
+):is(.invitation-section-nav, .platinum-navigation),
+:is(
+    .celebration-template[data-template-theme][data-theme-navigation='true'],
+    .celebration-template[data-template-theme] [data-theme-navigation='true']
+  )
+  :is(.invitation-section-nav, .platinum-navigation) {
+  background: var(--custom-navigation) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-navigation-text='true'],
+  .celebration-template[data-template-theme] [data-theme-navigation-text='true']
+):is(.invitation-section-nav, .platinum-navigation),
+:is(
+    .celebration-template[data-template-theme][data-theme-navigation-text='true'],
+    .celebration-template[data-template-theme]
+      [data-theme-navigation-text='true']
+  )
+  :is(.invitation-section-nav, .platinum-navigation) {
+  color: var(--custom-navigation-text) !important;
+}
+:is(
+    .celebration-template[data-template-theme][data-theme-navigation-text='true'],
+    .celebration-template[data-template-theme]
+      [data-theme-navigation-text='true']
+  ):is(.invitation-section-nav, .platinum-navigation)
+  :is(a, span),
+:is(
+    .celebration-template[data-template-theme][data-theme-navigation-text='true'],
+    .celebration-template[data-template-theme]
+      [data-theme-navigation-text='true']
+  )
+  :is(.invitation-section-nav, .platinum-navigation)
+  :is(a, span) {
+  color: var(--custom-navigation-text) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-overlay='true'],
+  .celebration-template[data-template-theme] [data-theme-overlay='true']
+):is(.invitation-cover-shade, .cover-1-overlay, .hero-1-overlay),
+:is(
+    .celebration-template[data-template-theme][data-theme-overlay='true'],
+    .celebration-template[data-template-theme] [data-theme-overlay='true']
+  )
+  :is(.invitation-cover-shade, .cover-1-overlay, .hero-1-overlay) {
+  background: var(--custom-overlay) !important;
+}
+:is(
+    .celebration-template[data-template-theme][data-theme-overlay='true'],
+    .celebration-template[data-template-theme] [data-theme-overlay='true']
+  ).invitation-hero::before,
+:is(
+    .celebration-template[data-template-theme][data-theme-overlay='true'],
+    .celebration-template[data-template-theme] [data-theme-overlay='true']
+  )
+  .invitation-hero::before {
+  background: var(--custom-overlay) !important;
+}

@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { DesignEditorContext } from '../TemplateDesign/DesignEditorContext';
 import './AnimatedText.css';
 
 const glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -9,10 +10,13 @@ export default function AnimatedText({
   duration = 1400,
 }) {
   const ref = useRef(null);
+  const editor = useContext(DesignEditorContext);
+  const still = Boolean(editor && !editor.playing);
   const [frame, setFrame] = useState({ progress: 1, tick: 0 });
   const value = String(text ?? '');
 
   useEffect(() => {
+    if (still) return;
     const element = ref.current;
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let animation;
@@ -59,10 +63,12 @@ export default function AnimatedText({
       observer?.disconnect();
       motion.removeEventListener('change', finish);
     };
-  }, [value, effect, duration]);
+  }, [value, effect, duration, still]);
 
   const characters = Array.from(value);
-  const resolved = Math.ceil(frame.progress * characters.length);
+  const resolved = still
+    ? characters.length
+    : Math.ceil(frame.progress * characters.length);
 
   return (
     <span className="animated-text" ref={ref} aria-label={value}>

@@ -1,5 +1,5 @@
 ﻿import { useInvitation } from './InvitationContext';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import DecorationLayer from '../Ornament/DecorationLayer';
 import { ornamentPresets } from '../Ornament/ornamentPresets';
@@ -18,6 +18,11 @@ import PlatinumNavbar from '../Navbar/PlatinumNavbar/PlatinumNavbar';
 import PlatinumMotion from '../Animation/PlatinumMotion/PlatinumMotion';
 import PlatinumChapter from '../Animation/PlatinumChapter/PlatinumChapter';
 import './Invitation.css';
+import TemplateDesignRuntime from '../TemplateDesign/TemplateDesignRuntime';
+import { DesignEditorContext } from '../TemplateDesign/DesignEditorContext';
+import { themeAttributes, themeStyles } from '../../config/invitationTheme';
+import './InvitationTheme.css';
+import './InvitationGradients.css';
 
 export default function InvitationLayout({
   theme,
@@ -32,10 +37,13 @@ export default function InvitationLayout({
   children,
 }) {
   const invitation = useInvitation();
+  const designEditor = useContext(DesignEditorContext);
+  const designRoot = useRef(null);
   const [searchParams] = useSearchParams();
   const guestName = searchParams.get('to')?.trim();
   const displayTitle = invitation?.title || title;
-  const [opened, setOpened] = useState(false);
+  const [openedState, setOpened] = useState(false);
+  const opened = designEditor ? designEditor.section !== 'cover' : openedState;
   const [coverOpening, setCoverOpening] = useState(false);
   const contentRef = useRef(null);
   const musicRef = useRef(null);
@@ -77,6 +85,10 @@ export default function InvitationLayout({
   );
 
   function openInvitation() {
+    if (designEditor) {
+      designEditor.onOpen();
+      return;
+    }
     if (opened) return;
     setOpened(true);
     setCoverOpening(true);
@@ -137,14 +149,12 @@ export default function InvitationLayout({
 
   return (
     <div
+      ref={designRoot}
+      data-template-theme="true"
+      {...themeAttributes(templateTheme)}
       className={`celebration-template ${theme}${variants.experience === 'platinum' ? ' platinum-template' : ''}${variants.adat ? ' platinum-adat' : ''}`}
       style={{
-        ...(templateTheme.background && {
-          '--color-bg': templateTheme.background,
-        }),
-        ...(templateTheme.accent && {
-          '--color-accent': templateTheme.accent,
-        }),
+        ...themeStyles(templateTheme),
         ...fontStyles,
         '--template-seal-art': decorations.waxSeal
           ? `url("${ornamentAssets[decorations.waxSeal].src}")`
@@ -277,6 +287,7 @@ export default function InvitationLayout({
           {cover}
         </div>
       )}
+      <TemplateDesignRuntime root={designRoot} />
     </div>
   );
 }

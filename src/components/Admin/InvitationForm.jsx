@@ -3,6 +3,7 @@ import ImageField from './ImageField';
 import RepeatableFields from './RepeatableFields';
 import { prayerTemplates } from './prayerTemplates';
 import { packageName } from '../../config/invitationPackages';
+import DesignThemeEditor from '../TemplateDesign/DesignThemeEditor';
 
 export default function InvitationForm({
   form,
@@ -87,10 +88,7 @@ export default function InvitationForm({
                     required
                     value={(data.targetDate || '').slice(0, 16)}
                     onChange={(event) =>
-                      detail(
-                        'targetDate',
-                        `${event.target.value}:00+07:00`,
-                      )
+                      detail('targetDate', `${event.target.value}:00+07:00`)
                     }
                   />
                 </label>
@@ -171,46 +169,12 @@ export default function InvitationForm({
         {templateMode && (
           <section className="admin-form-section">
             <h2>Warna & font template</h2>
-            <div className="admin-field-grid">
-              {[
-                ['background', 'Warna latar', themeDefaults.background],
-                ['accent', 'Warna utama / aksen', themeDefaults.accent],
-              ].map(([key, label, fallback]) => (
-                <label key={key}>
-                  {label}
-                  <input
-                    type="color"
-                    value={data.theme?.[key] || fallback || '#ffffff'}
-                    onChange={(event) =>
-                      detail('theme', {
-                        ...data.theme,
-                        [key]: event.target.value,
-                      })
-                    }
-                  />
-                </label>
-              ))}
-              <label>
-                Font
-                <select
-                  value={data.theme?.font || 'default'}
-                  onChange={(event) =>
-                    detail('theme', {
-                      ...data.theme,
-                      font: event.target.value,
-                    })
-                  }
-                >
-                  <option value="default">Bawaan template</option>
-                  <option value="classic">Serif klasik</option>
-                  <option value="modern">Sans modern</option>
-                </select>
-              </label>
-            </div>
-            <small>
-              Pilih warna untuk mengubah latar dan aksen; font aman tanpa
-              memasukkan kode CSS.
-            </small>
+            <DesignThemeEditor
+              value={data.theme}
+              defaults={themeDefaults}
+              disabled={busy}
+              onChange={(value) => detail('theme', value)}
+            />
           </section>
         )}
         <section className="admin-form-section">
@@ -379,9 +343,7 @@ export default function InvitationForm({
           title="Jadwal & lokasi"
           items={data.events}
           fields={[
-            ...(templateMode
-              ? [{ key: 'date', label: 'Tanggal acara' }]
-              : []),
+            ...(templateMode ? [{ key: 'date', label: 'Tanggal acara' }] : []),
             { key: 'title', label: 'Nama acara' },
             { key: 'time', label: 'Waktu (contoh 09.00–10.00 WIB)' },
             { key: 'venue', label: 'Nama tempat' },
@@ -577,8 +539,8 @@ export default function InvitationForm({
             {templateMode
               ? 'Perubahan menjadi konten default untuk template ini.'
               : localOnly
-              ? 'Perubahan disimpan di browser perangkat ini.'
-              : 'Draft dapat dipreview sebelum diterbitkan.'}
+                ? 'Perubahan disimpan di browser perangkat ini.'
+                : 'Draft dapat dipreview sebelum diterbitkan.'}
           </p>
           <button className="admin-button" type="submit">
             {busy
@@ -586,8 +548,8 @@ export default function InvitationForm({
               : templateMode
                 ? 'Simpan template'
                 : localOnly
-                ? 'Simpan di perangkat'
-                : 'Simpan undangan'}
+                  ? 'Simpan di perangkat'
+                  : 'Simpan undangan'}
           </button>
         </div>
       </fieldset>

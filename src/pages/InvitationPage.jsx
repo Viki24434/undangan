@@ -1,7 +1,7 @@
 ﻿import { Suspense, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { invitationService } from '../services/api';
-import { templateRegistry } from '../config/templateRegistry';
+import { resolveTemplate } from '../config/templateRenderer';
 import { InvitationContext } from '../components/Invitation/InvitationContext';
 import MobileWrapper from '../components/MobileWrapper/MobileWrapper';
 import './InvitationPage.css';
@@ -31,9 +31,7 @@ export default function InvitationPage() {
       </div>
     );
   const invitation = state.invitation;
-  const template = templateRegistry.find(
-    (item) => item.id === invitation?.templateId,
-  );
+  const template = resolveTemplate(invitation);
   if (state.error || !template) {
     return (
       <div className="invitation-page-state">

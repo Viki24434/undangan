@@ -19,14 +19,17 @@ import ScrollReveal from '../ScrollReveal/ScrollReveal';
 import OptionalSections from './OptionalSections';
 import PlatinumChapter from '../Animation/PlatinumChapter/PlatinumChapter';
 import PlatinumGallery1 from '../Gallery/PlatinumGallery1/PlatinumGallery1';
+import InvitationGallery from './InvitationGallery';
+import useTemplateComponents from './useTemplateComponents';
 
 export default function WeddingInvitation({
   theme,
   data: defaults,
-  components = {},
+  components: componentDefaults = {},
 }) {
   const data = useInvitationData(defaults);
   const invitation = useInvitation();
+  const components = useTemplateComponents(componentDefaults, theme, true);
   const animated = components.experience === 'platinum';
   const Couple =
     components.couple === 1
@@ -36,13 +39,15 @@ export default function WeddingInvitation({
         : Couple2;
   const Story = components.story === 1 ? Story1 : Story2;
   const Gallery =
-    components.gallery === 4
-      ? Gallery4
-      : components.gallery === 1
-        ? Gallery1
-        : components.gallery === 3
-          ? Gallery3
-          : Gallery2;
+    components.gallery === 0
+      ? InvitationGallery
+      : components.gallery === 4
+        ? Gallery4
+        : components.gallery === 1
+          ? Gallery1
+          : components.gallery === 3
+            ? Gallery3
+            : Gallery2;
   const Gift = components.gift === 1 ? Gift1 : Gift2;
   const coupleDecorations = ornamentPresets[theme]?.couple;
 

@@ -10,13 +10,16 @@ import Gallery2 from '../Gallery/Gallery2/Gallery2';
 import Gallery3 from '../Gallery/Gallery3/Gallery3';
 import ScrollReveal from '../ScrollReveal/ScrollReveal';
 import OptionalSections from './OptionalSections';
+import Gallery4 from '../Gallery/Gallery4/Gallery4';
+import useTemplateComponents from './useTemplateComponents';
 
 export default function CelebrationInvitation({
   theme,
   data: defaults,
-  components = {},
+  components: componentDefaults = {},
 }) {
   const data = useInvitationData(defaults);
+  const components = useTemplateComponents(componentDefaults, theme);
   return (
     <InvitationLayout
       theme={theme}
@@ -69,7 +72,9 @@ export default function CelebrationInvitation({
         prayers={data.prayers}
       />
       <OrnamentDivider theme={theme} section="gallery" />
-      {components.gallery === 1 ? (
+      {components.gallery === 4 ? (
+        <Gallery4 photos={data.photos} />
+      ) : components.gallery === 1 ? (
         <Gallery1 photos={data.photos} />
       ) : components.gallery === 3 ? (
         <Gallery3 photos={data.photos} />

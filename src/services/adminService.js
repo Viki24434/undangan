@@ -11,6 +11,8 @@ async function request(path, options = {}) {
   return result;
 }
 export const adminService = {
+  createTemplate: (body) =>
+    request('/admin/templates', { method: 'POST', body }),
   submissions: (offset = 0, status = '', signal) =>
     request(
       `/admin/submissions?limit=20&offset=${offset}&status=${encodeURIComponent(status)}`,

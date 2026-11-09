@@ -1,6 +1,7 @@
 ﻿import { useEffect, useState } from 'react';
 import { invitationService } from '../services/api';
 import { templateRegistry } from '../config/templateRegistry';
+import { resolveTemplate } from '../config/templateRenderer';
 
 export default function useTemplates() {
   const [state, setState] = useState({
@@ -15,10 +16,8 @@ export default function useTemplates() {
       .templates(controller.signal)
       .then(({ data }) => {
         const templates = data.flatMap((template) => {
-          const local = templateRegistry.find(
-            (item) => item.id === template.id,
-          );
-          return local ? [{ ...local, ...template }] : [];
+          const resolved = resolveTemplate(template);
+          return resolved ? [resolved] : [];
         });
         setState({ templates, loading: false, error: '' });
       })

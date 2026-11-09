@@ -1,0 +1,202 @@
+.celebration-template[data-theme-gradient-background='true'] {
+  background-image: var(--custom-background-gradient) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-gradient-background='true'],
+  .celebration-template[data-template-theme]
+    [data-theme-gradient-background='true']
+):is(
+  .invitation-section,
+  .invitation-intro,
+  .invitation-closing,
+  .couple-1-container,
+  .couple-2,
+  .couple-3,
+  .story-1-container,
+  .story-2
+),
+:is(
+    .celebration-template[data-template-theme][data-theme-gradient-background='true'],
+    .celebration-template[data-template-theme]
+      [data-theme-gradient-background='true']
+  )
+  :is(
+    .invitation-section,
+    .invitation-intro,
+    .invitation-closing,
+    .couple-1-container,
+    .couple-2,
+    .couple-3,
+    .story-1-container,
+    .story-2
+  ) {
+  background-image: var(--custom-background-gradient) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-gradient-surface='true'],
+  .celebration-template[data-template-theme]
+    [data-theme-gradient-surface='true']
+):is(
+  .invitation-event-card,
+  .invitation-cover-frame,
+  .cover-1-content,
+  .invitation-form,
+  .gift-1-card,
+  .gift-2__card,
+  .invitation-wish,
+  .wish-item,
+  .couple-1-card,
+  .couple-2__person,
+  .couple-3__person,
+  .countdown-2__unit,
+  .cd-1-box
+),
+:is(
+    .celebration-template[data-template-theme][data-theme-gradient-surface='true'],
+    .celebration-template[data-template-theme]
+      [data-theme-gradient-surface='true']
+  )
+  :is(
+    .invitation-event-card,
+    .invitation-cover-frame,
+    .cover-1-content,
+    .invitation-form,
+    .gift-1-card,
+    .gift-2__card,
+    .invitation-wish,
+    .wish-item,
+    .couple-1-card,
+    .couple-2__person,
+    .couple-3__person,
+    .countdown-2__unit,
+    .cd-1-box
+  ) {
+  background: var(--custom-surface-gradient) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-gradient-paper='true'],
+  .celebration-template[data-template-theme] [data-theme-gradient-paper='true']
+):is(
+  .platinum-envelope__letter,
+  .cinematic-hero__panel,
+  .cinematic-hero__archway
+),
+:is(
+    .celebration-template[data-template-theme][data-theme-gradient-paper='true'],
+    .celebration-template[data-template-theme]
+      [data-theme-gradient-paper='true']
+  )
+  :is(
+    .platinum-envelope__letter,
+    .cinematic-hero__panel,
+    .cinematic-hero__archway
+  ) {
+  background: var(--custom-paper-gradient) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-gradient-button-background='true'],
+  .celebration-template[data-template-theme]
+    [data-theme-gradient-button-background='true']
+):is(button, .invitation-button),
+:is(
+    .celebration-template[data-template-theme][data-theme-gradient-button-background='true'],
+    .celebration-template[data-template-theme]
+      [data-theme-gradient-button-background='true']
+  )
+  :is(button, .invitation-button) {
+  background: var(--custom-button-background-gradient) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-gradient-input-background='true'],
+  .celebration-template[data-template-theme]
+    [data-theme-gradient-input-background='true']
+):is(input, textarea, select),
+:is(
+    .celebration-template[data-template-theme][data-theme-gradient-input-background='true'],
+    .celebration-template[data-template-theme]
+      [data-theme-gradient-input-background='true']
+  )
+  :is(input, textarea, select) {
+  background: var(--custom-input-background-gradient) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-gradient-navigation='true'],
+  .celebration-template[data-template-theme]
+    [data-theme-gradient-navigation='true']
+):is(.invitation-section-nav, .platinum-navigation),
+:is(
+    .celebration-template[data-template-theme][data-theme-gradient-navigation='true'],
+    .celebration-template[data-template-theme]
+      [data-theme-gradient-navigation='true']
+  )
+  :is(.invitation-section-nav, .platinum-navigation) {
+  background: var(--custom-navigation-gradient) !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-gradient-accent='true'],
+  .celebration-template[data-template-theme] [data-theme-gradient-accent='true']
+):is(
+  .invitation-kicker,
+  .invitation-divider,
+  .invitation-monogram,
+  .platinum-edition,
+  .platinum-envelope__letter-monogram,
+  .hero-1-subtitle,
+  .cinematic-hero__ampersand,
+  em
+),
+:is(
+    .celebration-template[data-template-theme][data-theme-gradient-accent='true'],
+    .celebration-template[data-template-theme]
+      [data-theme-gradient-accent='true']
+  )
+  :is(
+    .invitation-kicker,
+    .invitation-divider,
+    .invitation-monogram,
+    .platinum-edition,
+    .platinum-envelope__letter-monogram,
+    .hero-1-subtitle,
+    .cinematic-hero__ampersand,
+    em
+  ) {
+  background-image: var(--custom-accent-gradient) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+:is(
+  .celebration-template[data-template-theme][data-theme-gradient-heading='true'],
+  .celebration-template[data-template-theme]
+    [data-theme-gradient-heading='true']
+):is(h1, h2, h3, h4),
+:is(
+    .celebration-template[data-template-theme][data-theme-gradient-heading='true'],
+    .celebration-template[data-template-theme]
+      [data-theme-gradient-heading='true']
+  )
+  :is(h1, h2, h3, h4) {
+  background-image: var(--custom-heading-gradient) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+:is(
+    .celebration-template[data-template-theme][data-theme-gradient-heading='true'],
+    .celebration-template[data-template-theme]
+      [data-theme-gradient-heading='true']
+  ):is(h1, h2, h3, h4)
+  :is(span, em, strong),
+:is(
+    .celebration-template[data-template-theme][data-theme-gradient-heading='true'],
+    .celebration-template[data-template-theme]
+      [data-theme-gradient-heading='true']
+  )
+  :is(h1, h2, h3, h4)
+  :is(span, em, strong) {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  background-image: none !important;
+}

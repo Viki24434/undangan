@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { useRef } from 'react';
+import PreviewScrollbar from './PreviewScrollbar';
 import './MobileWrapper.css';
 
 export default function MobileWrapper({
@@ -10,6 +12,7 @@ export default function MobileWrapper({
   orderTo,
   orderError,
 }) {
+  const device = useRef(null);
   const defaultBg =
     'https://images.unsplash.com/photo-1519741497674-611481863552?q=80';
 
@@ -64,7 +67,12 @@ export default function MobileWrapper({
         </p>
       )}
 
-      <div className="mw-device">{children}</div>
+      <div className="mw-preview-frame">
+        <div ref={device} className="mw-device">
+          {children}
+        </div>
+        <PreviewScrollbar targetRef={device} className="mw-preview-scrollbar" />
+      </div>
     </div>
   );
 }

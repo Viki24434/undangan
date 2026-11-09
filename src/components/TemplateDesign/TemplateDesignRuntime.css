@@ -1,0 +1,181 @@
+.template-design-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: clip;
+}
+.design-backdrop-before::before,
+.design-backdrop-after::after {
+  content: none !important;
+}
+.template-design-backdrop-group {
+  display: block;
+  pointer-events: none;
+}
+.template-design-backdrop-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+.template-design-has-replacement > :not(.template-design-native-replacement) {
+  visibility: hidden !important;
+}
+.template-design-native-replacement {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+.template-design-native-replacement img,
+.template-design-native-replacement svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: fill;
+}
+[data-design-native][data-design-editing='true'] {
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: none;
+}
+.template-design-item {
+  position: absolute;
+  display: block;
+  transform-origin: center;
+  pointer-events: none;
+}
+.template-design-entry,
+.template-design-motion {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 90%;
+}
+.template-design-item img,
+.template-design-item svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  user-select: none;
+  pointer-events: none;
+}
+.template-design-sized img,
+.template-design-sized svg {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.template-design-motion[data-motion='sway'],
+.template-design-native-motion[data-design-motion='sway'] {
+  animation: designSway 6s ease-in-out infinite;
+}
+.template-design-motion[data-motion='float'],
+.template-design-native-motion[data-design-motion='float'] {
+  animation: designFloat 6s ease-in-out infinite;
+}
+.template-design-motion[data-motion='pulse'],
+.template-design-native-motion[data-design-motion='pulse'] {
+  animation: designPulse 6s ease-in-out infinite;
+}
+.template-design-motion[data-motion='spin'],
+.template-design-native-motion[data-design-motion='spin'] {
+  animation: designSpin 6s linear infinite;
+}
+.template-design-motion[data-motion='flutter'],
+.template-design-native-motion[data-design-motion='flutter'] {
+  animation: designFlutter 6s ease-in-out infinite;
+}
+.template-design-native-motion[data-design-motion='none'],
+.template-design-native-motion * {
+  animation: none !important;
+}
+.template-design-native-motion .platinum-chapter__entry {
+  opacity: 1 !important;
+  transform: none !important;
+}
+[data-design-editing='true'] [data-design-native] {
+  animation: none !important;
+  opacity: 1;
+  pointer-events: auto;
+  cursor: grab;
+}
+[data-design-editing='true'] [data-design-native] * {
+  animation-play-state: paused !important;
+}
+[data-design-editing='true'] .platinum-chapter__entry {
+  opacity: 1 !important;
+  transform: none !important;
+}
+[data-design-editing='true'].has-delay,
+[data-design-editing='true'] .has-delay,
+[data-design-editing='true'] [class*='animate-'],
+[data-design-editing='true'] .cinematic-hero__entrance {
+  opacity: var(--design-native-opacity, 1) !important;
+  animation: none !important;
+  filter: none !important;
+  transform: none !important;
+}
+[data-design-editing='true'] .template-design-item {
+  pointer-events: auto;
+  cursor: grab;
+}
+[data-design-selected='true'] {
+  outline: 2px dashed #efb85a !important;
+  outline-offset: 3px;
+}
+@keyframes designSway {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+@keyframes designFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -12px;
+  }
+}
+@keyframes designPulse {
+  0%,
+  100% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.045;
+  }
+}
+@keyframes designSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes designFlutter {
+  0%,
+  100% {
+    transform: rotate(-2deg) skewX(0deg);
+  }
+  30% {
+    transform: rotate(4deg) skewX(2deg);
+  }
+  65% {
+    transform: rotate(-3deg) skewX(-1deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .template-design-motion,
+  .template-design-native-motion {
+    animation: none !important;
+  }
+}

@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { templateRegistry } from '../config/templateRegistry';
+import useTemplates from '../hooks/useTemplates';
 import { templateDefaults } from '../config/templateDefaults';
 import {
   readLocalDraft,
@@ -42,7 +42,12 @@ function initialForm(template, data) {
 
 function ConsumerEditorContent({ id }) {
   const [, setSearchParams] = useSearchParams();
-  const template = templateRegistry.find((item) => item.id === id);
+  const {
+    templates,
+    loading: templatesLoading,
+    error: templatesError,
+  } = useTemplates();
+  const template = templates.find((item) => item.id === id);
   const [form, setForm] = useState(null);
   const [preview, setPreview] = useState(null);
   const [error, setError] = useState('');
@@ -143,7 +148,10 @@ function ConsumerEditorContent({ id }) {
           },
           { replace: true },
         );
-      setPreview(localPreview(form));
+      setPreview({
+        ...localPreview(form),
+        rendererId: template.rendererId || template.id,
+      });
     } catch (error) {
       setError(error.message);
     }
@@ -168,7 +176,11 @@ function ConsumerEditorContent({ id }) {
     return (
       <div className="admin-app consumer-loading">
         <p role="status">
-          {!template ? 'Template tidak ditemukan.' : error || 'Memuat editor…'}
+          {!template
+            ? templatesLoading
+              ? 'Memuat template…'
+              : templatesError || 'Template tidak ditemukan.'
+            : error || 'Memuat editor…'}
         </p>
         <Link to="/katalog">Kembali ke katalog</Link>
       </div>

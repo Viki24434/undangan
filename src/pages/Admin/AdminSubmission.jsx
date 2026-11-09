@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { adminService } from '../../services/adminService';
-import { templateRegistry } from '../../config/templateRegistry';
+import { resolveTemplate } from '../../config/templateRenderer';
 import '../../components/Admin/Submissions.css';
 
 function Submission({ id }) {
@@ -81,9 +81,7 @@ function Submission({ id }) {
       </section>
     );
   const guests = item.guestList.guests;
-  const template = templateRegistry.find(
-    (template) => template.id === item.form.templateId,
-  );
+  const template = resolveTemplate(item.form);
   return (
     <div className="admin-submission-detail">
       <header className="admin-page-heading">

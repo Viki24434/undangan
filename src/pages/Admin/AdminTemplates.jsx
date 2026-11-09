@@ -51,6 +51,9 @@ export default function AdminTemplates() {
   return (
     <>
       <header className="admin-page-heading">
+        <Link className="admin-button" to="/admin/template/baru">
+          + Buat template custom
+        </Link>
         <div>
           <span className="admin-eyebrow">KOLEKSI & PAKET</span>
           <h1>Paket template</h1>
@@ -90,7 +93,10 @@ export default function AdminTemplates() {
             <tbody>
               {templates.map((template) => (
                 <tr key={template.id}>
-                  <td>{template.name}</td>
+                  <td>
+                    {template.name}
+                    {template.isCustom && <small>Template custom</small>}
+                  </td>
                   <td>{template.category}</td>
                   <td>
                     <select
@@ -110,6 +116,10 @@ export default function AdminTemplates() {
                   </td>
                   <td>
                     <Link to={`/admin/template/${template.id}`}>Edit isi</Link>
+                    {' · '}
+                    <Link to={`/admin/template/${template.id}/desain`}>
+                      Edit desain
+                    </Link>
                   </td>
                   <td>
                     <Link

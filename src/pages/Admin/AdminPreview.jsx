@@ -1,7 +1,7 @@
 ﻿import { Suspense, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { adminService } from '../../services/adminService';
-import { templateRegistry } from '../../config/templateRegistry';
+import { resolveTemplate } from '../../config/templateRenderer';
 import { InvitationContext } from '../../components/Invitation/InvitationContext';
 import MobileWrapper from '../../components/MobileWrapper/MobileWrapper';
 
@@ -26,9 +26,7 @@ export default function AdminPreview() {
         <Link to={`/admin/undangan/${id}`}>Kembali ke editor</Link>
       </div>
     );
-  const template = templateRegistry.find(
-    (item) => item.id === state.invitation.templateId,
-  );
+  const template = resolveTemplate(state.invitation);
   if (!template) return <p>Template belum tersedia.</p>;
   const Template = template.component;
   return (

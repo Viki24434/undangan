@@ -36,7 +36,12 @@ export default function PlatinumCover1({
           <div className="platinum-envelope__back" aria-hidden="true" />
           <div className="platinum-envelope__letter" aria-hidden="true">
             {paperArt && (
-              <div className="platinum-envelope__paper">
+              <div
+                className="platinum-envelope__paper"
+                data-design-ornament="Tekstur kertas"
+                data-design-key="envelope-paper"
+                data-design-extra="true"
+              >
                 <OrnamentArtwork asset={paperArt} fill />
               </div>
             )}
@@ -47,7 +52,13 @@ export default function PlatinumCover1({
             <strong>{title}</strong>
             <span>Untuk dikenang bersama.</span>
           </div>
-          <div className="platinum-envelope__flap" aria-hidden="true">
+          <div
+            className="platinum-envelope__flap"
+            data-design-ornament="Tutup amplop"
+            data-design-key="envelope-flap"
+            data-design-extra="true"
+            aria-hidden="true"
+          >
             {flapArt && <OrnamentArtwork asset={flapArt} fill />}
           </div>
           <div
@@ -58,11 +69,23 @@ export default function PlatinumCover1({
             className="platinum-envelope__fold platinum-envelope__fold--right"
             aria-hidden="true"
           />
-          <div className="platinum-envelope__front" aria-hidden="true">
+          <div
+            className="platinum-envelope__front"
+            data-design-ornament="Badan amplop"
+            data-design-key="envelope-front"
+            data-design-extra="true"
+            aria-hidden="true"
+          >
             {envelopeArt && <OrnamentArtwork asset={envelopeArt} fill />}
           </div>
-          <span className="platinum-cover__seal" aria-hidden="true">
-            {monogram}
+          <span
+            className="platinum-cover__seal"
+            data-design-ornament="Segel lilin"
+            data-design-key="wax-seal"
+            data-design-extra="true"
+            aria-hidden="true"
+          >
+            <span>{monogram}</span>
           </span>
           {guestName && (
             <div className="platinum-cover__recipient">

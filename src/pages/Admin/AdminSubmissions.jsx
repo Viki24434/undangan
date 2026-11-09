@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { adminService } from '../../services/adminService';
-import { templateRegistry } from '../../config/templateRegistry';
+import useTemplates from '../../hooks/useTemplates';
 
 const labels = {
   pending: 'Menunggu tinjauan',
@@ -10,6 +10,7 @@ const labels = {
 };
 
 export default function AdminSubmissions() {
+  const { templates: templateRegistry } = useTemplates();
   const [page, setPage] = useState(0);
   const [filter, setFilter] = useState('');
   const [version, setVersion] = useState(0);
