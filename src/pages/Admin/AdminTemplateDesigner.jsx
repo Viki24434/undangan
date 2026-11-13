@@ -23,6 +23,7 @@ import DesignInspector from '../../components/TemplateDesign/DesignInspector';
 import DesignAssetLibrary from '../../components/TemplateDesign/DesignAssetLibrary';
 import DesignSelection from '../../components/TemplateDesign/DesignSelection';
 import DesignComponentPicker from '../../components/TemplateDesign/DesignComponentPicker';
+import DesignCompositionPicker from '../../components/TemplateDesign/DesignCompositionPicker';
 import DesignSectionNavigator from '../../components/TemplateDesign/DesignSectionNavigator';
 import DesignQuickActions from '../../components/TemplateDesign/DesignQuickActions';
 import DesignThemeEditor from '../../components/TemplateDesign/DesignThemeEditor';
@@ -673,6 +674,29 @@ function Designer({ id }) {
       )}
       <div className="designer-workspace">
         <aside className="designer-panel">
+          <DesignCompositionPicker
+            metadata={componentMetadata}
+            values={design.components}
+            disabled={busy}
+            onApply={(preset, components) => {
+              commit({
+                ...design,
+                components: { ...design.components, ...components },
+              });
+              chooseSection('cover');
+              setPlaying(false);
+              setNotice(
+                `Susunan ${preset.name} diterapkan. Simpan desain saat sudah sesuai.`,
+              );
+              if (window.innerWidth <= 800)
+                requestAnimationFrame(() =>
+                  viewport.current?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                  }),
+                );
+            }}
+          />
           <DesignComponentPicker
             metadata={componentMetadata}
             values={design.components}

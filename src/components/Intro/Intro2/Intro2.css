@@ -1,0 +1,27 @@
+.intro-2__letter {
+  border-block: 1px solid var(--invitation-line);
+  padding: 32px 6px;
+}
+.intro-2__symbol {
+  display: block;
+  margin: 20px 0;
+  color: var(--color-accent);
+  font-size: 34px;
+}
+.intro-2 .intro-2__letter h2 {
+  font-size: 32px;
+  text-wrap: balance;
+}
+.intro-2__letter p {
+  line-height: 2;
+}
+.intro-2__signature {
+  display: block;
+  margin-top: 26px;
+  font: italic 24px var(--font-heading);
+  color: var(--color-accent);
+  overflow-wrap: anywhere;
+}
+.intro-2__family {
+  color: var(--invitation-muted);
+}

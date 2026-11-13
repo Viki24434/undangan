@@ -1,0 +1,26 @@
+.closing-3__note {
+  padding: 30px 20px;
+  margin-bottom: 30px;
+  border: 1px solid var(--invitation-line);
+  background: var(--invitation-panel);
+  border-radius: 4px;
+  position: relative;
+}
+.closing-3__monogram {
+  display: block;
+  margin: 28px 0;
+  color: var(--color-accent);
+  font: italic 40px var(--font-heading);
+}
+.invitation-closing.closing-3 h2 {
+  font-size: 32px;
+}
+.invitation-closing.closing-3 h3 {
+  font-size: 25px;
+  overflow-wrap: anywhere;
+}
+.closing-3__date {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--invitation-muted);
+}

@@ -15,7 +15,179 @@ const portrait = (x, y, width = 25, height = 30) => (
 
 export default function DesignVariantThumbnail({ kind, value }) {
   let artwork;
-  if (kind === 'cover' || kind === 'hero') {
+  if (kind === 'intro' || kind === 'closing') {
+    artwork = (
+      <>
+        {value === 3 || (kind === 'closing' && value === 2)
+          ? portrait(37, 5, 26, 26)
+          : line(12, 22)}
+        <rect
+          x="18"
+          y="8"
+          width="64"
+          height="62"
+          rx={value === 1 ? 20 : 3}
+          fill="none"
+          stroke="currentColor"
+          opacity=".4"
+        />
+        {line(38, 35)}
+        {line(47, 42)}
+        {line(55, 29)}
+        {line(64, 20)}
+      </>
+    );
+  } else if (kind === 'cover' && value === 4) {
+    artwork = (
+      <>
+        <rect
+          x="18"
+          y="13"
+          width="64"
+          height="54"
+          rx="2"
+          fill="currentColor"
+          opacity=".12"
+        />
+        <rect
+          x="65"
+          y="7"
+          width="16"
+          height="21"
+          fill="none"
+          stroke="currentColor"
+          strokeDasharray="2"
+        />
+        {line(25, 20, 25)}
+        {line(36, 34, 25)}
+        {line(45, 26, 25)}
+        {line(57, 22, 25)}
+      </>
+    );
+  } else if (kind === 'hero' && value === 4) {
+    artwork = (
+      <>
+        <rect
+          x="16"
+          y="7"
+          width="68"
+          height="33"
+          rx="2"
+          fill="currentColor"
+          opacity=".3"
+        />
+        {line(48, 26)}
+        {line(56, 43)}
+        {line(66, 19)}
+      </>
+    );
+  } else if (kind === 'couple' && value === 4) {
+    artwork = (
+      <>
+        {portrait(16, 9, 20, 26)}
+        {line(17, 28, 46)}
+        {line(25, 21, 46)}
+        {portrait(64, 43, 20, 26)}
+        {line(51, 28, 16)}
+        {line(59, 21, 16)}
+      </>
+    );
+  } else if (kind === 'story' && value === 3) {
+    artwork = [11, 32, 53].map((y, index) => (
+      <g key={y}>
+        <rect
+          x="16"
+          y={y}
+          width="68"
+          height="17"
+          rx="2"
+          fill="currentColor"
+          opacity=".12"
+        />
+        <text x="22" y={y + 12} fontSize="9" fill="currentColor">
+          0{index + 1}
+        </text>
+        {line(y + 7, 30, 42)}
+      </g>
+    ));
+  } else if (kind === 'countdown' && value === 4) {
+    artwork = (
+      <>
+        <rect
+          x="13"
+          y="18"
+          width="74"
+          height="43"
+          rx="3"
+          fill="none"
+          stroke="currentColor"
+          strokeDasharray="3"
+        />
+        {[20, 38, 56, 74].map((x) => (
+          <g key={x}>
+            <text x={x} y="43" fontSize="12" fill="currentColor">
+              0
+            </text>
+            {line(50, 7, x)}
+          </g>
+        ))}
+      </>
+    );
+  } else if (kind === 'gallery' && value === 5) {
+    artwork = (
+      <>
+        {[7, 42, 77].map((x) => (
+          <g key={x}>
+            <rect
+              x={x}
+              y="11"
+              width="29"
+              height="47"
+              fill="currentColor"
+              opacity=".25"
+            />
+            {line(64, 17, x + 6)}
+          </g>
+        ))}
+      </>
+    );
+  } else if (kind === 'gift' && value === 3) {
+    artwork = [16, 39, 58].map((y, index) => (
+      <g key={y}>
+        <rect
+          x="17"
+          y={y}
+          width="66"
+          height={index ? 12 : 19}
+          rx="3"
+          fill="currentColor"
+          opacity=".15"
+        />
+        {line(y + 5, 30, 24)}
+        <text x="71" y={y + 9} fontSize="10" fill="currentColor">
+          +
+        </text>
+      </g>
+    ));
+  } else if (kind === 'wishes' && value === 3) {
+    artwork = (
+      <>
+        <circle cx="50" cy="14" r="8" fill="none" stroke="currentColor" />
+        <rect
+          x="22"
+          y="30"
+          width="56"
+          height="37"
+          rx="2"
+          fill="currentColor"
+          opacity=".12"
+        />
+        {line(40, 35)}
+        {line(49, 35)}
+        {line(59, 20)}
+      </>
+    );
+  } else if (kind === 'cover' || kind === 'hero') {
     artwork =
       value === 3 && kind === 'cover' ? (
         <>

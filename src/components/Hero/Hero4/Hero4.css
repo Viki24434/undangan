@@ -1,0 +1,56 @@
+.invitation-hero.hero-4 {
+  display: grid;
+  grid-template-rows: minmax(240px, min(42svh, 320px)) auto;
+  padding: 0;
+  align-content: start;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+.hero-4::before {
+  display: none;
+}
+.hero-4__photograph {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+}
+.hero-4__edition {
+  position: absolute;
+  z-index: 2;
+  left: 22px;
+  bottom: 26px;
+  color: white;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+}
+.invitation-hero.hero-4 .hero-4__copy {
+  position: relative;
+  width: 100%;
+  padding: 35px 28px 28px;
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+.hero-4 .hero-4__copy h1 {
+  margin: 17px 0;
+  font-size: clamp(36px, 9vw, 58px);
+  line-height: 1.16;
+  overflow-wrap: anywhere;
+  text-shadow: none;
+}
+.hero-4 .invitation-scroll {
+  margin-top: 20px;
+  color: var(--color-accent);
+}
+.hero-4__ornament {
+  width: min(170px, 55%);
+  margin: 18px auto 0;
+  position: relative;
+}
+.hero-4__ornament img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

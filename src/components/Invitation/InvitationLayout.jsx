@@ -1,6 +1,6 @@
 ﻿import { useInvitation } from './InvitationContext';
 import { lazy, Suspense, useContext, useEffect, useRef, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import DecorationLayer from '../Ornament/DecorationLayer';
 import { ornamentPresets } from '../Ornament/ornamentPresets';
 import { ornamentAssets } from '../Ornament/ornamentAssets';
@@ -57,6 +57,9 @@ export default function InvitationLayout({
     invitationVariants.cover[variants.cover] || invitationVariants.cover[2];
   const Hero =
     invitationVariants.hero[variants.hero] || invitationVariants.hero[2];
+  const Closing =
+    invitationVariants.closing[variants.closing] ||
+    invitationVariants.closing[1];
   const decorations = ornamentPresets[theme] || {};
   const scene = platinumScenes[theme];
   const backgroundLeaf =
@@ -251,18 +254,14 @@ export default function InvitationLayout({
             theme={theme}
             chapter="closing"
           >
-            <footer className="invitation-closing">
+            <Closing
+              title={displayTitle}
+              monogram={monogram}
+              image={image}
+              date={date}
+            >
               <DecorationLayer items={decorations.closing} />
-              <span className="invitation-monogram">{monogram}</span>
-              <span className="invitation-kicker">WITH LOVE & GRATITUDE</span>
-              <h2>Terima kasih</h2>
-              <p>
-                Kehadiran dan doa baikmu menjadi bagian terindah dari hari
-                istimewa ini.
-              </p>
-              <h3>{displayTitle}</h3>
-              <Link to="/katalog">Temukan undanganmu di Ciptain ↗</Link>
-            </footer>
+            </Closing>
           </PlatinumChapter>
         </main>
       )}

@@ -1,0 +1,55 @@
+.countdown-4 {
+  position: relative;
+  margin: 30px auto;
+  padding: 20px 12px;
+  border: 1px dashed var(--color-accent);
+  border-radius: 6px;
+  background: var(--invitation-panel);
+  text-align: center;
+}
+.countdown-4__label,
+.countdown-4__footer {
+  display: block;
+  font-size: 9px;
+  color: var(--invitation-muted);
+}
+.countdown-4__label {
+  letter-spacing: 0.22em;
+}
+.countdown-4__numbers {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 20px 0;
+  margin: 16px 0;
+  border-block: 1px solid var(--invitation-line);
+}
+.countdown-4__unit + .countdown-4__unit {
+  border-left: 1px solid var(--invitation-line);
+}
+.countdown-4__unit strong {
+  display: block;
+  font: 34px var(--font-heading);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent);
+  animation: ticket-digit 0.35s ease-out;
+}
+.countdown-4__unit span {
+  display: block;
+  font-size: 10px;
+  margin-top: 8px;
+}
+@keyframes ticket-digit {
+  from {
+    opacity: 0.3;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .countdown-4__unit strong {
+    animation: none;
+  }
+}

@@ -169,6 +169,7 @@ export default function Guestbook({ initialWishes = [], variant = 2 }) {
         <label>
           Ucapan
           <textarea
+            aria-label="Ucapan"
             required
             rows={4}
             maxLength={600}

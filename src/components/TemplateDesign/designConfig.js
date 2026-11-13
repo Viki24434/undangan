@@ -18,12 +18,13 @@ export const DESIGN_SECTIONS = [
     id: 'couple',
     label: 'Mempelai',
     selector:
-      '.platinum-chapter--couple, .couple-1-container, .couple-1, .couple-2, .couple-3',
+      '.platinum-chapter--couple, .couple-1-container, .couple-1, .couple-2, .couple-3, .couple-4',
   },
   {
     id: 'story',
     label: 'Cerita',
-    selector: '.platinum-chapter--story, .story-1-container, .story-2',
+    selector:
+      '.platinum-chapter--story, .story-1-container, .story-2, .story-3',
   },
   {
     id: 'events',
@@ -43,7 +44,7 @@ export const DESIGN_SECTIONS = [
   {
     id: 'gift',
     label: 'Hadiah',
-    selector: '.platinum-chapter--gift, .gift-1-container, .gift-2',
+    selector: '.platinum-chapter--gift, .gift-1-container, .gift-2, .gift-3',
   },
   {
     id: 'closing',

@@ -1,10 +1,8 @@
 import OrnamentDivider from '../Ornament/OrnamentDivider';
-import AnimatedText from '../AnimatedText/AnimatedText';
 import { useInvitationData } from './InvitationContext';
 import InvitationLayout from './InvitationLayout';
 import EventSection from './EventSection';
 import Guestbook from './Guestbook';
-import ScrollReveal from '../ScrollReveal/ScrollReveal';
 import OptionalSections from './OptionalSections';
 import { invitationVariants } from './invitationVariants';
 import useTemplateComponents from './useTemplateComponents';
@@ -19,6 +17,8 @@ export default function CelebrationInvitation({
   const Gallery =
     invitationVariants.gallery[components.gallery] ||
     invitationVariants.gallery[0];
+  const Intro =
+    invitationVariants.intro[components.intro] || invitationVariants.intro[1];
   return (
     <InvitationLayout
       theme={theme}
@@ -31,34 +31,7 @@ export default function CelebrationInvitation({
       monogram={data.monogram}
       variants={components}
     >
-      <ScrollReveal
-        as="section"
-        className="invitation-section invitation-intro"
-        id="invitation-intro"
-        animationClass="animate-blur-reveal"
-      >
-        <span className="celebration-symbol" aria-hidden="true">
-          {data.symbol}
-        </span>
-        <span className="invitation-kicker">{data.eyebrow}</span>
-        <h2>
-          <AnimatedText text={data.heading} effect="type" />
-        </h2>
-        <p>{data.introduction}</p>
-        <div className="celebration-honoree">
-          <span>{data.honoreeLabel}</span>
-          <h3>{data.honoree}</h3>
-          <p>{data.family}</p>
-        </div>
-        <div className="celebration-notes">
-          {data.notes.map((note) => (
-            <article key={note.title}>
-              <span>{note.title}</span>
-              <strong>{note.description}</strong>
-            </article>
-          ))}
-        </div>
-      </ScrollReveal>
+      <Intro data={data} />
       <OrnamentDivider theme={theme} section="events" />
       <EventSection
         targetDate={data.targetDate}

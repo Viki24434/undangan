@@ -5,7 +5,6 @@ import EventSection from './EventSection';
 import Guestbook from './Guestbook';
 import { invitationVariants } from './invitationVariants';
 import { ornamentPresets } from '../Ornament/ornamentPresets';
-import ScrollReveal from '../ScrollReveal/ScrollReveal';
 import OptionalSections from './OptionalSections';
 import PlatinumChapter from '../Animation/PlatinumChapter/PlatinumChapter';
 import PlatinumGallery1 from '../Gallery/PlatinumGallery1/PlatinumGallery1';
@@ -30,6 +29,8 @@ export default function WeddingInvitation({
     invitationVariants.gallery[2];
   const Gift =
     invitationVariants.gift[components.gift] || invitationVariants.gift[2];
+  const Intro =
+    invitationVariants.intro[components.intro] || invitationVariants.intro[1];
   const coupleDecorations = ornamentPresets[theme]?.couple;
 
   return (
@@ -53,28 +54,7 @@ export default function WeddingInvitation({
         />
       )}
       <PlatinumChapter enabled={animated} theme={theme} chapter="intro">
-        <ScrollReveal
-          as="section"
-          className="invitation-section invitation-intro"
-          id="invitation-intro"
-          animationClass="animate-blur-reveal"
-        >
-          <span className="invitation-kicker">
-            TWO HEARTS, ONE BEAUTIFUL JOURNEY
-          </span>
-          <h2>
-            Berawal dari cinta,
-            <br />
-            <em>bertumbuh bersama.</em>
-          </h2>
-          <span className="invitation-divider" aria-hidden="true">
-            ✧
-          </span>
-          <p>
-            Dengan penuh rasa syukur dan kebahagiaan, kami mengundang
-            Bapak/Ibu/Saudara/i untuk menjadi bagian dari awal perjalanan kami.
-          </p>
-        </ScrollReveal>
+        <Intro data={data} wedding />
       </PlatinumChapter>
       <PlatinumChapter enabled={animated} theme={theme} chapter="couple">
         <Couple

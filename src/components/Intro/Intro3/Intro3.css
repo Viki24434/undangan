@@ -1,0 +1,34 @@
+.intro-3__photo {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 6px;
+  border: 1px solid var(--color-accent);
+  margin-bottom: 24px;
+}
+.intro-3 h2 {
+  text-wrap: balance;
+}
+.intro-3__occasion {
+  padding: 22px 16px;
+  border: 1px solid var(--invitation-line);
+  background: var(--invitation-panel);
+  margin-top: 26px;
+  border-radius: 70px 70px 4px 4px;
+}
+.intro-3__occasion > span {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--invitation-muted);
+}
+.intro-3__occasion strong {
+  display: block;
+  font: 27px var(--font-heading);
+  color: var(--color-accent);
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+}
+.intro-3__occasion p {
+  margin-bottom: 0;
+}
