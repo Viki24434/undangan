@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { invitationService } from '../../services/api';
 import { adminService } from '../../services/adminService';
+import ThemeBackup from '../../components/Admin/ThemeBackup/ThemeBackup';
 import {
   invitationPackages,
   packageName,
@@ -12,6 +13,8 @@ export default function AdminTemplates() {
   const [busy, setBusy] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [selectedIds, setSelectedIds] = useState([]);
+  const [backupBusy, setBackupBusy] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -76,13 +79,53 @@ export default function AdminTemplates() {
           {message}
         </p>
       )}
+      {templates && (
+        <ThemeBackup
+          templates={templates}
+          selectedIds={selectedIds}
+          disabled={!!busy}
+          onBusyChange={setBackupBusy}
+          onImported={async () => {
+            const { data } = await invitationService.templates();
+            setTemplates(data);
+            setSelectedIds([]);
+          }}
+        />
+      )}
       {!templates ? (
         <p role="status">Memuat template…</p>
       ) : (
         <div className="admin-table-wrap">
-          <table className="admin-table">
+          <table className="admin-table theme-template-table">
             <thead>
               <tr>
+                <th>
+                  <label className="theme-select-all">
+                    <input
+                      type="checkbox"
+                      aria-label="Pilih semua tema"
+                      disabled={backupBusy}
+                      checked={
+                        templates.length > 0 &&
+                        selectedIds.length === templates.length
+                      }
+                      ref={(node) => {
+                        if (node)
+                          node.indeterminate =
+                            selectedIds.length > 0 &&
+                            selectedIds.length < templates.length;
+                      }}
+                      onChange={(event) =>
+                        setSelectedIds(
+                          event.target.checked
+                            ? templates.map((item) => item.id)
+                            : [],
+                        )
+                      }
+                    />
+                    Pilih
+                  </label>
+                </th>
                 <th>Template</th>
                 <th>Tema acara</th>
                 <th>Paket</th>
@@ -94,6 +137,22 @@ export default function AdminTemplates() {
               {templates.map((template) => (
                 <tr key={template.id}>
                   <td>
+                    <input
+                      type="checkbox"
+                      className="theme-row-checkbox"
+                      aria-label={`Pilih tema ${template.name}`}
+                      checked={selectedIds.includes(template.id)}
+                      disabled={backupBusy}
+                      onChange={(event) =>
+                        setSelectedIds((items) =>
+                          event.target.checked
+                            ? [...items, template.id]
+                            : items.filter((id) => id !== template.id),
+                        )
+                      }
+                    />
+                  </td>
+                  <td>
                     {template.name}
                     {template.isCustom && <small>Template custom</small>}
                   </td>
@@ -102,7 +161,7 @@ export default function AdminTemplates() {
                     <select
                       aria-label={`Paket ${template.name}`}
                       value={template.packageId}
-                      disabled={!!busy}
+                      disabled={!!busy || backupBusy}
                       onChange={(event) =>
                         changePackage(template, event.target.value)
                       }

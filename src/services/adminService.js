@@ -11,6 +11,54 @@ async function request(path, options = {}) {
   return result;
 }
 export const adminService = {
+  exportThemeBackup: (ids, signal) =>
+    request('/admin/template-backups/export', {
+      method: 'POST',
+      body: { ids },
+      signal,
+    }),
+  inspectThemeBackup: (manifest, signal) =>
+    request('/admin/template-backups/inspect', {
+      method: 'POST',
+      body: { manifest },
+      signal,
+    }),
+  restoreThemeBackup: (manifest, replacements, mode, signal) =>
+    request('/admin/template-backups/restore', {
+      method: 'POST',
+      body: { manifest, replacements, mode },
+      signal,
+    }),
+  async uploadBackupImage(blob, hash, signal) {
+    let response;
+    try {
+      response = await fetch(
+        `${API_BASE_URL}/admin/template-backups/images/${hash}`,
+        {
+          method: 'POST',
+          credentials: 'include',
+          signal,
+          headers: { 'Content-Type': blob.type, 'X-CSRF-Token': csrfToken },
+          body: blob,
+        },
+      );
+    } catch (error) {
+      if (error.name === 'AbortError') throw error;
+      throw new Error(
+        'Gambar belum terunggah. Periksa koneksi lalu coba impor kembali.',
+        { cause: error },
+      );
+    }
+    const result = await response.json();
+    if (!response.ok) {
+      const error = new Error(
+        result.message || 'Gambar cadangan belum terunggah.',
+      );
+      error.status = response.status;
+      throw error;
+    }
+    return result.data.url;
+  },
   createTemplate: (body) =>
     request('/admin/templates', { method: 'POST', body }),
   submissions: (offset = 0, status = '', signal) =>

@@ -41,7 +41,8 @@ export async function apiRequest(
   }
   if (
     method !== 'GET' &&
-    /^\/admin\/(templates|packages|social-links)(\/|$)/.test(path)
+    (/^\/admin\/(templates|packages|social-links)(\/|$)/.test(path) ||
+      path === '/admin/template-backups/restore')
   )
     invalidateCatalog();
   return result;
