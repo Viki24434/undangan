@@ -2,6 +2,8 @@
   margin: 0;
 }
 .invite-home {
+  overflow-x: clip;
+  min-height: 100vh;
   --ink: #243e35;
   --muted: #73796d;
   --paper: #faf9f4;
@@ -168,6 +170,29 @@
   max-width: 420px;
   font-size: 15px;
   margin: 26px 0 30px;
+}
+.invite-hero > * {
+  min-width: 0;
+}
+.home-collection-tools {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: -8px 0 24px;
+  font-size: 12px;
+}
+.home-collection-tools p {
+  font-size: 12px;
+}
+.home-collection-tools a {
+  color: #6d7e58;
+  font-weight: 600;
+}
+.home-collection-more {
+  text-align: center;
+  margin-top: 35px;
+  font-size: 13px;
 }
 .invite-hero-actions {
   display: flex;

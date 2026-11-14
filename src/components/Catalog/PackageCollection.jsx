@@ -9,7 +9,11 @@ export default function PackageCollection({
 }) {
   const { packages, error } = pricing;
   return (
-    <section className="package-collection" aria-labelledby="package-title">
+    <section
+      className="package-collection"
+      id="paket"
+      aria-labelledby="package-title"
+    >
       <div className="invite-section-heading">
         <div>
           <span className="invite-eyebrow">PILIH PAKET MOMENMU</span>

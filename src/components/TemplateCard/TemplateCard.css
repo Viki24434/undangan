@@ -36,3 +36,72 @@
   margin-bottom: 0;
   flex-shrink: 0;
 }
+.template-card-item {
+  position: relative;
+  min-width: 0;
+}
+.template-favorite {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ffffff80;
+  border-radius: 50%;
+  background: #fffdf4f2;
+  color: #314f40;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+.template-favorite:hover {
+  transform: translateY(-2px);
+}
+.template-favorite[aria-pressed='true'] {
+  color: #9d614d;
+  background: #fff0e8;
+}
+.template-card-actions {
+  display: flex;
+  gap: 8px;
+}
+.template-card-actions .template-edit-link,
+.template-compare-button {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0;
+  border: 1px solid #d6d2c8;
+  border-radius: 7px;
+  padding: 12px 14px;
+  color: #243e35;
+  background: transparent;
+  font-size: 12px;
+  text-decoration: none;
+}
+.template-card-actions .template-edit-link {
+  background: #eef0e6;
+}
+.template-compare-button[aria-pressed='true'] {
+  background: #243e35;
+  border-color: #243e35;
+  color: white;
+}
+.template-compare-button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.invite-template-art {
+  transition:
+    box-shadow 0.25s,
+    transform 0.25s;
+}
+.invite-template:focus-visible .invite-template-art,
+.invite-template:hover .invite-template-art {
+  box-shadow: 0 12px 30px #243e3518;
+}

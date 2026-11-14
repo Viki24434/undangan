@@ -1,19 +1,41 @@
-﻿import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import Arrow from '../HomeLanding/Arrow';
+import { useEffect, useRef, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import './Navbar.css';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const root = useRef(null);
+  const toggle = useRef(null);
   const { pathname } = useLocation();
   const homePath = pathname === '/' ? '' : '/';
+  useEffect(() => {
+    if (!open) return;
+    function close(event) {
+      if (event.type === 'keydown' && event.key === 'Escape') {
+        setOpen(false);
+        toggle.current?.focus();
+      } else if (
+        event.type === 'pointerdown' &&
+        !root.current?.contains(event.target)
+      )
+        setOpen(false);
+    }
+    document.addEventListener('keydown', close);
+    document.addEventListener('pointerdown', close);
+    return () => {
+      document.removeEventListener('keydown', close);
+      document.removeEventListener('pointerdown', close);
+    };
+  }, [open]);
   return (
-    <header className="invite-nav">
+    <header className="invite-nav" ref={root}>
       <Link className="invite-brand" to="/">
         ciptain<span>✳</span>
       </Link>
       <button
         className="invite-menu"
         type="button"
+        ref={toggle}
         aria-expanded={open}
         aria-controls="landing-navigation"
         onClick={() => setOpen(!open)}
@@ -25,9 +47,9 @@ export default function Navbar() {
         className={open ? 'is-open' : ''}
         aria-label="Navigasi utama"
       >
-        <a href={`${homePath}#koleksi`} onClick={() => setOpen(false)}>
+        <NavLink to="/katalog" onClick={() => setOpen(false)}>
           Koleksi template
-        </a>
+        </NavLink>
         <a href={`${homePath}#fitur`} onClick={() => setOpen(false)}>
           Fitur
         </a>
@@ -37,12 +59,15 @@ export default function Navbar() {
         <a href={`${homePath}#faq`} onClick={() => setOpen(false)}>
           FAQ
         </a>
-        <Link to="/admin">Admin center</Link>
-        <Link to="/panduan" onClick={() => setOpen(false)}>
+        <NavLink to="/panduan" onClick={() => setOpen(false)}>
           Panduan
-        </Link>
-        <Link className="invite-button small" to="/katalog">
-          Jelajahi template <Arrow />
+        </NavLink>
+        <Link
+          className="invite-button small"
+          to="/katalog?favorites=1#koleksi"
+          onClick={() => setOpen(false)}
+        >
+          Favoritku <span aria-hidden="true">♡</span>
         </Link>
       </nav>
     </header>

@@ -31,8 +31,8 @@ export default function HowItWorks() {
             'Buka demo untuk mencoba tampilan, galeri, dan fitur undangan.',
           ],
           [
-            'Siapkan cerita spesialmu',
-            'Siapkan nama, tanggal acara, foto, dan cerita sebagai bahan undanganmu.',
+            'Jadikan milikmu',
+            'Coba editor, isi detail acaramu, lalu preview dan kirim hasilnya ke admin saat sudah siap.',
           ],
         ].map(([title, desc], i) => (
           <li key={title}>

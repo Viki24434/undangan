@@ -14,6 +14,7 @@
           <span>Cari template</span>
           <input
             type="search"
+            aria-label="Cari template"
             placeholder="Cari nama atau kategori…"
             value={query}
             onChange={(event) => onQueryChange(event.target.value)}
@@ -22,12 +23,15 @@
         <label className="catalog-sort">
           <span>Urutkan berdasarkan</span>
           <select
+            aria-label="Urutkan berdasarkan"
             value={sort}
             onChange={(event) => onSortChange(event.target.value)}
           >
             <option value="default">Pilihan koleksi</option>
             <option value="asc">Nama A–Z</option>
             <option value="desc">Nama Z–A</option>
+            <option value="price-asc">Harga terendah</option>
+            <option value="price-desc">Harga tertinggi</option>
           </select>
         </label>
       </div>

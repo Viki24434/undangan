@@ -1,18 +1,19 @@
 ﻿import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import useTemplates from '../../hooks/useTemplates';
-import usePackages from '../../hooks/usePackages';
+import useTemplateFavorites from '../../hooks/useTemplateFavorites';
+import CollectionState from '../Catalog/CollectionState';
 import Arrow from './Arrow';
 import TemplateCard from '../TemplateCard/TemplateCard';
 
-export default function TemplateCollection() {
-  const pricing = usePackages();
+export default function TemplateCollection({ catalog, pricing }) {
   const {
     templates: availableTemplates,
     categories,
     loading,
     error,
-  } = useTemplates();
+    retry,
+  } = catalog;
+  const { favorites, error: favoriteError } = useTemplateFavorites();
   const [category, setCategory] = useState('Semua');
   const templates = availableTemplates.filter(
     (t) => category === 'Semua' || t.category === category,
@@ -47,14 +48,28 @@ export default function TemplateCollection() {
           </button>
         ))}
       </div>
-      <p role="status">
-        {loading
-          ? 'Memuat koleksi dari server…'
-          : error
-            ? 'Koleksi belum dapat dimuat. Silakan coba lagi.'
-            : ''}
-      </p>
-      {templates.length ? (
+      <div className="home-collection-tools">
+        <p>
+          Suka dengan desainnya? Simpan dengan ikon hati, lalu coba edit
+          ceritamu.
+        </p>
+        <Link to="/katalog?favorites=1#koleksi">
+          ♡ Favoritku (
+          {
+            availableTemplates.filter((item) => favorites.includes(item.id))
+              .length
+          }
+          )
+        </Link>
+      </div>
+      {favoriteError && (
+        <p className="catalog-local-notice" role="status">
+          {favoriteError}
+        </p>
+      )}
+      {loading || error ? (
+        <CollectionState loading={loading} error={error} retry={retry} />
+      ) : templates.length ? (
         <div className="invite-collection-grid">
           {templates.slice(0, 6).map((template) => (
             <TemplateCard
@@ -89,6 +104,16 @@ export default function TemplateCollection() {
           >
             Lihat koleksi pernikahan <Arrow />
           </button>
+        </div>
+      )}
+      {!loading && !error && templates.length > 6 && (
+        <div className="home-collection-more">
+          <Link
+            className="invite-text-link"
+            to={`/katalog${category !== 'Semua' ? `?${new URLSearchParams({ category })}` : ''}#koleksi`}
+          >
+            Lihat semua {templates.length} desain <Arrow />
+          </Link>
         </div>
       )}
     </section>

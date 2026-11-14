@@ -5,6 +5,202 @@
 }
 .catalog-content {
   flex: 1;
+  min-width: 0;
+}
+.catalog-refinements {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 22px 0;
+}
+.catalog-refinements .package-filter {
+  margin: 0;
+}
+.catalog-favorite-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 15px;
+  background: #fffef9;
+  color: var(--ink);
+  font-size: 12px;
+}
+.catalog-favorite-filter > span {
+  font-size: 20px;
+  line-height: 1;
+}
+.catalog-favorite-filter b {
+  background: #eff1e6;
+  padding: 1px 7px;
+  border-radius: 15px;
+  font-size: 10px;
+}
+.catalog-favorite-filter[aria-pressed='true'] {
+  border-color: var(--ink);
+  background: #edf0e5;
+}
+.catalog-active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.catalog-active-filters button {
+  border: 1px solid #dbe0ce;
+  border-radius: 20px;
+  background: #eef1e7;
+  color: var(--ink);
+  padding: 6px 12px;
+  font-size: 11px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+.catalog-active-filters button > span[aria-hidden] {
+  margin-left: 8px;
+}
+.catalog-local-notice {
+  font-size: 11px;
+  margin: 12px 0 !important;
+}
+.catalog-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.catalog-comparison-tray {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 35;
+  width: min(720px, calc(100% - 32px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 18px;
+  border: 1px solid #d1d8c4;
+  border-radius: 14px;
+  background: #fffef9f7;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 50px #18332530;
+}
+.catalog-comparison-tray__selection {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.catalog-comparison-tray__selection > span {
+  font-size: 12px;
+  white-space: nowrap;
+}
+.catalog-comparison-tray__selection strong {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.catalog-comparison-tray__selection > div {
+  display: flex;
+  gap: 8px;
+}
+.catalog-comparison-tray__selection button {
+  position: relative;
+  padding: 0;
+  width: 38px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+}
+.catalog-comparison-tray__selection img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.catalog-comparison-tray__selection button span {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  background: #243e35;
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+.catalog-comparison-tray__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.catalog-comparison-tray__actions .invite-button {
+  font-size: 11px;
+  padding: 11px 16px;
+}
+.catalog-comparison-tray__actions .invite-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.catalog-clear-comparison {
+  border: 0;
+  background: transparent;
+  padding: 6px 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+.catalog-page:has(.catalog-comparison-tray) {
+  padding-bottom: 100px;
+}
+.catalog-dialog-loading {
+  position: fixed;
+  bottom: 105px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 35;
+  padding: 10px 20px;
+  border-radius: 7px;
+  background: #243e35;
+  color: #fff !important;
+  font-size: 12px;
+}
+@media (max-width: 620px) {
+  .catalog-comparison-tray {
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 14px;
+    bottom: 12px;
+  }
+  .catalog-comparison-tray__selection {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .catalog-comparison-tray__selection > span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .catalog-comparison-tray__actions {
+    width: 100%;
+  }
+  .catalog-comparison-tray__actions .invite-button {
+    flex: 1;
+  }
+  .catalog-page:has(.catalog-comparison-tray) {
+    padding-bottom: 165px;
+  }
 }
 .catalog-header {
   position: relative;
@@ -44,6 +240,16 @@
   font-size: 240px;
   color: #8f9c7526;
   line-height: 1;
+}
+.catalog-header-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 26px;
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
 }
 .catalog-collection {
   padding: 60px 6%;
@@ -184,6 +390,11 @@
   }
   .catalog-search-row {
     gap: 16px;
+  }
+  .catalog-search input,
+  .catalog-sort select,
+  .package-filter select {
+    font-size: 16px;
   }
   .catalog-grid .invite-template-art {
     height: 370px;

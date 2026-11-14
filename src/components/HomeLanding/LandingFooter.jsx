@@ -30,6 +30,7 @@ export default function LandingFooter() {
         <a href={`${homePath}#cara-kerja`}>Cara kerja</a>
         <a href={`${homePath}#faq`}>FAQ</a>
         <a href="#beranda">Kembali ke atas ↑</a>
+        <Link to="/admin">Admin center</Link>
       </nav>
       {socialLinks && (
         <nav className="invite-social-links" aria-label="Media sosial">

@@ -18,6 +18,14 @@ export default function CatalogHeader() {
         Dari detail yang elegan hingga nuansa yang hangat. Jelajahi koleksi
         undangan dan pilih awal yang indah untuk hari bahagiamu.
       </p>
+      <div className="catalog-header-actions">
+        <a className="invite-button small" href="#koleksi">
+          Jelajahi koleksi <span aria-hidden="true">↓</span>
+        </a>
+        <a className="invite-text-link" href="#paket">
+          Bandingkan paket <span aria-hidden="true">↘</span>
+        </a>
+      </div>
       <span className="catalog-header-flower" aria-hidden="true">
         ✳
       </span>

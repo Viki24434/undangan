@@ -30,7 +30,11 @@ export default function FAQ() {
           ],
           [
             'Apakah saya bisa langsung mengedit dari halaman ini?',
-            'Halaman ini menyediakan katalog dan demo template. Editor dan pemesanan belum tersedia; kamu bisa mengeksplorasi desain terlebih dahulu.',
+            'Bisa. Tekan Coba edit pada template pilihanmu, lalu isi nama, foto, jadwal, dan daftar tamu. Draft tersimpan di browser perangkatmu. Gunakan Preview untuk melihat hasilnya dan kirim ke admin setelah siap.',
+          ],
+          [
+            'Apakah saya bisa menyimpan dan membandingkan pilihan?',
+            'Tekan ikon hati untuk menyimpan favorit di perangkat ini. Di katalog, pilih Bandingkan pada dua atau tiga template untuk melihat desain, harga, dan fitur paket secara berdampingan.',
           ],
         ].map(([question, answer]) => (
           <details key={question}>

@@ -1,12 +1,17 @@
 import { Link } from 'react-router-dom';
 import Arrow from './Arrow';
-import InvitationPreview from './InvitationPreview';
+import PreviewPlayground from './PreviewPlayground';
+import TemplateFinder from './TemplateFinder';
+import useTemplates from '../../hooks/useTemplates';
+import usePackages from '../../hooks/usePackages';
 import TemplateCollection from './TemplateCollection';
 import FeatureGrid from './FeatureGrid';
 import HowItWorks from './HowItWorks';
 import FAQ from './FAQ';
 
 export default function HomeContent() {
+  const catalog = useTemplates();
+  const pricing = usePackages();
   return (
     <main id="konten">
       <section className="invite-hero">
@@ -30,9 +35,9 @@ export default function HomeContent() {
             <Link className="invite-button" to="/katalog">
               Temukan undanganmu <Arrow />
             </Link>
-            <Link className="invite-text-link" to="/t/elegant-gold-01">
-              Lihat demo <span>↗</span>
-            </Link>
+            <a className="invite-text-link" href="#temukan-gaya">
+              Bantu aku memilih <span>↘</span>
+            </a>
           </div>
           <div className="invite-hero-note">
             <span>♡</span>
@@ -43,7 +48,7 @@ export default function HomeContent() {
             </p>
           </div>
         </div>
-        <InvitationPreview />
+        <PreviewPlayground catalog={catalog} />
       </section>
       <div className="invite-ribbon">
         <span>PERSONAL & BERKESAN</span>
@@ -54,7 +59,8 @@ export default function HomeContent() {
         <i>✧</i>
         <span>DETAIL PENUH CERITA</span>
       </div>
-      <TemplateCollection />
+      <TemplateFinder catalog={catalog} />
+      <TemplateCollection catalog={catalog} pricing={pricing} />
       <FeatureGrid />
       <HowItWorks />
       <FAQ />

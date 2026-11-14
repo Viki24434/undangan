@@ -1,0 +1,56 @@
+.collection-loading > p {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+.collection-skeletons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.collection-skeleton {
+  display: grid;
+  gap: 12px;
+}
+.collection-skeleton span,
+.collection-skeleton i {
+  display: block;
+  border-radius: 10px;
+  background: linear-gradient(100deg, #e9e9de 20%, #f3f3ec 40%, #e9e9de 60%);
+  background-size: 200% 100%;
+  animation: collection-shimmer 1.6s ease-in-out infinite;
+}
+.collection-skeleton span {
+  height: 330px;
+}
+.collection-skeleton i {
+  width: 80%;
+  height: 15px;
+}
+.collection-skeleton i:last-child {
+  width: 55%;
+}
+.collection-error {
+  display: grid;
+  justify-items: center;
+  gap: 15px;
+  padding: 50px 20px;
+  text-align: center;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+}
+.collection-error > span {
+  font-size: 30px;
+}
+@keyframes collection-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+@media (max-width: 760px) {
+  .collection-skeletons {
+    grid-template-columns: 1fr;
+  }
+  .collection-skeleton:not(:first-child) {
+    display: none;
+  }
+}

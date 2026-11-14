@@ -1,0 +1,45 @@
+.invite-home .invite-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  width: 100%;
+  max-width: none;
+  background: #faf9f4f5;
+  backdrop-filter: blur(14px);
+}
+.invite-nav a[aria-current='page']:not(.invite-brand) {
+  color: #8b713c;
+  text-decoration: underline;
+  text-underline-offset: 7px;
+}
+.invite-nav .invite-button span {
+  font-size: 18px;
+}
+@media (min-width: 761px) and (max-width: 950px) {
+  .invite-home .invite-menu {
+    display: block;
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    background: transparent;
+    color: var(--ink);
+    font-size: 12px;
+  }
+  .invite-home .invite-nav nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 24px 6%;
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    box-shadow: 0 15px 20px #243e3510;
+  }
+  .invite-home .invite-nav nav.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+  }
+}

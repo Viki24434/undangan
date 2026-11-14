@@ -8,12 +8,14 @@ export default function useTemplates() {
     loading: true,
     error: '',
   });
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     const controller = new AbortController();
     invitationService
       .templates(controller.signal)
       .then(({ data }) => {
+        if (controller.signal.aborted) return;
         const templates = data.flatMap((template) => {
           const resolved = resolveTemplate(template);
           return resolved ? [resolved] : [];
@@ -29,10 +31,14 @@ export default function useTemplates() {
           });
       });
     return () => controller.abort();
-  }, []);
+  }, [attempt]);
 
   return {
     ...state,
+    retry: () => {
+      setState((current) => ({ ...current, loading: true, error: '' }));
+      setAttempt((current) => current + 1);
+    },
     categories: [
       'Semua',
       ...new Set(state.templates.map((template) => template.category)),
