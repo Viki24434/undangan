@@ -156,6 +156,27 @@
 .designer-color-hex input[aria-invalid='true'] {
   border-color: #b55f51;
 }
+.designer-typography {
+  display: grid;
+  gap: 14px;
+  border: 1px solid #dce1d4;
+  border-radius: 8px;
+  padding: 14px;
+  margin: 18px 0;
+  min-width: 0;
+}
+.designer-typography legend {
+  font-size: 12px;
+  font-weight: 600;
+}
+.designer-typography p {
+  font-size: 11px;
+}
+.designer-typography label {
+  display: grid;
+  gap: 7px;
+  font-size: 12px;
+}
 .designer-color-groups details > label {
   display: flex;
   flex-direction: column;

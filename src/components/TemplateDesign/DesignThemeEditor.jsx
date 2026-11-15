@@ -4,6 +4,7 @@ import { DESIGN_SECTIONS } from './designConfig';
 import './ThemeEditor.css';
 import { GRADIENT_KEYS, createGradient } from '../../config/themeGradients';
 import DesignGradientEditor from './DesignGradientEditor';
+import DesignTypographyEditor from './DesignTypographyEditor';
 
 function ColorField({
   field,
@@ -72,8 +73,9 @@ export default function DesignThemeEditor({
   onChange,
   disabled = false,
   sections = DESIGN_SECTIONS,
+  initialScope = 'global',
 }) {
-  const [scope, setScope] = useState('global');
+  const [scope, setScope] = useState(initialScope);
   const local = scope === 'global' ? value : value.sections?.[scope] || {};
   const fallbacks =
     scope === 'global'
@@ -111,7 +113,7 @@ export default function DesignThemeEditor({
   return (
     <div className="designer-theme-editor admin-form">
       <label>
-        Terapkan warna ke
+        Terapkan warna & font ke
         <select
           aria-label="Warna untuk bagian"
           value={scope}
@@ -242,7 +244,7 @@ export default function DesignThemeEditor({
       </div>
       {scope === 'global' && (
         <label>
-          Font
+          Gaya font umum (seluruh undangan)
           <select
             aria-label="Font desain"
             value={value.font || 'default'}
@@ -257,6 +259,16 @@ export default function DesignThemeEditor({
           </select>
         </label>
       )}
+      <DesignTypographyEditor
+        value={local.typography}
+        onChange={(next) => patch('typography', next)}
+        disabled={disabled}
+        scopeLabel={
+          scope === 'global'
+            ? 'Seluruh undangan'
+            : sections.find((item) => item.id === scope)?.label || scope
+        }
+      />
       <button
         type="button"
         className="admin-button secondary"

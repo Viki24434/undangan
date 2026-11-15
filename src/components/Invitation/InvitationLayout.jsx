@@ -17,6 +17,7 @@ import { DesignEditorContext } from '../TemplateDesign/DesignEditorContext';
 import { themeAttributes, themeStyles } from '../../config/invitationTheme';
 import './InvitationTheme.css';
 import './InvitationGradients.css';
+import './InvitationTypography.css';
 import InvitationImageGate from './InvitationImageGate';
 import { openingImages } from './invitationImages';
 

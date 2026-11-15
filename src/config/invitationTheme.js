@@ -1,4 +1,5 @@
 import { GRADIENT_KEYS, gradientCss } from './themeGradients';
+import { typographyAttributes, typographyStyles } from './invitationTypography';
 
 export const THEME_COLORS = [
   {
@@ -119,6 +120,7 @@ const kebab = (key) =>
 
 export function themeAttributes(theme = {}) {
   return {
+    ...typographyAttributes(theme.typography),
     ...Object.fromEntries(
       THEME_COLORS.filter(
         ({ key }) =>
@@ -136,7 +138,7 @@ export function themeAttributes(theme = {}) {
 }
 
 export function themeStyles(theme = {}) {
-  const style = {};
+  const style = typographyStyles(theme.typography);
   for (const field of THEME_COLORS) {
     if (!/^#[\da-f]{6}$/i.test(theme[field.key] || '')) continue;
     style[field.variable] = theme[field.key];

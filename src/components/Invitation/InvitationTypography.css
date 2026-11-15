@@ -1,0 +1,185 @@
+[data-type-heading-family]
+  :is(
+    h2:not(.cover-2__guest-name),
+    h3:not(
+      :where(
+        .couple-1-details *,
+        .couple-2 *,
+        .couple-3 *,
+        .couple-4 *,
+        .invitation-closing *
+      )
+    )
+  ) {
+  font-family: var(--type-heading-family) !important;
+}
+[data-type-heading-size]
+  :is(
+    h2:not(.cover-2__guest-name),
+    h3:not(
+      :where(
+        .couple-1-details *,
+        .couple-2 *,
+        .couple-3 *,
+        .couple-4 *,
+        .invitation-closing *
+      )
+    )
+  ) {
+  font-size: var(--type-heading-size) !important;
+}
+[data-type-heading-weight]
+  :is(
+    h2:not(.cover-2__guest-name),
+    h3:not(
+      :where(
+        .couple-1-details *,
+        .couple-2 *,
+        .couple-3 *,
+        .couple-4 *,
+        .invitation-closing *
+      )
+    )
+  ) {
+  font-weight: var(--type-heading-weight) !important;
+}
+[data-type-heading-lineheight]
+  :is(
+    h2:not(.cover-2__guest-name),
+    h3:not(
+      :where(
+        .couple-1-details *,
+        .couple-2 *,
+        .couple-3 *,
+        .couple-4 *,
+        .invitation-closing *
+      )
+    )
+  ) {
+  line-height: var(--type-heading-lineHeight) !important;
+}
+[data-type-heading-spacing]
+  :is(
+    h2:not(.cover-2__guest-name),
+    h3:not(
+      :where(
+        .couple-1-details *,
+        .couple-2 *,
+        .couple-3 *,
+        .couple-4 *,
+        .invitation-closing *
+      )
+    )
+  ) {
+  letter-spacing: var(--type-heading-spacing) !important;
+}
+[data-type-name-family]
+  :is(
+    h1,
+    .cinematic-hero__name,
+    .couple-1-details h3,
+    .couple-2 h3,
+    .couple-3 h3,
+    .couple-4 h3,
+    .invitation-closing h3
+  ) {
+  font-family: var(--type-name-family) !important;
+}
+[data-type-name-size]
+  :is(
+    h1,
+    .cinematic-hero__name,
+    .couple-1-details h3,
+    .couple-2 h3,
+    .couple-3 h3,
+    .couple-4 h3,
+    .invitation-closing h3
+  ) {
+  font-size: var(--type-name-size) !important;
+}
+[data-type-name-weight]
+  :is(
+    h1,
+    .cinematic-hero__name,
+    .couple-1-details h3,
+    .couple-2 h3,
+    .couple-3 h3,
+    .couple-4 h3,
+    .invitation-closing h3
+  ) {
+  font-weight: var(--type-name-weight) !important;
+}
+[data-type-name-lineheight]
+  :is(
+    h1,
+    .cinematic-hero__name,
+    .couple-1-details h3,
+    .couple-2 h3,
+    .couple-3 h3,
+    .couple-4 h3,
+    .invitation-closing h3
+  ) {
+  line-height: var(--type-name-lineHeight) !important;
+}
+[data-type-name-spacing]
+  :is(
+    h1,
+    .cinematic-hero__name,
+    .couple-1-details h3,
+    .couple-2 h3,
+    .couple-3 h3,
+    .couple-4 h3,
+    .invitation-closing h3
+  ) {
+  letter-spacing: var(--type-name-spacing) !important;
+}
+[data-type-body-family] :is(p, li, textarea, input) {
+  font-family: var(--type-body-family) !important;
+}
+[data-type-body-size] :is(p, li, textarea, input) {
+  font-size: var(--type-body-size) !important;
+}
+[data-type-body-weight] :is(p, li, textarea, input) {
+  font-weight: var(--type-body-weight) !important;
+}
+[data-type-body-lineheight] :is(p, li, textarea, input) {
+  line-height: var(--type-body-lineHeight) !important;
+}
+[data-type-body-spacing] :is(p, li, textarea, input) {
+  letter-spacing: var(--type-body-spacing) !important;
+}
+[data-type-label-family]
+  :is(.invitation-kicker, .invitation-date, time, figcaption) {
+  font-family: var(--type-label-family) !important;
+}
+[data-type-label-size]
+  :is(.invitation-kicker, .invitation-date, time, figcaption) {
+  font-size: var(--type-label-size) !important;
+}
+[data-type-label-weight]
+  :is(.invitation-kicker, .invitation-date, time, figcaption) {
+  font-weight: var(--type-label-weight) !important;
+}
+[data-type-label-lineheight]
+  :is(.invitation-kicker, .invitation-date, time, figcaption) {
+  line-height: var(--type-label-lineHeight) !important;
+}
+[data-type-label-spacing]
+  :is(.invitation-kicker, .invitation-date, time, figcaption) {
+  letter-spacing: var(--type-label-spacing) !important;
+}
+[data-type-button-family] :is(button, .invitation-button) {
+  font-family: var(--type-button-family) !important;
+}
+[data-type-button-size] :is(button, .invitation-button) {
+  font-size: var(--type-button-size) !important;
+}
+[data-type-button-weight] :is(button, .invitation-button) {
+  font-weight: var(--type-button-weight) !important;
+}
+[data-type-button-lineheight] :is(button, .invitation-button) {
+  line-height: var(--type-button-lineHeight) !important;
+}
+[data-type-button-spacing] :is(button, .invitation-button) {
+  letter-spacing: var(--type-button-spacing) !important;
+}

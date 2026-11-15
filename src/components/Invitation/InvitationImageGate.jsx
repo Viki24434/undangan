@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { loadOpeningImage } from './invitationImages';
 import './InvitationImageGate.css';
 
+const completed = new Set();
+
 export default function InvitationImageGate({ signature, children }) {
   const [attempt, setAttempt] = useState(0);
   const [state, setState] = useState({
@@ -12,6 +14,7 @@ export default function InvitationImageGate({ signature, children }) {
   });
   const [bypass, setBypass] = useState('');
   useEffect(() => {
+    if (completed.has(signature)) return;
     let active = true;
     const sources = JSON.parse(signature);
     let cursor = 0;
@@ -26,20 +29,28 @@ export default function InvitationImageGate({ signature, children }) {
           failed++;
         }
         done++;
-        if (active)
+        if (active) {
+          if (done === sources.length && !failed) {
+            completed.add(signature);
+            if (completed.size > 100)
+              completed.delete(completed.values().next().value);
+          }
           setState({
             signature,
             done,
             failed,
             ready: done === sources.length && !failed,
           });
+        }
       }
     }
     Promise.all(
       Array.from({ length: Math.min(6, sources.length) }, worker),
     ).then(() => {
-      if (active && !sources.length)
+      if (active && !sources.length) {
+        completed.add(signature);
         setState({ signature, done: 0, failed: 0, ready: true });
+      }
     });
     return () => {
       active = false;
@@ -50,7 +61,8 @@ export default function InvitationImageGate({ signature, children }) {
     state.signature === signature
       ? state
       : { done: 0, failed: 0, ready: false };
-  if (current.ready || bypass === signature) return children;
+  if (current.ready || completed.has(signature) || bypass === signature)
+    return children;
   const finished = current.done === total;
   return (
     <div className="invitation-image-loading" role="status" aria-live="polite">

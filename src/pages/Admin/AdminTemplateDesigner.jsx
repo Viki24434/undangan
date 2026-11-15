@@ -1055,6 +1055,8 @@ function Designer({ id }) {
           <details className="designer-theme">
             <summary>Warna & font</summary>
             <DesignThemeEditor
+              key={section}
+              initialScope={section}
               value={theme}
               onChange={setTheme}
               disabled={busy}
