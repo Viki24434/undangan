@@ -17,12 +17,28 @@ import { DesignEditorContext } from '../TemplateDesign/DesignEditorContext';
 import { themeAttributes, themeStyles } from '../../config/invitationTheme';
 import './InvitationTheme.css';
 import './InvitationGradients.css';
+import InvitationImageGate from './InvitationImageGate';
+import { openingImages } from './invitationImages';
 
 const TemplateDesignRuntime = lazy(
   () => import('../TemplateDesign/TemplateDesignRuntime'),
 );
 
-export default function InvitationLayout({
+export default function InvitationLayout(props) {
+  const invitation = useInvitation();
+  const editor = useContext(DesignEditorContext);
+  if (editor) return <InvitationLayoutContent {...props} />;
+  const signature = JSON.stringify(
+    openingImages(props, invitation?.data.design),
+  );
+  return (
+    <InvitationImageGate signature={signature}>
+      <InvitationLayoutContent {...props} />
+    </InvitationImageGate>
+  );
+}
+
+function InvitationLayoutContent({
   theme,
   title,
   subtitle,
