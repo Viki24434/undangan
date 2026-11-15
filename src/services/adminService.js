@@ -11,6 +11,16 @@ async function request(path, options = {}) {
   return result;
 }
 export const adminService = {
+  createCustomerPreview: (id) =>
+    request(
+      '/admin/invitations/' + encodeURIComponent(id) + '/customer-preview',
+      { method: 'POST' },
+    ),
+  revokeCustomerPreview: (id) =>
+    request(
+      '/admin/invitations/' + encodeURIComponent(id) + '/customer-preview',
+      { method: 'DELETE' },
+    ),
   exportThemeBackup: (ids, signal) =>
     request('/admin/template-backups/export', {
       method: 'POST',

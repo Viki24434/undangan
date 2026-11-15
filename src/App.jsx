@@ -64,6 +64,10 @@ function App() {
           <Route path="/t/:id" element={<TemplateViewer />} />
           <Route path="/edit/:id" element={<ConsumerEditor />} />
           <Route path="/u/:slug" element={<InvitationPage />} />
+          <Route
+            path="/preview/:previewToken"
+            element={<InvitationPage customerPreview />}
+          />
         </Routes>
       </Suspense>
     </BrowserRouter>

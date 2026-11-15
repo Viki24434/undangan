@@ -1,4 +1,5 @@
-﻿import { useEffect, useState } from 'react';
+﻿import CustomerPreviewShare from '../../components/Admin/CustomerPreviewShare';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { adminService } from '../../services/adminService';
 import { invitationService } from '../../services/api';
@@ -243,6 +244,9 @@ export default function AdminEditor() {
           busy={busy}
         />
       </section>
+      {id && (
+        <CustomerPreviewShare key={id} invitationId={id} title={form.title} />
+      )}
       {id && <GuestManagement invitationId={id} />}
       {id && <GuestPhotoManagement invitationId={id} />}
     </>

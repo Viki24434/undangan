@@ -19,3 +19,15 @@
 .invitation-page-state p {
   max-width: 500px;
 }
+
+.customer-preview-notice {
+  position: relative;
+  z-index: 20;
+  padding: 12px 20px;
+  background: #fff3d8;
+  color: #58451e;
+  font:
+    12px/1.6 'Segoe UI',
+    sans-serif;
+  text-align: center;
+}

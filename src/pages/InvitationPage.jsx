@@ -1,19 +1,24 @@
 ﻿import { Suspense, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { invitationService } from '../services/api';
+import { invitationService, apiRequest } from '../services/api';
 import { resolveTemplate } from '../config/templateRenderer';
 import { InvitationContext } from '../components/Invitation/InvitationContext';
 import MobileWrapper from '../components/MobileWrapper/MobileWrapper';
 import './InvitationPage.css';
 
-export default function InvitationPage() {
-  const { slug } = useParams();
+export default function InvitationPage({ customerPreview = false }) {
+  const { slug: publicSlug, previewToken } = useParams();
+  const slug = customerPreview ? previewToken : publicSlug;
   const [state, setState] = useState({ slug: '', invitation: null, error: '' });
 
   useEffect(() => {
     const controller = new AbortController();
-    invitationService
-      .invitation(slug, controller.signal)
+    (customerPreview
+      ? apiRequest('/previews/' + encodeURIComponent(slug), {
+          signal: controller.signal,
+        })
+      : invitationService.invitation(slug, controller.signal)
+    )
       .then(({ data }) => {
         setState({ slug, invitation: data, error: '' });
       })
@@ -22,7 +27,7 @@ export default function InvitationPage() {
           setState({ slug, invitation: null, error: error.message });
       });
     return () => controller.abort();
-  }, [slug]);
+  }, [slug, customerPreview]);
 
   if (state.slug !== slug)
     return (
@@ -44,6 +49,18 @@ export default function InvitationPage() {
   const Template = template.component;
   return (
     <InvitationContext.Provider value={invitation}>
+      {customerPreview && (
+        <>
+          <meta name="robots" content="noindex, nofollow" />
+          <meta name="referrer" content="no-referrer" />
+        </>
+      )}
+      {customerPreview && (
+        <div className="customer-preview-notice" role="status">
+          Preview pemeriksaan. Sampaikan persetujuan atau revisi melalui chat
+          admin. Link ini untuk pemeriksaan sebelum dibagikan ke tamu.
+        </div>
+      )}
       <MobileWrapper bgImage={invitation.data.image || template.img}>
         <Suspense
           fallback={
