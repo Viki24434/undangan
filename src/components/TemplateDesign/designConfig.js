@@ -24,7 +24,7 @@ export const DESIGN_SECTIONS = [
     id: 'story',
     label: 'Cerita',
     selector:
-      '.platinum-chapter--story, .story-1-container, .story-2, .story-3',
+      '.platinum-chapter--story, .story-1-container, .story-2, .story-3, .story-4',
   },
   {
     id: 'events',

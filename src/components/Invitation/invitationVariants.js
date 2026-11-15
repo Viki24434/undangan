@@ -23,6 +23,7 @@ const loaders = {
     1: () => import('../Story/Story1/Story1'),
     2: () => import('../Story/Story2/Story2'),
     3: () => import('../Story/Story3/Story3'),
+    4: () => import('../Story/Story4/Story4'),
   },
   countdown: {
     1: () => import('../Countdown/Countdown1/Countdown1'),
@@ -37,6 +38,12 @@ const loaders = {
     3: () => import('../Gallery/Gallery3/Gallery3'),
     4: () => import('../Gallery/Gallery4/Gallery4'),
     5: () => import('../Gallery/Gallery5/Gallery5'),
+    6: () => import('../Gallery/Gallery6/Gallery6'),
+    7: () => import('../Gallery/Gallery7/Gallery7'),
+    8: () => import('../Gallery/Gallery8/Gallery8'),
+    9: () => import('../Gallery/Gallery9/Gallery9'),
+    10: () => import('../Gallery/Gallery10/Gallery10'),
+    11: () => import('../Gallery/Gallery11/Gallery11'),
   },
   gift: {
     1: () => import('../Gift/Gift1/Gift1'),
@@ -57,6 +64,7 @@ const loaders = {
     1: () => import('../Closing/Closing1/Closing1'),
     2: () => import('../Closing/Closing2/Closing2'),
     3: () => import('../Closing/Closing3/Closing3'),
+    4: () => import('../Closing/Closing4/Closing4'),
   },
 };
 

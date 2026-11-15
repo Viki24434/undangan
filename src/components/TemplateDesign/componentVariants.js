@@ -45,6 +45,7 @@ export const COMPONENT_VARIANTS = [
     options: [
       [1, 'Story 1'],
       [2, 'Story 2'],
+      [4, 'Story 4 · jejak perjalanan'],
       [3, 'Story 3 · kartu bab'],
     ],
   },
@@ -72,6 +73,12 @@ export const COMPONENT_VARIANTS = [
       [3, 'Gallery 3'],
       [4, 'Gallery 4 · dengan lightbox'],
       [5, 'Gallery 5 · album filmstrip'],
+      [6, 'Gallery 6 · masonry bertingkat'],
+      [7, 'Gallery 7 · album polaroid'],
+      [8, 'Gallery 8 · majalah editorial'],
+      [9, 'Gallery 9 · tumpukan album'],
+      [10, 'Gallery 10 · spotlight & thumbnail'],
+      [11, 'Gallery 11 · contact sheet'],
     ],
   },
   {
@@ -116,6 +123,7 @@ export const COMPONENT_VARIANTS = [
     options: [
       [1, 'Penutup 1 · klasik'],
       [2, 'Penutup 2 · foto kenangan'],
+      [4, 'Penutup 4 · kartu kenangan'],
       [3, 'Penutup 3 · kartu terima kasih'],
     ],
   },

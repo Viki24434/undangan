@@ -15,7 +15,81 @@ const portrait = (x, y, width = 25, height = 30) => (
 
 export default function DesignVariantThumbnail({ kind, value }) {
   let artwork;
-  if (kind === 'intro' || kind === 'closing') {
+  if (kind === 'gallery' && value >= 6) {
+    const frames =
+      value === 6
+        ? [
+            [12, 8, 34, 38],
+            [53, 8, 34, 24],
+            [12, 51, 34, 20],
+            [53, 37, 34, 34],
+          ]
+        : value === 8
+          ? [
+              [12, 8, 76, 30],
+              [12, 44, 34, 28],
+              [53, 44, 35, 28],
+            ]
+          : value === 11
+            ? [12, 39, 66].flatMap((x) => [
+                [x, 10, 22, 26],
+                [x, 43, 22, 26],
+              ])
+            : value === 9
+              ? [
+                  [23, 10, 58, 56],
+                  [16, 16, 58, 56],
+                ]
+              : value === 10
+                ? [
+                    [12, 8, 76, 44],
+                    [12, 59, 20, 13],
+                    [40, 59, 20, 13],
+                    [68, 59, 20, 13],
+                  ]
+                : [
+                    [12, 12, 33, 50],
+                    [55, 19, 33, 50],
+                  ];
+    artwork = frames.map(([x, y, width, height], index) => (
+      <g
+        key={index}
+        transform={
+          value === 7
+            ? `rotate(${index ? 5 : -5} ${x + width / 2} ${y + height / 2})`
+            : undefined
+        }
+      >
+        <rect
+          x={x}
+          y={y}
+          width={width}
+          height={height}
+          rx="2"
+          fill="currentColor"
+          opacity=".22"
+        />
+        <path
+          d={`M${x + 3} ${y + height - 7}h${width - 6}`}
+          stroke="currentColor"
+          opacity=".5"
+        />
+      </g>
+    ));
+  } else if (kind === 'story' && value === 4) {
+    artwork = (
+      <>
+        <path d="M22 9v62" stroke="currentColor" />
+        {[17, 39, 61].map((y) => (
+          <g key={y}>
+            <circle cx="22" cy={y} r="5" fill="currentColor" />
+            {line(y - 3, 43, 36)}
+            {line(y + 4, 29, 36)}
+          </g>
+        ))}
+      </>
+    );
+  } else if (kind === 'intro' || kind === 'closing') {
     artwork = (
       <>
         {value === 3 || (kind === 'closing' && value === 2)
