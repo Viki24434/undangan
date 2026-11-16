@@ -28,7 +28,10 @@ export default function TemplateDesignRuntime({ root }) {
   const sequence = useRef(0);
   const active = Boolean(design || editor || theme?.sections);
   const editing = Boolean(editor && !editor.playing);
-  const backdrops = useDesignBackdrops(root, active);
+  const backdrops = useDesignBackdrops(
+    root,
+    active && Boolean(editor || Object.keys(design?.native || {}).length),
+  );
 
   useEffect(() => {
     if (!editing || !root.current) return;

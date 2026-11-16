@@ -60,6 +60,18 @@ function InvitationLayoutContent({
   const [openedState, setOpened] = useState(false);
   const opened = designEditor ? designEditor.section !== 'cover' : openedState;
   const [coverOpening, setCoverOpening] = useState(false);
+  useEffect(() => {
+    const node = designRoot.current;
+    function update() {
+      if (node) node.dataset.pageHidden = String(document.hidden);
+    }
+    update();
+    document.addEventListener('visibilitychange', update);
+    return () => {
+      document.removeEventListener('visibilitychange', update);
+      if (node) delete node.dataset.pageHidden;
+    };
+  }, []);
   const contentRef = useRef(null);
   const musicRef = useRef(null);
   const coverTimerRef = useRef(null);
@@ -113,7 +125,12 @@ function InvitationLayoutContent({
     if (opened) return;
     setOpened(true);
     setCoverOpening(true);
-    window.clearTimeout(coverTimerRef.current);
+    if (musicEnabled) musicRef.current?.play();
+    requestAnimationFrame(() => contentRef.current?.focus());
+  }
+
+  useEffect(() => {
+    if (!coverOpening) return;
     coverTimerRef.current = window.setTimeout(
       () => {
         setCoverOpening(false);
@@ -121,16 +138,8 @@ function InvitationLayoutContent({
       },
       variants.cover === 3 ? 2500 : 950,
     );
-    if (musicEnabled) musicRef.current?.play();
-    requestAnimationFrame(() => contentRef.current?.focus());
-  }
-
-  useEffect(
-    () => () => {
-      window.clearTimeout(coverTimerRef.current);
-    },
-    [],
-  );
+    return () => window.clearTimeout(coverTimerRef.current);
+  }, [coverOpening, variants.cover]);
 
   const cover =
     variants.cover === 1 ? (

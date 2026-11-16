@@ -874,3 +874,9 @@
   top: 3%;
   transform: rotate(-12deg);
 }
+
+.celebration-template[data-page-hidden='true'] *,
+.celebration-template[data-page-hidden='true'] *::before,
+.celebration-template[data-page-hidden='true'] *::after {
+  animation-play-state: paused !important;
+}
