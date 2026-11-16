@@ -1,4 +1,5 @@
-﻿import CustomerPreviewShare from '../../components/Admin/CustomerPreviewShare';
+﻿import InvitationChecklist from '../../components/Admin/InvitationChecklist';
+import CustomerPreviewShare from '../../components/Admin/CustomerPreviewShare';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { adminService } from '../../services/adminService';
@@ -29,6 +30,7 @@ export default function AdminEditor() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [form, setForm] = useState(null);
+  const [savedForm, setSavedForm] = useState(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [status, setStatus] = useState('');
@@ -63,6 +65,7 @@ export default function AdminEditor() {
       .then((value) => {
         if (!controller.signal.aborted) {
           setForm(value);
+          setSavedForm(id ? value : null);
           setError('');
         }
       })
@@ -145,7 +148,9 @@ export default function AdminEditor() {
         },
       };
       const { data } = await adminService.save(body, id);
-      setForm({ ...data, eventDate: localDate(data.eventDate) });
+      const saved = { ...data, eventDate: localDate(data.eventDate) };
+      setForm(saved);
+      setSavedForm(saved);
       setStatus('Undangan berhasil disimpan.');
       if (!id) navigate(`/admin/undangan/${data.id}`, { replace: true });
     } catch (error) {
@@ -234,6 +239,13 @@ export default function AdminEditor() {
           </div>
         </div>
       )}
+      <InvitationChecklist
+        key={`checklist-${id || 'new'}`}
+        form={form}
+        saved={savedForm}
+        invitationId={id}
+        disabled={busy}
+      />
       <section className="admin-panel">
         <InvitationForm
           form={form}
