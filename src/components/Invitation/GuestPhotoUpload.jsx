@@ -114,7 +114,8 @@ export default function GuestPhotoUpload({ platinum }) {
           </label>
           <small>
             JPG, PNG, atau WebP, maksimal 10 MB per foto. Foto dikirim satu per
-            satu dan nama kamu ditambahkan pada nama file.
+            satu dan nama kamu ditambahkan pada nama file. Foto dioptimasi
+            otomatis sebelum dikirim.
           </small>
           {files.length > 0 && (
             <ul className="guest-photo-upload__files">

@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { prepareImage, imageDataURL } from '../../services/imageFiles';
+import {
+  prepareImage,
+  imageDataURL,
+  imageSavings,
+} from '../../services/imageFiles';
 import { adminService } from '../../services/adminService';
 import './ImageField.css';
 
@@ -13,6 +17,7 @@ export default function ImageField({
 }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
+  const [optimization, setOptimization] = useState('');
   const controllerRef = useRef(null);
   useEffect(() => () => controllerRef.current?.abort(), []);
   const uploaded =
@@ -26,6 +31,7 @@ export default function ImageField({
     controllerRef.current = controller;
     setBusy(true);
     setError('');
+    setOptimization('');
     onPending(1);
     try {
       const blob = await prepareImage(file);
@@ -33,7 +39,10 @@ export default function ImageField({
       const result = localOnly
         ? await imageDataURL(blob)
         : await adminService.uploadImage(blob, controller.signal);
-      if (!controller.signal.aborted) onChange(result);
+      if (!controller.signal.aborted) {
+        onChange(result);
+        setOptimization(imageSavings(file.size, blob.size));
+      }
     } catch (error) {
       if (!controller.signal.aborted) setError(error.message);
     } finally {
@@ -55,7 +64,10 @@ export default function ImageField({
               ? 'Gambar sudah dipilih. Isi URL untuk mengganti.'
               : 'https://contoh.com/foto.jpg'
           }
-          onChange={(event) => onChange(event.target.value)}
+          onChange={(event) => {
+            setOptimization('');
+            onChange(event.target.value);
+          }}
         />
       </label>
       <label className="image-file-label">
@@ -84,11 +96,13 @@ export default function ImageField({
           {error}
         </p>
       )}
+      {optimization && <small role="status">{optimization}</small>}
       <small>
         {localOnly
           ? 'Gambar disimpan di browser perangkat ini.'
           : 'File diunggah sekarang. Menyimpan undangan hanya menyimpan URL.'}{' '}
-        JPG, PNG, WebP; maksimal 10 MB.
+        JPG, PNG, WebP; maksimal 10 MB. Foto otomatis dioptimasi hingga sisi
+        terpanjang 1.600 px, tanpa diperbesar. Transparansi tetap dipertahankan.
       </small>
     </div>
   );
