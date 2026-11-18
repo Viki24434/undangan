@@ -11,6 +11,10 @@ async function request(path, options = {}) {
   return result;
 }
 export const adminService = {
+  shareMetadata: (id, signal) =>
+    request(`/admin/invitations/${encodeURIComponent(id)}/share-meta`, {
+      signal,
+    }),
   createCustomerPreview: (id) =>
     request(
       '/admin/invitations/' + encodeURIComponent(id) + '/customer-preview',

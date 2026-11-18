@@ -1,0 +1,42 @@
+.invitation-share-card__example {
+  max-width: 470px;
+  border: 1px solid var(--admin-line);
+  background: #eef0e8;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+.invitation-share-card__example > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1200 / 630;
+  object-fit: cover;
+}
+.invitation-share-card__example > div {
+  padding: 16px;
+}
+.invitation-share-card__example small {
+  color: #73806f;
+  font-size: 10px;
+}
+.invitation-share-card__example h3 {
+  margin: 6px 0 !important;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+.invitation-share-card__url {
+  display: grid;
+  gap: 7px;
+  margin: 18px 0;
+  font-size: 12px;
+}
+.invitation-share-card__url input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--admin-line);
+  border-radius: 6px;
+  background: #fffef9;
+  color: inherit;
+  font: inherit;
+}

@@ -1,4 +1,5 @@
 ﻿import InvitationChecklist from '../../components/Admin/InvitationChecklist';
+import InvitationShareCard from '../../components/Admin/InvitationShareCard';
 import CustomerPreviewShare from '../../components/Admin/CustomerPreviewShare';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -259,6 +260,7 @@ export default function AdminEditor() {
       {id && (
         <CustomerPreviewShare key={id} invitationId={id} title={form.title} />
       )}
+      {id && savedForm && <InvitationShareCard invitation={savedForm} />}
       {id && <GuestManagement invitationId={id} />}
       {id && <GuestPhotoManagement invitationId={id} />}
     </>

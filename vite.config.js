@@ -1,6 +1,7 @@
 ﻿import process from 'node:process';
 import react from '@vitejs/plugin-react';
 import { defineConfig, loadEnv } from 'vite';
+import invitationSharePlugin from './scripts/invitationSharePlugin.js';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
@@ -9,7 +10,12 @@ export default defineConfig(({ mode }) => {
     .map((host) => host.trim())
     .filter(Boolean);
   return {
-    plugins: [react()],
+    plugins: [
+      react(),
+      invitationSharePlugin(
+        env.BACKEND_URL || 'http://127.0.0.1/undangan-back/public',
+      ),
+    ],
     optimizeDeps: {
       include: ['exceljs'],
     },
