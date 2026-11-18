@@ -19,6 +19,9 @@ import {
   DESIGN_SECTIONS,
   newDesignLayer,
 } from '../../components/TemplateDesign/designConfig';
+import { lastDesignSource, readDesignDraft } from '../../services/designDrafts';
+import useDesignDraft from '../../components/TemplateDesign/useDesignDraft';
+import DesignDraftRecovery from '../../components/TemplateDesign/DesignDraftRecovery';
 import DesignLayerPanel from '../../components/TemplateDesign/DesignLayerPanel';
 import DesignTemplateDetails from '../../components/TemplateDesign/DesignTemplateDetails';
 import DesignPanelTabs from '../../components/TemplateDesign/DesignPanelTabs';
@@ -45,7 +48,9 @@ import '../../components/TemplateDesign/TemplateDesigner.css';
 function Designer({ id }) {
   const navigate = useNavigate();
   const { templates } = useTemplates();
-  const [selectedSourceId, setSourceId] = useState('');
+  const [selectedSourceId, setSourceId] = useState(() =>
+    id ? '' : lastDesignSource(),
+  );
   const sourceId = selectedSourceId || id || templates[0]?.id || '';
   const [template, setTemplate] = useState(null);
   const [history, setHistory] = useState({
@@ -55,6 +60,9 @@ function Designer({ id }) {
   });
   const [theme, setTheme] = useState({});
   const [saved, setSaved] = useState('');
+  const [draftBaseline, setDraftBaseline] = useState('');
+  const [recovery, setRecovery] = useState(null);
+  const [draftError, setDraftError] = useState('');
   const [section, setSection] = useState('cover');
   const [runtime, setRuntime] = useState({ sections: [], natives: [] });
   const [selected, setSelected] = useState(null);
@@ -98,6 +106,19 @@ function Designer({ id }) {
   );
   const fingerprint = JSON.stringify({ design, theme });
   const dirty = template && fingerprint !== saved;
+  const draftKey = id ? 'template:' + id : 'new';
+  const draftValue = { design, theme, name, category, packageId };
+  const draftChanged = template && JSON.stringify(draftValue) !== draftBaseline;
+  const localDraft = useDesignDraft({
+    key: draftKey,
+    sourceId,
+    baseline: draftBaseline,
+    value: draftValue,
+    enabled: Boolean(template && template.id === sourceId && !recovery),
+  });
+
+  const draftStorageError =
+    localDraft.status?.error || (!localDraft.status?.savedAt && draftError);
 
   useEffect(() => {
     if (!sourceId) return;
@@ -115,26 +136,50 @@ function Designer({ id }) {
         setName(`${data.name} Custom`);
         setCategory(data.category);
         setPackageId(data.packageId);
+        const baseline = JSON.stringify({
+          design: value,
+          theme: colors,
+          name: data.name + ' Custom',
+          category: data.category,
+          packageId: data.packageId,
+        });
+        setDraftBaseline(baseline);
+        setDraftError('');
+        try {
+          const draft = readDesignDraft(draftKey);
+          setRecovery(
+            draft?.sourceId === data.id &&
+              JSON.stringify(draft.value) !== baseline
+              ? draft
+              : null,
+          );
+        } catch {
+          setRecovery(null);
+          setDraftError(
+            'Draft perangkat tidak dapat dibaca. Simpan desain ke server setelah selesai mengedit.',
+          );
+        }
         setSelected(null);
         scrollSection.current = true;
         setSection('cover');
         setError('');
       })
       .catch((error) => {
+        if (!id && error.status === 404) setSourceId('');
         if (error.name !== 'AbortError') setError(error.message);
       });
     return () => controller.abort();
-  }, [sourceId]);
+  }, [sourceId, draftKey, id]);
 
   useEffect(() => {
-    if (!dirty) return;
+    if (!draftChanged || recovery) return;
     const warn = (event) => {
       event.preventDefault();
       event.returnValue = '';
     };
     window.addEventListener('beforeunload', warn);
     return () => window.removeEventListener('beforeunload', warn);
-  }, [dirty]);
+  }, [draftChanged, recovery]);
 
   useEffect(() => {
     if (!scroller.current || !scrollSection.current) return;
@@ -163,6 +208,26 @@ function Designer({ id }) {
         );
       });
   }, [selected, runtime, design]);
+
+  function restoreDraft() {
+    const value = recovery.value;
+    setHistory({ past: [design], present: value.design, future: [] });
+    setTheme(value.theme);
+    setName(value.name);
+    setCategory(value.category);
+    setPackageId(value.packageId);
+    setSelected(null);
+    setPlaying(false);
+    setReplay((current) => current + 1);
+    setRecovery(null);
+    setNotice(
+      'Draft desain dipulihkan. Periksa preview lalu simpan ke server.',
+    );
+  }
+  function discardDraft() {
+    localDraft.clear();
+    setRecovery(null);
+  }
 
   function commit(next) {
     setHistory((current) => ({
@@ -389,7 +454,7 @@ function Designer({ id }) {
   });
 
   function keyboardAction(event) {
-    if (busy) return;
+    if (busy || recovery) return;
     const modifier = event.ctrlKey || event.metaKey;
     if (modifier && event.key.toLowerCase() === 's') {
       event.preventDefault();
@@ -526,6 +591,7 @@ function Designer({ id }) {
           packageId,
           data,
         });
+        localDraft.clear();
         navigate(`/admin/template/${created.id}/desain`, { replace: true });
       } else {
         const { data: updated } = await adminService.updateTemplate(
@@ -534,6 +600,8 @@ function Designer({ id }) {
         );
         setTemplate(updated);
         setSaved(fingerprint);
+        setDraftBaseline(JSON.stringify(draftValue));
+        localDraft.clear();
         setNotice('Desain template berhasil disimpan.');
       }
     } catch (error) {
@@ -595,7 +663,7 @@ function Designer({ id }) {
             <button
               type="button"
               className="admin-button"
-              disabled={busy || !dirty}
+              disabled={busy || !!recovery || !dirty}
               onClick={() => save(false)}
             >
               Simpan desain
@@ -632,7 +700,20 @@ function Designer({ id }) {
           {notice}
         </p>
       )}
-      <div className="designer-workspace">
+      {recovery && (
+        <DesignDraftRecovery
+          draft={recovery}
+          changed={recovery.baseline !== draftBaseline}
+          onRestore={restoreDraft}
+          onDiscard={discardDraft}
+        />
+      )}
+      {draftStorageError && (
+        <p role="alert" className="admin-error">
+          {draftStorageError}
+        </p>
+      )}
+      <div className="designer-workspace" inert={Boolean(recovery)}>
         <aside className="designer-panel">
           <DesignTemplateDetails
             panelRef={copyPanel}
@@ -989,6 +1070,19 @@ function Designer({ id }) {
               />
             </div>
           </div>
+          <p className="designer-draft-status" role="status">
+            {localDraft.status?.error
+              ? 'Draft perangkat gagal disimpan'
+              : localDraft.saving
+                ? 'Menyimpan draft di perangkat...'
+                : localDraft.status?.savedAt
+                  ? 'Draft tersimpan di perangkat pada ' +
+                    new Date(localDraft.status.savedAt).toLocaleTimeString(
+                      'id-ID',
+                      { hour: '2-digit', minute: '2-digit' },
+                    )
+                  : 'Perubahan desain akan dicadangkan otomatis di perangkat ini'}
+          </p>
           <div className="designer-canvas-status">
             <span role="status">
               {busy
