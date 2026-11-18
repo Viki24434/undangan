@@ -225,6 +225,9 @@ export default function TemplateDesignRuntime({ root }) {
             '',
           ),
           displayLabel: element.dataset.designOrnament,
+          thumbnail:
+            element.querySelector('img')?.getAttribute('src') ||
+            element.querySelector('svg image')?.getAttribute('href'),
           mount: artworkMount,
           element,
           parent,

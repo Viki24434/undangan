@@ -19,6 +19,9 @@ import {
   DESIGN_SECTIONS,
   newDesignLayer,
 } from '../../components/TemplateDesign/designConfig';
+import DesignLayerPanel from '../../components/TemplateDesign/DesignLayerPanel';
+import DesignTemplateDetails from '../../components/TemplateDesign/DesignTemplateDetails';
+import DesignPanelTabs from '../../components/TemplateDesign/DesignPanelTabs';
 import DesignInspector from '../../components/TemplateDesign/DesignInspector';
 import DesignAssetLibrary from '../../components/TemplateDesign/DesignAssetLibrary';
 import DesignSelection from '../../components/TemplateDesign/DesignSelection';
@@ -60,7 +63,7 @@ function Designer({ id }) {
   const [busy, setBusy] = useState(false);
   const [libraryOpen, setLibraryOpen] = useState(false);
   const [libraryMode, setLibraryMode] = useState('add');
-  const [copyMode, setCopyMode] = useState(!id);
+  const [copyMode, setCopyMode] = useState(false);
   const [name, setName] = useState('');
   const [category, setCategory] = useState('Pernikahan');
   const [packageId, setPackageId] = useState('gold');
@@ -70,9 +73,12 @@ function Designer({ id }) {
   const [dropActive, setDropActive] = useState(false);
   const [componentMetadata, setComponentMetadata] = useState(null);
   const [snapping, setSnapping] = useState(true);
+  const [leftPanel, setLeftPanel] = useState('layers');
+  const [rightPanel, setRightPanel] = useState('ornament');
   const scroller = useRef(null);
   const viewport = useRef(null);
   const libraryPanel = useRef(null);
+  const copyPanel = useRef(null);
   const scrollSection = useRef(true);
   const zoom = useDesignZoom(viewport, Boolean(template));
   const design = history.present;
@@ -248,6 +254,11 @@ function Designer({ id }) {
         ),
       });
   }
+  function selectLayer(selection) {
+    setSelected(selection);
+    setRightPanel('ornament');
+    setPlaying(false);
+  }
   function resetItem() {
     if (!selected) return;
     if (selected.type === 'native') {
@@ -367,7 +378,10 @@ function Designer({ id }) {
     runtime,
     disabled: playing || busy,
     keepRatio,
-    onSelect: setSelected,
+    onSelect: (selection) => {
+      setSelected(selection);
+      if (selection) setRightPanel('ornament');
+    },
     onChange: patchItem,
     onSection: onCanvasSection,
     zoom: zoom.value,
@@ -591,7 +605,18 @@ function Designer({ id }) {
             type="button"
             className="admin-button secondary"
             disabled={busy}
-            onClick={() => setCopyMode((value) => !value)}
+            aria-expanded={copyMode}
+            aria-controls="designer-template-details"
+            onClick={() => {
+              setCopyMode((value) => !value);
+              if (!copyMode)
+                requestAnimationFrame(() =>
+                  copyPanel.current?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                  }),
+                );
+            }}
           >
             Simpan sebagai template baru
           </button>
@@ -607,212 +632,166 @@ function Designer({ id }) {
           {notice}
         </p>
       )}
-      {copyMode && (
-        <section className="admin-panel admin-form">
-          <h2>Template baru</h2>
-          <div className="admin-field-grid">
-            <label>
-              Template dasar
-              <select
-                aria-label="Template dasar"
-                value={sourceId}
-                disabled={busy || !!id}
-                onChange={(event) => {
-                  setTemplate(null);
-                  setSourceId(event.target.value);
-                }}
-              >
-                {templates.map((item) => (
-                  <option value={item.id} key={item.id}>
-                    {item.name}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              Nama template baru
-              <input
-                value={name}
-                maxLength={160}
-                onChange={(event) => setName(event.target.value)}
-              />
-            </label>
-            <label>
-              Kategori acara
-              <input
-                value={category}
-                maxLength={80}
-                onChange={(event) => setCategory(event.target.value)}
-              />
-            </label>
-            <label>
-              Paket template
-              <select
-                aria-label="Paket template"
-                value={packageId}
-                onChange={(event) => setPackageId(event.target.value)}
-              >
-                {['silver', 'gold', 'platinum', 'exclusive'].map((key) => (
-                  <option key={key} value={key}>
-                    {key[0].toUpperCase() + key.slice(1)}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
-          <div>
-            <button
-              className="admin-button"
-              type="button"
-              disabled={busy}
-              onClick={() => save(true)}
-            >
-              Buat template custom
-            </button>
-          </div>
-        </section>
-      )}
       <div className="designer-workspace">
         <aside className="designer-panel">
-          <DesignCompositionPicker
-            metadata={componentMetadata}
-            values={design.components}
-            disabled={busy}
-            onApply={(preset, components) => {
-              commit({
-                ...design,
-                components: { ...design.components, ...components },
-              });
-              chooseSection('cover');
-              setPlaying(false);
-              setNotice(
-                `Susunan ${preset.name} diterapkan. Simpan desain saat sudah sesuai.`,
-              );
-              if (window.innerWidth <= 800)
-                requestAnimationFrame(() =>
-                  viewport.current?.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                  }),
-                );
-            }}
-          />
-          <DesignComponentPicker
-            metadata={componentMetadata}
-            values={design.components}
-            disabled={busy}
-            section={section}
+          <DesignTemplateDetails
+            panelRef={copyPanel}
+            open={copyMode}
+            onToggle={setCopyMode}
+            templates={templates}
+            sourceId={sourceId}
+            sourceLocked={Boolean(id)}
+            values={{ name, category, packageId }}
             onChange={(field, value) => {
-              const components = { ...design.components };
-              if (value === 'inherit') delete components[field.key];
-              else components[field.key] = Number(value);
-              commit({ ...design, components });
-              chooseSection(field.section);
-              setPlaying(false);
-              if (window.innerWidth <= 800)
-                requestAnimationFrame(() =>
-                  viewport.current?.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                  }),
-                );
+              if (field === 'name') setName(value);
+              if (field === 'category') setCategory(value);
+              if (field === 'packageId') setPackageId(value);
             }}
+            onSource={(value) => {
+              setTemplate(null);
+              setSourceId(value);
+            }}
+            onSave={() => save(true)}
+            disabled={busy}
           />
-          <div className="admin-form">
-            <label>
-              Bagian template
-              <select
-                aria-label="Bagian template"
-                value={section}
-                disabled={busy}
-                onChange={(event) => {
-                  chooseSection(event.target.value);
-                }}
-              >
-                {DESIGN_SECTIONS.map((item) => (
-                  <option value={item.id} key={item.id}>
-                    {item.label}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              Animasi bagian
-              <select
-                aria-label="Animasi bagian"
-                value={design.sections[section]?.reveal || 'inherit'}
-                disabled={busy}
-                onChange={(event) =>
-                  changeSection({ reveal: event.target.value })
-                }
-              >
-                {DESIGN_ENTRIES.map(([key, label]) => (
-                  <option key={key} value={key}>
-                    {label}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              Durasi bagian (detik)
-              <input
-                type="number"
-                min="0.2"
-                max="8"
-                step="0.1"
-                value={design.sections[section]?.duration || 1}
-                disabled={busy}
-                onChange={(event) =>
-                  changeSection({
-                    duration: Math.max(
-                      0.2,
-                      Math.min(8, Number(event.target.value)),
-                    ),
-                  })
-                }
-              />
-            </label>
+          <DesignPanelTabs
+            label="Panel susunan template"
+            tabs={[
+              ['layers', 'Bagian & lapisan'],
+              ['components', 'Komponen'],
+            ]}
+            value={leftPanel}
+            onChange={setLeftPanel}
+          />
+          <div hidden={leftPanel !== 'components'}>
+            <DesignCompositionPicker
+              metadata={componentMetadata}
+              values={design.components}
+              disabled={busy}
+              onApply={(preset, components) => {
+                commit({
+                  ...design,
+                  components: { ...design.components, ...components },
+                });
+                chooseSection('cover');
+                setPlaying(false);
+                setNotice(
+                  `Susunan ${preset.name} diterapkan. Simpan desain saat sudah sesuai.`,
+                );
+                if (window.innerWidth <= 800)
+                  requestAnimationFrame(() =>
+                    viewport.current?.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start',
+                    }),
+                  );
+              }}
+            />
+            <DesignComponentPicker
+              metadata={componentMetadata}
+              values={design.components}
+              disabled={busy}
+              section={section}
+              onChange={(field, value) => {
+                const components = { ...design.components };
+                if (value === 'inherit') delete components[field.key];
+                else components[field.key] = Number(value);
+                commit({ ...design, components });
+                chooseSection(field.section);
+                setPlaying(false);
+                if (window.innerWidth <= 800)
+                  requestAnimationFrame(() =>
+                    viewport.current?.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start',
+                    }),
+                  );
+              }}
+            />
           </div>
-          <h3>Lapisan ornamen</h3>
-          {!currentSection && (
-            <p>
-              Bagian ini belum tersedia pada template dasar atau masih memuat.
-            </p>
-          )}
-          <div className="designer-layer-list">
-            {selectedNatives.map((item, index) => (
-              <button
-                type="button"
-                key={item.key}
-                aria-pressed={selected?.key === item.key}
-                onClick={() => setSelected({ type: 'native', key: item.key })}
-              >
-                Bawaan {index + 1} · {item.displayLabel || item.label}
-                {design.native[item.key]?.hidden ? ' (tersembunyi)' : ''}
-              </button>
-            ))}
-            {added.map((item, index) => (
-              <button
-                type="button"
-                key={item.id}
-                aria-pressed={selected?.id === item.id}
-                onClick={() => setSelected({ type: 'added', id: item.id })}
-              >
-                Tambahan {index + 1} · {item.label}
-              </button>
-            ))}
+          <div hidden={leftPanel !== 'layers'}>
+            <div className="admin-form">
+              <label>
+                Bagian template
+                <select
+                  aria-label="Bagian template"
+                  value={section}
+                  disabled={busy}
+                  onChange={(event) => {
+                    chooseSection(event.target.value);
+                  }}
+                >
+                  {DESIGN_SECTIONS.map((item) => (
+                    <option value={item.id} key={item.id}>
+                      {item.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Animasi bagian
+                <select
+                  aria-label="Animasi bagian"
+                  value={design.sections[section]?.reveal || 'inherit'}
+                  disabled={busy}
+                  onChange={(event) =>
+                    changeSection({ reveal: event.target.value })
+                  }
+                >
+                  {DESIGN_ENTRIES.map(([key, label]) => (
+                    <option key={key} value={key}>
+                      {label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Durasi bagian (detik)
+                <input
+                  type="number"
+                  min="0.2"
+                  max="8"
+                  step="0.1"
+                  value={design.sections[section]?.duration || 1}
+                  disabled={busy}
+                  onChange={(event) =>
+                    changeSection({
+                      duration: Math.max(
+                        0.2,
+                        Math.min(8, Number(event.target.value)),
+                      ),
+                    })
+                  }
+                />
+              </label>
+            </div>
+            {!currentSection && (
+              <p>Bagian ini belum tersedia atau masih memuat.</p>
+            )}
+            <DesignLayerPanel
+              key={section}
+              natives={selectedNatives}
+              items={added}
+              design={design}
+              selected={selected}
+              disabled={busy || playing}
+              onSelect={selectLayer}
+              onToggle={(selection, value) =>
+                patchItem({ hidden: !value.hidden }, selection, value)
+              }
+            />
+            <button
+              type="button"
+              className="admin-button secondary"
+              disabled={busy || !currentSection || added.length >= 40}
+              onClick={() => {
+                setLibraryMode('add');
+                setLibraryOpen((value) => !value);
+              }}
+            >
+              + Tambah ornamen
+            </button>
           </div>
-          <button
-            type="button"
-            className="admin-button secondary"
-            disabled={busy || !currentSection || added.length >= 40}
-            onClick={() => {
-              setLibraryMode('add');
-              setLibraryOpen((value) => !value);
-            }}
-          >
-            + Tambah ornamen
-          </button>
           {libraryOpen && (
             <div className="designer-library-panel" ref={libraryPanel}>
               {libraryMode === 'replace' && (
@@ -1034,26 +1013,37 @@ function Designer({ id }) {
           )}
         </div>
         <aside className="designer-panel">
-          <DesignInspector
-            item={currentItem}
-            native={selected?.type === 'native'}
-            disabled={busy}
-            onChange={patchItem}
-            onReset={resetItem}
-            onDuplicate={duplicateItem}
-            onReplace={() => {
-              setLibraryMode('replace');
-              setLibraryOpen(true);
-              requestAnimationFrame(() =>
-                libraryPanel.current?.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'nearest',
-                }),
-              );
-            }}
+          <DesignPanelTabs
+            label="Panel pengaturan desain"
+            tabs={[
+              ['ornament', 'Ornamen'],
+              ['theme', 'Warna & font'],
+            ]}
+            value={rightPanel}
+            onChange={setRightPanel}
           />
-          <details className="designer-theme">
-            <summary>Warna & font</summary>
+          <div hidden={rightPanel !== 'ornament'}>
+            <DesignInspector
+              item={currentItem}
+              native={selected?.type === 'native'}
+              disabled={busy || playing}
+              onChange={patchItem}
+              onReset={resetItem}
+              onDuplicate={duplicateItem}
+              onReplace={() => {
+                setLibraryMode('replace');
+                setLibraryOpen(true);
+                requestAnimationFrame(() =>
+                  libraryPanel.current?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                  }),
+                );
+              }}
+            />
+          </div>
+          <div hidden={rightPanel !== 'theme'} className="designer-theme">
+            <h3>Warna & font</h3>
             <DesignThemeEditor
               key={section}
               initialScope={section}
@@ -1067,7 +1057,7 @@ function Designer({ id }) {
               palette={runtime.palette}
               sections={navigableSections}
             />
-          </details>
+          </div>
         </aside>
       </div>
     </div>

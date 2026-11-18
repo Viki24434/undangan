@@ -30,45 +30,58 @@ export default function DesignInspector({
         >
           Ganti gambar ornamen
         </button>
-        <div className="designer-control-grid">
-          {[
-            ['x', 'Posisi X (%)', -200, 300, 0.5],
-            ['y', 'Posisi Y (%)', -200, 300, 0.5],
-            ['width', 'Lebar (%)', 1, 400, 0.5],
-            ...(item.height !== undefined
-              ? [['height', 'Tinggi (%)', 1, 400, 0.5]]
-              : []),
-            [
-              'rotate',
-              native ? 'Rotasi tambahan (°)' : 'Rotasi (°)',
-              -360,
-              360,
-              1,
-            ],
-            ['zIndex', 'Urutan lapisan', -5, 50, 1],
-          ].map(([key, label, min, max, step]) => (
-            <label key={key}>
-              {label}
-              <input
-                aria-label={label}
-                type="number"
-                min={min}
-                max={max}
-                step={step}
-                value={Number((item[key] ?? 30).toFixed(2))}
-                onChange={(event) => {
-                  if (event.target.value !== '')
-                    onChange({
-                      [key]: Math.min(
-                        max,
-                        Math.max(min, Number(event.target.value)),
-                      ),
-                    });
-                }}
-              />
-            </label>
-          ))}
-        </div>
+        {!native && (
+          <label>
+            Nama lapisan
+            <input
+              value={item.label || ''}
+              maxLength={100}
+              onChange={(event) => onChange({ label: event.target.value })}
+            />
+          </label>
+        )}
+        <details className="designer-setting-group" open>
+          <summary>Posisi & ukuran</summary>
+          <div className="designer-control-grid">
+            {[
+              ['x', 'Posisi X (%)', -200, 300, 0.5],
+              ['y', 'Posisi Y (%)', -200, 300, 0.5],
+              ['width', 'Lebar (%)', 1, 400, 0.5],
+              ...(item.height !== undefined
+                ? [['height', 'Tinggi (%)', 1, 400, 0.5]]
+                : []),
+              [
+                'rotate',
+                native ? 'Rotasi tambahan (°)' : 'Rotasi (°)',
+                -360,
+                360,
+                1,
+              ],
+              ['zIndex', 'Urutan lapisan', -5, 50, 1],
+            ].map(([key, label, min, max, step]) => (
+              <label key={key}>
+                {label}
+                <input
+                  aria-label={label}
+                  type="number"
+                  min={min}
+                  max={max}
+                  step={step}
+                  value={Number((item[key] ?? 30).toFixed(2))}
+                  onChange={(event) => {
+                    if (event.target.value !== '')
+                      onChange({
+                        [key]: Math.min(
+                          max,
+                          Math.max(min, Number(event.target.value)),
+                        ),
+                      });
+                  }}
+                />
+              </label>
+            ))}
+          </div>
+        </details>
         <label>
           Opasitas ({Math.round(item.opacity * 100)}%)
           <input
@@ -99,98 +112,104 @@ export default function DesignInspector({
             </label>
           ))}
         </div>
-        <label>
-          Animasi masuk
-          <select
-            aria-label="Animasi masuk"
-            value={item.entry}
-            onChange={(event) =>
-              onChange({
-                entry: event.target.value,
-                ...(native &&
-                  item.motion === 'inherit' &&
-                  event.target.value !== 'inherit' && { motion: 'none' }),
-              })
-            }
-          >
-            {DESIGN_ENTRIES.filter(([key]) => native || key !== 'inherit').map(
-              ([key, label]) => (
+        <details className="designer-setting-group">
+          <summary>Animasi masuk & gerakan</summary>
+          <label>
+            Animasi masuk
+            <select
+              aria-label="Animasi masuk"
+              value={item.entry}
+              onChange={(event) =>
+                onChange({
+                  entry: event.target.value,
+                  ...(native &&
+                    item.motion === 'inherit' &&
+                    event.target.value !== 'inherit' && { motion: 'none' }),
+                })
+              }
+            >
+              {DESIGN_ENTRIES.filter(
+                ([key]) => native || key !== 'inherit',
+              ).map(([key, label]) => (
                 <option key={key} value={key}>
                   {label}
                 </option>
-              ),
-            )}
-          </select>
-        </label>
-        <div className="designer-control-grid">
+              ))}
+            </select>
+          </label>
+          <div className="designer-control-grid">
+            <label>
+              Durasi masuk (detik)
+              <input
+                type="number"
+                min="0.2"
+                max="8"
+                step="0.1"
+                value={item.entryDuration}
+                onChange={(event) =>
+                  onChange({
+                    entryDuration: Math.max(
+                      0.2,
+                      Math.min(8, Number(event.target.value)),
+                    ),
+                  })
+                }
+              />
+            </label>
+            <label>
+              Jeda masuk (detik)
+              <input
+                type="number"
+                min="0"
+                max="10"
+                step="0.1"
+                value={item.delay}
+                onChange={(event) =>
+                  onChange({
+                    delay: Math.max(
+                      0,
+                      Math.min(10, Number(event.target.value)),
+                    ),
+                  })
+                }
+              />
+            </label>
+          </div>
           <label>
-            Durasi masuk (detik)
+            Gerak berulang
+            <select
+              aria-label="Gerak berulang"
+              value={item.motion}
+              onChange={(event) => onChange({ motion: event.target.value })}
+            >
+              {DESIGN_MOTIONS.filter(
+                ([key]) => native || key !== 'inherit',
+              ).map(([key, label]) => (
+                <option key={key} value={key}>
+                  {label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            Durasi satu gerakan (detik)
             <input
               type="number"
               min="0.2"
-              max="8"
+              max="30"
               step="0.1"
-              value={item.entryDuration}
+              value={item.duration}
               onChange={(event) =>
                 onChange({
-                  entryDuration: Math.max(
+                  duration: Math.max(
                     0.2,
-                    Math.min(8, Number(event.target.value)),
+                    Math.min(30, Number(event.target.value)),
                   ),
                 })
               }
             />
           </label>
-          <label>
-            Jeda masuk (detik)
-            <input
-              type="number"
-              min="0"
-              max="10"
-              step="0.1"
-              value={item.delay}
-              onChange={(event) =>
-                onChange({
-                  delay: Math.max(0, Math.min(10, Number(event.target.value))),
-                })
-              }
-            />
-          </label>
-        </div>
-        <label>
-          Gerak berulang
-          <select
-            aria-label="Gerak berulang"
-            value={item.motion}
-            onChange={(event) => onChange({ motion: event.target.value })}
-          >
-            {DESIGN_MOTIONS.filter(([key]) => native || key !== 'inherit').map(
-              ([key, label]) => (
-                <option key={key} value={key}>
-                  {label}
-                </option>
-              ),
-            )}
-          </select>
-        </label>
-        <label>
-          Durasi satu gerakan (detik)
-          <input
-            type="number"
-            min="0.2"
-            max="30"
-            step="0.1"
-            value={item.duration}
-            onChange={(event) =>
-              onChange({
-                duration: Math.max(
-                  0.2,
-                  Math.min(30, Number(event.target.value)),
-                ),
-              })
-            }
-          />
-        </label>
+        </details>
         <div className="admin-actions">
           <button
             className="admin-button secondary"
