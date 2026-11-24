@@ -1,0 +1,34 @@
+.template-revision-history {
+  padding: 18px;
+  margin: 18px 0;
+  border: 1px solid #dce1d4;
+  border-radius: 10px;
+  background: #fffef8;
+  min-width: 0;
+}
+.template-revision-history summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+.template-revision-history .admin-form {
+  margin-top: 16px;
+}
+.template-revision-history p {
+  font-size: 12px;
+}
+.template-save-conflict {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #d7b880;
+  border-radius: 10px;
+  background: #fff8e8;
+}
+.template-save-conflict h2 {
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+.template-save-conflict p {
+  font-size: 13px;
+  margin: 0 0 16px;
+}

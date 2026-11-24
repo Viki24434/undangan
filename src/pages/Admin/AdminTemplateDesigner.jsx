@@ -22,6 +22,8 @@ import {
 import { lastDesignSource, readDesignDraft } from '../../services/designDrafts';
 import useDesignDraft from '../../components/TemplateDesign/useDesignDraft';
 import DesignDraftRecovery from '../../components/TemplateDesign/DesignDraftRecovery';
+import TemplateRevisionHistory from '../../components/TemplateDesign/TemplateRevisionHistory';
+import TemplateSaveConflict from '../../components/TemplateDesign/TemplateSaveConflict';
 import DesignLayerPanel from '../../components/TemplateDesign/DesignLayerPanel';
 import DesignTemplateDetails from '../../components/TemplateDesign/DesignTemplateDetails';
 import DesignPanelTabs from '../../components/TemplateDesign/DesignPanelTabs';
@@ -63,6 +65,8 @@ function Designer({ id }) {
   const [draftBaseline, setDraftBaseline] = useState('');
   const [recovery, setRecovery] = useState(null);
   const [draftError, setDraftError] = useState('');
+  const [conflict, setConflict] = useState(false);
+  const [refresh, setRefresh] = useState(0);
   const [section, setSection] = useState('cover');
   const [runtime, setRuntime] = useState({ sections: [], natives: [] });
   const [selected, setSelected] = useState(null);
@@ -107,7 +111,14 @@ function Designer({ id }) {
   const fingerprint = JSON.stringify({ design, theme });
   const dirty = template && fingerprint !== saved;
   const draftKey = id ? 'template:' + id : 'new';
-  const draftValue = { design, theme, name, category, packageId };
+  const draftValue = {
+    design,
+    theme,
+    name,
+    category,
+    packageId,
+    revision: template?.revision,
+  };
   const draftChanged = template && JSON.stringify(draftValue) !== draftBaseline;
   const localDraft = useDesignDraft({
     key: draftKey,
@@ -142,6 +153,7 @@ function Designer({ id }) {
           name: data.name + ' Custom',
           category: data.category,
           packageId: data.packageId,
+          revision: data.revision,
         });
         setDraftBaseline(baseline);
         setDraftError('');
@@ -159,6 +171,7 @@ function Designer({ id }) {
             'Draft perangkat tidak dapat dibaca. Simpan desain ke server setelah selesai mengedit.',
           );
         }
+        setConflict(false);
         setSelected(null);
         scrollSection.current = true;
         setSection('cover');
@@ -169,7 +182,7 @@ function Designer({ id }) {
         if (error.name !== 'AbortError') setError(error.message);
       });
     return () => controller.abort();
-  }, [sourceId, draftKey, id]);
+  }, [sourceId, draftKey, id, refresh]);
 
   useEffect(() => {
     if (!draftChanged || recovery) return;
@@ -213,6 +226,8 @@ function Designer({ id }) {
     const value = recovery.value;
     setHistory({ past: [design], present: value.design, future: [] });
     setTheme(value.theme);
+    if (Number.isInteger(value.revision))
+      setTemplate((current) => ({ ...current, revision: value.revision }));
     setName(value.name);
     setCategory(value.category);
     setPackageId(value.packageId);
@@ -576,6 +591,14 @@ function Designer({ id }) {
     }
   }
 
+  function reloadServer() {
+    localDraft.clear();
+    setRecovery(null);
+    setConflict(false);
+    setTemplate(null);
+    setRefresh((current) => current + 1);
+  }
+
   async function save(asCopy) {
     setBusy(true);
     setError('');
@@ -597,15 +620,20 @@ function Designer({ id }) {
         const { data: updated } = await adminService.updateTemplate(
           sourceId,
           data,
+          template.revision,
         );
         setTemplate(updated);
         setSaved(fingerprint);
-        setDraftBaseline(JSON.stringify(draftValue));
+        setDraftBaseline(
+          JSON.stringify({ ...draftValue, revision: updated.revision }),
+        );
         localDraft.clear();
+        setConflict(false);
         setNotice('Desain template berhasil disimpan.');
       }
     } catch (error) {
-      setError(error.message);
+      if (error.status === 409 || error.status === 428) setConflict(true);
+      else setError(error.message);
     } finally {
       setBusy(false);
     }
@@ -699,6 +727,21 @@ function Designer({ id }) {
         <p role="status" className="admin-success">
           {notice}
         </p>
+      )}
+      {conflict && (
+        <TemplateSaveConflict
+          disabled={busy}
+          onReload={reloadServer}
+          onCopy={() => {
+            setCopyMode(true);
+            requestAnimationFrame(() =>
+              copyPanel.current?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+              }),
+            );
+          }}
+        />
       )}
       {recovery && (
         <DesignDraftRecovery
@@ -1107,6 +1150,26 @@ function Designer({ id }) {
           )}
         </div>
         <aside className="designer-panel">
+          {id && (
+            <TemplateRevisionHistory
+              key={sourceId + ':' + template.revision}
+              templateId={sourceId}
+              revision={template.revision}
+              disabled={busy || playing}
+              onRestore={(data, revision) => {
+                commit(data.design || createDesign());
+                setTheme(data.theme || {});
+                setSelected(null);
+                setPlaying(false);
+                setReplay((current) => current + 1);
+                setNotice(
+                  'Desain dan tema versi ' +
+                    revision +
+                    ' diterapkan ke preview. Simpan desain untuk menggunakannya.',
+                );
+              }}
+            />
+          )}
           <DesignPanelTabs
             label="Panel pengaturan desain"
             tabs={[

@@ -144,10 +144,22 @@ export const adminService = {
       method: 'PATCH',
       body: { packageId },
     }),
-  updateTemplate: (id, data) =>
+  templateRevisions: (id, signal) =>
+    request('/admin/templates/' + encodeURIComponent(id) + '/revisions', {
+      signal,
+    }),
+  templateRevision: (id, revisionId, signal) =>
+    request(
+      '/admin/templates/' +
+        encodeURIComponent(id) +
+        '/revisions/' +
+        encodeURIComponent(revisionId),
+      { signal },
+    ),
+  updateTemplate: (id, data, revision) =>
     request('/admin/templates/' + encodeURIComponent(id), {
       method: 'PATCH',
-      body: { data },
+      body: { data, revision },
     }),
   updateSocialLinks: (body) =>
     request('/admin/social-links', { method: 'PATCH', body }),

@@ -4,6 +4,8 @@ import { resolveTemplate } from '../../config/templateRenderer';
 import { adminService } from '../../services/adminService';
 import { invitationService } from '../../services/api';
 import { InvitationContext } from '../../components/Invitation/InvitationContext';
+import TemplateRevisionHistory from '../../components/TemplateDesign/TemplateRevisionHistory';
+import TemplateSaveConflict from '../../components/TemplateDesign/TemplateSaveConflict';
 import InvitationForm from '../../components/Admin/InvitationForm';
 import MobileWrapper from '../../components/MobileWrapper/MobileWrapper';
 
@@ -25,6 +27,8 @@ export default function AdminTemplateEditor() {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [busy, setBusy] = useState(false);
+  const [conflict, setConflict] = useState(false);
+  const [refresh, setRefresh] = useState(0);
   const [preview, setPreview] = useState(false);
   const editorRef = useRef(null);
 
@@ -35,6 +39,7 @@ export default function AdminTemplateEditor() {
       .then(({ data }) => {
         if (controller.signal.aborted) return;
         setTemplate(data);
+        setConflict(false);
         setForm({
           templateId: id,
           title: data.data.title || '',
@@ -57,7 +62,7 @@ export default function AdminTemplateEditor() {
         }
       });
     return () => controller.abort();
-  }, [id, navigate]);
+  }, [id, navigate, refresh]);
 
   function change(value) {
     setForm(value);
@@ -70,8 +75,13 @@ export default function AdminTemplateEditor() {
     setError('');
     setMessage('');
     try {
-      const { data } = await adminService.updateTemplate(id, form.data);
+      const { data } = await adminService.updateTemplate(
+        id,
+        form.data,
+        template.revision,
+      );
       setTemplate(data);
+      setConflict(false);
       setForm((current) => ({
         ...current,
         data: {
@@ -85,7 +95,9 @@ export default function AdminTemplateEditor() {
       setMessage('Perubahan template berhasil disimpan.');
     } catch (saveError) {
       if (saveError.status === 401) navigate('/admin/login');
-      setError(saveError.message);
+      if (saveError.status === 409 || saveError.status === 428)
+        setConflict(true);
+      else setError(saveError.message);
     } finally {
       setBusy(false);
     }
@@ -171,6 +183,39 @@ export default function AdminTemplateEditor() {
           {message}
         </p>
       )}
+      {conflict && (
+        <TemplateSaveConflict
+          disabled={busy}
+          onReload={() => {
+            setTemplate(null);
+            setConflict(false);
+            setRefresh((current) => current + 1);
+          }}
+        />
+      )}
+      <TemplateRevisionHistory
+        key={id + ':' + template.revision}
+        templateId={id}
+        revision={template.revision}
+        disabled={busy}
+        onRestore={(data, revision) => {
+          setForm((current) => ({
+            ...current,
+            data: {
+              ...data,
+              agenda: data.agenda || [],
+              prayers: data.prayers || [],
+              photos: data.photos || [],
+              theme: data.theme || {},
+            },
+          }));
+          setMessage(
+            'Versi ' +
+              revision +
+              ' diterapkan ke editor. Periksa preview lalu simpan perubahan.',
+          );
+        }}
+      />
       <section className="admin-panel">
         <div className="admin-panel-heading">
           <div>
