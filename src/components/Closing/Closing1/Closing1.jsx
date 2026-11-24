@@ -11,7 +11,7 @@ export default function Closing1({ title, monogram, children }) {
         Kehadiran dan doa baikmu menjadi bagian terindah dari hari istimewa ini.
       </p>
       <h3>{title}</h3>
-      <Link to="/katalog">Temukan undanganmu di Ciptain ↗</Link>
+      <Link to="/katalog">Temukan undanganmu di Ciptala ↗</Link>
     </footer>
   );
 }

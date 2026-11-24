@@ -1,3 +1,4 @@
+import BrandLogo from '../Brand/BrandLogo';
 import './HomeNavbar.css';
 import Button from '../Button/Button';
 
@@ -5,7 +6,7 @@ export default function HomeNavbar() {
   return (
     <nav className="home-navbar">
       <a href="/" className="nav-brand">
-        Ciptain.
+        <BrandLogo />
       </a>
       <div className="nav-links">
         <a href="#beranda">Beranda</a>

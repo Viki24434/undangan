@@ -55,11 +55,8 @@
   cursor: default;
 }
 .admin-brand {
-  font:
-    bold 31px Georgia,
-    serif;
-  letter-spacing: -1px;
-  display: block;
+  display: inline-flex;
+  align-items: center;
 }
 .admin-eyebrow {
   display: block;

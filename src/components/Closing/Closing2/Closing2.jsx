@@ -21,7 +21,7 @@ export default function Closing2({ title, image, date, children }) {
       <p>Terima kasih telah menjadi bagian dari cerita bahagia kami.</p>
       <h3>{title}</h3>
       <span className="closing-2__date">{date}</span>
-      <Link to="/katalog">Dibuat dengan Ciptain ↗</Link>
+      <Link to="/katalog">Dibuat dengan Ciptala ↗</Link>
     </footer>
   );
 }

@@ -1,3 +1,4 @@
+import BrandLogo from '../Brand/BrandLogo';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { invitationService } from '../../services/api';
@@ -20,7 +21,7 @@ export default function LandingFooter() {
     <footer className="invite-footer">
       <div>
         <Link className="invite-brand" to="/">
-          ciptain<span>✳</span>
+          <BrandLogo />
         </Link>
         <p>Merayakan cerita. Menghubungkan hati.</p>
       </div>
@@ -56,7 +57,7 @@ export default function LandingFooter() {
         </nav>
       )}
       <small>
-        © {new Date().getFullYear()} Ciptain. Dibuat untuk momen berarti.
+        © {new Date().getFullYear()} Ciptala. Dibuat untuk momen berarti.
       </small>
     </footer>
   );

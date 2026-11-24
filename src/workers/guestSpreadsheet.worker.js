@@ -135,7 +135,7 @@ async function readFile(file) {
 
 async function exportFile({ guests, links }) {
   const workbook = new ExcelJS.Workbook();
-  workbook.creator = 'ciptain';
+  workbook.creator = 'ciptala';
   const sheet = workbook.addWorksheet('Daftar Tamu', {
     views: [{ state: 'frozen', ySplit: 1, showGridLines: false }],
   });

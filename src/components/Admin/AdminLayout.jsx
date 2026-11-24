@@ -1,4 +1,5 @@
-﻿import { useEffect, useState } from 'react';
+import BrandLogo from '../Brand/BrandLogo';
+import { useEffect, useState } from 'react';
 import {
   Link,
   NavLink,
@@ -45,7 +46,7 @@ export default function AdminLayout() {
     <div className="admin-app admin-shell">
       <aside className="admin-sidebar">
         <Link to="/admin" className="admin-brand">
-          ciptain ✳
+          <BrandLogo />
         </Link>
         <span className="admin-eyebrow">YOUR INVITATION CENTER</span>
         <nav aria-label="Navigasi admin">

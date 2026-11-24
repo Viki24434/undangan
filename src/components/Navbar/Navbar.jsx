@@ -1,3 +1,4 @@
+import BrandLogo from '../Brand/BrandLogo';
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import './Navbar.css';
@@ -30,7 +31,7 @@ export default function Navbar() {
   return (
     <header className="invite-nav" ref={root}>
       <Link className="invite-brand" to="/">
-        ciptain<span>✳</span>
+        <BrandLogo />
       </Link>
       <button
         className="invite-menu"

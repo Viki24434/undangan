@@ -1,4 +1,5 @@
-﻿import { useEffect, useState } from 'react';
+import BrandLogo from '../../components/Brand/BrandLogo';
+import { useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { adminService } from '../../services/adminService';
 import '../../components/Admin/Admin.css';
@@ -43,7 +44,7 @@ export default function AdminLogin() {
     <div className="admin-app admin-login-page">
       <section className="admin-login-card">
         <Link className="admin-brand" to="/">
-          ciptain ✳
+          <BrandLogo />
         </Link>
         <span className="admin-eyebrow">ADMIN CENTER</span>
         <h1>

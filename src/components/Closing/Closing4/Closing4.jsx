@@ -32,7 +32,7 @@ export default function Closing4({ title, image, date, monogram, children }) {
           <small>{date}</small>
         </div>
       </div>
-      <Link to="/katalog">Dibuat dengan Ciptain ↗</Link>
+      <Link to="/katalog">Dibuat dengan Ciptala ↗</Link>
     </footer>
   );
 }

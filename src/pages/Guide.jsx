@@ -73,7 +73,7 @@ export default function Guide() {
             <span>Panduan</span>
           </div>
           <div className="guide-hero-copy">
-            <span className="invite-eyebrow">PANDUAN CIPTAIN</span>
+            <span className="invite-eyebrow">PANDUAN CIPTALA</span>
             <h1>
               Dari inspirasi
               <br />
@@ -162,7 +162,7 @@ export default function Guide() {
               <br />
               <em>memulai.</em>
             </h2>
-            <p>Jawaban singkat untuk membantu menjelajahi Ciptain.</p>
+            <p>Jawaban singkat untuk membantu menjelajahi Ciptala.</p>
           </div>
           <div className="guide-faq-list">
             {questions.map(([question, answer]) => (

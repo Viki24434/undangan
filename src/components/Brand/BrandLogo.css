@@ -1,0 +1,33 @@
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  vertical-align: middle;
+  line-height: 1;
+}
+.brand-logo__symbol {
+  display: block;
+  width: auto;
+  height: var(--brand-symbol-height, 44px);
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.brand-logo__wordmark {
+  display: block;
+  width: var(--brand-wordmark-width, 120px);
+  height: auto;
+  object-fit: contain;
+}
+.brand-logo--surface {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fffef8;
+}
+@media (max-width: 600px) {
+  .brand-logo {
+    --brand-symbol-height: 36px;
+    --brand-wordmark-width: 106px;
+    gap: 7px;
+  }
+}

@@ -79,17 +79,9 @@
   gap: 24px;
 }
 .invite-brand {
-  font-family: Georgia, serif;
-  font-size: 33px;
-  letter-spacing: -1.5px;
-  font-weight: bold;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-}
-.invite-brand span {
-  color: #a88b51;
-  font-size: 28px;
+  flex-shrink: 0;
 }
 .invite-nav nav {
   display: flex;
@@ -753,9 +745,6 @@
   .invite-nav {
     padding: 18px 6%;
     position: relative;
-  }
-  .invite-brand {
-    font-size: 28px;
   }
   .invite-menu {
     display: block;

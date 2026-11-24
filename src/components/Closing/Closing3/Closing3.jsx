@@ -21,7 +21,7 @@ export default function Closing3({ title, monogram, date, children }) {
         <h3>{title}</h3>
         <span className="closing-3__date">{date}</span>
       </div>
-      <Link to="/katalog">Temukan undanganmu di Ciptain ↗</Link>
+      <Link to="/katalog">Temukan undanganmu di Ciptala ↗</Link>
     </footer>
   );
 }

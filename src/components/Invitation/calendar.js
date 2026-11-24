@@ -55,12 +55,12 @@ export function createCalendarEvent(event, targetDate, now = new Date()) {
   if (!Number.isFinite(start.getTime()) || !Number.isFinite(end.getTime())) {
     throw new Error('Jadwal acara tidak valid.');
   }
-  const uid = `${start.getTime()}-${encodeURIComponent(event.title)}@ciptain.local`;
+  const uid = `${start.getTime()}-${encodeURIComponent(event.title)}@ciptala.local`;
   return (
     [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//Ciptain//Invitation//ID',
+      'PRODID:-//Ciptala//Invitation//ID',
       'CALSCALE:GREGORIAN',
       'BEGIN:VEVENT',
       `UID:${uid}`,
